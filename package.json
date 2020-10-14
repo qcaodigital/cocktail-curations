@@ -3,13 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server/index.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server/index.js"
   },
   "dependencies": {
-    "next": "9.5.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "express": "^4.17.1",
+    "next": "^9.5.4",
+    "react": "^16.13.1",
+    "react-dom": "16.13.1",
+    "react-intersection-observer": "^8.29.0",
+    "react-transition-group": "^4.4.1",
+    "sass": "^1.27.0"
   }
 }
