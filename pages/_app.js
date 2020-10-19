@@ -3,6 +3,7 @@ import Head from 'next/head';
 import styles from '../styles/app.module.scss';
 import '../styles/globals.css';
 import Body from '../components/common/Body';
+import { AnimatePresence } from 'framer-motion';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -17,9 +18,11 @@ function MyApp({ Component, pageProps }) {
                 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
             </Head>
-            <Body>
-                <Component {...pageProps} />
-            </Body>
+            <AnimatePresence>
+                <Body>
+                    <Component {...pageProps} />
+                </Body>
+            </AnimatePresence>
         </>
     )
 }

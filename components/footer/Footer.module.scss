@@ -1,0 +1,57 @@
+.Footer {
+    width: 100%;
+    text-align: center;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    padding: 2rem;
+    h5 {
+        display: inline-block;
+        font-family: var(--serif-font);
+        font-size: 1.9rem;
+        position: relative;
+    }
+    &__contactCTA {
+        display: block;
+        margin: 1rem auto 1rem auto;
+        padding: .75rem 1.5rem;
+        text-transform: uppercase;
+        border: 1px solid transparent;
+        box-shadow: 2px 2px 15px rgba(0,0,0,.5);
+        background-color: var(--highlight-color);
+        color: var(--main-color);
+        font-family: var(--main-font);
+        letter-spacing: .5px;
+        font-weight: 600;
+        transition: 350ms var(--ease);
+        &:hover {
+            color: var(--secondary-color);
+            background-color: transparent;
+            border: 1px solid var(--secondary-color);
+        }
+    }
+    p {
+        text-transform: uppercase;
+        font-family: var(--main-font);
+        font-weight: 400;
+        font-size: .5rem;
+        letter-spacing: 1px;
+    }
+    &__socialList {
+        display: flex;
+        justify-content: center;
+        gap: .5rem;
+        margin-bottom: 1rem;
+        > *:hover {
+            animation: hover 500ms infinite;
+            animation-direction: alternate-reverse;
+            @keyframes hover {
+                0% {
+                    transform: translateY(0%);
+                }
+                100% {
+                    transform: translateY(-10%);
+                }
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import Loadingscreen from './Loadingscreen';
@@ -6,101 +6,142 @@ import HamburgerMenu from './HamburgerMenu';
 import styles from './Body.module.scss';
 import { CSSTransition } from 'react-transition-group';
 
-export default function Body({ children }){
-    const [loadComplete, setLoadComplete] = useState(children.type.name !== 'Home');
-    const [viewport, setViewport] = useState(null);
-    const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
-    const [navList, setNavList] = useState([
-        {
-            label: 'Home',
-            href: '/',
-            active: true
-        },
-        {
-            label: 'Shop',
-            href: 'http://cocktailcurations-shop.com',
-            active: false,
-            external: true
-        },
-        {
-            label: 'Services',
-            href: '/services',
-            active: false
-        },
-        {
-            label: 'Gallery',
-            href: '/gallery',
-            active: false
-        },
-        {
-            label: 'About',
-            href: '/about',
-            active: false
-        },
-        {
-            label: 'Blog',
-            href: '/blog',
-            active: false
-        },
-        {
-            label: 'Contact',
-            href: '/contact',
-            active: false
-        }
-    ])
+const navList = [
+    {
+        label: 'Home',
+        href: '/',
+        active: true
+    },
+    {
+        label: 'Shop',
+        href: 'http://cocktailcurations-shop.com',
+        active: false,
+        external: true
+    },
+    {
+        label: 'Services',
+        href: '/services',
+        active: false
+    },
+    {
+        label: 'Gallery',
+        href: '/gallery',
+        active: false
+    },
+    {
+        label: 'About',
+        href: '/about',
+        active: false
+    },
+    {
+        label: 'Blog',
+        href: '/blog',
+        active: false
+    },
+    {
+        label: 'Contact',
+        href: '/contact',
+        active: false
+    }
+];
+export const StateContext = React.createContext({})
 
-    useEffect(() => { //VIEWPORT SIZE HANDLER
-        function handleViewportSize(){
-            if(window.innerWidth < 750){
-                setViewport('mobile');
-            } else if(window.innerWidth < 990){
-                setViewport('tablet');
-            } else {
-                setViewport('desktop');
+export default function Body({ children }){
+    console.log('BODY RERENDERING')
+    const initialState = {
+        loadComplete: children.type.name !== 'Home',
+        viewport: null,
+        isHamburgerMenuOpen: false,
+        navHeight: null
+    }
+
+    function reducer(state, action){
+        const { type, payload, evt } = action;
+        switch(type) {
+            case 'viewport':
+                return { ...state, viewport: payload}
+            case 'loadComplete':
+                return { ...state, loadComplete: payload }
+            case 'hamburgerMenu':
+                return { ...state, isHamburgerMenuOpen: payload }
+            case 'navheight': {
+                return { ...state, navHeight: payload}
             }
         }
-        handleViewportSize()
-        window.addEventListener('resize', handleViewportSize)
+    }
+
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const { viewport, loadComplete, isHamburgerMenuOpen, navHeight } = state;
+
+    function handleViewport() {
+        if(viewport !== 'mobile' && window.innerWidth <= 749){
+            dispatch({ type: 'viewport', payload: 'mobile'})
+        } else if(viewport !== 'tablet' && 749 < window.innerWidth && window.innerWidth <= 989){
+            dispatch({ type: 'viewport', payload: 'tablet'})
+        } else if(viewport !== 'desktop' && window.innerWidth >= 990){
+            dispatch({ type: 'viewport', payload: 'desktop'})
+        } 
+    }
+    useEffect(() => handleViewport(), []); //SET VIEWPORT ONLOAD
+    useEffect(() => { //VIEWPORT SIZE HANDLER
+        window.addEventListener('resize', handleViewport)
         return () => {
-            window.addEventListener('resize', handleViewportSize)
+            window.removeEventListener('resize', handleViewport)
         }
     }, [viewport])
 
     useEffect(() => { //HAMBURGER MENU TOGGLE HANDLER
         function handleHBM(evt){
             if(evt.type === 'resize' && isHamburgerMenuOpen && viewport === 'desktop'){
-                setIsHamburgerMenuOpen(false)
+                dispatch({ type: 'hamburgerMenu', payload: !isHamburgerMenuOpen})
             } else if(evt.type === 'keyup' && isHamburgerMenuOpen && evt.which === 27){
-                setIsHamburgerMenuOpen(false)
+                dispatch({ type: 'hamburgerMenu', payload: !isHamburgerMenuOpen})
             }
         }
+
         window.addEventListener('keyup', handleHBM);
         window.addEventListener('resize', handleHBM);
         return () => {
-            window.addEventListener('keyup', handleHBM);
-            window.addEventListener('resize', handleHBM);
+            window.removeEventListener('keyup', handleHBM);
+            window.removeEventListener('resize', handleHBM);
         }
     }, [isHamburgerMenuOpen, viewport])
+    useEffect(() => {
+        if(isHamburgerMenuOpen){
+            document.body.style.height = '100vh'
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style = '';
+        }
+    }, [isHamburgerMenuOpen])
 
     return (
         <>
-        <HamburgerMenu isHamburgerMenuOpen={isHamburgerMenuOpen} navList={navList} toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}/>
+        <HamburgerMenu 
+            isHamburgerMenuOpen={isHamburgerMenuOpen}
+            navList={navList} 
+            toggleHBM={() => dispatch({ type: 'hamburgerMenu', payload: !isHamburgerMenuOpen})}
+        />
         <main className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}>
-            {!loadComplete && <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>}
+            {!loadComplete && <Loadingscreen turnOffLoading={() => dispatch({ type: 'loadComplete', payload: true})}/>}
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 
-                viewport={viewport} 
-                isHamburgerOpen={isHamburgerMenuOpen} hamburgerCB={() => setIsHamburgerMenuOpen(curr => !curr)}
+                viewport={viewport}
+                navHeightCB={height => dispatch({ type: 'navheight', payload: height})} 
+                isHamburgerOpen={isHamburgerMenuOpen} hamburgerCB={() => dispatch({ type: 'hamburgerMenu', payload: !isHamburgerMenuOpen})}
             />
-                <CSSTransition 
-                    in={loadComplete}
-                    classNames={{ ...styles }}
-                    timeout={1000}
-                    unmountOnExit
-                >{children}
-                </CSSTransition>
-            <Footer/>
+            <CSSTransition 
+                in={loadComplete}
+                classNames={{ ...styles }}
+                timeout={1000}
+                unmountOnExit
+            >
+            <StateContext.Provider value={state}>
+                {children}
+            </StateContext.Provider>
+            </CSSTransition>
+            {loadComplete && <Footer/>}
         </main>
         </>
     )

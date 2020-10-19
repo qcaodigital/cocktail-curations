@@ -1,17 +1,13 @@
 .Body {
-    background-image: url('../../public/imgs/background/IMG_1228-edit-blurred-desat.jpg');
-    background-position: center top;
-    background-size: cover;
-    backdrop-filter: brighten(.25);
     transition: 500ms ease;
     overflow-x: hidden;
-    > *:not(nav):not(footer) {
-        min-height: 100vh;
-        max-width: 100vw;
-    }
     &.HBMopen {
-        transform: scale(.95);
+        transform: scale(.98);
         filter: blur(5px);
+    }
+    > * {
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 }
 

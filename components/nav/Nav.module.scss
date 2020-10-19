@@ -3,6 +3,18 @@
 }
 
 .Nav {
+    > * {
+        transition: 500ms ease;
+    }
+    &.hidden {
+        > *:not(.Nav__hamburgerIcon) {
+            transition: 350ms ease-out 100ms;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+    position: fixed;
+    top: 0;
     z-index: 2;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -10,16 +22,18 @@
     align-items: center;
     padding: 1.5rem;
     width: 100%;
-    position: absolute;
     &__brand {
         justify-self: center;
         grid-column: 2;
         img {
             height: 4rem;
-            @media screen and (min-width: 990px){
-                height: 5.5rem;
+            @media screen and (min-width: 750px){
+                height: 5rem;
             }
         }
+    }
+    &__leftIcon {
+        height: 4rem;
     }
     &__list {
         grid-row-start: 2;
@@ -36,18 +50,6 @@
         font-size: .95rem;
         letter-spacing: 2px;
         color: var(--main-color);
-        opacity: 0;
-        transform: translateY(-5px);
-        transition: 1000ms cubic-bezier(.51, .01, .16, 1);
-        @for $i from 1 through 10 {
-            &:nth-of-type(#{$i}){
-                transition-delay: $i * 120ms;
-            }
-        }
-        &.inView {
-            transform: translateY(0);
-            opacity: 1;
-        }
         a {
             position: relative;
             &::before {
@@ -92,43 +94,22 @@
             }
         }
     }
-    &__hamburgerIcon {
-        text-align: left;
-        svg {
-            cursor: pointer;
-        }
-    }
+    
     &__hamburgerIcon,
-    &__brand {
-        opacity: 0;
-        transition: 1500ms ease;
-        transition-delay: 100ms;
-        &.inView {
-            opacity: 1;
-        }
-    }
     &__socialList {
         display: flex;
         flex-direction: column;
         justify-self: right;
-        gap: .25rem;
-        a {
-            opacity: 0;
-            transition: opacity 500ms ease 250ms;
-        }
-        @for $i from 1 through 10 {
-            > a:nth-of-type(#{$i}){
-                transition-delay: 250ms * $i;
-            }
-        }
+        gap: .25rem;     
         a:hover {
             color: var(--highlight-color);
             transition: 350ms ease;
         }
-        &.inView {
-            > * {
-                opacity: .75;
-            }
+    }
+    &__hamburgerIcon {
+        justify-self: left;
+        svg {
+            cursor: pointer;
         }
     }
 }
