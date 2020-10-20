@@ -50,6 +50,7 @@ export default function Body({ children }){
     console.log('BODY RERENDERING')
     const initialState = {
         loadComplete: children.type.name !== 'Home',
+        // loadComplete: true, //disable loading
         viewport: null,
         isHamburgerMenuOpen: false,
         navHeight: null

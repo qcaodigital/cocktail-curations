@@ -3,6 +3,8 @@ import Link from 'next/link';
 import styles from './Nav.module.scss';
 import { useInView } from 'react-intersection-observer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
+import transitions from './NavTransitions';
 
 export default function Nav({ render, navList, viewport, isHamburgerOpen, hamburgerCB, navHeightCB }){
     if(!render) return null;
@@ -10,10 +12,10 @@ export default function Nav({ render, navList, viewport, isHamburgerOpen, hambur
     const navRef = useRef();
 
     const navItems = navList.map((item, idx) => (
-        <li key={item.label} className={styles.Nav__item}>
+        <motion.li key={item.label} className={styles.Nav__item} variants={transitions.navList}>
             {!item.external && <Link href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>}
             {item.external && <a className={item.active ? styles.active : null} href={item.href} target='_blank'>{item.label}</a>}
-        </li>
+        </motion.li>
     ))
 
     useEffect(() => {
@@ -35,15 +37,21 @@ export default function Nav({ render, navList, viewport, isHamburgerOpen, hambur
     }, [hideNav])
 
     return (
-        <nav ref={ navRef } className={`${styles.Nav} ${hideNav ? styles.hidden : null}`}>
+        <motion.nav 
+            ref={ navRef } 
+            className={`${styles.Nav}`}
+            variants={transitions.nav}
+            initial='hide'
+            animate={hideNav ? 'hide' : 'show'}
+        >
             {viewport === 'mobile' ? (
-                <button className={styles.Nav__hamburgerIcon}>
+                <motion.button className={styles.Nav__hamburgerIcon}>
                     <FontAwesomeIcon 
                         onClick={hamburgerCB} 
                         size='lg' 
                         icon={['fas', 'bars']} 
                     />
-                </button>  
+                </motion.button>  
                 ) : (
                 <img className={styles.Nav__leftIcon} src='/imgs/stock/logos/cc-icon-black.png' alt='Cocktail Curations Logo' />
             )}
@@ -51,9 +59,14 @@ export default function Nav({ render, navList, viewport, isHamburgerOpen, hambur
                 <a className={styles.Nav__brand}><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
             </Link>
             {viewport !== 'mobile' &&
-            <ul className={styles.Nav__list}>
+            <motion.ul 
+                className={styles.Nav__list}
+                variants={transitions.navList}
+                initial='hide'
+                animate={ hideNav ? 'hide' : 'show' }
+            >
                 {navItems}
-            </ul>}
+            </motion.ul>}
             <ul className={styles.Nav__socialList}>
                 <a href='https://www.facebook.com/cocktailcurations/' target='_blank'>
                     <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'facebook']}/>
@@ -65,6 +78,6 @@ export default function Nav({ render, navList, viewport, isHamburgerOpen, hambur
                     <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'twitter']}/>
                 </a>
             </ul>
-        </nav>
+        </motion.nav>
     )
 }

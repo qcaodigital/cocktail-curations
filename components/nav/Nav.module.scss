@@ -3,16 +3,16 @@
 }
 
 .Nav {
-    > * {
-        transition: 500ms ease;
-    }
-    &.hidden {
-        > *:not(.Nav__hamburgerIcon) {
-            transition: 350ms ease-out 100ms;
-            opacity: 0;
-            visibility: hidden;
-        }
-    }
+    // > * {
+    //     transition: 500ms ease;
+    // }
+    // &.hidden {
+    //     > *:not(.Nav__hamburgerIcon) {
+    //         transition: 350ms ease-out 100ms;
+    //         opacity: 0;
+    //         visibility: hidden;
+    //     }
+    // }
     position: fixed;
     top: 0;
     z-index: 2;

@@ -16,7 +16,7 @@ export default function Home(){
         <Head>
             <title>Home | Cocktail Curations</title>
         </Head>
-        <motion.main className={styles.Home} initial={{opacity:0}} animate={{opacity:1}} transition={{delay: 5}}>
+        <motion.main className={styles.Home}>
             <section ref={landingSectionRef} className={styles.Home__landing}>
                 <div id='NAV_SPACER' style={{ marginTop: navHeight}}/>
                 <div className={styles.Home__headingContainer}>
