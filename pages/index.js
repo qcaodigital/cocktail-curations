@@ -5,6 +5,7 @@ import styles from './Home.module.scss';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Gallery from '../components/home/Gallery';
+import Header from '../components/home/Header';
 import { motion } from 'framer-motion'
 
 export default function Home(){
@@ -20,7 +21,7 @@ export default function Home(){
             <section ref={landingSectionRef} className={styles.Home__landing}>
                 <div id='NAV_SPACER' style={{ marginTop: navHeight}}/>
                 <div className={styles.Home__headingContainer}>
-                    <h1 className={styles.Home__heading}>Beautifully crafted cocktail bars</h1>
+                    <h1 className={styles.Home__heading}>Beautifully crafted <span style={{ display: 'inline-block'}}>cocktail bars</span></h1>
                     <h2 className={styles.Home__subheading}>for private and corporate events</h2>
                 </div>
                 <div className={styles.Home__CTAContainer}>
@@ -56,7 +57,7 @@ export default function Home(){
                         }, 
                         {
                             url: "/imgs/stock/JPEG/weddingprodc-sq.jpg",
-                            alt: 'Cocktail Curations Molecular Bar Book Of Lists 2020',
+                            alt: 'Wedding Pro DC Cocktail Curations',
                             card: {
                                 header: 'Experiential Bars', subheader: 'Enjoy our', href: '/events'
                             }
@@ -67,11 +68,11 @@ export default function Home(){
                     imgs={[
                         {
                             url: "/imgs/stock/JPEG/IMG_1730.jpg", 
-                            alt: 'Cocktail Curations Molecular Bar Book Of Lists 2020'
+                            alt: 'Cocktail Curations Virtual Class'
                         }, 
                         {
                             url: "/imgs/stock/JPEG/IMG_0540.jpg",
-                            alt: 'Cocktail Curations Molecular Bar Book Of Lists 2020',
+                            alt: 'Cocktail Curations Class At Kentlands Clubhouse',
                             card: {
                                 header: 'Cocktail Classes', subheader: 'Learn In Our', href: '/events'
                             }
@@ -82,7 +83,7 @@ export default function Home(){
             </section>
             <section className={styles.Home__productFeature}>
                 <Header 
-                    header={['Cocktail bases now', <span style={{ display: 'inline-block'}}>available online!</span>]}
+                    header='Cocktail bases now available online!'
                     text='Our cocktail bases take your home bar to the next level. Made with artisanal and thoughtfully crafted flavors and prepared with fresh and sustainable ingredients, our cocktail bases are waiting to be shaken or stirred with your favorite spirit. Build the perfect beverage in minutes then top it all off with our included homemade garnishes and enjoy.'
                 />
                 <div className={styles.grid}>
@@ -102,17 +103,6 @@ export default function Home(){
             </section>
         </motion.main>
         </>
-    )
-}
-
-export function Header({ header, text }){
-    return (
-        <header className={styles.Header}>
-            <h3>Cocktail Curations</h3>
-            <h4>{ header }</h4>
-            <p>{ text }</p>
-            <FontAwesomeIcon icon={['fas', 'glass-martini-alt']}/>
-        </header>
     )
 }
 

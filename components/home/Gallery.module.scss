@@ -24,17 +24,13 @@
         @media screen and (min-width: 750px){
             &:first-of-type {
                 justify-self: right;
-                transform: translate(1em, -1.5rem);
-            }
-            &:nth-of-type(2){
-                transform: translate(-1rem, 1.5rem);
             }
         }
         @media screen and (max-width: 749px){
             &.hasCard {
                 grid-column-start: 1;
                 grid-row-start: 1;
-                caption {
+                figcaption {
                     top: 0;
                     bottom: inherit;
                 }
@@ -44,12 +40,14 @@
             width: 100%;
         }
         position: relative;
-        caption {
+        figcaption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             padding: 1.5rem;
+            text-align: center;
+            z-index: 20;
             @media screen and (min-width: 750px){
                 padding: 2rem;
                 p {
@@ -102,17 +100,15 @@
         @media screen and (min-width: 750px){
             &:first-of-type {
                 justify-self: left;
-                transform: translate(-1rem, -1.5rem);
             }
             &:nth-of-type(2){
                 justify-self: right;
-                transform: translate(1em, 1.5rem);
             }
         }
         &.hasCard {
             grid-column-start: 1;
             grid-row-start: 1;
-            caption {
+            figcaption {
                 top: 0;
                 bottom: inherit;
             }

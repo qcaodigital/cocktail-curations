@@ -111,5 +111,11 @@
         svg {
             cursor: pointer;
         }
+        &.fixed {
+            position: fixed;
+            top: 3.25rem;
+            left: 1.5rem;
+            z-index: 20;
+        }
     }
 }
