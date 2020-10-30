@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.HamburgerMenu {
+#HamburgerMenu {
     --height: 85vh;
     @include justifyCenterCol;
     position: fixed;
@@ -36,7 +36,7 @@
         border-top: 5px solid var(--main-color);
         border-right: 5px solid var(--main-color);
     }
-    &__closeIcon {
+    .closeIcon {
         position: absolute;
         top: 1rem;
         left: 1rem;
@@ -45,22 +45,22 @@
             color: var(--secondary-color);
         }
     }
-    &__brand {
+    .brand {
         max-height: 100px;
     }
-    &__navList {
+    .navList {
         @include justifyCenterCol;
         gap: .5rem;
         padding-bottom: 5rem;
         padding-top: 2.5rem;
     }
-    &__navItem {
+    .navItem {
         text-transform: uppercase;
         font-family: var(--main-font);
         font-weight: 600;
         letter-spacing: 2px;
         color: black;
-        &Link {
+        .link {
             display: flex;
             &::before {
                 content: '[';
@@ -92,7 +92,7 @@
             }
         }
     }
-    &__socialList {
+    .socialList {
         display: flex;
         gap: .75rem;
         > *:hover {
@@ -109,7 +109,7 @@
             }
         }
     }
-    &__footer {
+    .footer {
         margin-top: 1rem;
         font-family: var(--main-font);
         font-size: .65rem;

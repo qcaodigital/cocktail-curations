@@ -1,5 +1,4 @@
 import styles from './Gallery.module.scss';
-import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
@@ -9,29 +8,28 @@ import transitions from './GalleryTransitions';
 export default function Gallery({ imgs, reverse }){
     const state = useContext(StateContext);
     const { viewport } = state;
-    const [ref, inView] = useInView({ threshold: .2, triggerOnce: false });
 
     return (
         <div
-            ref={ref } 
-            className={`${styles.Gallery} ${reverse ? styles.reverse : null}`}
+            className={`${reverse ? styles.reverse : null}`}
+            id={styles.Gallery}
         >
             {imgs.map(img => {
+                const [ref, inView] = useInView({ threshold: .2, triggerOnce: true });
                 let variant;
                 if(viewport === 'mobile') {
                     variant = transitions.mobileTransition;
-                } else if(viewport === null) {
-                    return;
                 } else if(!reverse && img.card || reverse && !img.card) {
                     variant = transitions.panFromRight
                 } else if(!reverse && !img.card || reverse && img.card) {
                     variant = transitions.panFromLeft
                 } 
+
                 return (
-                    <motion.div 
-                        key={img.url} 
-                        className={`${styles.Gallery__imgContainer} ${img.card ? styles.hasCard : null}`}
-                        data-variant={variant}
+                    <motion.div
+                        ref={ref} 
+                        key={img.url + viewport} 
+                        className={`${styles.imgContainer} ${img.card ? styles.hasCard : null}`}
                         variants={variant}
                         animate={inView ? 'animate' : 'initial'}
                     >
@@ -43,11 +41,11 @@ export default function Gallery({ imgs, reverse }){
                             </a>
                         </figcaption>
                         )}
-                        <motion.img src={img.url} alt={img.alt}/>
+                        <motion.img variants={transitions.scale} src={img.url} alt={img.alt}/>
                     </motion.div>
                 )
             })}
-            <div className={styles.Gallery__spacerBG}/>
+            <div className={styles.spacerBG}/>
         </div>
     )
 }

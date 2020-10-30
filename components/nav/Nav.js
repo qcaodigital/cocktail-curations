@@ -3,15 +3,17 @@ import Link from 'next/link';
 import styles from './Nav.module.scss';
 import { useInView } from 'react-intersection-observer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import transitions from './NavTransitions';
 
-export default function Nav({ render, navList, viewport, isHamburgerOpen, hamburgerCB, navHeightCB }){
+export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB, route }){
     if(!render) return null;
     const navRef = useRef();
 
     useEffect(() => {
-        navHeightCB(navRef.current.offsetHeight)
+        if(navRef.current !== null){
+            navHeightCB(navRef.current.offsetHeight)
+        }
     }, [viewport])
 
     const [hideNav, setHideNav] = useState(false);
@@ -28,37 +30,47 @@ export default function Nav({ render, navList, viewport, isHamburgerOpen, hambur
         return () => window.removeEventListener('scroll', handleScroll)
     }, [hideNav])
 
+    const [initialRenderComplete, setInitialRenderComplete] = useState(false);
+    useEffect(() => {
+        setTimeout(() => {
+            setInitialRenderComplete(true)
+        }, 3000);
+    }, [])
+
     return (
         <>
-        <motion.nav 
-            ref={ navRef } 
-            className={`${styles.Nav}`}
-            variants={transitions.navFadeIn}
-            initial='initial'
-            animate={ hideNav ? 'initial' : 'animate' }
-            transition={{ when: 'afterChildren' }}
+        <AnimatePresence>
+        {!hideNav && (
+        <motion.nav id={styles.Nav}
+            ref={ navRef }
+            variants={transitions.mainFade}
+            initial='hide'
+            animate={initialRenderComplete ? 'show' : 'showWithDelay'}
+            exit='exit'
         >
-            {viewport !== 'mobile' && <img className={styles.Nav__leftIcon} src='/imgs/stock/logos/cc-icon-black.png' alt='Cocktail Curations Logo' />}
+            {viewport !== 'mobile' && <img className={styles.leftIcon} src='/imgs/stock/logos/cc-icon-black.png' alt='Cocktail Curations Logo' />}
             <Link href='/'>
-                <a className={styles.Nav__brand}><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
+                <motion.a className={styles.brand}>
+                    <img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/>
+                </motion.a>
             </Link>
             {viewport !== 'mobile' &&
-            <motion.ul className={styles.Nav__list} variants={transitions.navStagger}>
+            <ul className={styles.list}>
                 {navList.map((item, idx) => (
-                    <motion.li 
+                    <li 
                         key={item.label} 
-                        className={styles.Nav__item}
-                        variants={transitions.navFadeInAndUp} 
+                        className={styles.item}
+
                     >
                         {!item.external ? (
                             <Link href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>
                         ) : (
                             <a className={item.active ? styles.active : null} href={item.href} target='_blank'>{item.label}</a>
                         )}
-                    </motion.li>
+                    </li>
                 ))}
-            </motion.ul>}
-            <ul className={styles.Nav__socialList}>
+            </ul>}
+            <ul className={styles.socialList}>
                 <a href='https://www.facebook.com/cocktailcurations/' target='_blank'>
                     <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'facebook']}/>
                 </a>
@@ -69,20 +81,21 @@ export default function Nav({ render, navList, viewport, isHamburgerOpen, hambur
                     <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'twitter']}/>
                 </a>
             </ul>
-        </motion.nav>
-        <motion.button //REMOVED FROM MAIN NAV COMPONENT TO AVOID NAV MOTION ANIMATION ON HIDE
-            className={`${styles.Nav__hamburgerIcon} ${styles.fixed}`}
+        </motion.nav>)}
+        </AnimatePresence>
+        {viewport === 'mobile' && (
+        <motion.button
+            className={`${styles.hamburgerIcon} ${styles.fixed}`}
             initial={{ opacity: 0 }}
-            animate={ viewport === 'mobile' ? { opacity: 1 } : { opacity: 0 } }
-            transition={{ duration: 0 }}
-            exit={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={!initialRenderComplete ? { delay: 1 } : { delay: 0 }}
         >
             <FontAwesomeIcon 
                 onClick={hamburgerCB} 
                 size='lg' 
                 icon={['fas', 'bars']} 
             />
-        </motion.button>  
+        </motion.button>)}  
         </>
     )
 }

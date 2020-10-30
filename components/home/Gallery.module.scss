@@ -1,4 +1,4 @@
-.Gallery {
+#Gallery {
     background-color: #EFEFEF;
     display: grid;
     justify-content: center;
@@ -16,8 +16,8 @@
         gap: 0;
         grid-template-columns: 1fr 1fr;
     }
-    &__imgContainer {
-        z-index: 10;
+    .imgContainer {
+        z-index: 1;
         max-width: 26.25rem;
         box-shadow: 5px 5px 5px rgba(0,0,0,.1);
         overflow: hidden;
@@ -68,16 +68,31 @@
                 font-size: 1.4rem;
                 letter-spacing: 1px;
                 font-family: var(--serif-font);
-                border-bottom: 2px solid var(--highlight-color);
                 color: var(--main-color);
                 transition: 200ms cubic-bezier(.5, -.01, .16, .1);
+                position: relative;
                 &:hover {
                     opacity: .5;
                 }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -.25rem;
+                    left: 0;
+                    right: 0;
+                    height: 2px;
+                    background-color: var(--main-color-fade);
+                    transform-origin: left;
+                    transform: scaleX(1);
+                }
+                // &.inView::after {
+                //     transition: 1000ms ease 1000ms;
+                //     transform: scaleX(1);
+                // }
             }
         }            
     }
-    &__spacerBG {
+    .spacerBG {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -87,16 +102,16 @@
         z-index: 0;
     }
     &:nth-of-type(2) {
-        .Gallery__spacerBG {
+        .spacerBG {
             bottom: inherit;
             top: 0;
         }
     }
 }
 
-.Gallery.reverse {
+#Gallery.reverse {
     padding-top: 2.5rem;
-    .Gallery__imgContainer {
+    .imgContainer {
         @media screen and (min-width: 750px){
             &:first-of-type {
                 justify-self: left;

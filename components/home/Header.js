@@ -3,28 +3,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
-const fadeUp = {
+const container = {
     outOfView: {
-        opacity: 0,
-        transition: {
-            duration: 0
-        }
+        opacity: 0
     },
     inView: {
         opacity: 1,
         transition: {
-            duration: 1
+            staggerChildren: .35,
+            duration: 1,
+            delay: .3
         }
     }
 }
 
-const stagger = {
+const fadeIn = {
+    outOfView: {
+        opacity: 0
+    },
     inView: {
-        transition: {
-            staggerChildren: .15
-        }
+        opacity: 1
     }
 }
+
 
 export default function Header({ header, text }){
     const [ref, inView] = useInView({ threshold: .1, triggerOnce: true })
@@ -33,13 +34,13 @@ export default function Header({ header, text }){
         <motion.header 
             ref={ref} 
             className={styles.Header}
-            variants={stagger}
+            variants={container}
             animate={inView ? 'inView' : 'outOfView' }
         >
-            <motion.h3 variants={fadeUp}>Cocktail Curations</motion.h3>
-            <motion.h4 variants={fadeUp}>{ header }</motion.h4>
-            <motion.p variants={fadeUp}>{ text }</motion.p>
-            <motion.div variants={fadeUp}>
+            <motion.h3 variants={fadeIn}>Cocktail Curations</motion.h3>
+            <motion.h4 variants={fadeIn}>{ header }</motion.h4>
+            <motion.p variants={fadeIn}>{ text }</motion.p>
+            <motion.div variants={fadeIn}>
                 <FontAwesomeIcon icon={['fas', 'glass-martini-alt']}/>
             </motion.div>
         </motion.header>

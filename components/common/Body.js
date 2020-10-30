@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useContext, useState, useEffect, useReducer } from 'react';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import Loadingscreen from './Loadingscreen';
 import HamburgerMenu from './HamburgerMenu';
 import styles from './Body.module.scss';
 import { CSSTransition } from 'react-transition-group';
+import { AnimatePresence } from 'framer-motion';
 
-const navList = [
+export const navList = [
     {
         label: 'Home',
         href: '/',
-        active: true
+        active: false
     },
     {
         label: 'Shop',
@@ -46,11 +47,11 @@ const navList = [
 ];
 export const StateContext = React.createContext({})
 
-export default function Body({ children }){
-    console.log('BODY RERENDERING')
+export default function Body({ router, children }){
+    console.log('Body re-rendering.')
     const initialState = {
-        // loadComplete: children.type.name !== 'Home',
-        loadComplete: true, //disable loading
+        loadComplete: children.type.name !== 'Home',
+        // loadComplete: true, //disable loading
         viewport: null,
         isHamburgerMenuOpen: false,
         navHeight: null
@@ -107,6 +108,7 @@ export default function Body({ children }){
             window.removeEventListener('resize', handleHBM);
         }
     }, [isHamburgerMenuOpen, viewport])
+    
     useEffect(() => {
         if(isHamburgerMenuOpen){
             document.body.style.height = '100vh'
@@ -118,7 +120,7 @@ export default function Body({ children }){
 
     useEffect(() => {
         // window.scrollTo(0,0)
-    }, [children])
+    }, [])
 
     return (
         <>
@@ -135,19 +137,20 @@ export default function Body({ children }){
                 viewport={viewport}
                 navHeightCB={height => dispatch({ type: 'navheight', payload: height})} 
                 isHamburgerOpen={isHamburgerMenuOpen} hamburgerCB={() => dispatch({ type: 'hamburgerMenu', payload: !isHamburgerMenuOpen})}
+                route={router.route}
             />
-            <CSSTransition 
-                in={loadComplete}
-                classNames={{ ...styles }}
-                timeout={1000}
-                unmountOnExit
-            >
             <StateContext.Provider value={state}>
-                {children}
+                <AnimatePresence exitBeforeEnter>
+                    {loadComplete && children}
+                </AnimatePresence>
             </StateContext.Provider>
-            </CSSTransition>
             {loadComplete && <Footer/>}
         </main>
         </>
     )
+}
+
+export const NAV_SPACER = ({ color }) => {
+    const state = useContext(StateContext)
+    return <div id='NAV_SPACER' style={{ height: state.navHeight, backgroundColor: color}}/>
 }

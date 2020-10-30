@@ -1,43 +1,25 @@
 const transitions = {};
 const ease = [.6, -.01, .16, 1];
 
-transitions.navFadeIn = {
-    initial: {
-        opacity: 0
-    },
-    animate: {
-        opacity: 1,
-        transition: {
-            duration: 1
-        }
-    }
-}
-
-transitions.navFadeInAndUp = {
-    initial: {
+transitions.mainFade = {
+    hide: {
         opacity: 0,
-        y: '-25%'
     },
-    animate: {
+    showWithDelay: {
         opacity: 1,
-        y: 0,
         transition: {
-            duration: .5,
-            ease: ease
-        }
-    }
-}
-
-transitions.navStagger = {
-    initial: {
-        transition: {
-            staggerChildren: .05
+            duration: .75,
+            delay: 1
         }
     },
-    animate: {
+    show: {
+        opacity: 1,
         transition: {
-            staggerChildren: .1
+            duration: .75
         }
+    },
+    exit: {
+        opacity: 0
     }
 }
 
