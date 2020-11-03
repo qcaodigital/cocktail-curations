@@ -1,7 +1,18 @@
 #Classes {
     background-color: #D9D7D4;
+    position: relative;
     overflow: hidden;
     --highlight-color: #f95b5b;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: .3;
+        background-image: url("../../public/imgs/textures/asfalt-dark.png");
+    }
     .contentContainer {
         position: relative;
         padding: 4rem 1rem;
@@ -18,13 +29,22 @@
             flex-basis: 100%;
             z-index: 2;
             h2 {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 font-family: 'Ivy Mode';
                 letter-spacing: 1px;
                 margin-bottom: 1.5rem;
                 color: white;
                 font-weight: 400;
                 max-width: 90%;
+                border-left: 3px solid var(--highlight-color);
+                padding-left: .5rem;
+                @media screen and (min-width: 500px){
+                    font-size: 2rem;
+                }
+                @media screen and (min-width: 750px){
+                    padding-left: 0;
+                    border-left: none;
+                }
                 @media screen and (min-width: 990px){
                     font-size: 2.75rem;
                 }
@@ -36,19 +56,23 @@
                         display: inline-block;
                     }
                     .emp {
-                        border-bottom: 2px solid var(--highlight-color);
                         color: var(--highlight-color);
-                        font-size: 2rem;
                         display: inline-block;
+                        @media screen and (min-width: 750px){
+                            border-bottom: 3px solid var(--highlight-color);
+                        }
                     }
                 }
             }
             p {
                 font-family: var(--main-font);
                 font-weight: 100;
-                font-size: .9rem;
+                font-size: .75rem;
                 letter-spacing: 1px;
                 color: var(--main-color);
+                @media screen and (min-width: 500px){
+                    font-size: .9rem;
+                }
                 @media screen and (min-width: 750px){
                     width: 75%;
                 }
@@ -95,7 +119,7 @@
                 @media screen and (min-width: 990px){
                     transform: translateY(-20%);
                 }
-                img {
+                img:not(.emb) {
                     box-shadow: 5px 5px 10px rgba(0,0,0,.15);
                 }
                 svg, img.emb {
