@@ -17,7 +17,7 @@ transitions.fadeUp = {
 transitions.headingContainer = {
     animate: {
         transition: {
-            delayChildren: 1.5,
+            delayChildren: 1.25,
             staggerChildren: .2
         }
     }

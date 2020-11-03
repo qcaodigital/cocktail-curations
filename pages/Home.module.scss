@@ -28,21 +28,25 @@
             .heading,
             .subheading {
                 color: var(--main-color);
-                font-family: 'Ivy Mode Light', serif;
+                font-family: var(--serif-font);
                 text-transform: uppercase;
                 text-shadow: 2px 2px 15px var(--main-color-fade);
             }
             .heading {
                 opacity: .9;
-                letter-spacing: -.5px;
+                letter-spacing: 2px;
                 font-size: 2rem;
+                font-weight: 400;
                 @media screen and (min-width: 990px){
                     font-size: 2.5rem;
                 }
                 margin-bottom: .25rem;
             }
             .subheading {
+                font-family: var(--main-font);
+                font-weight: 200;
                 opacity: .75;
+                letter-spacing: 1px;
                 @media screen and (min-width: 990px){
                     font-size: 1.15rem;
                 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import styles from './HamburgerMenu.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSSTransition } from 'react-transition-group';
@@ -6,11 +7,9 @@ import { CSSTransition } from 'react-transition-group';
 export default function HamburgerMenu({ isHamburgerMenuOpen, navList, toggleHBM }){
     const navItems = navList.map((item, idx) => (
         <li key={item.label} className={styles.navItem}>
-            <a href={item.href} 
-                className={`${styles.link} ${item.active && styles.active}`}
-            >
-                {item.label}
-            </a>
+            <Link href={item.href}>
+                <a onClick={toggleHBM} className={`${styles.link} ${item.active && styles.active}`}>{item.label}</a>
+            </Link>
         </li>
     ))
 

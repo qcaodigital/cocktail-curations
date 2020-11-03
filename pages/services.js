@@ -1,18 +1,20 @@
+import { useEffect, useRef } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from './Services.module.scss';
 import { NAV_SPACER } from '../components/common/Body';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Rellax from 'rellax';
-import { useEffect, useRef } from 'react';
+import Copy from '../components/services/Copy';
+import Classes from '../components/services/Classes'
 
 export default function Services(){
-    const rellaxRef = useRef();
+    const backgroundRellax = useRef();
+    const classesRef = useRef();
 
     useEffect(() => {
-        new Rellax(rellaxRef.current, {
-            speed: 1
-        })
+        new Rellax(backgroundRellax.current, {speed: -5})
     }, [])
 
     return(
@@ -20,20 +22,30 @@ export default function Services(){
         <Head>
             <title>Services | Cocktail Curations</title>
         </Head>
-        <motion.main id={styles.Services} initial={{ opacity: 0}} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <div className={styles.background}/>
-            <div className={styles.landing}>
+        <motion.main id={styles.Services} 
+            initial={{ opacity: 0}} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+        >
+            <div className={styles.backgroundContainer}>
+                <div ref={backgroundRellax} className={styles.background}/>
+            </div>
+            <section className={styles.landing}>
                 <NAV_SPACER />
-                <div ref={rellaxRef} className={styles.services_box}>
+                <div className={styles.services_box}>
                     <FontAwesomeIcon size='2x' icon={['fas', 'glass-cheers']}/>
                     <h1>Our Services</h1>
                     <ul className={styles.services_list}>
-                        <li>Cocktail Classes</li>
+                        <li onClick={() => {
+                            window.scrollTo({top: classesRef.current.offsetTop, behavior: 'smooth'})
+                        }}>Cocktail Classes</li>
                         <li>Experiential Bars</li>
                         <li>Cocktail Bases</li>
                     </ul>
                 </div>
-            </div>
+            </section>
+            <Copy />
+            <Classes ref={classesRef}/>
         </motion.main>
         </>
     )

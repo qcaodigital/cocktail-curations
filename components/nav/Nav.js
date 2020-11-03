@@ -19,7 +19,7 @@ export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB
     const [hideNav, setHideNav] = useState(false);
     useEffect(() => {
         function handleScroll(e){
-            const scrollThreshold = 100;
+            const scrollThreshold = 120;
             if(window.scrollY > scrollThreshold && !hideNav){
                 setHideNav(true);
             } else if(window.scrollY < scrollThreshold && hideNav){

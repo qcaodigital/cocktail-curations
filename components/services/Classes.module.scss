@@ -1,0 +1,151 @@
+#Classes {
+    background-color: #D9D7D4;
+    overflow: hidden;
+    --highlight-color: #f95b5b;
+    .contentContainer {
+        position: relative;
+        padding: 4rem 1rem;
+        padding-bottom: 20vw;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin: 0 auto;
+        @media screen and (min-width: 750px) {
+            padding-bottom: 0;
+        }
+        header {
+            padding-bottom: 1.75rem;
+            flex-basis: 100%;
+            z-index: 2;
+            h2 {
+                font-size: 2rem;
+                font-family: 'Ivy Mode';
+                letter-spacing: 1px;
+                margin-bottom: 1.5rem;
+                color: white;
+                font-weight: 400;
+                max-width: 90%;
+                @media screen and (min-width: 990px){
+                    font-size: 2.75rem;
+                }
+                span {
+                    &::before {
+                        content: ' ';
+                    }
+                    @media screen and (min-width: 750px){
+                        display: inline-block;
+                    }
+                    .emp {
+                        border-bottom: 2px solid var(--highlight-color);
+                        color: var(--highlight-color);
+                        font-size: 2rem;
+                        display: inline-block;
+                    }
+                }
+            }
+            p {
+                font-family: var(--main-font);
+                font-weight: 100;
+                font-size: .9rem;
+                letter-spacing: 1px;
+                color: var(--main-color);
+                @media screen and (min-width: 750px){
+                    width: 75%;
+                }
+                @media screen and (min-width: 990px){
+                    width: 65%;
+                    font-size: .95rem;
+                }
+            }
+            @media screen and (min-width: 750px) {
+                order: 1;
+                flex-basis: calc(60% - 2rem);
+                margin-left: 2rem;
+            }
+        }
+        .imgContainer {
+            display: block;
+            img {
+                width: 100%;
+            }
+            &#first {
+                box-shadow: 5px 5px 10px rgba(0,0,0,.15);
+                overflow: hidden;
+                flex-basis: 65%;
+                z-index: 1;
+                @media screen and (min-width: 750px) {
+                    flex-basis: 40%;
+                }
+            }
+            &#second {
+                flex-basis: 35%;
+                margin-left: -1rem;
+                margin-top: 5rem;
+                transform: translateY(40%) scale(1.15);
+                z-index: 0;
+                position: relative;
+                @media screen and (min-width: 750px) {
+                    order: 4;
+                    transform: none;
+                    margin: 0;
+                    flex-basis: 36%;
+                    transform: translateY(-10%);
+                    
+                }
+                @media screen and (min-width: 990px){
+                    transform: translateY(-20%);
+                }
+                img {
+                    box-shadow: 5px 5px 10px rgba(0,0,0,.15);
+                }
+                svg, img.emb {
+                    position: absolute;
+                    z-index: -1;
+                    width: 0;
+                    @media screen and (min-width: 750px){
+                        top: -4.5rem;
+                        left: -4.5rem;
+                        width: 75%;
+                    }
+                    @media screen and (min-width: 990px){
+                        width: 100%;
+                        top: -7.5rem;
+                        left: -7.5rem;
+                    }
+                }
+                img.emb {
+                    width: 30%;
+                    transform: rotate(140deg);
+                    top: -.5rem;
+                    left: -3.5rem;
+                    @media screen and (min-width: 990px){
+                        top: -1.25rem;
+                        left: -5rem;
+                        width: 40%;
+                    }
+                }
+            }
+        }
+        .desktopText {
+            display: none;
+            @media screen and (min-width: 750px){
+                display: flex;
+                flex-basis: 64%;
+                order: 3;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+            h3 {
+                width: 75%;
+                border-left: 3px solid var(--highlight-color);
+                padding-left: 2rem;
+                font-size: 1.5rem;
+                font-family: var(--serif-font);
+                color: var(--main-color-fade-less);
+                overflow: hidden;
+                position: relative;
+            }
+        }
+    }
+}

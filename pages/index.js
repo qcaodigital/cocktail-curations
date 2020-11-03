@@ -80,7 +80,8 @@ export default function Home(){
                     <motion.h2 
                         variants={transitions.fadeUp} 
                         className={styles.subheading}
-                    >for private and corporate events
+                    >
+                        for private and corporate events
                     </motion.h2>
                     <motion.div className={styles.headingBorder} variants={transitions.fadeUp}/>
                 </motion.div>
