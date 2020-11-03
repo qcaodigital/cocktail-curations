@@ -176,15 +176,81 @@
         height: 75vw;
         overflow: hidden;
         position: relative;
+        @media screen and (min-width: 750px){
+            height: 60vh;
+        }
         .parallaxContainer {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
+            z-index: 0;
             min-height: 90vw;
             background-image: url('../../public/imgs/stock/services_page/classes3.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: center bottom;
+            filter: grayscale(1);
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,.2);
+            }
+            @media screen and (min-width: 750px){
+                min-height: 70vh;
+            }
+        }
+        header {
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            button {
+                color: white;
+                font-family: var(--main-font);
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 1px;
+                text-decoration: underline;
+                position: relative;
+                div {
+                    background-color: white;
+                    position: absolute;
+                    --paddingY: .75rem;
+                    --paddingX: 1rem;
+                    &.borderX {
+                        width: calc(100% + calc(var(--paddingX) * 2));
+                        height: 5px;
+                        left: calc(var(--paddingX) * -1);
+                        &#top {
+                            top: calc(var(--paddingY) * -1);
+                            transform-origin: right;
+                        }
+                        &#bottom {
+                            bottom: calc(var(--paddingY) * -1);
+                            transform-origin: left;
+                        }
+                    }
+                    &.borderY {
+                        height: calc(100% + var(--paddingY) * 2);
+                        top: calc(var(--paddingY) * -1);
+                        width: 5px;
+                        &#left {
+                            left: calc(var(--paddingX) * -1);
+                            transform-origin: top;
+                        }
+                        &#right {
+                            right: calc(var(--paddingX) * -1);
+                            transform-origin: bottom;
+                        }
+                    }
+                }
+            }
         }
     }
 }

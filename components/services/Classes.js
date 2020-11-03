@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './Classes.module.scss';
 import transitions from './ClassesTransitions';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import Rellax from 'rellax';
+import { useInView } from 'react-intersection-observer';
 
 const Classes = React.forwardRef(({}, ref) => {
     const headerRef = useRef();
@@ -15,9 +17,10 @@ const Classes = React.forwardRef(({}, ref) => {
     const imgRef = useRef();
     const imgInView = useInViewFromTop(imgRef, { threshold: .1 });
 
-    const spacerImgRef = useRef();  
+    const spacerImgRef = useRef();
+    const spacerImgInView = useInViewFromTop(spacerImgRef, { threshold: .2 });  
     useEffect(() => {
-        // new Rellax(spacerImgRef.current, { speed: -5 });
+        new Rellax(spacerImgRef.current, { speed: -1, center: true });
     }, [])
 
     return(
@@ -47,7 +50,18 @@ const Classes = React.forwardRef(({}, ref) => {
                 </motion.div>
             </div>
             <div className={styles.spacer}>
-                <div ref={spacerImgRef} className={styles.parallaxContainer}></div>
+                <div ref={spacerImgRef} className={styles.parallaxContainer}/>
+                <header>
+                    <motion.button animate={spacerImgInView ? 'animate' : 'initial'}>
+                        <motion.div variants={transitions.spacerButtonBorderX} id={styles.top} className={styles.borderX}/>
+                        <motion.div variants={transitions.spacerButtonBorderY} id={styles.left} className={styles.borderY}/>
+                        <Link href='/contact'>
+                            <a>Book a class today</a>
+                        </Link>
+                        <motion.div variants={transitions.spacerButtonBorderY} id={styles.right} className={styles.borderY}/>
+                        <motion.div variants={transitions.spacerButtonBorderX} id={styles.bottom} className={styles.borderX}/>
+                    </motion.button>
+                </header>
             </div>
         </section>
     )

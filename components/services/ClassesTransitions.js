@@ -54,4 +54,37 @@ transitions.blockQuoteText = {
     }
 }
 
+transitions.spacerButtonBorderX = {
+    animate: {
+        scaleX: 1,
+        transition: {
+            // ease: [.38, .25, 0, 1],
+            duration: 1,
+            delay: 1.25
+        }
+    },
+    initial: {
+        scaleX: 0,
+        transition: {
+            duration: 0
+        }
+    }
+}
+
+transitions.spacerButtonBorderY = {
+    animate: {
+        scaleY: 1,
+        transition: {
+            ease: [.38, .25, 0, 1],
+            duration: 1
+        }
+    },
+    initial: {
+        scaleY: 0,
+        transition: {
+            duration: 0
+        }
+    }
+}
+
 export default transitions;
