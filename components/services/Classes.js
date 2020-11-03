@@ -1,8 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Classes.module.scss';
 import transitions from './ClassesTransitions';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
+import Rellax from 'rellax';
 
 const Classes = React.forwardRef(({}, ref) => {
     const headerRef = useRef();
@@ -13,6 +14,11 @@ const Classes = React.forwardRef(({}, ref) => {
 
     const imgRef = useRef();
     const imgInView = useInViewFromTop(imgRef, { threshold: .1 });
+
+    const spacerImgRef = useRef();  
+    useEffect(() => {
+        // new Rellax(spacerImgRef.current, { speed: -5 });
+    }, [])
 
     return(
         <section ref={ref} id={styles.Classes}>
@@ -39,6 +45,9 @@ const Classes = React.forwardRef(({}, ref) => {
                     <motion.h3 variants={transitions.blockQuoteText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quia praesentium unde consequuntur fugiat ab, rem cum dolores nulla libero. Placeat tempore possimus dolorum modi?
                     </motion.h3>
                 </motion.div>
+            </div>
+            <div className={styles.spacer}>
+                <div ref={spacerImgRef} className={styles.parallaxContainer}></div>
             </div>
         </section>
     )

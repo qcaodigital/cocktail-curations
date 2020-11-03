@@ -172,4 +172,19 @@
             }
         }
     }
+    .spacer {
+        height: 75vw;
+        overflow: hidden;
+        position: relative;
+        .parallaxContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            min-height: 90vw;
+            background-image: url('../../public/imgs/stock/services_page/classes3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    }
 }

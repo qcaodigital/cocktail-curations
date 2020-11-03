@@ -1,0 +1,36 @@
+#Bars {
+    background-color: var(--secondary-color);
+    padding: 4rem 1rem;
+    .background {
+        background-image: url('../../public/imgs/stock/services_page/bars.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 150vw;
+    }
+    header {
+        text-align: left;
+        h2 {
+            font-family: var(--serif-font);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            padding-left: .5rem;
+            border-left: 3px solid var(--highlight-color);
+            max-width: 75%;
+            @media screen and (min-width: 500px){
+                font-size: 2rem;
+            }
+            .emph {
+                color: var(--highlight-color);
+                display: inline-block;
+            }
+        }
+        p {
+            font-family: var(--main-font);
+            letter-spacing: 1px;
+            font-size: .8rem;
+            font-weight: 100;
+        }
+    }
+}
