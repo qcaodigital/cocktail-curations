@@ -54,6 +54,39 @@ transitions.blockQuoteText = {
     }
 }
 
+transitions.blockQuoteText_bars = {
+    animate: {
+        opacity: 1,
+        x: 0,
+        y: '-50%',
+        transition: {
+            duration: 1.5,
+            ease: [.38, .25, 0, 1],
+        }
+    },
+    initial: {
+        opacity: 0,
+        y: '-50%',
+        x: 100
+    }
+}
+
+transitions.mainServiceImgScale = {
+    animate: {
+        scale: 1,
+        transition: {
+            duration: 3,
+            ease: [.35, .25, 0, 1]
+        }
+    },
+    initial: {
+        scale: 1.15,
+        transition: {
+            duration: 1.5
+        }
+    }
+}
+
 transitions.spacerButtonBorderX = {
     animate: {
         scaleX: 1,

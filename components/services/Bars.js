@@ -3,10 +3,14 @@ import styles from './Bars.module.scss';
 import { motion } from 'framer-motion';
 import transitions from './transitions';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
+import { useInView } from 'react-intersection-observer';
 
 const Bars = React.forwardRef((props, ref) => {
     const headerRef = useRef();
     const headerInView = useInViewFromTop(headerRef, { threshold: .1 });
+
+    const blockQuoteRef = useRef();
+    const blockQuoteInView = useInViewFromTop(blockQuoteRef, { threshold: .1 });
 
     return (
         <section id={styles.Bars} ref={ref}>
@@ -21,11 +25,18 @@ const Bars = React.forwardRef((props, ref) => {
                 </motion.header>
                 <div className={styles.gallery}>
                     <div id={styles.center} className={styles.imgContainer}>
-                        <img src="/imgs/stock/services_page/bars_main.jpg" alt="Cocktail Curations Wedding Wire The Knot Event"/>
+                        <motion.img variants={transitions.mainServiceImgScale} animate={headerInView ? 'animate' : 'initial'} src="/imgs/stock/services_page/bars_main.jpg" alt="Cocktail Curations Wedding Wire The Knot Event"/>
                     </div>
                     <div id={styles.top} className={styles.imgContainer}>
                         <img src="/imgs/stock/services_page/bars-sq.jpg" alt="Cocktail Curations Book of Lists Event 2020"/>
-                        <p className={styles.desktopText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.</p>
+                        <motion.p 
+                            ref={blockQuoteRef} 
+                            variants={transitions.blockQuoteText_bars} 
+                            animate={blockQuoteInView ? 'animate' : 'initial'} 
+                            className={styles.desktopText}
+                        >
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.
+                        </motion.p>
                     </div>
                 </div>
             </motion.div>

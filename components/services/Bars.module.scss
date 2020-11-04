@@ -18,7 +18,7 @@
         @media screen and (min-width: 750px){
             display: grid;
             grid-template-columns: 3fr 2fr;
-            grid-gap: .5rem;
+            grid-gap: 1rem;
         }
         header {
             text-align: left;
@@ -89,6 +89,7 @@
             }
             .imgContainer {
                 box-shadow: 5px 5px 12px rgba(0,0,0,.1);
+                overflow: hidden;
                 img {
                     width: 100%
                 }
@@ -105,9 +106,12 @@
                 }
                 @media screen and (min-width: 750px){
                     max-width: 225px;
-                    right: 50%;
                     top: 77%;
                 }
+                // img {
+                //     z-index: 1;
+                //     position: relative;
+                // }
                 .desktopText {
                     display: none;
                     @media screen and (min-width: 750px){
