@@ -47,6 +47,7 @@
                 }
                 @media screen and (min-width: 990px){
                     font-size: 2.75rem;
+                    line-height: 2.75rem;
                 }
                 span {
                     &::before {
@@ -189,7 +190,7 @@
             background-image: url('../../public/imgs/stock/services_page/classes3.jpg');
             background-size: cover;
             background-position: center bottom;
-            filter: grayscale(1);
+            filter: grayscale(.2);
             &::after {
                 content: '';
                 position: absolute;
@@ -197,7 +198,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: rgba(0,0,0,.2);
+                background-color: rgba(255,255,255,.25);
             }
             @media screen and (min-width: 750px){
                 min-height: 70vh;
@@ -210,6 +211,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
+            --paddingY: .75rem;
+            --paddingX: 1rem;
+            @media screen and (min-width: 750px){
+                --paddingY: 1.25rem;
+                --paddingX: 1.5rem;
+            }
             button {
                 color: white;
                 font-family: var(--main-font);
@@ -218,11 +225,13 @@
                 letter-spacing: 1px;
                 text-decoration: underline;
                 position: relative;
+                @media screen and (min-width: 750px){
+                    font-size: 1.25rem;
+                }
                 div {
                     background-color: white;
                     position: absolute;
-                    --paddingY: .75rem;
-                    --paddingX: 1rem;
+                    pointer-events: none;
                     &.borderX {
                         width: calc(100% + calc(var(--paddingX) * 2));
                         height: 5px;

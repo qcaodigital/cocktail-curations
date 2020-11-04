@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Classes.module.scss';
-import transitions from './ClassesTransitions';
+import transitions from './transitions';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import Rellax from 'rellax';

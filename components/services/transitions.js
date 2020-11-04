@@ -57,14 +57,16 @@ transitions.blockQuoteText = {
 transitions.spacerButtonBorderX = {
     animate: {
         scaleX: 1,
+        y: 0,
         transition: {
             // ease: [.38, .25, 0, 1],
             duration: 1,
-            delay: 1.25
+            delay: .75
         }
     },
     initial: {
         scaleX: 0,
+        y: 1,
         transition: {
             duration: 0
         }
@@ -76,7 +78,7 @@ transitions.spacerButtonBorderY = {
         scaleY: 1,
         transition: {
             ease: [.38, .25, 0, 1],
-            duration: 1
+            duration: .75
         }
     },
     initial: {
