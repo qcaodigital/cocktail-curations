@@ -59,9 +59,10 @@ transitions.blockQuoteText_bars = {
         opacity: 1,
         x: 0,
         y: '-50%',
+        zIndex: 1,
         transition: {
             duration: 1.5,
-            ease: [.38, .25, 0, 1],
+            ease: [.38, .25, 0, 1]
         }
     },
     initial: {
@@ -90,7 +91,6 @@ transitions.mainServiceImgScale = {
 transitions.spacerButtonBorderX = {
     animate: {
         scaleX: 1,
-        y: 0,
         transition: {
             // ease: [.38, .25, 0, 1],
             duration: 1,
@@ -99,7 +99,6 @@ transitions.spacerButtonBorderX = {
     },
     initial: {
         scaleX: 0,
-        y: 1,
         transition: {
             duration: 0
         }
@@ -119,6 +118,20 @@ transitions.spacerButtonBorderY = {
         transition: {
             duration: 0
         }
+    }
+}
+
+transitions.opacity = {
+    animate: {
+        opacity: 1,
+        transition: {
+            ease: [.38, .25, 0, 1],
+            duration: 1,
+            delay: 1
+        }
+    },
+    initial: {
+        opacity: 0
     }
 }
 

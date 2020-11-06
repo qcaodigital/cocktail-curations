@@ -9,6 +9,7 @@ import Header from '../components/home/Header';
 import FeatureItems from '../components/home/FeatureItems';
 import { motion } from 'framer-motion';
 import transitions from '../page_transitions/home';
+import Rellax from 'rellax';
 
 const feature_row_items = [
     {
@@ -50,41 +51,40 @@ export default function Home(){
     const { viewport, navHeight } = state;
     const landingSectionRef = useRef();
 
+    const bgRef = useRef();
+    useEffect(() => {
+        new Rellax(bgRef.current, { speed: -6 });
+    }, [])
+
     return(
         <>
         <Head>
             <title>Home | Cocktail Curations</title>
         </Head>
         <motion.main id={styles.Home} exit={{ opacity: 0 }} transition={{ duration: .5 }}>
-            <motion.div
-                initial={{ scale: 1.1, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: .8 }} 
                 transition={{ delay: 0, duration: 1 }} 
-                className={styles.background}
-            />
+                className={styles.backgroundContainer}
+            >
+                <div ref={bgRef} className={styles.background}/>
+            </motion.div>
             <section ref={ landingSectionRef } className={styles.landing}>
                 <NAV_SPACER/>
-                <motion.div 
-                    className={styles.headingContainer}
-                    variants={transitions.headingContainer}
-                    initial='initial'
-                    animate='animate'
-                >
-                    <motion.div className={styles.headingBorder} variants={transitions.fadeUp}/>
+                <div className={styles.headingContainer}>
                     <motion.h1 
-                        variants={transitions.fadeUp} 
+                        variants={transitions.headingContainer}
+                        initial='initial'
+                        animate='animate'
                         className={styles.heading}
                     >
-                        Beautifully crafted <span style={{ display: 'inline-block'}}>cocktail bars</span>
+                        <motion.div variants={transitions.fadeUp} className={styles.small}>Beatifully crafted</motion.div>
+                        <motion.div variants={transitions.fadeUp}>cocktail bars</motion.div>
+                        <motion.div variants={transitions.fadeUp}><span className={styles.it}>—for</span>corporate</motion.div>
+                        <motion.div variants={transitions.fadeUp}><span className={styles.it}>and</span> private events</motion.div>
                     </motion.h1>
-                    <motion.h2 
-                        variants={transitions.fadeUp} 
-                        className={styles.subheading}
-                    >
-                        for private and corporate events
-                    </motion.h2>
-                    <motion.div className={styles.headingBorder} variants={transitions.fadeUp}/>
-                </motion.div>
+                </div>
                 <motion.div 
                     className={styles.CTAContainer}
                     initial={{ opacity: 0 }}

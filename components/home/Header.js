@@ -1,7 +1,8 @@
 import styles from './Header.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useInView } from 'react-intersection-observer';
+import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 const container = {
     outOfView: {
@@ -28,7 +29,8 @@ const fadeIn = {
 
 
 export default function Header({ header, text }){
-    const [ref, inView] = useInView({ threshold: .1, triggerOnce: true })
+    const ref = useRef();
+    const inView = useInViewFromTop(ref, { threshold: .1 })
 
     return (
         <motion.header 

@@ -9,11 +9,13 @@ import Rellax from 'rellax';
 import Copy from '../components/services/Copy';
 import Classes from '../components/services/Classes'
 import Bars from '../components/services/Bars';
+import Bases from '../components/services/Bases';
 
 export default function Services(){
     const backgroundRellax = useRef();
     const classesRef = useRef();
     const barsRef = useRef();
+    const basesRef = useRef();
 
     useEffect(() => {
         new Rellax(backgroundRellax.current, {speed: -5})
@@ -44,13 +46,14 @@ export default function Services(){
                     <ul className={styles.services_list}>
                         <li onClick={() => handleNavClick(classesRef)}>Cocktail Classes</li>
                         <li onClick={() => handleNavClick(barsRef)}>Experiential Bars</li>
-                        <li>Cocktail Bases</li>
+                        <li onClick={() => handleNavClick(basesRef)}>Cocktail Bases</li>
                     </ul>
                 </div>
             </section>
             <Copy />
-            <Classes ref={classesRef}/>
             <Bars ref={barsRef}/>
+            <Classes ref={classesRef}/>
+            <Bases ref={basesRef}/>
         </motion.main>
         </>
     )

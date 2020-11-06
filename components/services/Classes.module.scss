@@ -29,8 +29,9 @@
             flex-basis: 100%;
             z-index: 2;
             h2 {
-                font-size: 1.5rem;
-                font-family: 'Ivy Mode';
+                font-size: 1.8rem;
+                font-family: var(--serif-font);
+                line-height: 1.7rem;
                 letter-spacing: 1px;
                 margin-bottom: 1.5rem;
                 color: white;
@@ -40,13 +41,14 @@
                 padding-left: .5rem;
                 @media screen and (min-width: 500px){
                     font-size: 2rem;
+                    line-height: 1.9rem;
                 }
                 @media screen and (min-width: 750px){
                     padding-left: 0;
                     border-left: none;
                 }
                 @media screen and (min-width: 990px){
-                    font-size: 2.75rem;
+                    font-size: 2.8rem;
                     line-height: 2.75rem;
                 }
                 span {
@@ -67,7 +69,7 @@
             }
             p {
                 font-family: var(--main-font);
-                font-weight: 100;
+                font-weight: 300;
                 font-size: .75rem;
                 letter-spacing: 1px;
                 color: var(--main-color);
@@ -90,6 +92,7 @@
         }
         .imgContainer {
             display: block;
+            height: 100%;
             img {
                 width: 100%;
             }
@@ -164,101 +167,21 @@
             h3 {
                 width: 75%;
                 border-left: 3px solid var(--highlight-color);
-                padding-left: 2rem;
+                padding-left: 1rem;
+                font-family: var(--main-font);
                 font-size: 1.5rem;
-                font-family: var(--serif-font);
-                color: var(--main-color-fade-less);
+                line-height: 1.45rem;
+                font-weight: 200;
+                color: var(--main-color);
                 overflow: hidden;
                 position: relative;
-            }
-        }
-    }
-    .spacer {
-        height: 75vw;
-        overflow: hidden;
-        position: relative;
-        @media screen and (min-width: 750px){
-            height: 60vh;
-        }
-        .parallaxContainer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 0;
-            min-height: 90vw;
-            background-image: url('../../public/imgs/stock/services_page/classes3.jpg');
-            background-size: cover;
-            background-position: center bottom;
-            filter: grayscale(.2);
-            &::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(255,255,255,.25);
-            }
-            @media screen and (min-width: 750px){
-                min-height: 70vh;
-            }
-        }
-        header {
-            position: absolute;
-            z-index: 1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            --paddingY: .75rem;
-            --paddingX: 1rem;
-            @media screen and (min-width: 750px){
-                --paddingY: 1.25rem;
-                --paddingX: 1.5rem;
-            }
-            button {
-                color: white;
-                font-family: var(--main-font);
-                text-transform: uppercase;
-                font-weight: 700;
-                letter-spacing: 1px;
-                text-decoration: underline;
-                position: relative;
-                @media screen and (min-width: 750px){
-                    font-size: 1.25rem;
+                &:first-letter {
+                    text-transform: uppercase;
                 }
-                div {
-                    background-color: white;
-                    position: absolute;
-                    pointer-events: none;
-                    &.borderX {
-                        width: calc(100% + calc(var(--paddingX) * 2));
-                        height: 5px;
-                        left: calc(var(--paddingX) * -1);
-                        &#top {
-                            top: calc(var(--paddingY) * -1);
-                            transform-origin: right;
-                        }
-                        &#bottom {
-                            bottom: calc(var(--paddingY) * -1);
-                            transform-origin: left;
-                        }
-                    }
-                    &.borderY {
-                        height: calc(100% + var(--paddingY) * 2);
-                        top: calc(var(--paddingY) * -1);
-                        width: 5px;
-                        &#left {
-                            left: calc(var(--paddingX) * -1);
-                            transform-origin: top;
-                        }
-                        &#right {
-                            right: calc(var(--paddingX) * -1);
-                            transform-origin: bottom;
-                        }
-                    }
-                }
+            }
+            .emph {
+                color: var(--highlight-color);
+                font-style: italic;
             }
         }
     }

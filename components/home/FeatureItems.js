@@ -27,13 +27,13 @@ export function Item({ item, idx, viewport}){
 
     function transformContainer(arrowPosition){
         if(arrowPosition === 'topRight'){
-            return ['calc(-100% + 1rem)', 'calc(0% + 1rem)'];
+            return { transX: 'calc(-100% + 1rem)', transY: 'calc(0% + 1rem)', transO: 'top right'};
         } else if(arrowPosition === 'topLeft'){
-            return ['calc(-0% - 1rem)', 'calc(0% + 1rem)'];
+            return { transX: 'calc(-0% - 1rem)', transY: 'calc(0% + 1rem)', transO: 'top left'};
         } else if(arrowPosition === 'bottomRight'){
-            return ['calc(-100% + 1rem)', 'calc(0% - 1rem)'];
+            return { transX: 'calc(-100% + 1rem)', transY: 'calc(0% - 1rem)', transO: 'bottom right'};
         } else if(arrowPosition === 'bottomLeft'){
-            return ['calc(-0% - 1rem)', 'calc(-100% - 1rem)'];
+            return { transX: 'calc(-0% - 1rem)', transY: 'calc(-100% - 1rem)', transO: 'bottom left'};
         } else {
             return ['0', '0']
         }
@@ -42,8 +42,9 @@ export function Item({ item, idx, viewport}){
     const linkStyles = {
         left: item.focus.x,
         top: item.focus.y,
-        translateX: transformContainer(item.arrowPos)[0],
-        translateY: transformContainer(item.arrowPos)[1]
+        translateX: transformContainer(item.arrowPos).transX,
+        translateY: transformContainer(item.arrowPos).transY,
+        transformOrigin: transformContainer(item.arrowPos).transO
     };
 
     function closeIconLocation(arrowPos){
@@ -80,6 +81,7 @@ export function Item({ item, idx, viewport}){
                 style={linkStyles}
                 initial='close'
                 variants={transitions.scaleUp}
+                className={styles.tag}
             >   
                 <motion.div 
                     className={styles.iconContainer}    
@@ -88,13 +90,7 @@ export function Item({ item, idx, viewport}){
                 >
                     <FontAwesomeIcon size={viewport !== 'desktop' ? 'sm' : 'lg'} icon={['fas', 'shopping-bag']}/>
                 </motion.div>
-                <motion.p style={{ display: 'inline-block' }} variants={transitions.stagger}>{item.label.split('').map((letter, idx) => (
-                    <motion.span
-                        variants={transitions.fadeIn} 
-                        key={letter + idx}>
-                        {letter}
-                    </motion.span>
-                ))}</motion.p>
+                <motion.p style={{ display: 'inline-block' }}>{item.label}</motion.p>
                 <div style={arrowStyles[item.arrowPos]} className={styles.arrow}/>
                 <div style={closeIconLocation(item.arrowPos)} className={styles.closeIcon} onClick={handleClose}>
                     <FontAwesomeIcon icon={['fas', 'times-circle']} />

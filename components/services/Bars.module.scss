@@ -1,34 +1,39 @@
 #Bars {
     background-color: var(--secondary-color);
-    padding: 4rem 1rem;
-    position: relative;
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: .8;
-        background-image: url("../../public/imgs/textures/natural-paper.png");
-    }
     .contentContainer {
-        max-width: 900px;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: .8;
+            background-image: url("../../public/imgs/textures/natural-paper.png");
+        }
+        max-width: 1100px;
         margin: 0 auto;
+        padding: 4rem 1rem;
         @media screen and (min-width: 750px){
             display: grid;
             grid-template-columns: 3fr 2fr;
             grid-gap: 1rem;
         }
+        @media screen and (min-width: 990px){
+            padding-bottom: 8rem;
+        }
         header {
             text-align: left;
+            position: relative;
+            z-index: 1;
             @media screen and (min-width: 750px){
                 text-align: right;
             }
             h2 {
                 font-family: var(--serif-font);
-                font-size: 1.5rem;
-                letter-spacing: 1px;
+                font-size: 1.75rem;
+                line-height: 1.9rem;
                 margin-bottom: 1.5rem;
                 padding-left: .5rem;
                 border-left: 3px solid var(--highlight-color);
@@ -42,6 +47,8 @@
                     margin-left: auto;
                     max-width: 100%;
                     padding-left: 0;
+                    font-size: 2.25rem;
+                    line-height: 2.2rem;
                 }
                 @media screen and (min-width: 990px){
                     font-size: 2.75rem;
@@ -66,14 +73,18 @@
             p {
                 font-family: var(--main-font);
                 letter-spacing: 1px;
-                font-size: .8rem;
-                font-weight: 100;
+                font-size: .75rem;
+                font-weight: 300;
+                max-width: 90%;
                 @media screen and (min-width: 500px){
                     font-size: .9rem;
                 }
                 @media screen and (min-width: 750px){
                     max-width: 45vw;
                     margin-left: auto;
+                }
+                &:not(:last-of-type){
+                    margin-bottom: 1rem;
                 }
             }
         }
@@ -89,9 +100,8 @@
             }
             .imgContainer {
                 box-shadow: 5px 5px 12px rgba(0,0,0,.1);
-                overflow: hidden;
                 img {
-                    width: 100%
+                    width: 100%;
                 }
             }
             #top {
@@ -108,11 +118,15 @@
                     max-width: 225px;
                     top: 77%;
                 }
-                // img {
-                //     z-index: 1;
-                //     position: relative;
-                // }
+                @media screen and (min-width: 990px){
+                    max-width: 300px;
+                }
+                .galleryImg {
+                    position: relative;
+                    z-index: 2;
+                }
                 .desktopText {
+                    z-index: 1;
                     display: none;
                     @media screen and (min-width: 750px){
                         text-align: right;
@@ -123,20 +137,38 @@
                         transform: translateY(-50%);
                         width: 40vw;
                         max-width: 400px;
-                        font-family: var(--serif-font);
+                        font-family: var(--main-font);
+                        font-weight: 200;
+                        letter-spacing: 1px;
                         font-size: 1.5rem;
+                        line-height: 1.45rem;
                         margin-right: 2rem;
                         padding-right: 1.5rem;
                         border-right: 3px solid var(--highlight-color);
-                        color: var(--main-color-fade-less);
+                        color: var(--main-color);
                     }
+                }
+                .embellishment {
+                    display: none;
+                    @media screen and (min-width: 750px){
+                        display: block;
+                    }
+                    position: absolute;
+                    top: -25%;
+                    left: -25%;
+                    transform: rotate(-45deg);
                 }
             }
             #center {
                 width: 75vw;
                 max-width: 425px;
+                overflow: hidden;
                 @media screen and (min-width: 750px){
                     max-width: 350px;
+                    z-index: 1;
+                }
+                @media screen and (min-width: 990px){
+                    max-width: 425px;
                 }
             }
         }

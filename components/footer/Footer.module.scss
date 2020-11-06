@@ -3,7 +3,7 @@
     text-align: center;
     background-color: var(--secondary-color-fade);
     color: var(--main-color);
-    border-top: 5px solid var(--main-color-fade-less);
+    border-top: 3px solid var(--main-color-fade-less);
     padding: 2rem;
     .CTA_nav_container {
         display: flex;
@@ -15,6 +15,7 @@
         }
     }
     .nav {
+        font-family: var(--main-font);
         margin-bottom: 1rem;
         text-align: left;
         display: flex;
@@ -98,6 +99,7 @@
             font-size: 1.9rem;
             position: relative;
             color: var(--main-color);
+            line-height: 1.7rem;
             // white-space: nowrap;
         }
         button {
@@ -109,7 +111,8 @@
             background-color: var(--highlight-color);
             color: var(--secondary-color);
             font-family: var(--main-font);
-            letter-spacing: .5px;
+            letter-spacing: .1vw;
+            font-size: .65rem;
             font-weight: 600;
             transition: 350ms var(--ease);
             &:hover {
@@ -119,12 +122,12 @@
             }
         }
         p {
-            text-transform: uppercase;
+            // text-transform: uppercase;
             font-family: var(--main-font);
             font-weight: 400;
             font-size: .75rem;
             letter-spacing: 1px;
-            margin: .5rem 0 .75rem;
+            margin: .5rem 0 1.5rem;
             text-align: left;
         }
     }

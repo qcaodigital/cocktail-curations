@@ -1,7 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from '../styles/app.module.scss';
 import '../styles/globals.css';
+import '../styles/ivy_mode.css';
+import '../styles/saol_display.css';
+import '../styles/aktiv_grotesk.css';
 import Body from '../components/common/Body';
 
 import { library } from '@fortawesome/fontawesome-svg-core'

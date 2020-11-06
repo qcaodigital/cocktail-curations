@@ -6,6 +6,7 @@ import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import Rellax from 'rellax';
 import { useInView } from 'react-intersection-observer';
+import Spacer from './Spacer';
 
 const Classes = React.forwardRef(({}, ref) => {
     const headerRef = useRef();
@@ -16,12 +17,6 @@ const Classes = React.forwardRef(({}, ref) => {
 
     const imgRef = useRef();
     const imgInView = useInViewFromTop(imgRef, { threshold: .1 });
-
-    const spacerImgRef = useRef();
-    const spacerImgInView = useInViewFromTop(spacerImgRef, { threshold: .2 });  
-    useEffect(() => {
-        new Rellax(spacerImgRef.current, { speed: -1, center: true });
-    }, [])
 
     return(
         <section ref={ref} id={styles.Classes}>
@@ -45,24 +40,14 @@ const Classes = React.forwardRef(({}, ref) => {
                     <img className={styles.emb} src="/imgs/embellishments/dots.png" alt=""/>
                 </div>
                 <motion.div ref={blockQuoteRef} animate={blockQuoteInView ? 'animate' : 'initial'} className={styles.desktopText}>
-                    <motion.h3 variants={transitions.blockQuoteText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quia praesentium unde consequuntur fugiat ab, rem cum dolores nulla libero. Placeat tempore possimus dolorum modi?
+                    <motion.h3 variants={transitions.blockQuoteText}>Our cocktail classes are also available <span className={styles.emph}>virtually!</span> Have your guests learn proper ratios and techniques for crafting their own, perfect cocktail at home. 
                     </motion.h3>
                 </motion.div>
             </div>
-            <div className={styles.spacer}>
-                <div ref={spacerImgRef} className={styles.parallaxContainer}/>
-                <header>
-                    <motion.button animate={spacerImgInView ? 'animate' : 'initial'}>
-                        <motion.div variants={transitions.spacerButtonBorderX} id={styles.top} className={styles.borderX}/>
-                        <motion.div variants={transitions.spacerButtonBorderY} id={styles.left} className={styles.borderY}/>
-                        <Link href='/contact'>
-                            <a>Book a class today</a>
-                        </Link>
-                        <motion.div variants={transitions.spacerButtonBorderY} id={styles.right} className={styles.borderY}/>
-                        <motion.div variants={transitions.spacerButtonBorderX} id={styles.bottom} className={styles.borderX}/>
-                    </motion.button>
-                </header>
-            </div>
+            <Spacer 
+                img='/imgs/stock/services_page/classes_spacer_bg.jpg'
+                buttonText='Book a class today'    
+            />
         </section>
     )
 })

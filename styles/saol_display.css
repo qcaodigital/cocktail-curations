@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Saol Display';
+    src: url('../public/fonts/saol_display/SaolDisplay-LightItalic.eot');
+    src: local('SaolDisplay-LightItalic'),
+        url('../public/fonts/saol_display/SaolDisplay-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/saol_display/SaolDisplay-LightItalic.woff2') format('woff2'),
+        url('../public/fonts/saol_display/SaolDisplay-LightItalic.woff') format('woff'),
+        url('../public/fonts/saol_display/SaolDisplay-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saol Display';
+    src: url('../public/fonts/saol_display/SaolDisplay-Light.eot');
+    src: local('SaolDisplay-Light'),
+        url('../public/fonts/saol_display/SaolDisplay-Light.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/saol_display/SaolDisplay-Light.woff2') format('woff2'),
+        url('../public/fonts/saol_display/SaolDisplay-Light.woff') format('woff'),
+        url('../public/fonts/saol_display/SaolDisplay-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saol Display';
+    src: url('../public/fonts/saol_display/SaolDisplay-Regular.eot');
+    src: local('SaolDisplay-Regular'),
+        url('../public/fonts/saol_display/SaolDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/saol_display/SaolDisplay-Regular.woff2') format('woff2'),
+        url('../public/fonts/saol_display/SaolDisplay-Regular.woff') format('woff'),
+        url('../public/fonts/saol_display/SaolDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Saol Display';
+    src: url('../public/fonts/saol_display/SaolDisplay-SemiboldItalic.eot');
+    src: local('SaolDisplay-SemiboldItalic'),
+        url('../public/fonts/saol_display/SaolDisplay-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/saol_display/SaolDisplay-SemiboldItalic.woff2') format('woff2'),
+        url('../public/fonts/saol_display/SaolDisplay-SemiboldItalic.woff') format('woff'),
+        url('../public/fonts/saol_display/SaolDisplay-SemiboldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+

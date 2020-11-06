@@ -46,7 +46,6 @@
             align-items: center;
             text-align: center;;
             font-family: var(--main-font);
-            text-transform: uppercase;
             transition: 350ms ease;
             width: 90%;
             @media screen and (min-width: 750px){
@@ -57,10 +56,13 @@
                 opacity: .75;
             }
             h1 {
-                font-size: 2rem;
-                font-weight: 300;
+                font-size: 2.55rem;
+                font-weight: 400;
                 font-family: var(--serif-font);
-                letter-spacing: 2px;
+                letter-spacing: 0;
+                @media screen and (min-width: 750px){
+                    font-size: 3.25rem;
+                }
             }
             .services_list {
                 display: flex;

@@ -23,7 +23,7 @@ export default function Footer(){
                 </section>
                 <section className={styles.nav}>
                     <ul id={styles.contact} className={styles.nav__section}>
-                        <li><h3 className={styles.header}>Contact Us</h3></li>
+                        <li><h3 className={styles.header}>Reach Out</h3></li>
                         <li><p>Thy Parra</p></li>
                         <li><p>Founder</p></li>
                         <li><a className={styles.tel} href='tel:202 957 2846'>202.957.2846</a></li>

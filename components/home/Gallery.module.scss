@@ -48,14 +48,11 @@
             padding: 1.5rem;
             text-align: center;
             z-index: 20;
-            @media screen and (min-width: 750px){
-                padding: 2rem;
-                p {
-                    margin-bottom: 1rem;
-                }
-            }
             background-color: white;
             text-transform: uppercase;
+            @media screen and (min-width: 750px){
+                padding: 2rem;
+            }
             p {
                 margin-bottom: .5rem;
                 font-size: .75rem;
@@ -65,9 +62,10 @@
             }
             h3 {
                 display: inline;
-                font-size: 1.4rem;
-                letter-spacing: 1px;
                 font-family: var(--serif-font);
+                font-size: 1.5rem;
+                font-weight: 400;
+                text-transform: capitalize;
                 color: var(--main-color);
                 transition: 200ms cubic-bezier(.5, -.01, .16, .1);
                 position: relative;
@@ -85,10 +83,6 @@
                     transform-origin: left;
                     transform: scaleX(1);
                 }
-                // &.inView::after {
-                //     transition: 1000ms ease 1000ms;
-                //     transform: scaleX(1);
-                // }
             }
         }            
     }

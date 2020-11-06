@@ -25,21 +25,6 @@ transitions.infoButton = {
     }
 }
 
-transitions.fadeIn = {
-    close: {
-        display: 'none',
-        transition: {
-            duration: 0
-        }
-    },
-    open: {
-        display: 'inline',
-        transition: {
-            duration: .2
-        }
-    }
-}
-
 transitions.stagger = {
     close: {
         transition: {
