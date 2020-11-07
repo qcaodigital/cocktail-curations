@@ -1,17 +1,24 @@
 #Copy {
     padding: 4rem 2rem 55vw;
+    position: relative;
+    border-bottom: 1px solid var(--main-color-fade-more);
+    background-color: #F1F2EB;
     @media screen and (min-width: 750px){
         padding-bottom: 15vw;
     }
-    background-color: #F1F2EB;
     &::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        // z-index: 100;
+        top: 100%;
         left: 50%;
-        width: 0;
-        height: 0;
-        border-bottom: 10px solid #F1F2EB;
+        transform: translate(-50%, calc(-50% + 1px)) rotate(45deg);
+        width: 15px;
+        height: 15px;
+        display: block;
+        border-right: 1px solid var(--main-color-fade-more);
+        border-bottom: 1px solid var(--main-color-fade-more);
+        background-color: #F1F2EB;
     }
     .headerSection {
         text-align: center;

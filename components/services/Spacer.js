@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import transitions from './transitions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Spacer({ img, buttonText }){
     const imgRef = useRef();
@@ -18,13 +19,11 @@ export default function Spacer({ img, buttonText }){
             <div ref={imgRef} className={styles.parallaxContainer} style={{backgroundImage: `url(${img})`}}/>
             <header>
                 <motion.button animate={imgInView ? 'animate' : 'initial'}>
-                    <motion.div variants={transitions.spacerButtonBorderX} id={styles.top} className={styles.borderX}/>
-                    <motion.div variants={transitions.spacerButtonBorderY} id={styles.left} className={styles.borderY}/>
                     <Link href='/contact'>
-                        <a>{buttonText}</a>
+                        <a>{buttonText}
+                            <div className={styles.underline}/>
+                        </a>
                     </Link>
-                    <motion.div variants={transitions.spacerButtonBorderY} id={styles.right} className={styles.borderY}/>
-                    <motion.div variants={transitions.spacerButtonBorderX} id={styles.bottom} className={styles.borderX}/>
                 </motion.button>
             </header>
         </div>

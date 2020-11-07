@@ -35,92 +35,83 @@
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-        --paddingY: 1rem;
-        --paddingX: 1.33rem;
-        --btn-color: var(--secondary-color);
-        background-color: var(--main-color-fade-more-2x);
-        @media screen and (min-width: 750px){
-            --paddingY: 1rem;
-            --paddingX: 1.5rem;
-        }
         button {
             position: relative;
-            display: flex;
-            justify-content: center;
+            padding: 0 1.5rem;
+            @media screen and (min-width: 750px){
+                padding: 0 3rem;
+            }
+            svg {
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                color: white;
+            }
             a {
                 overflow: hidden;
                 display: inline-block;
                 position: relative;
-                color: var(--btn-color);
-                font-family: var(--main-font);
+                color: white;
+                font-family: var(--serif-font);
                 text-transform: uppercase;
+                font-size: 1.2rem;
                 font-weight: 600;
                 letter-spacing: 1px;
                 padding: var(--paddingY) var(--paddingX);
                 white-space: nowrap;
+                // text-decoration: underline;
                 transition: 500ms var(--ease);
                 @media screen and (min-width: 750px){
                     font-family: var(--serif-font);
                     text-transform: capitalize;
-                    letter-spacing: 2px;
+                    letter-spacing: -.75px;
                     font-weight: 600;
-                    font-size: 1.5rem;
+                    font-size: 2.5rem;
                 }
-                &::after,
-                &::before {
-                    content: '>';
-                    display: inline-block;
-                    font-family: var(--main-font);
-                    font-weight: 400;
-                    margin-left: .5rem;
-                    transition: 500ms var(--ease);
-                }
-                &::before {
-                    margin-left: 0;
-                    margin-right: .5rem;
-                    transform: translateX(-400%);
-                }
-                transform: translateX(-.5rem);
-                &:hover {
-                    transform: translateX(.5rem);
-                    transition-delay: 350ms;
-                    &::before {
-                        transform: translateX(0);
-                        transition-delay: 300ms;
+                .underline {
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0;
+                    left: 0;
+                    height: 1px;
+                    background-color: white;
+                    @media screen and (min-width: 750px){
+                        bottom: 2px;
                     }
-                    &::after {
-                        transform: translateX(400%);
-                    }
-                }       
+                }  
             }
-            div {
-                background-color: var(--btn-color);
+            &::before,
+            &::after {
+                content: '';
                 position: absolute;
-                pointer-events: none;
-                &.borderX {
-                    width: calc(100% + 10px);
-                    height: 5px;
-                    &#top {
-                        top: 100%;
-                        transform-origin: right;
-                    }
-                    &#bottom {
-                        bottom: 100%;
-                        transform-origin: left;
-                    }
+                height: 1px;
+                width: 40vw;
+                background-color: white;
+                top: 50%;
+                transition: transform 350ms var(--ease);
+            }
+            &::before {
+                right: 100%;
+                transform-origin: right;
+            }
+            &::after {
+                left: 100%;
+                transform-origin: left;
+            }
+            transition: transform 350ms var(--ease);
+            &:hover {
+                &::before {
+                    transform: scaleX(0);
                 }
-                &.borderY {
-                    height: calc(100% + 0px);
-                    width: 5px;
-                    &#left {
-                        right: 100%;
-                        transform-origin: top;
-                    }
-                    &#right {
-                        left: 100%;
-                        transform-origin: bottom;
-                    }
+                &::after {
+                    transform: scaleX(0);
                 }
+                .underline {
+                    transition: 350ms ease 325ms;
+                    transform: scaleX(0);
+                }
+                transition: transform 350ms var(--ease) 350ms;
+                transform: scale(1.05);
             }
         }
     }

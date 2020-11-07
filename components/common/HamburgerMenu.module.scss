@@ -58,8 +58,8 @@
         text-transform: uppercase;
         font-family: var(--main-font);
         font-weight: 600;
-        letter-spacing: 2px;
-        color: black;
+        letter-spacing: .5px;
+        color: var(--main-color);
         .link {
             display: flex;
             &::before {
@@ -89,6 +89,10 @@
             &.active {
                 color: white;
                 pointer-events: none;
+            }
+            &:hover {
+                transition: 150ms linear;
+                color: white;
             }
         }
     }
