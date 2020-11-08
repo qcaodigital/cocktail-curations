@@ -103,23 +103,7 @@
             // white-space: nowrap;
         }
         button {
-            display: block;
-            padding: .75rem 1.5rem;
-            text-transform: uppercase;
-            border: 1px solid transparent;
-            box-shadow: 5px 5px 10px rgba(0,0,0,.1);
-            background-color: var(--highlight-color);
-            color: var(--secondary-color);
-            font-family: var(--main-font);
-            letter-spacing: .1vw;
-            font-size: .65rem;
-            font-weight: 600;
-            transition: 350ms var(--ease);
-            &:hover {
-                color: var(--main-color);
-                background-color: transparent;
-                border: 1px solid var(--main-color);
-            }
+            
         }
         p {
             // text-transform: uppercase;

@@ -72,7 +72,7 @@ transitions.blockQuoteText_bars = {
     }
 }
 
-transitions.mainServiceImgScale = {
+transitions.mainImgScale = {
     animate: {
         scale: 1,
         transition: {
@@ -83,7 +83,7 @@ transitions.mainServiceImgScale = {
     initial: {
         scale: 1.15,
         transition: {
-            duration: 1.5
+            duration: .5
         }
     }
 }

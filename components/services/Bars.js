@@ -27,7 +27,7 @@ const Bars = React.forwardRef((props, ref) => {
                 </motion.header>
                 <div className={styles.gallery}>
                     <div id={styles.center} className={styles.imgContainer}>
-                        <motion.img variants={transitions.mainServiceImgScale} animate={headerInView ? 'animate' : 'initial'} src="/imgs/stock/services_page/bars_main.jpg" alt="Cocktail Curations Wedding Wire The Knot Event"/>
+                        <motion.img variants={transitions.mainImgScale} animate={headerInView ? 'animate' : 'initial'} src="/imgs/stock/services_page/bars_main.jpg" alt="Cocktail Curations Wedding Wire The Knot Event"/>
                     </div>
                     <div id={styles.top} className={styles.imgContainer}>
                         <img className={styles.galleryImg} src="/imgs/stock/services_page/bars-sq.jpg" alt="Cocktail Curations Book of Lists Event 2020"/>
@@ -46,6 +46,7 @@ const Bars = React.forwardRef((props, ref) => {
             <Spacer
                 img='/imgs/stock/services_page/bars_spacer_bg.jpg'
                 buttonText='Inquire About Booking'
+                href='/contact'
             />
         </section>
     )

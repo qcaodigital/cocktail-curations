@@ -91,12 +91,14 @@ export default function Home(){
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2, duration: .75 }}
                 >
-                    <motion.button className={`${styles.CTA} ${styles.black}`}>
+                    <motion.button className='STYLED_BTN' style={{
+                        backgroundColor: 'var(--main-color)'
+                    }}>
                         <Link href='/about'>
                             <a>Learn About Us</a>
                         </Link>
                     </motion.button>
-                    <motion.button className={styles.CTA}>
+                    <motion.button className='STYLED_BTN'>
                         <a href="http://www.cocktailcurations-shop.com" target='_blank'>Shop Our Products</a>
                     </motion.button>
                 </motion.div>

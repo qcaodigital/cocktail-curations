@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import styles from './Bases.module.scss';
 import { motion } from 'framer-motion';
 import transitions from './transitions';
@@ -8,6 +8,9 @@ import Spacer from './Spacer';
 
 const Bases = React.forwardRef((props, ref) => {
     const inView = useInViewFromTop(ref, { threshold: .1 });
+    
+    const mainImgRef = useRef();
+    const mainImgInView = useInViewFromTop(mainImgRef, { threshold: .1 })
 
     return(
         <section ref={ref} id={styles.Bases}>
@@ -27,15 +30,15 @@ const Bases = React.forwardRef((props, ref) => {
                     botanicals, handcrafted simple syrups and bitters delivered to your door.</motion.p>
                     <motion.p variants={transitions.headerVariantDelayed}>We will work with you to craft a deliciously, special flavor for your next event. Our cocktail bases are also available in pre-made, curated flavors kept in limited stock. Follow the link below to check out out latest bases!</motion.p>
                     <motion.div variants={transitions.opacity} className={styles.CTA}>
-                        <button>
+                        <button className='STYLED_BTN'>
                             <a href='www.cocktailcurations-shop.com' target='_blank' rel='noopener noreferrer'>Shop Bases</a>
                         </button>
                     </motion.div>
                 </motion.header>
                 <div className={styles.gallery}>
-                    <div id={styles.main} className={styles.imgContainer}>
-                        <img src="/imgs/stock/services_page/bases.jpg" alt="Cocktail Curations Base"/>
-                    </div>
+                    <motion.div ref={mainImgRef} animate={mainImgInView ? 'animate' : 'initial'} id={styles.main} className={styles.imgContainer}>
+                        <motion.img variants={transitions.mainImgScale} src="/imgs/stock/services_page/bases.jpg" alt="Cocktail Curations Base"/>
+                    </motion.div>
                     <div id={styles.secondary} className={styles.imgContainer}>
                         <img src="/imgs/stock/services_page/bases_sm.jpg" alt="Cocktail Curations Base"/>
                     </div>

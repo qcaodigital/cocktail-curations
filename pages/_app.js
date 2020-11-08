@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import '../styles/globals.css';
+import '../styles/variables.css';
+import '../styles/common_styles.scss';
 import '../styles/ivy_mode.css';
 import '../styles/saol_display.css';
 import '../styles/aktiv_grotesk.css';

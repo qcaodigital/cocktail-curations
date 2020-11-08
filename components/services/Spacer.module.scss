@@ -1,31 +1,22 @@
 .spacer {
-    height: 75vw;
+    height: 40vh;
     overflow: hidden;
     position: relative;
     @media screen and (min-width: 750px){
-        height: 60vh;
+        height: 50vh;
     }
     .parallaxContainer {
         position: absolute;
-        top: 0;
+        bottom: -15%;
         left: 0;
         right: 0;
         z-index: 0;
-        min-height: 90vw;
+        height: 60vh;
         background-size: cover;
         background-position: center bottom;
         opacity: .5;
-        &::after {
-            // content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,.15);
-        }
         @media screen and (min-width: 750px){
-            min-height: 70vh;
+            height: 65vh;
         }
     }
     header {
@@ -88,7 +79,7 @@
                 width: 40vw;
                 background-color: white;
                 top: 50%;
-                transition: transform 350ms var(--ease);
+                transition: transform 350ms var(--ease) 250ms;
             }
             &::before {
                 right: 100%;
@@ -107,10 +98,10 @@
                     transform: scaleX(0);
                 }
                 .underline {
-                    transition: 350ms ease 325ms;
+                    transition: 350ms ease 600ms;
                     transform: scaleX(0);
                 }
-                transition: transform 350ms var(--ease) 350ms;
+                transition: transform 350ms var(--ease);
                 transform: scale(1.05);
             }
         }

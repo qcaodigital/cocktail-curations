@@ -80,20 +80,12 @@
                 @media screen and (min-width: 500px){
                     font-size: .9rem;
                 }
-                // &:not(:last-of-type){
-                // }
             }
             .CTA {
                 margin-top: 1.25rem;
                 button {
                     background-color: var(--highlight-color);
                     color: var(--secondary-color);
-                    padding: .75rem 2rem;
-                    font-size: .6rem;
-                    font-family: var(--main-font);
-                    letter-spacing: .1vw;
-                    text-transform: uppercase;
-                    font-weight: 600;
                 }
             }
         }
@@ -107,6 +99,7 @@
             }
             .imgContainer {
                 box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+                overflow: hidden;
                 img {
                     width: 100%;
                 }

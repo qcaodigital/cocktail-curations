@@ -30,7 +30,7 @@ const Classes = React.forwardRef(({}, ref) => {
                     <motion.p variants={transitions.headerVariantDelayed}>We will teach your guests how to craft cocktail classics or customize a cocktail based on your group’s theme or preference. Cocktail Curations will provide instructors, barware, cocktail utensils, and all additional natural juices, handcraft mixers and garnishes.</motion.p>
                 </motion.header>
                 <div className={styles.imgContainer} id={styles.first}>
-                    <motion.img ref={imgRef} animate={{ scale: imgInView ? 1 : 1.2}} transition={{ duration: 2, ease: [.38, .25, 0, 1]}}src="/imgs/stock/services_page/classes.jpg" alt="Cocktail Curations Class Kentlands Clubhouse"/>
+                    <motion.img ref={imgRef} animate={imgInView ? 'animate' : 'initial'} variants={transitions.mainImgScale} src="/imgs/stock/services_page/classes.jpg" alt="Cocktail Curations Class Kentlands Clubhouse"/>
                 </div>
                 <div className={styles.imgContainer} id={styles.second}>
                     <img src="/imgs/stock/services_page/classes2.jpg" alt="Cocktail Curations Class Kentlands Clubhouse"/>
@@ -46,7 +46,8 @@ const Classes = React.forwardRef(({}, ref) => {
             </div>
             <Spacer 
                 img='/imgs/stock/services_page/classes_spacer_bg.jpg'
-                buttonText='Book a class today'    
+                buttonText='Book a class today'
+                href='/contact'    
             />
         </section>
     )

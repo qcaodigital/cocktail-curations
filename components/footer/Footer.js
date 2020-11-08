@@ -16,7 +16,7 @@ export default function Footer(){
                     <h5>Curate your <span style={{display: 'inline-block'}}>experience today.</span></h5>
                     <p>Join the hundreds of people who've enjoyed a marvelous beverage with us.</p>
                     <Link href='/contact'>
-                        <button>
+                        <button className='STYLED_BTN'>
                             <a>Contact Us Now</a>
                         </button>
                     </Link>
