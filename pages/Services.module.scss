@@ -78,8 +78,25 @@
                     letter-spacing: 1px;
                     font-weight: 300;
                     font-size: .9rem;
-                    padding-bottom: 2px;
-                    border-bottom: 1px solid var(--main-color);
+                    position: relative;
+                    transition: transform 350ms var(--ease), opacity 350ms ease;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        bottom: -2px;
+                        left: 0;
+                        height: 1px;
+                        background-color: var(--main-color);
+                        transform-origin: inherit;
+                        transition: inherit;
+                    }
+                    &:hover {
+                        opacity: .5;
+                        &::after {
+                            transform: scaleX(0);
+                        }
+                    }
                 }
             }
             &::before,

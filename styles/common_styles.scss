@@ -32,3 +32,16 @@
         }
     }
 }
+
+.DISABLED_LINK {
+    pointer-events: none;
+}
+
+.BOLD_TEXT {
+    font-family: var(--main-font);
+    font-size: 2.778vw;
+    line-height: 4.168vw;
+    letter-spacing: 0.35vw;
+    font-weight: 700;
+    text-transform: uppercase;
+}

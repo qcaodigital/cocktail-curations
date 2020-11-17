@@ -1,15 +1,17 @@
 import { useEffect, useRef } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
-import styles from './Services.module.scss';
+import styles from './services.module.scss';
 import { NAV_SPACER } from '../components/common/Body';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Rellax from 'rellax';
 import Copy from '../components/services/Copy';
 import Classes from '../components/services/Classes'
 import Bars from '../components/services/Bars';
 import Bases from '../components/services/Bases';
+import constructRellax from '../helpers/constructRellax';
+import MouseDirection from '../components/HOC/MouseDirection';
+import smoothscroll from 'smoothscroll';
+import { landingTransitions } from '../page_transitions/services';
 
 export default function Services(){
     const backgroundRellax = useRef();
@@ -17,13 +19,8 @@ export default function Services(){
     const barsRef = useRef();
     const basesRef = useRef();
 
-    useEffect(() => {
-        new Rellax(backgroundRellax.current, {speed: -5})
-    }, [])
-
-    function handleNavClick(ref){
-        window.scrollTo({top: ref.current.offsetTop, behavior: 'smooth'})
-    }
+    useEffect(() => constructRellax(backgroundRellax, {speed: -5}), [])
+    const handleNavClick = (ref) => smoothscroll(ref.current.offsetTop, 1250);
 
     return(
         <>
@@ -38,18 +35,20 @@ export default function Services(){
             <div className={styles.backgroundContainer}>
                 <div ref={backgroundRellax} className={styles.background}/>
             </div>
-            <section className={styles.landing}>
+            <motion.section animate='animate' initial='initial' className={styles.landing}>
                 <NAV_SPACER />
-                <div className={styles.services_box}>
-                    <FontAwesomeIcon size='2x' icon={['fas', 'glass-cheers']}/>
-                    <h1>Our Services</h1>
-                    <ul className={styles.services_list}>
-                        <li onClick={() => handleNavClick(classesRef)}>Cocktail Classes</li>
-                        <li onClick={() => handleNavClick(barsRef)}>Experiential Bars</li>
-                        <li onClick={() => handleNavClick(basesRef)}>Cocktail Bases</li>
-                    </ul>
-                </div>
-            </section>
+                <motion.div variants={landingTransitions.serviceBox} className={styles.services_box}>
+                    <motion.div variants={landingTransitions.serviceBoxChildren}>
+                        <FontAwesomeIcon size='2x' icon={['fas', 'glass-cheers']}/>
+                    </motion.div>
+                    <motion.h1 variants={landingTransitions.serviceBoxChildren}>Our Services</motion.h1>
+                    <motion.ul variants={landingTransitions.serviceBoxChildren} className={styles.services_list}>
+                        <MouseDirection><li onClick={() => handleNavClick(classesRef)}>Cocktail Classes</li></MouseDirection>
+                        <MouseDirection><li onClick={() => handleNavClick(barsRef)}>Experiential Bars</li></MouseDirection>
+                        <MouseDirection><li onClick={() => handleNavClick(basesRef)}>Cocktail Bases</li></MouseDirection>
+                    </motion.ul>
+                </motion.div>
+            </motion.section>
             <Copy />
             <Bars ref={barsRef}/>
             <Classes ref={classesRef}/>

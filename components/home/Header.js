@@ -3,30 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import { headerTransitions } from '../../page_transitions/home';
+import PropTypes from 'prop-types';
 
-const container = {
-    outOfView: {
-        opacity: 0
-    },
-    inView: {
-        opacity: 1,
-        transition: {
-            staggerChildren: .35,
-            duration: 1,
-            delay: .3
-        }
-    }
+Header.propTypes = {
+    header: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
 }
-
-const fadeIn = {
-    outOfView: {
-        opacity: 0
-    },
-    inView: {
-        opacity: 1
-    }
-}
-
 
 export default function Header({ header, text }){
     const ref = useRef();
@@ -36,13 +19,13 @@ export default function Header({ header, text }){
         <motion.header 
             ref={ref} 
             className={styles.Header}
-            variants={container}
+            variants={headerTransitions.container}
             animate={inView ? 'inView' : 'outOfView' }
         >
-            <motion.h3 variants={fadeIn}>Cocktail Curations</motion.h3>
-            <motion.h4 variants={fadeIn}>{ header }</motion.h4>
-            <motion.p variants={fadeIn}>{ text }</motion.p>
-            <motion.div variants={fadeIn}>
+            <motion.h3 variants={headerTransitions.text}>Cocktail Curations</motion.h3>
+            <motion.h4 variants={headerTransitions.text}>{ header }</motion.h4>
+            <motion.p variants={headerTransitions.text}>{ text }</motion.p>
+            <motion.div variants={headerTransitions.text}>
                 <FontAwesomeIcon icon={['fas', 'glass-martini-alt']}/>
             </motion.div>
         </motion.header>

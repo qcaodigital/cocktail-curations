@@ -2,11 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { navList } from '../common/Body';
+import PropTypes from 'prop-types';
 
-export default function Footer(){
+Footer.propTypes = {
+    navList: PropTypes.array.isRequired
+}
+
+export default function Footer({ navList }){
     const footerNav = navList.map(link => (
-        <li key={link.label}><Link href={link.href}>{link.label}</Link></li>
+        <li key={link.label}>
+            <Link href={link.href}><a className={link.active ? styles.active : null}>{link.label}</a></Link>
+        </li>
     ))
 
     return(

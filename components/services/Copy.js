@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import Rellax from 'rellax';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
-import transitions from '../../page_transitions/services';
+import { copyTransitions } from '../../page_transitions/services';
 import styles from './Copy.module.scss';
 
 export default function Copy(){
@@ -53,15 +53,15 @@ export default function Copy(){
                     {viewport !== 'mobile' && <motion.div 
                         className={styles.galleryTextRight}
                         animate={inView ? 'animate' : 'initial'}
-                        variants={transitions.stagger}
+                        variants={copyTransitions.stagger}
                     >
-                        <motion.p variants={transitions.copyTextboxVariant}>Reach out to us</motion.p>
-                        <motion.p variants={transitions.copyTextboxVariant}>and see what we can do</motion.p>
-                        <motion.p variants={transitions.copyTextboxVariant}>just for you</motion.p>
+                        <motion.p variants={copyTransitions.textboxVariant}>Reach out to us</motion.p>
+                        <motion.p variants={copyTransitions.textboxVariant}>and see what we can do</motion.p>
+                        <motion.p variants={copyTransitions.textboxVariant}>just for you</motion.p>
                         <Link href='/contact'>
-                            <motion.a variants={transitions.copyTextboxVariant}>
+                            <motion.a variants={copyTransitions.textboxVariant}>
                                 <p>Contact Us</p>
-                                <motion.div variants={transitions.ctaUnderlineVariant}/>
+                                <motion.div variants={copyTransitions.ctaUnderlineVariant}/>
                             </motion.a>
                         </Link>
                     </motion.div>}

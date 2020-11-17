@@ -7,7 +7,7 @@
     }
     .parallaxContainer {
         position: absolute;
-        bottom: -15%;
+        bottom: -5%;
         left: 0;
         right: 0;
         z-index: 0;
@@ -39,25 +39,26 @@
                 color: white;
             }
             a {
-                overflow: hidden;
                 display: inline-block;
                 position: relative;
-                color: white;
-                font-family: var(--serif-font);
-                text-transform: uppercase;
-                font-size: 1.2rem;
-                font-weight: 600;
-                letter-spacing: 1px;
-                padding: var(--paddingY) var(--paddingX);
-                white-space: nowrap;
-                // text-decoration: underline;
                 transition: 500ms var(--ease);
-                @media screen and (min-width: 750px){
+                P {
+                    color: white;
                     font-family: var(--serif-font);
-                    text-transform: capitalize;
-                    letter-spacing: -.75px;
+                    text-transform: uppercase;
+                    font-size: 1.2rem;
                     font-weight: 600;
-                    font-size: 2.5rem;
+                    letter-spacing: 1px;
+                    padding: var(--paddingY) var(--paddingX);
+                    white-space: nowrap;
+                    text-shadow: 0 0 4px rgba(0,0,0,.15);
+                    @media screen and (min-width: 750px){
+                        font-family: var(--serif-font);
+                        text-transform: capitalize;
+                        letter-spacing: -.75px;
+                        font-weight: 600;
+                        font-size: 2.5rem;
+                    }
                 }
                 .underline {
                     position: absolute;
@@ -71,8 +72,8 @@
                     }
                 }  
             }
-            &::before,
-            &::after {
+            .beforeLine,
+            .afterLine {
                 content: '';
                 position: absolute;
                 height: 1px;
@@ -81,28 +82,30 @@
                 top: 50%;
                 transition: transform 350ms var(--ease) 250ms;
             }
-            &::before {
+            .beforeLine {
                 right: 100%;
                 transform-origin: right;
             }
-            &::after {
+            .afterLine {
                 left: 100%;
                 transform-origin: left;
             }
             transition: transform 350ms var(--ease);
             &:hover {
-                &::before {
+                .beforeLine {
                     transform: scaleX(0);
                 }
-                &::after {
+                .afterLine {
                     transform: scaleX(0);
                 }
                 .underline {
                     transition: 350ms ease 600ms;
                     transform: scaleX(0);
                 }
-                transition: transform 350ms var(--ease);
-                transform: scale(1.05);
+                p {
+                    transform: scale(1.05) !important;
+                    transition: transform 350ms var(--ease);
+                }
             }
         }
     }

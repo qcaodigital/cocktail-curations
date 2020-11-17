@@ -3,7 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import transitions from './FeatureItemsTransitions';
+import { featureTransitions } from '../../page_transitions/home';
+import PropTypes from 'prop-types';
+
+FeatureItems.propTypes = {
+    items: PropTypes.array.isRequired,
+    viewport: PropTypes.string.isRequired
+}
 
 export default function FeatureItems({ items, viewport }){
     return(
@@ -80,12 +86,12 @@ export function Item({ item, idx, viewport}){
                 target='_blank' 
                 style={linkStyles}
                 initial='close'
-                variants={transitions.scaleUp}
+                variants={featureTransitions.scaleUp}
                 className={styles.tag}
             >   
                 <motion.div 
                     className={styles.iconContainer}    
-                    variants={transitions.scaleUp}  
+                    variants={featureTransitions.scaleUp}  
                     transition={{delay: .25, duration: .1}}    
                 >
                     <FontAwesomeIcon size={viewport !== 'desktop' ? 'sm' : 'lg'} icon={['fas', 'shopping-bag']}/>
@@ -97,7 +103,7 @@ export function Item({ item, idx, viewport}){
                 </div>
             </motion.a>
             <motion.div 
-                variants={transitions.infoButton} 
+                variants={featureTransitions.infoButton} 
                 onClick={() => setLinkOpen(true)} 
                 className={styles.infoButton}
             >

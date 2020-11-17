@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { StateContext, NAV_SPACER } from '../components/common/Body';
 import Head from 'next/head';
-import styles from './Home.module.scss';
+import styles from './home.module.scss';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Gallery from '../components/home/Gallery';
 import Header from '../components/home/Header';
 import FeatureItems from '../components/home/FeatureItems';
 import { motion } from 'framer-motion';
-import transitions from '../page_transitions/home';
-import Rellax from 'rellax';
+import transitions, { landingTransitions } from '../page_transitions/home';
+import constructRellax from '../helpers/constructRellax';
+import smoothscroll from 'smoothscroll';
 
 const feature_row_items = [
     {
@@ -52,62 +53,62 @@ export default function Home(){
     const landingSectionRef = useRef();
 
     const bgRef = useRef();
-    useEffect(() => {
-        new Rellax(bgRef.current, { speed: -6 });
-    }, [])
+    useEffect(() => constructRellax(bgRef, { speed: -6 }), [])
 
     return(
         <>
         <Head>
             <title>Home | Cocktail Curations</title>
         </Head>
-        <motion.main id={styles.Home} exit={{ opacity: 0 }} transition={{ duration: .5 }}>
+        <motion.main id={styles.Home}
+            exit={{ opacity: 0 }} 
+            transition={{ duration: .5 }}
+        >
             <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: .8 }} 
-                transition={{ delay: 0, duration: 1 }} 
+                initial='initial'
+                animate='animate'
+                variants={landingTransitions.background}
                 className={styles.backgroundContainer}
             >
                 <div ref={bgRef} className={styles.background}/>
             </motion.div>
-            <section ref={ landingSectionRef } className={styles.landing}>
+            <motion.section 
+                ref={landingSectionRef} 
+                className={styles.landing}
+                animate='animate'
+                initial='initial'
+            >
                 <NAV_SPACER/>
                 <div className={styles.headingContainer}>
                     <motion.h1 
-                        variants={transitions.headingContainer}
-                        initial='initial'
-                        animate='animate'
+                        variants={landingTransitions.headingContainer}
                         className={styles.heading}
                     >
-                        <motion.div variants={transitions.fadeUp} className={styles.small}>Beatifully crafted</motion.div>
-                        <motion.div variants={transitions.fadeUp}>cocktail bars</motion.div>
-                        <motion.div variants={transitions.fadeUp}><span className={styles.it}>—for</span>corporate</motion.div>
-                        <motion.div variants={transitions.fadeUp}><span className={styles.it}>and</span> private events</motion.div>
+                        <motion.div variants={landingTransitions.textFadeUp} className={styles.small}>Beatifully crafted</motion.div>
+                        <motion.div variants={landingTransitions.textFadeUp}>cocktail bars</motion.div>
+                        <motion.div variants={landingTransitions.textFadeUp}><span className={styles.it}>—for</span>corporate</motion.div>
+                        <motion.div variants={landingTransitions.textFadeUp}><span className={styles.it}>and</span> private events</motion.div>
                     </motion.h1>
                 </div>
                 <motion.div 
                     className={styles.CTAContainer}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2, duration: .75 }}
+                    variants={landingTransitions.CTAContainer}
                 >
-                    <motion.button className='STYLED_BTN' style={{
+                    <button className='STYLED_BTN' style={{
                         backgroundColor: 'var(--main-color)'
                     }}>
                         <Link href='/about'>
                             <a>Learn About Us</a>
                         </Link>
-                    </motion.button>
-                    <motion.button className='STYLED_BTN'>
+                    </button>
+                    <button className='STYLED_BTN'>
                         <a href="http://www.cocktailcurations-shop.com" target='_blank'>Shop Our Products</a>
-                    </motion.button>
+                    </button>
                 </motion.div>
                 <motion.div 
-                    onClick={() => window.scrollTo({ top: landingSectionRef.current.offsetTop + landingSectionRef.current.offsetHeight - 100, behavior: 'smooth' })}
+                    onClick={() => smoothscroll(landingSectionRef.current.offsetTop + landingSectionRef.current.offsetHeight - 100, 1250)}
                     className={styles.chevronContainer}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2, duration: .75 }}
+                    variants={landingTransitions.CTAContainer}
                 >
                     <div className={styles.arrow}>
                         <div className={styles.chevron}></div>
@@ -118,7 +119,7 @@ export default function Home(){
                         <div className={styles.chevron}></div>
                     </div>
                 </motion.div>
-            </section>
+            </motion.section>
             <section className={styles.info}>
                 <Header header="Curate— it's in our name." text='We provide a wide range of knowledge and services, including technical education and training in: spirits, mixology, and recipe creation, developing cocktail menus, designing thoughtfully garnished cocktail, and curating mind-blowing cocktails with or without alcohol.'/>
                 <Gallery 

@@ -3,7 +3,13 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { StateContext } from '../common/Body';
-import transitions from './GalleryTransitions';
+import { galleryTransitions } from '../../page_transitions/home';
+import PropTypes from 'prop-types';
+
+Gallery.propTypes = {
+    imgs: PropTypes.array.isRequired,
+    reverse: PropTypes.bool
+}
 
 export default function Gallery({ imgs, reverse }){
     const state = useContext(StateContext);
@@ -18,11 +24,11 @@ export default function Gallery({ imgs, reverse }){
                 const [ref, inView] = useInView({ threshold: .2, triggerOnce: true });
                 let variant;
                 if(viewport === 'mobile') {
-                    variant = transitions.mobileTransition;
+                    variant = galleryTransitions.mobileTransition;
                 } else if(!reverse && img.card || reverse && !img.card) {
-                    variant = transitions.panFromRight
+                    variant = galleryTransitions.panFromRight
                 } else if(!reverse && !img.card || reverse && img.card) {
-                    variant = transitions.panFromLeft
+                    variant = galleryTransitions.panFromLeft
                 } 
 
                 return (
@@ -41,7 +47,7 @@ export default function Gallery({ imgs, reverse }){
                             </a>
                         </figcaption>
                         )}
-                        <motion.img variants={transitions.scale} src={img.url} alt={img.alt}/>
+                        <motion.img variants={galleryTransitions.scale} src={img.url} alt={img.alt}/>
                     </motion.div>
                 )
             })}

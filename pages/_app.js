@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import '../styles/globals.css';
 import '../styles/variables.css';
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, router }) {
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
             </Head>
             <Body router={router}>
-                <Component {...pageProps} key={router.route} router={router}/>
+                <Component {...pageProps} key={router.route}/>
             </Body>
         </>
     )

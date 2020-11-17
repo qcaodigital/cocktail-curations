@@ -1,5 +1,11 @@
 import React from 'react';
 import styles from './Loadingscreen.module.scss';
+import PropTypes from 'prop-types';
+
+Loadingscreen.propTypes = {
+    turnOffLoading: PropTypes.func.isRequired
+}
+
 
 export default function Loadingscreen({ turnOffLoading }){
     setTimeout(() => {

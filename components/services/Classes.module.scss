@@ -69,6 +69,9 @@
                     line-height: 2.75rem;
                 }
                 span {
+                    &:not(.emp) {
+                        text-shadow: 0 0 4px rgba(0,0,0,.1);
+                    }
                     &::before {
                         content: ' ';
                     }

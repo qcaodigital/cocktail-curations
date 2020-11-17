@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Classes.module.scss';
-import transitions from './transitions';
+import { sectionTransitions } from '../../page_transitions/services';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import Rellax from 'rellax';
@@ -22,15 +22,15 @@ const Classes = React.forwardRef(({}, ref) => {
         <section ref={ref} id={styles.Classes}>
             <div className={styles.contentContainer}>
                 <motion.header ref={headerRef} animate={headerInView ? 'animate' : 'initial'}>
-                    <motion.h2 variants={transitions.stagger}>
-                        <motion.span variants={transitions.headerVariant}>Elevate your bartending</motion.span> 
-                        <motion.span variants={transitions.headerVariant}>knowledge and skills by</motion.span>
-                        <motion.span variants={transitions.headerVariant}>hosting a <span className={styles.emp}>cocktail class.</span></motion.span>
+                    <motion.h2 variants={sectionTransitions.stagger}>
+                        <motion.span variants={sectionTransitions.headerVariant}>Elevate your bartending</motion.span> 
+                        <motion.span variants={sectionTransitions.headerVariant}>knowledge and skills by</motion.span>
+                        <motion.span variants={sectionTransitions.headerVariant}>hosting a <span className={styles.emp}>cocktail class.</span></motion.span>
                     </motion.h2>
-                    <motion.p variants={transitions.headerVariantDelayed}>We will teach your guests how to craft cocktail classics or customize a cocktail based on your group’s theme or preference. Cocktail Curations will provide instructors, barware, cocktail utensils, and all additional natural juices, handcraft mixers and garnishes.</motion.p>
+                    <motion.p variants={sectionTransitions.headerVariantDelayed}>We will teach your guests how to craft cocktail classics or customize a cocktail based on your group’s theme or preference. Cocktail Curations will provide instructors, barware, cocktail utensils, and all additional natural juices, handcraft mixers and garnishes.</motion.p>
                 </motion.header>
                 <div className={styles.imgContainer} id={styles.first}>
-                    <motion.img ref={imgRef} animate={imgInView ? 'animate' : 'initial'} variants={transitions.mainImgScale} src="/imgs/stock/services_page/classes.jpg" alt="Cocktail Curations Class Kentlands Clubhouse"/>
+                    <motion.img ref={imgRef} animate={imgInView ? 'animate' : 'initial'} variants={sectionTransitions.mainImgScale} src="/imgs/stock/services_page/classes.jpg" alt="Cocktail Curations Class Kentlands Clubhouse"/>
                 </div>
                 <div className={styles.imgContainer} id={styles.second}>
                     <img src="/imgs/stock/services_page/classes2.jpg" alt="Cocktail Curations Class Kentlands Clubhouse"/>
@@ -40,7 +40,7 @@ const Classes = React.forwardRef(({}, ref) => {
                     <img className={styles.emb} src="/imgs/embellishments/dots.png" alt=""/>
                 </div>
                 <motion.div ref={blockQuoteRef} animate={blockQuoteInView ? 'animate' : 'initial'} className={styles.desktopText}>
-                    <motion.h3 variants={transitions.blockQuoteText}>Our cocktail classes are also available <span className={styles.emph}>virtually!</span> Have your guests learn proper ratios and techniques for crafting their own, perfect cocktail at home. 
+                    <motion.h3 variants={sectionTransitions.blockQuoteText}>Our cocktail classes are also available <span className={styles.emph}>virtually!</span> Have your guests learn proper ratios and techniques for crafting their own, perfect cocktail at home. 
                     </motion.h3>
                 </motion.div>
             </div>

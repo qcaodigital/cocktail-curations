@@ -15,11 +15,13 @@
     "express": "^4.17.1",
     "framer-motion": "^2.9.1",
     "next": "^9.5.4",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "16.13.1",
     "react-intersection-observer": "^8.29.0",
     "react-transition-group": "^4.4.1",
     "rellax": "^1.12.1",
-    "sass": "^1.27.0"
+    "sass": "^1.27.0",
+    "smoothscroll": "^0.4.0"
   }
 }

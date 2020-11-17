@@ -26,6 +26,7 @@
         &__section {
             min-width: 100px;
             li {
+                cursor: pointer;
                 @media screen and (min-width: 750px){
                     margin-left: 2rem;
                 }
@@ -52,6 +53,11 @@
                 a {
                     position: relative;
                     transition: 350ms ease;
+                    &.active {
+                        opacity: .25;
+                        pointer-events: none;
+                        cursor: pointer;
+                    }
                     &::after {
                         position: absolute;
                         content: '';

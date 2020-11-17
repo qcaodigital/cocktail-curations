@@ -1,28 +1,39 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Spacer.module.scss';
 import Rellax from 'rellax';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
-import transitions from './transitions';
+import { spacerTransitions } from '../../page_transitions/services';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import useRellax from '../../custom_hooks/useRellax';
+import constructRellax from '../../helpers/constructRellax';
+import PropTypes from 'prop-types';
+
+Spacer.propTypes = {
+    img: PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
+}
 
 export default function Spacer({ img, buttonText, href }){
-    const imgRef = useRef();
-    const imgInView = useInViewFromTop(imgRef, { threshold: .2 });  
-    useRellax(imgRef, { speed: -3, center: true });
+    const ref = useRef();
+    const inView = useInViewFromTop(ref, { threshold: .25 }); 
+
+    useEffect(() => constructRellax(ref, {speed: -1, center: true}), []) 
 
     return(
         <div className={styles.spacer}>
-            <div ref={imgRef} className={styles.parallaxContainer} style={{backgroundImage: `url(${img})`}}/>
+            <div ref={ref} className={styles.parallaxContainer} style={{backgroundImage: `url(${img})`}}/>
             <header>
-                <motion.button animate={imgInView ? 'animate' : 'initial'}>
+                <motion.button animate={inView ? 'animate' : 'initial'} variants={spacerTransitions.headerScale}>
+                    <div className={styles.beforeLine}/>
                     <Link href={href}>
-                        <a>{buttonText}
+                        <a>
+                            <p>{buttonText}</p>
                             <div className={styles.underline}/>
                         </a>
                     </Link>
+                    <div className={styles.afterLine}/>
                 </motion.button>
             </header>
         </div>

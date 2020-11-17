@@ -3,6 +3,13 @@ import Link from 'next/link';
 import styles from './HamburgerMenu.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
+
+HamburgerMenu.propTypes = {
+    isHamburgerMenuOpen: PropTypes.bool.isRequired,
+    navList: PropTypes.array.isRequired,
+    toggleHBM: PropTypes.func.isRequired
+}
 
 export default function HamburgerMenu({ isHamburgerMenuOpen, navList, toggleHBM }){
     const navItems = navList.map((item, idx) => (
