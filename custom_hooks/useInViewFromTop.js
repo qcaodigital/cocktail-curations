@@ -4,10 +4,11 @@ function useInViewFromTop(ref, options){
     const [inView, setInView] = useState(false)
     const [elementScrollPosition, setElementScrollPosition] = useState();
 
+
     useEffect(() => {
         function handleScroll(){
             if(options && options.threshold){
-                if(ref.current.getBoundingClientRect().y / (1 - options.threshold) - window.innerHeight < 0){
+                if(ref.current.getBoundingClientRect().y  - window.innerHeight < (0 - ref.current.getBoundingClientRect().height * (1 * options.threshold))){
                     setInView(true)
                 } else {
                     setInView(false)
@@ -20,6 +21,7 @@ function useInViewFromTop(ref, options){
                 }
             }
         }
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [])

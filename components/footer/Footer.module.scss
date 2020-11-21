@@ -26,9 +26,11 @@
         &__section {
             min-width: 100px;
             li {
-                cursor: pointer;
                 @media screen and (min-width: 750px){
                     margin-left: 2rem;
+                }
+                a {
+                    cursor: pointer;
                 }
                 .header {
                     font-family: var(--main-font);

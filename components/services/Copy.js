@@ -7,6 +7,7 @@ import Rellax from 'rellax';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { copyTransitions } from '../../page_transitions/services';
 import styles from './Copy.module.scss';
+import ArrowDivider from '../common/ArrowDivider';
 
 export default function Copy(){
     const copyLeftImgRellax = useRef();
@@ -23,6 +24,7 @@ export default function Copy(){
     const inView = useInViewFromTop(copyCenterImgRef, { threshold: .1 })
     return(
         <section id={styles.Copy}>
+            <ArrowDivider size={{value: 1.5, measurement: 'rem'}} border={{size: 1, color: 'var(--main-color-fade-more)'}} BGcolor='#F1F2EB'/>
             <div className={styles.headerSection}>
                 <h2 className={styles.headerEmp}>We provide</h2>
                 <h2>a vast variety of services to bring our knowledge and passion for next-level mixology to the world.</h2>

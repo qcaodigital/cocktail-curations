@@ -1,0 +1,100 @@
+#Story {
+    padding: 2rem .5rem 5rem;
+    position: relative;
+    @media screen and (min-width: 750px){ //adjust for divider size increase
+        padding-bottom: 6rem
+    }
+    &::after { //background color/texture so that opacity can be controlled
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--secondary-color);
+        background-image: url("../../public/imgs/textures/green-dust-and-scratches.png");
+        background-size: 65%;
+        z-index: -1;
+        opacity: .75;
+    }
+    header {
+        text-align: center;
+        position: relative;
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            opacity: .15;
+        }
+        h2 {
+            font-family: var(--serif-font);
+            text-transform: capitalize;
+            font-size: clamp(2.5rem, 4.5vw, 3rem);
+            letter-spacing: -1px;
+        }
+        h3 {
+            font-family: var(--serif-font);
+            font-size: clamp(1rem, 4.5vw, 1.45rem);
+            font-weight: 400;
+            margin: 0 auto;
+            width: clamp(100px, 75%, 500px);
+            position: relative;
+        }
+        .divider {
+            display: block;
+            height: 1px;
+            width: 25px;
+            margin: .5rem auto;
+            background-color: var(--main-color-fade);
+            margin: 2rem auto;
+        }
+    }
+    .contentContainer {
+        margin: 2rem auto 0;
+        padding: 0 .5rem;
+        max-width: 600px;
+        @media screen and (min-width: 750px){
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 900px;
+            padding: 0 2rem;
+            gap: 1.5rem;
+        }
+        .block {
+            flex-basis: 45%;
+            flex-grow: 1;
+            &:first-of-type::after {
+                content: '';
+                display: block;
+                height: 1px;
+                width: 25px;
+                margin: 2rem auto;
+                background-color: var(--main-color-fade);
+            }
+            @media screen and (min-width: 750px){
+                &:first-of-type::after {
+                    content: unset;
+                }
+            }
+            &+ .block {
+                margin-top: 1rem;
+                @media screen and (min-width: 750px){
+                    margin-top: unset;
+                }
+            }
+            p + p {
+                margin-top: 1rem;
+            }
+            p {
+                font-size: clamp(.9rem, 1.5vw, 1rem);
+                line-height: 1.25rem;
+                opacity: .7;
+                &:first-of-type::first-line {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@
     @media screen and (min-width: 750px){
         padding-bottom: 15vw;
     }
-    &::before { /* arrow section seperator */
+    &::after { /* arrow section seperator */
         content: '';
         position: absolute;
         z-index: 1;
