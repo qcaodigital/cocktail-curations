@@ -3,27 +3,25 @@ import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-FadeUpInViewContainer.propTypes = {
+FadeInViewContainer.propTypes = {
     threshold: PropTypes.number,
+    delay: PropTypes.number,
     animateOnly: PropTypes.bool
 }
 
-export default function FadeUpInViewContainer({ threshold, animateOnly, children }) {
-    if(threshold && (threshold < 0 || threshold > 1)){
-        throw 'FadeUpInViewContainer Error: Threshold must be a value between 0 and 1';
-    }
-
+export default function FadeInViewContainer({ threshold, reverse, animateOnly, delay, duration, children }) {
     const ref = useRef();
     const variants = {
-        animate: {
+        fadeUp: {
             y: '0%',
             transition: {
-                duration: 1,
+                delay: delay ? delay : 0,
+                duration: duration ? duration : 1.15,
                 ease: [.23, .02, .0, 1.01] 
             }
         },
-        initial: {
-            y: '100%',
+        hide: {
+            y: reverse ? '-100%' : '100%',
             transition: {
                 duration: .5,
             }
@@ -35,11 +33,11 @@ export default function FadeUpInViewContainer({ threshold, animateOnly, children
 
     if(!animateOnly){
         const inView = useInViewFromTop(ref, { threshold: threshold || .5 })
-        animateProp = inView ? 'animate' : 'initial';
+        animateProp = inView ? 'fadeUp' : 'hide';
         initialProp = null;
     } else {
-        animateProp = 'animate';
-        initialProp = 'initial'
+        animateProp = 'fadeUp';
+        initialProp = 'hide'
     }
 
     return (

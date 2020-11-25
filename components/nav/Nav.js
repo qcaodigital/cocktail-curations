@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion, AnimatePresence } from 'framer-motion';
 import transitions from './NavTransitions';
 import PropTypes from 'prop-types';
+import FadeOnUnmount from '../HOC/FadeOnUnmount';
 
 Nav.propTypes = {
     render: PropTypes.bool.isRequired,
@@ -22,28 +23,21 @@ export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB
     if(!render) return null;
     const navRef = useRef();
 
-    //SEND TO MAIN STATE CONTEXT THE HEIGHT OF THE NAV EVERYTIME PATH CHANGES (IN CASE OF STYLE CHANGES DEPENDENT ON PATH AND VIEWPORT SIZE CHANGE)
-    useEffect(() => {
-        if(navRef.current !== null){
-            navHeightCB(navRef.current.offsetHeight)
-        }
-    }, [viewport, currentPath, hideNav])
-
     //DETERMINE WHETHER OR NOT TO HIDE NAV BASED ON SCROLL THRESHOLD PROP
     //EACH PATH'S SCROLL THRESHOLD IS DEFINED IN A USEEFFECT HOOK IN THE MAIN BODY COMPONENT
     //DEFAULT THRESHOLD IS 120 PIXELS SCROLLED IF NOT DEFINED
-    const [hideNav, setHideNav] = useState(false);
+    const [minimizeNav, setMinimizeNav] = useState(false);
     useEffect(() => {
         function handleScroll(e){
-            if(window.scrollY > scrollThreshold && !hideNav){
-                setHideNav(true);
-            } else if(window.scrollY < scrollThreshold && hideNav){
-                setHideNav(false)
+            if(window.scrollY > scrollThreshold && !minimizeNav){
+                setMinimizeNav(true);
+            } else if(window.scrollY < scrollThreshold && minimizeNav){
+                setMinimizeNav(false)
             }
         }   
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [hideNav, currentPath])
+    }, [minimizeNav, currentPath])
 
     //HIDE NAV UNTIL LOADER ANIMATION IS COMPLETE
     const [initialRenderComplete, setInitialRenderComplete] = useState(false);
@@ -54,63 +48,68 @@ export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB
     }, [])
 
     return (
-        <>
-        <AnimatePresence>
-        {!hideNav && (
         <motion.nav id={styles.Nav}
+            className={minimizeNav ? styles.min : null}
             ref={ navRef }
             variants={transitions.mainFade}
             initial='hide'
             animate={initialRenderComplete ? 'show' : 'showWithDelay'}
-            exit='exit'
         >
-            {viewport !== 'mobile' && <img className={styles.leftIcon} src='/imgs/stock/logos/cc-icon-black.png' alt='Cocktail Curations Logo' />}
-            <Link href='/'>
-                <motion.a className={currentPath === '/' ? `DISABLED_LINK ${styles.brand}` : styles.brand}>
-                    <img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/>
-                </motion.a>
-            </Link>
-            {viewport !== 'mobile' &&
-            <ul className={styles.list}>
-                {navList.map((item, idx) => (
-                    <li 
-                        key={item.label} 
-                        className={styles.item}
-                    >
-                        {!item.external ? (
-                            <Link href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>
+            {(viewport !== 'mobile' && !minimizeNav) &&
+                <motion.img 
+                    className={styles.leftIcon} 
+                    src='/imgs/stock/logos/cc-icon-black.png'
+                    alt='Cocktail Curations Logo' 
+                />
+            }
+            <FadeOnUnmount unmountOn={viewport === 'mobile' && minimizeNav}>
+                <motion.div className={minimizeNav ? `${styles.brand} ${styles.min}` : styles.brand}>
+                    <Link href='/'>
+                        {minimizeNav ? (
+                            <a><img src="/imgs/stock/logos/cc-logo-min2.png" alt="Cocktail Curations Logo"/></a>
                         ) : (
-                            <a className={item.active ? styles.active : null} href={item.href} target='_blank'>{item.label}</a>
+                            <a><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
                         )}
-                    </li>
-                ))}
-            </ul>}
-            <ul className={styles.socialList}>
-                <a href='https://www.facebook.com/cocktailcurations/' target='_blank'>
-                    <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'facebook']}/>
-                </a>
-                <a href='https://www.instagram.com/cocktailcurations/' target='_blank'>
-                    <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'instagram']}/>
-                </a>
-                <a href='https://twitter.com/CocktailCurate' target='_blank'>
-                    <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'twitter']}/>
-                </a>
-            </ul>
-        </motion.nav>)}
-        </AnimatePresence>
-        {/* THE HAMBURGER BUTTON ELEMENT BELOW IS REMOVED FROM THE NAV COMPONENT SO THAT IT DOES NOT ANIMATE OUT ON 'NAV HIDE' */}
-        {viewport === 'mobile' && (
-        <motion.button
-            onClick={hamburgerCB} 
-            className={hideNav ? `${styles.scrolled} ${styles.hamburgerIcon}` : styles.hamburgerIcon}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={!initialRenderComplete ? { delay: 1 } : { delay: 0 }}
-        >
-            <div/>
-            <div/>
-            <div/>
-        </motion.button>)}  
-        </>
+                    </Link>
+                </motion.div>
+            </FadeOnUnmount>
+            <FadeOnUnmount unmountOn={viewport === 'mobile'}>
+                <motion.ul className={minimizeNav ? `${styles.list} ${styles.min}` : styles.list}>
+                    {navList.map((item, idx) => (
+                        <li key={item.label} className={styles.item}>
+                            {!item.external ? (
+                                <Link href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>
+                            ) : (
+                                <a className={item.active ? styles.active : null} href={item.href} target='_blank'>{item.label}</a>
+                            )}
+                        </li>
+                    ))}
+                </motion.ul>
+            </FadeOnUnmount>
+            {!minimizeNav &&
+                <motion.ul className={styles.socialList}>
+                    <a href='https://www.facebook.com/cocktailcurations/' target='_blank'>
+                        <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'facebook']}/>
+                    </a>
+                    <a href='https://www.instagram.com/cocktailcurations/' target='_blank'>
+                        <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'instagram']}/>
+                    </a>
+                    <a href='https://twitter.com/CocktailCurate' target='_blank'>
+                        <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'twitter']}/>
+                    </a>
+                </motion.ul>
+            }
+            <FadeOnUnmount unmountOn={viewport !== 'mobile'}>
+                <motion.button
+                    onClick={hamburgerCB} 
+                    className={styles.hamburgerIcon}
+                >
+                    <div/>
+                    <div/>
+                    <div/>
+                    <p>MENU</p>
+                </motion.button>
+            </FadeOnUnmount>
+        </motion.nav>
     )
 }

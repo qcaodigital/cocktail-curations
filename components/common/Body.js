@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useReducer } from 'react';
+import React, { useContext, useState, useEffect, useReducer, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
@@ -179,11 +179,4 @@ export default function Body({ children }){
         </main>
         </>
     )
-}
-
-//This NAV_SPACER component is used to synthetically make the floating NAV take space in each page's landing
-//This is neccessary because this allows us to easily center elements on landing pages
-export const NAV_SPACER = ({ color }) => {
-    const state = useContext(StateContext)
-    return <div id='NAV_SPACER' style={{ height: state.navHeight, backgroundColor: color}}/>
 }

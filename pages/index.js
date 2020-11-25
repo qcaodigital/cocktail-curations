@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { StateContext, NAV_SPACER } from '../components/common/Body';
+import { StateContext } from '../components/common/Body';
 import Head from 'next/head';
 import styles from './home.module.scss';
 import Link from 'next/link';
@@ -78,7 +78,6 @@ export default function Home(){
                 animate='animate'
                 initial='initial'
             >
-                <NAV_SPACER/>
                 <div className={styles.headingContainer}>
                     <motion.h1 
                         variants={landingTransitions.headingContainer}

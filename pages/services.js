@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import Head from 'next/head';
 import styles from './services.module.scss';
-import { NAV_SPACER } from '../components/common/Body';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Copy from '../components/services/Copy';
@@ -36,7 +35,6 @@ export default function Services(){
                 <div ref={backgroundRellax} className={styles.background}/>
             </div>
             <motion.section animate='animate' initial='initial' className={styles.landing}>
-                <NAV_SPACER />
                 <motion.div variants={landingTransitions.serviceBox} className={styles.services_box}>
                     <motion.div variants={landingTransitions.serviceBoxChildren}>
                         <FontAwesomeIcon size='2x' icon={['fas', 'glass-cheers']}/>

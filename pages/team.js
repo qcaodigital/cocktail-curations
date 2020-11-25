@@ -3,7 +3,6 @@ import { StateContext } from '../components/common/Body';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from './team.module.scss';
-import { NAV_SPACER } from '../components/common/Body';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import constructRellax from '../helpers/constructRellax';
@@ -11,47 +10,76 @@ import Person from '../components/team/Person';
 import Story from '../components/team/Story';
 import Sustainability from '../components/team/Sustainability';
 import ArrowDivider from '../components/common/ArrowDivider';
-import FadeUpInViewContainer from '../components/HOC/FadeUpInViewContainer';
+import FadeInViewContainer from '../components/HOC/FadeInViewContainer';
+import { landingTransitions, infoTransitions } from '../page_transitions/team';
+import useInViewFromTop from '../custom_hooks/useInViewFromTop';
 
 export default function Team(){
     const state = useContext(StateContext);
     const { viewport } = state;
+
+    const bg1Ref = useRef();
+    useEffect(() => constructRellax(bg1Ref, {speed: -5, center: false}), []) 
+
+    const bg2Ref = useRef();
+    useEffect(() => constructRellax(bg2Ref, {speed: -2, center: true}), []) 
+
+    const linkRef = useRef();
+    const linkInView = useInViewFromTop(linkRef, { threshold: 1 })
+
+    const imgRef = useRef();
+    const imgInView = useInViewFromTop(imgRef)
 
     return (
         <>
         <Head>
             <title>Our Team | Cocktail Curations</title>
         </Head>
-        <motion.main id={styles.Team} exit={{ opacity: 0 }}>
-            <section className={styles.landing}>
+        <motion.main id={styles.Team} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
+            <motion.section animate='animate' initial='initial' className={styles.landing}>
                 <div className={styles.landingBackgrounds}>
-                    <div className={styles.background1}/>
-                    <div className={styles.background2}/>
-                </div>
-                <NAV_SPACER/>
-                <header>
-                    <h1>
-                        <FadeUpInViewContainer animateOnly>
-                            <p><span>We</span> are</p>
-                        </FadeUpInViewContainer>
-                        <FadeUpInViewContainer animateOnly>
-                            <p>Cocktail Curations</p>
-                        </FadeUpInViewContainer>
-                    </h1>
-                    <div className={styles.box}/>
-                </header>
-                <div className={styles.landingGallery}>
-                    <div className={styles.landingImgContainer}>
-                        <img src="/imgs/stock/team_page/ajp-1005.jpg" alt=""/>
+                    <div className={styles.background1container}>
+                        <div ref={bg1Ref} className={styles.background1}/>
                     </div>
-                    <div id={styles.center} className={styles.landingImgContainer}>
-                        <img src="/imgs/stock/team_page/ThyNicole_Portrait-cropped.jpg" alt=""/>
-                    </div>
-                    <div className={styles.landingImgContainer}>
-                        <img src="/imgs/stock/team_page/ajp-1017.jpg" alt=""/>
+                    <div className={styles.background2container}>
+                        <div ref={bg2Ref} className={styles.background2}/>
                     </div>
                 </div>
-            </section>
+                <div className={styles.landingContent}>
+                    <header>
+                        {/* TOTAL ANIMATION TIME BELOW - .5s */}
+                        <h1>
+                            <FadeInViewContainer animateOnly>
+                                <p><span>We</span> are</p>
+                            </FadeInViewContainer>
+                            <FadeInViewContainer animateOnly>
+                                <p className={styles.headerBrand}>Cocktail Curations</p>
+                            </FadeInViewContainer>
+                        </h1>
+                        <motion.div variants={landingTransitions.headerUnderline} className={styles.underline}/>
+                        {/* TOTAL ANIMATION TIME BELOW - ~4s */}
+                        <motion.div className={styles.box}>
+                            <motion.div variants={landingTransitions.box.top} id={styles.topLeft} className={styles.top}/>
+                            <motion.div variants={landingTransitions.box.top} id={styles.topRight} className={styles.top}/>
+                            <motion.div variants={landingTransitions.box.side} className={styles.right}/>
+                            <motion.div variants={landingTransitions.box.bottom} id={styles.bottomLeft} className={styles.bottom}/>
+                            <motion.div variants={landingTransitions.box.bottom} id={styles.bottomRight} className={styles.bottom}/>
+                            <motion.div variants={landingTransitions.box.side} className={styles.left}/>
+                        </motion.div>
+                    </header>
+                    <motion.div className={styles.landingGallery}>
+                        <motion.div variants={landingTransitions.gallery.sideImg} className={styles.landingImgContainer}>
+                            <img src="/imgs/stock/team_page/ajp-1005.jpg" alt=""/>
+                        </motion.div>
+                        <motion.div variants={landingTransitions.gallery.mainImg} id={styles.center} className={styles.landingImgContainer}>
+                            <img src="/imgs/stock/team_page/ThyNicole_Portrait-cropped.jpg" alt=""/>
+                        </motion.div>
+                        <motion.div variants={landingTransitions.gallery.sideImg} className={styles.landingImgContainer}>
+                            <img src="/imgs/stock/team_page/ajp-1017.jpg" alt=""/>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </motion.section>
             <Story viewport={viewport} />
             <section className={styles.info}>
                 <ArrowDivider 
@@ -61,13 +89,29 @@ export default function Team(){
                 />    
                 <div className={styles.contentContainer}>
                     <div className={styles.text}>
-                        <h3>The Duo</h3>
+                        <FadeInViewContainer reverse>
+                            <h3>The Duo</h3>
+                        </FadeInViewContainer>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nesciunt ex tempore minus laborum architecto accusantium aliquid illum explicabo incidunt autem voluptatem quia, mollitia porro, aspernatur ut ullam cumque ipsum quam! Libero nobis mollitia enim porro voluptates exercitationem repellendus eos nemo aliquam quas perferendis, quis distinctio, sequi necessitatibus voluptatum ducimus, quod modi.</p>
                         <Link href='/contact'>
-                            <a>Connect With Us →</a>
+                            <a ref={linkRef}>
+                                <p>Connect With Us →</p>
+                                <motion.div 
+                                    animate={linkInView ? 'animate' : 'initial'}
+                                    variants={infoTransitions.contentContainer.link} 
+                                    className={styles.underline}
+                                />
+                            </a>
                         </Link>
                     </div>
-                    <img src={`/imgs/stock/team_page/thy_nicole_bookoflists.jpg`} alt=''/>
+                    <div ref={imgRef} className={styles.img}>
+                        <motion.img
+                            animate={imgInView ? 'animate' : 'initial'}    
+                            variants={infoTransitions.contentContainer.img} 
+                            src={`/imgs/stock/team_page/thy_nicole_bookoflists.jpg`} 
+                            alt='Cocktail Curations Owner Thy Parra & Nicole Hassoun At Book of Lists 2020'
+                        />
+                    </div>
                 </div>
                 <div className={styles.divider}>
                     <img src="/imgs/embellishments/divider.png" alt="line divider"/>
