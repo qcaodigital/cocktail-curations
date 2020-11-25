@@ -13,25 +13,27 @@ Nav.propTypes = {
     navList: PropTypes.array.isRequired,
     //CANNOT SET PROP TYPES FOR VIEWPORT BECAUSE IT IS NULL ON INITIAL RENDER
     // viewport: PropTypes.string.isRequired,
-    navHeightCB: PropTypes.func.isRequired,
     hamburgerCB: PropTypes.func.isRequired,
     currentPath: PropTypes.string.isRequired
 }
 
-export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB, currentPath, scrollThreshold}){
+export default function Nav({render, navList, viewport, hamburgerCB, currentPath, scrollThreshold}){
     //RENDER PROP IS TRUE ONCE INITIAL RENDER IN THE MAIN BODY COMPONENT HAPPENS SO THAT THE WINDOW OBJECT IS ACCESSIBLE TO THIS NAV COMPONENT ON FIRST REAL RENDER
     if(!render) return null;
     const navRef = useRef();
-
+    
     //DETERMINE WHETHER OR NOT TO HIDE NAV BASED ON SCROLL THRESHOLD PROP
     //EACH PATH'S SCROLL THRESHOLD IS DEFINED IN A USEEFFECT HOOK IN THE MAIN BODY COMPONENT
     //DEFAULT THRESHOLD IS 120 PIXELS SCROLLED IF NOT DEFINED
+    const [navHeight, setNavHeight] = useState(null)
     const [minimizeNav, setMinimizeNav] = useState(false);
     useEffect(() => {
         function handleScroll(e){
             if(window.scrollY > scrollThreshold && !minimizeNav){
+                setNavHeight(navRef.current.offsetHeight);
                 setMinimizeNav(true);
             } else if(window.scrollY < scrollThreshold && minimizeNav){
+                setNavHeight(navRef.current.offsetHeight);
                 setMinimizeNav(false)
             }
         }   
@@ -55,6 +57,7 @@ export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB
             initial='hide'
             animate={initialRenderComplete ? 'show' : 'showWithDelay'}
         >
+            <p style={{ position: 'absolute', fontSize: '3rem'}}>{navHeight}</p>
             <FadeOnUnmount unmountIf={viewport === 'mobile' || minimizeNav} dontAnimate={minimizeNav}>
                 <motion.img 
                     className={styles.leftIcon} 
