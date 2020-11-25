@@ -56,8 +56,6 @@ function reducer(state, action){
             return { ...state, loadComplete: payload }
         case 'hamburgerMenu':
             return { ...state, isHamburgerMenuOpen: payload }
-        case 'navheight': 
-            return { ...state, navHeight: payload}
         case 'navlist': {
             const updatedNav = navList.map(nav => {
                 if(nav.href === payload){
@@ -80,7 +78,6 @@ export default function Body({ children }){
         // loadComplete: true, //disable loading
         viewport: null,
         isHamburgerMenuOpen: false,
-        navHeight: null,
         navList: { ...navList }
     }
     const [state, dispatch] = useReducer(reducer, initialState);

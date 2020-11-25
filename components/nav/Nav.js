@@ -55,25 +55,25 @@ export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB
             initial='hide'
             animate={initialRenderComplete ? 'show' : 'showWithDelay'}
         >
-            {(viewport !== 'mobile' && !minimizeNav) &&
+            <FadeOnUnmount unmountIf={viewport === 'mobile' || minimizeNav} dontAnimate={minimizeNav}>
                 <motion.img 
                     className={styles.leftIcon} 
                     src='/imgs/stock/logos/cc-icon-black.png'
                     alt='Cocktail Curations Logo' 
                 />
-            }
-            <FadeOnUnmount unmountOn={viewport === 'mobile' && minimizeNav}>
+            </FadeOnUnmount>
+            <FadeOnUnmount unmountIf={viewport === 'mobile' && minimizeNav}>
                 <motion.div className={minimizeNav ? `${styles.brand} ${styles.min}` : styles.brand}>
                     <Link href='/'>
                         {minimizeNav ? (
                             <a><img src="/imgs/stock/logos/cc-logo-min2.png" alt="Cocktail Curations Logo"/></a>
-                        ) : (
-                            <a><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
-                        )}
+                            ) : (
+                                <a><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
+                                )}
                     </Link>
                 </motion.div>
-            </FadeOnUnmount>
-            <FadeOnUnmount unmountOn={viewport === 'mobile'}>
+            </FadeOnUnmount>       
+            <FadeOnUnmount unmountIf={viewport === 'mobile'}>
                 <motion.ul className={minimizeNav ? `${styles.list} ${styles.min}` : styles.list}>
                     {navList.map((item, idx) => (
                         <li key={item.label} className={styles.item}>
@@ -86,7 +86,7 @@ export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB
                     ))}
                 </motion.ul>
             </FadeOnUnmount>
-            {!minimizeNav &&
+            <FadeOnUnmount unmountIf={minimizeNav} dontAnimate={viewport !== 'mobile'}>
                 <motion.ul className={styles.socialList}>
                     <a href='https://www.facebook.com/cocktailcurations/' target='_blank'>
                         <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'facebook']}/>
@@ -98,8 +98,8 @@ export default function Nav({render, navList, viewport, navHeightCB, hamburgerCB
                         <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'twitter']}/>
                     </a>
                 </motion.ul>
-            }
-            <FadeOnUnmount unmountOn={viewport !== 'mobile'}>
+            </FadeOnUnmount>
+            <FadeOnUnmount unmountIf={viewport !== 'mobile'}>
                 <motion.button
                     onClick={hamburgerCB} 
                     className={styles.hamburgerIcon}
