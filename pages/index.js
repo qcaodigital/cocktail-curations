@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { StateContext } from '../components/common/Body';
+// import { StateContext } from '../components/common/Body';
 import Head from 'next/head';
 import styles from './home.module.scss';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Gallery from '../components/home/Gallery';
 import Header from '../components/home/Header';
 import FeatureItems from '../components/home/FeatureItems';
 import { motion } from 'framer-motion';
-import transitions, { landingTransitions } from '../page_transitions/home';
+import { landingTransitions } from '../page_transitions/home';
 import constructRellax from '../helpers/constructRellax';
 import smoothscroll from 'smoothscroll';
 
@@ -47,8 +46,7 @@ const feature_row_items = [
     }
 ]
 
-export default function Home(){
-    const state = useContext(StateContext);
+export default function Home({ state }){
     const { viewport, navHeight } = state;
     const landingSectionRef = useRef();
 
@@ -122,6 +120,7 @@ export default function Home(){
             <section className={styles.info}>
                 <Header header="Curate— it's in our name." text='We provide a wide range of knowledge and services, including technical education and training in: spirits, mixology, and recipe creation, developing cocktail menus, designing thoughtfully garnished cocktail, and curating mind-blowing cocktails with or without alcohol.'/>
                 <Gallery 
+                    viewport={viewport}
                     imgs={[
                         {
                             url: "/imgs/stock/JPEG/IMG_9431-sq.jpg", 
@@ -137,6 +136,7 @@ export default function Home(){
                     ]}
                 />
                 <Gallery 
+                    viewport={viewport}
                     imgs={[
                         {
                             url: "/imgs/stock/JPEG/IMG_1730.jpg", 

@@ -28,15 +28,15 @@ export default function Nav({render, navList, viewport, hamburgerCB, currentPath
     const [navHeight, setNavHeight] = useState(null)
     const [minimizeNav, setMinimizeNav] = useState(false);
     useEffect(() => {
-        function handleScroll(e){
+        function handleScroll(){
+            setNavHeight(navRef.current.offsetHeight);
             if(window.scrollY > scrollThreshold && !minimizeNav){
-                setNavHeight(navRef.current.offsetHeight);
                 setMinimizeNav(true);
             } else if(window.scrollY < scrollThreshold && minimizeNav){
-                setNavHeight(navRef.current.offsetHeight);
                 setMinimizeNav(false)
             }
         }   
+        handleScroll();
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [minimizeNav, currentPath])

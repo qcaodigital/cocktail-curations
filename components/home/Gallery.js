@@ -1,8 +1,6 @@
 import styles from './Gallery.module.scss';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import { useContext } from 'react';
-import { StateContext } from '../common/Body';
 import { galleryTransitions } from '../../page_transitions/home';
 import PropTypes from 'prop-types';
 
@@ -11,10 +9,7 @@ Gallery.propTypes = {
     reverse: PropTypes.bool
 }
 
-export default function Gallery({ imgs, reverse }){
-    const state = useContext(StateContext);
-    const { viewport } = state;
-
+export default function Gallery({ viewport, imgs, reverse }){
     return (
         <div
             className={`${reverse ? styles.reverse : null}`}

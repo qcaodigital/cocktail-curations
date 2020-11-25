@@ -12,7 +12,7 @@ import MouseDirection from '../components/HOC/MouseDirection';
 import smoothscroll from 'smoothscroll';
 import { landingTransitions } from '../page_transitions/services';
 
-export default function Services(){
+export default function Services({ state }){
     const backgroundRellax = useRef();
     const classesRef = useRef();
     const barsRef = useRef();
@@ -47,7 +47,7 @@ export default function Services(){
                     </motion.ul>
                 </motion.div>
             </motion.section>
-            <Copy />
+            <Copy viewport={state.viewport}/>
             <Bars ref={barsRef}/>
             <Classes ref={classesRef}/>
             <Bases ref={basesRef}/>

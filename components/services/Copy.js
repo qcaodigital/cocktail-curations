@@ -1,7 +1,5 @@
-import { useEffect, useRef, useContext, useState } from 'react';
-import { StateContext } from '../common/Body';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import Rellax from 'rellax';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
@@ -9,11 +7,9 @@ import { copyTransitions } from '../../page_transitions/services';
 import styles from './Copy.module.scss';
 import ArrowDivider from '../common/ArrowDivider';
 
-export default function Copy(){
+export default function Copy({ viewport }){
     const copyLeftImgRellax = useRef();
     const copyRightImgRellax = useRef();
-    const state = useContext(StateContext);
-    const { viewport } = state;
 
     useEffect(() => {
         new Rellax(copyLeftImgRellax.current, { speed: 1 })

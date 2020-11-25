@@ -1,5 +1,5 @@
 import { useEffect, useRef, useContext } from 'react';
-import { StateContext } from '../components/common/Body';
+// import { StateContext } from '../components/common/Body';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from './team.module.scss';
@@ -14,8 +14,8 @@ import FadeInViewContainer from '../components/HOC/FadeInViewContainer';
 import { landingTransitions, infoTransitions } from '../page_transitions/team';
 import useInViewFromTop from '../custom_hooks/useInViewFromTop';
 
-export default function Team(){
-    const state = useContext(StateContext);
+export default function Team({ state }){
+    // const state = useContext(StateContext);
     const { viewport } = state;
 
     const bg1Ref = useRef();
