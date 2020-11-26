@@ -8,7 +8,7 @@
     align-items: center;
     padding: 1.5rem;
     width: 100%;
-    transition: all 350ms ease;
+    transition: all 200ms ease, gap 0ms;
     @media screen and (min-width: 750px){
         &.min {
             padding: .75rem 1.5rem;
@@ -33,7 +33,6 @@
             }
         }
         img {
-            transition: 50ms linear;
             height: 5rem;
         }
     }
@@ -59,7 +58,7 @@
             text-transform: uppercase;
             font-family: var(--main-font);
             font-weight: 500;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             font-size: .75rem;
             color: var(--main-color);
             white-space: nowrap;

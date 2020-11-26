@@ -9,11 +9,14 @@ Loadingscreen.propTypes = {
 
 export default function Loadingscreen({ turnOffLoading }){
     setTimeout(() => {
-        turnOffLoading();
+        // turnOffLoading();
     }, 2000);
     return (
         <div className={styles.Loadingscreen}>
-            <img className={styles.Loadingscreen__icon} src='/imgs/stock/logos/cc-icon-logo-color.png' alt='Cocktail Curations Logo Favicon Icon'/>
+            <div className={styles.textContainer}>
+                <h2>Welcome To</h2>
+                <h2>Cocktail Curations</h2>
+            </div>
         </div>
     )
 }

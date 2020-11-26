@@ -22,6 +22,13 @@ function useInViewFromTop(ref, options){
             }
         }
 
+        function checkIfAlreadyInView(){
+            if(ref.current.getBoundingClientRect().y - window.innerHeight < 0){
+                setInView(true)
+            } 
+        }
+
+        checkIfAlreadyInView()
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [])

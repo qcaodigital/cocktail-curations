@@ -1,44 +1,23 @@
 .Loadingscreen {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     width: 100vw;
     height: 100vh;
-    // background-color: var(--secondary-color);
-    &__icon {
+    background-color: var(--secondary-color);
+    .textContainer {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        margin-top: 1rem;
-        width: 5%;
-        min-width: 50px;
-        max-width: 75px;
-        opacity: 1;
-        animation: loading 2000ms ease-in-out forwards 1;
-        transform-origin: center;
-        @keyframes loading {
-            0% {
-                transform: translate(-50%, -50%) rotate(0);
-                opacity: .9;
-            }
-            10% {
-                transform: translate(-50%, -50%) rotate(10deg);
-            }
-            20% {
-                transform: translate(-50%, -50%) rotate(-10deg);
-            }
-            55% {
-                opacity: .85;
-            }
-            60% {
-                opacity: .55;
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-                opacity: 0;
-            }
+        text-align: center;
+        --font-size: 2rem;
+        height: var(--font-size);
+        width: 100%;
+        overflow: hidden;
+        > * {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            font-size: var(--font-size);
         }
     }
 }
