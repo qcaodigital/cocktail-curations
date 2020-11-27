@@ -2,7 +2,7 @@ import React, { useState, useEffect, useReducer } from 'react';
 import { useRouter } from 'next/router';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
-import Loadingscreen from './Loadingscreen';
+import Loadingscreen from './Loadingscreen2';
 import HamburgerMenu from './HamburgerMenu';
 import styles from './Body.module.scss';
 import { AnimatePresence } from 'framer-motion';
@@ -29,7 +29,7 @@ export default function Body({ children }){
             toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
         />
         <main className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}>
-            {!loadComplete && <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>}
+            <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 
