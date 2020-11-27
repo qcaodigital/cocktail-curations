@@ -1,128 +1,115 @@
 #Services {
-    --landingPageSize: calc(100vh + 3rem);
-    .backgroundContainer {
-        overflow: hidden;
-        position: relative;
-        height: var(--landingPageSize);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        .background {
-            opacity: .8;
-            background-image: url('../public/imgs/stock/services_page/services_copy.jpg');
-            background-position: center top;
-            background-repeat: no-repeat;
-            background-size: cover;
-            min-height: 120vh;
-            &::after {
-                content:'';
-                height: 100%;
-                width: 100%;
-                background-color: var(--secondary-color);
-                opacity: .35;
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-            }
-        }
-    }
+    --landing-spacer-height: 3rem;
     .landing {
-        height: var(--landingPageSize);
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .services_box {
-            position: relative;
-            box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-            background-color: var(--secondary-color-fade-slight);
-            border-top-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;;
-            font-family: var(--main-font);
-            transition: 350ms ease;
-            width: 90%;
+        height: calc(100vh + var(--landing-spacer-height)); 
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60% 40%;
+        @media screen and (min-width: 750px){
+            grid-template-columns: 4fr 3fr;
+            grid-template-rows: calc(100vh + var(--landing-spacer-height));
+        }
+        .imgContainer {
+            background-image: url('../public/imgs/stock/services_page/landing-min.jpg');
             @media screen and (min-width: 750px){
-                width: 700px;
+                background-image: url('../public/imgs/stock/services_page/landing.jpg');
             }
-            svg {
-                margin: 1rem 0 2rem;
-                opacity: .75;
-            }
-            h1 {
-                font-size: 2.55rem;
-                font-weight: 400;
-                font-family: var(--serif-font);
-                letter-spacing: 0;
-                @media screen and (min-width: 750px){
-                    font-size: 3.25rem;
-                }
-            }
-            .services_list {
+            background-size: cover;
+            background-position: bottom;
+            position: relative;
+            .mouseSprite {
+                cursor: pointer;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 13px;
+                height: 20px;
+                border-radius: 40%;
+                transform: translate(-50%, 50%) scale(1.2);
+                background-color: var(--secondary-color);
                 display: flex;
-                flex-direction: column;
+                justify-content: center;
                 align-items: center;
-                gap: 1rem;
-                margin: 1rem 0 3rem;
+                box-shadow: 2px 2px 5px rgba(0,0,0,.15);
                 @media screen and (min-width: 750px){
-                    flex-direction: row;
+                    bottom: unset;
+                    left: unset;
+                    right: 0;
+                    top: 50%;
+                    transform: translate(50%, -50%) scale(1.2);
                 }
-                li {
-                    cursor: pointer;
-                    letter-spacing: 1px;
-                    font-weight: 300;
-                    font-size: .9rem;
-                    position: relative;
-                    transition: transform 350ms var(--ease), opacity 350ms ease;
+                &:hover {
+                    &::before,
                     &::after {
-                        content: '';
-                        position: absolute;
-                        width: 100%;
-                        bottom: -2px;
-                        left: 0;
-                        height: 1px;
-                        background-color: var(--main-color);
-                        transform-origin: inherit;
-                        transition: inherit;
+                        transform: translate(-50%, -50%);
+                        color: var(--secondary-color);
                     }
-                    &:hover {
-                        opacity: .5;
-                        &::after {
-                            transform: scaleX(0);
+                    .mouseAnimation {
+                        animation-play-state: paused;
+                    }
+                }
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: 1px solid var(--secondary-color-fade);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transition: 350ms ease;
+                }
+                &::before {
+                    transform: translate(-45%, -45%);
+                }
+                &::after {
+                    transform: translate(-55%, -55%);
+                }
+                .mouseAnimation {
+                    width: 1px;
+                    height: 25%;
+                    margin-bottom: 33%;
+                    background-color: var(--main-color);
+                    transform-origin: bottom;
+                    animation: animate 750ms infinite alternate;
+                    @keyframes animate {
+                        0% {
+                            opacity: 0;
+                            transform: scaleY(0);
+                        }
+                        100% {
+                            opacity: 1;
+                            transform: scaleY(1);
                         }
                     }
                 }
             }
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                width: 33%;
-                height: 50%;
-                background-color: transparent;
-                z-index: -1;
-            }
-            --distance: -10px;
-            &::before {
-                border-top-right-radius: 10px;
-                top: var(--distance);
-                right: var(--distance);
-                border-top: 1px solid var(--secondary-color-fade-less);
-                border-right: 1px solid var(--secondary-color-fade-less);
-            }
-            &::after {
-                border-bottom-left-radius: 10px;
-                bottom: var(--distance);
-                left: var(--distance);
-                border-bottom: 1px solid var(--secondary-color-fade-less);
-                border-left: 1px solid var(--secondary-color-fade-less);
+        }
+        .info {
+            background-color: var(--highlight-color-fade);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .textContainer {
+                margin-bottom: var(--landing-spacer-height);
+                @media screen and (min-width: 750px){
+                    margin-bottom: unset;
+                }
+                h2 {
+                    text-align: center;
+                    color: var(--secondary-color);
+                    font-family: var(--serif-font);
+                    font-size: 3rem;
+                    font-weight: 300;
+                    letter-spacing: -1.5px;
+                    line-height: 2.5rem;
+                    text-shadow: 0 0 4px rgba(0,0,0,.1);
+                    &:nth-of-type(2){
+                        font-style: italic;
+                    }
+                }
             }
         }
     }

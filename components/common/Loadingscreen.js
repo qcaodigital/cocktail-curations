@@ -1,75 +1,69 @@
-import { useState, useEffect } from 'react';
-import styles from './Loadingscreen.module.scss';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from './LoadingScreen.module.scss';
+import Head from 'next/head';
 
-Loadingscreen.propTypes = {
-    turnOffLoading: PropTypes.func.isRequired
-}
+export default function LoadingScreen({ turnOffLoading }){
+    const textAnimationDuration = 2.25;
+    const loadingScreenExitAnimationDuration = .5;
 
-export default function Loadingscreen({ turnOffLoading }){
-    const animationTime = 1.25;
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        if(!isLoading){
-            turnOffLoading();
-        }
-    }, [isLoading])
-
-    return (
-        <AnimatePresence exitBeforeEnter>
-            {isLoading && 
-            <motion.div exit={{ opacity: 0 }} transition={{ delay: 1 }} className={styles.Loadingscreen}>
-                <div className={styles.textContainer}>
-                    <Line text='Welcome To' duration={animationTime}/>
-                    <Line text='Cocktail Curations' duration={animationTime} delay={animationTime} closeLoading={() => setIsLoading(false)}/>
-                </div>
-            </motion.div>}
-        </AnimatePresence>
-    )
-}
-
-export const Line = ({ text, duration, delay, closeLoading }) => {
-    const [textExit, setTextExit] = useState(false);
-
-    const wordVariant = {
-        animate: {
-            y: '-50%',
-            transition: {
-                duration: duration
-            }
-        },
+    const textVariants = {
         initial: {
-            y: '100%',
             x: '-50%',
-            opacity: 1
+            y: '100%'
         },
-        exit: {
-            y: '-150%'
+        animate: {
+            y: ['100%', '-50%', '-50%', '-150%'],
+            transition: {
+                duration: textAnimationDuration,
+                times: [0, .45, .75, 1]
+            }
         }
     }
 
+    const container = {
+        animate: {
+            transition: {
+                staggerChildren: textAnimationDuration * .7
+            }
+        },
+        exit: {
+            // scaleY: 0,
+            // originY: 'bottom',
+            opacity: 0,
+            transition: {
+                duration: loadingScreenExitAnimationDuration
+            }
+        }
+    }
+
+    const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+
     return (
-        <AnimatePresence>
-            {!textExit && <motion.h2 
-                exit={{ y: '-150%'}} 
-                transition={{ 
-                    duration: duration,
-                    delay: delay * 1.25
-                }} 
-                animate={{ y: '-50%', opacity: 1 }} 
-                initial={{ y: '100%', x: '-50%', opacity: 0 }} 
-                onAnimationComplete={() => {
-                    setTimeout(() => {
-                        setTextExit(true);
-                        if(closeLoading){
-                            closeLoading();
-                        }
-                    }, delay ? 0 : duration * 250);
-                }}
-            >
-                {text}
-            </motion.h2>}
-        </AnimatePresence>
+        <>
+            <Head>  
+                <title>Cocktail Curations</title>
+            </Head>
+            <AnimatePresence>
+                {!isAnimationComplete && <motion.div 
+                    className={styles.Loadingscreen}
+                    animate='animate'
+                    initial='initial'
+                    exit='exit'
+                    variants={container}
+                    onAnimationComplete={() => {
+                        setIsAnimationComplete(true);
+                        setTimeout(() => {
+                            turnOffLoading();
+                        }, loadingScreenExitAnimationDuration * 1000)
+                    }}
+                >
+                    <div className={styles.textContainer}>
+                        <motion.h2 variants={textVariants}>Welcome To</motion.h2>
+                        <motion.h2 variants={textVariants}>Cocktail Curations</motion.h2>
+                    </div>
+                </motion.div>}
+            </AnimatePresence>
+        </>
     )
 }

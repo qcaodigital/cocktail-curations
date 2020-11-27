@@ -7,19 +7,15 @@ import Copy from '../components/services/Copy';
 import Classes from '../components/services/Classes'
 import Bars from '../components/services/Bars';
 import Bases from '../components/services/Bases';
-import constructRellax from '../helpers/constructRellax';
+// import constructRellax from '../helpers/constructRellax';
 import MouseDirection from '../components/HOC/MouseDirection';
 import smoothscroll from 'smoothscroll';
 import { landingTransitions } from '../page_transitions/services';
 
-export default function Services({ state }){
-    const backgroundRellax = useRef();
+export default function Services({ state: { viewport }}){
     const classesRef = useRef();
     const barsRef = useRef();
     const basesRef = useRef();
-
-    useEffect(() => constructRellax(backgroundRellax, {speed: -5}), [])
-    const handleNavClick = (ref) => smoothscroll(ref.current.offsetTop, 1250);
 
     return(
         <>
@@ -27,27 +23,25 @@ export default function Services({ state }){
             <title>Services | Cocktail Curations</title>
         </Head>
         <motion.main id={styles.Services} 
-            initial={{ opacity: 0}} 
+            initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
+            transition={{ duration: .5 }}
         >
-            <div className={styles.backgroundContainer}>
-                <div ref={backgroundRellax} className={styles.background}/>
-            </div>
             <motion.section animate='animate' initial='initial' className={styles.landing}>
-                <motion.div variants={landingTransitions.serviceBox} className={styles.services_box}>
-                    <motion.div variants={landingTransitions.serviceBoxChildren}>
-                        <FontAwesomeIcon size='2x' icon={['fas', 'glass-cheers']}/>
-                    </motion.div>
-                    <motion.h1 variants={landingTransitions.serviceBoxChildren}>Our Services</motion.h1>
-                    <motion.ul variants={landingTransitions.serviceBoxChildren} className={styles.services_list}>
-                        <MouseDirection><li onClick={() => handleNavClick(classesRef)}>Cocktail Classes</li></MouseDirection>
-                        <MouseDirection><li onClick={() => handleNavClick(barsRef)}>Experiential Bars</li></MouseDirection>
-                        <MouseDirection><li onClick={() => handleNavClick(basesRef)}>Cocktail Bases</li></MouseDirection>
-                    </motion.ul>
-                </motion.div>
+                <div className={styles.imgContainer}>
+                    <div className={styles.mouseSprite}>
+                        <div className={styles.mouseAnimation}/>
+                    </div>
+                </div>
+                <div className={styles.info}>
+                    <div className={styles.textContainer}>
+                        <h2>Learn about</h2>
+                        <h2>our services</h2>
+                    </div>
+                </div>
             </motion.section>
-            <Copy viewport={state.viewport}/>
+            <Copy viewport={viewport}/>
             <Bars ref={barsRef}/>
             <Classes ref={classesRef}/>
             <Bases ref={basesRef}/>

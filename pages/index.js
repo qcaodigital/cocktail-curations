@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef } from 'react';
-// import { StateContext } from '../components/common/Body';
 import Head from 'next/head';
 import styles from './home.module.scss';
 import Link from 'next/link';
@@ -10,44 +9,9 @@ import { motion } from 'framer-motion';
 import { landingTransitions } from '../page_transitions/home';
 import constructRellax from '../helpers/constructRellax';
 import smoothscroll from 'smoothscroll';
+import featureItems from '../data/Home_featureItems';
 
-const feature_row_items = [
-    {
-        src: '/imgs/stock/feature-1.jpg',
-        alt: 'Cocktail Curations Smoked Orange Maple Old Fashioned Base',
-        label: 'Old Fashioned Cocktail Base',
-        url: 'https://www.cocktailcurations-shop.com/collections/cocktail-bases/products/old-fashioned-cocktail-base',
-        focus: { x: '53%', y: '38%' },
-        arrowPos: 'bottomLeft'
-    },
-    {
-        src: '/imgs/stock/feature-2.jpg',
-        alt: 'Cocktail Curations Key Lime Basil Base',
-        label: 'Key Lime Basil Cocktail Base',
-        url: 'https://www.cocktailcurations-shop.com/collections/cocktail-bases/products/lemon-thyme-elderflower-tonic',
-        focus: { x: '70%', y: '43%' },
-        arrowPos: 'topRight'
-    },
-    {
-        src: '/imgs/stock/feature-3.jpg',
-        alt: 'Cocktail Curations Orange Crush Base',
-        label: 'Orange Crush Cocktail Base',
-        url: 'https://www.cocktailcurations-shop.com/collections/cocktail-bases/products/orange-crush-cocktail-base',
-        focus: { x: '35%', y: '35%' },
-        arrowPos: 'topLeft'
-    },
-    {
-        src: '/imgs/stock/feature-4.jpg',
-        alt: 'Cocktail Curations Spiced Pear Base',
-        label: 'Spiced Pear Cocktail Base',
-        url: 'https://www.cocktailcurations-shop.com/collections/cocktail-bases/products/spiced-pear-cocktail-base',
-        focus: { x: '50%', y: '25%' },
-        arrowPos: 'bottomRight'
-    }
-]
-
-export default function Home({ state }){
-    const { viewport, navHeight } = state;
+export default function Home({ state: { viewport, navHeight }, NAV_SPACER }){
     const landingSectionRef = useRef();
 
     const bgRef = useRef();
@@ -70,9 +34,11 @@ export default function Home({ state }){
             >
                 <div ref={bgRef} className={styles.background}/>
             </motion.div>
+            {NAV_SPACER}
             <motion.section 
                 ref={landingSectionRef} 
                 className={styles.landing}
+                style={{ minHeight: `calc(100vh - ${navHeight ? navHeight : 0}px)`}}
                 animate='animate'
                 initial='initial'
             >
@@ -123,11 +89,11 @@ export default function Home({ state }){
                     viewport={viewport}
                     imgs={[
                         {
-                            url: "/imgs/stock/JPEG/IMG_9431-sq.jpg", 
+                            url: "/imgs/stock/home_page/IMG_9431-sq.jpg", 
                             alt: 'Cocktail Curations Molecular Bar Book Of Lists 2020'
                         }, 
                         {
-                            url: "/imgs/stock/JPEG/weddingprodc-sq.jpg",
+                            url: "/imgs/stock/home_page/weddingprodc-sq.jpg",
                             alt: 'Wedding Pro DC Cocktail Curations',
                             card: {
                                 header: 'Experiential Bars', subheader: 'Enjoy our', href: '/events'
@@ -139,11 +105,11 @@ export default function Home({ state }){
                     viewport={viewport}
                     imgs={[
                         {
-                            url: "/imgs/stock/JPEG/IMG_1730.jpg", 
+                            url: "/imgs/stock/home_page/IMG_1730.jpg", 
                             alt: 'Cocktail Curations Virtual Class'
                         }, 
                         {
-                            url: "/imgs/stock/JPEG/IMG_0540.jpg",
+                            url: "/imgs/stock/home_page/IMG_0540.jpg",
                             alt: 'Cocktail Curations Class At Kentlands Clubhouse',
                             card: {
                                 header: 'Cocktail Classes', subheader: 'Learn In Our', href: '/events'
@@ -158,7 +124,7 @@ export default function Home({ state }){
                     header='Cocktail bases now available online!'
                     text='Our cocktail bases take your home bar to the next level. Made with artisanal and thoughtfully crafted flavors and prepared with fresh and sustainable ingredients, our cocktail bases are waiting to be shaken or stirred with your favorite spirit. Build the perfect beverage in minutes then top it all off with our included homemade garnishes and enjoy.'
                 />
-                <FeatureItems items={ feature_row_items } viewport={viewport}/>
+                <FeatureItems items={ featureItems } viewport={viewport}/>
             </section>
         </motion.main>
         </>

@@ -14,9 +14,7 @@ import FadeInViewContainer from '../components/HOC/FadeInViewContainer';
 import { landingTransitions, infoTransitions } from '../page_transitions/team';
 import useInViewFromTop from '../custom_hooks/useInViewFromTop';
 
-export default function Team({ state }){
-    const { viewport, NAV_SPACER } = state;
-
+export default function Team({ state: { viewport }, NAV_SPACER }){
     const bg1Ref = useRef();
     useEffect(() => constructRellax(bg1Ref, {speed: -5, center: false}), []) 
 
@@ -34,7 +32,13 @@ export default function Team({ state }){
         <Head>
             <title>Our Team | Cocktail Curations</title>
         </Head>
-        <motion.main id={styles.Team} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
+        <motion.main 
+            id={styles.Team}
+            animate={{ opacity: 1 }} 
+            initial={{ opacity: 0 }} 
+            exit={{ opacity: 0 }}
+            transition={{ duration: .5 }}
+        >
             <motion.section animate='animate' initial='initial' className={styles.landing}>
                 <div className={styles.landingBackgrounds}>
                     <div className={styles.background1container}>

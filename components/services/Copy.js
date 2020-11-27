@@ -29,7 +29,7 @@ export default function Copy({ viewport }){
             <div className={styles.gallery}>
                 <div className={styles.parallaxContainer}>
                     <div ref={copyLeftImgRellax} id={styles.galleryLeft} className={styles.imgContainer}>
-                        <img src="/imgs/stock/services_page/services_header (1)-sq-flipped.jpg" alt="Cocktail Curations Classes"/>
+                        <img src="/imgs/stock/services_page/services_copy_2.jpg" alt="Cocktail Curations Classes"/>
                     </div>
                     <div 
                         ref={copyCenterImgRef} 
@@ -38,14 +38,14 @@ export default function Copy({ viewport }){
                     >
                         <img 
                             className={inView ? styles.inView : null} 
-                            src="/imgs/stock/services_page/services_header (3)-short.jpg" 
+                            src="/imgs/stock/services_page/services_copy_1.jpg" 
                             alt="Cocktail Curations Botanical Bar"
                         />
                         <img ref={copyCenterImgRef} id={styles.dot_circle} className={styles.embellishment} src='/imgs/embellishments/grey-dots.png' alt="grey dots"/>
                         <img id={styles.dots} className={styles.embellishment} src='/imgs/embellishments/dots.png' alt="dots"/>
                     </div>
                     <div ref={copyRightImgRellax} id={styles.galleryRight} className={styles.imgContainer}>
-                        <img src="/imgs/stock/services_page/services_header (2)-sq.jpg" alt=""/>
+                        <img src="/imgs/stock/services_page/services_copy_3.jpg" alt=""/>
                         <img id={styles.dots} className={styles.embellishment} src='/imgs/embellishments/dots.png' alt="Cocktail Curations Experiential Bar Service"/>
                     </div>
                     {viewport !== 'mobile' && <motion.div 

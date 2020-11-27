@@ -10,7 +10,7 @@
     }
     .background {
         min-height: 115vh;
-        background: url('../public/imgs/background/IMG_1228-edit-blurred-desat.jpg');
+        background: url('../public/imgs/stock/home_page/IMG_1228-edit-blurred-desat.jpg');
         // background-color: var(--secondary-color-fade-less);
         background-position: center bottom;
         background-size: cover;
@@ -27,7 +27,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
+        @media screen and (min-width: 750px){
+            padding-bottom: 7.5rem;
+        }
         .headingContainer {
             text-align: center;
             padding: 1rem;
