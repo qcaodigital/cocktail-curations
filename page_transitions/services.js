@@ -76,21 +76,21 @@ export const sectionTransitions = {
             y: 50
         }
     },
-    headerVariantDelayed: {
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                ease: [.38, .25, 0, 1],
-                duration: 1,
-                delay: .5
-            }
-        },
-        initial: {
-            opacity: 0,
-            y: 50
-        }
-    },
+    // headerVariant: {
+    //     animate: {
+    //         opacity: 1,
+    //         y: 0,
+    //         transition: {
+    //             ease: [.38, .25, 0, 1],
+    //             duration: 1,
+    //             delay: .5
+    //         }
+    //     },
+    //     initial: {
+    //         opacity: 0,
+    //         y: 50
+    //     }
+    // },
     stagger: {
         animate: {
             transition: {

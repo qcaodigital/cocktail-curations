@@ -27,7 +27,7 @@ const Classes = React.forwardRef(({}, ref) => {
                         <motion.span variants={sectionTransitions.headerVariant}>knowledge and skills by</motion.span>
                         <motion.span variants={sectionTransitions.headerVariant}>hosting a <span className={styles.emp}>cocktail class.</span></motion.span>
                     </motion.h2>
-                    <motion.p variants={sectionTransitions.headerVariantDelayed}>We will teach your guests how to craft cocktail classics or customize a cocktail based on your group’s theme or preference. Cocktail Curations will provide instructors, barware, cocktail utensils, and all additional natural juices, handcraft mixers and garnishes.</motion.p>
+                    <motion.p variants={sectionTransitions.headerVariant}>We will teach your guests how to craft cocktail classics or customize a cocktail based on your group’s theme or preference. Cocktail Curations will provide instructors, barware, cocktail utensils, and all additional natural juices, handcraft mixers and garnishes.</motion.p>
                 </motion.header>
                 <div className={styles.imgContainer} id={styles.first}>
                     <motion.img ref={imgRef} animate={imgInView ? 'animate' : 'initial'} variants={sectionTransitions.mainImgScale} src="/imgs/stock/services_page/classes.jpg" alt="Cocktail Curations Class Kentlands Clubhouse"/>

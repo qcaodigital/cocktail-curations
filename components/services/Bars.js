@@ -22,8 +22,8 @@ const Bars = React.forwardRef(({}, ref) => {
                         <motion.span variants={sectionTransitions.headerVariant}>your event with one</motion.span>
                         <motion.span variants={sectionTransitions.headerVariant}>of our <span className={styles.emph}>experiential bars.</span></motion.span>
                     </motion.h2>
-                    <motion.p variants={sectionTransitions.headerVariantDelayed}>To curate is to design and select items from among a large number of possibilities. Our mixology bars offer customized  experiences for your special event. It's more than just a specialty cocktail. Our bartenders engage with guests and craft cocktails to their preference. From liquid, garnish, to displays, we curate your perfect cocktail bar and guest experience.</motion.p>
-                    <motion.p variants={sectionTransitions.headerVariantDelayed}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.</motion.p>
+                    <motion.p variants={sectionTransitions.headerVariant}>To curate is to design and select items from among a large number of possibilities. Our mixology bars offer customized  experiences for your special event. It's more than just a specialty cocktail. Our bartenders engage with guests and craft cocktails to their preference. From liquid, garnish, to displays, we curate your perfect cocktail bar and guest experience.</motion.p>
+                    <motion.p variants={sectionTransitions.headerVariant}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.</motion.p>
                 </motion.header>
                 <div className={styles.gallery}>
                     <div id={styles.center} className={styles.imgContainer}>

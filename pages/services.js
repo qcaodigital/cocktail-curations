@@ -11,6 +11,7 @@ import Bases from '../components/services/Bases';
 import MouseDirection from '../components/HOC/MouseDirection';
 import smoothscroll from 'smoothscroll';
 import { landingTransitions } from '../page_transitions/services';
+import MouseSprite from '../components/common/MouseSprite';
 
 export default function Services({ state: { viewport }}){
     const classesRef = useRef();
@@ -30,16 +31,34 @@ export default function Services({ state: { viewport }}){
         >
             <motion.section animate='animate' initial='initial' className={styles.landing}>
                 <div className={styles.imgContainer}>
-                    <div className={styles.mouseSprite}>
-                        <div className={styles.mouseAnimation}/>
-                    </div>
+                    <MouseSprite clickCB={() => alert('Some scroll event should happen here')}/>
                 </div>
                 <div className={styles.info}>
                     <div className={styles.textContainer}>
-                        <h2>Learn about</h2>
+                        {viewport === 'mobile' && <h2>Learn about</h2>}
                         <h2>our services</h2>
+                        <div className={styles.iconContainer}>
+                            <FontAwesomeIcon size='lg' icon={['fas', 'glass-cheers']}/>
+                        </div>
                     </div>
                 </div>
+                {viewport === 'mobile' && <div className={`${styles.info} ${styles.secondary}`}>
+                    <div className={styles.infoContainer}>
+                        <div className={styles.imgContainer}>
+                            <img src="/imgs/stock/services_page/landing_block.jpg" alt=""/>
+                        </div>
+                        <div className={styles.textContainer}>
+                            <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla rem maiores repellat earum blanditiis modi dolore error,.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla rem maiores repellat earum blanditiis modi dolore error,.</p>
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                                <li>Lorem, ipsum dolor sit amet consectetur.</li>
+                                <li>Lorem, ipsum dolor ipsum dolor.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>}
             </motion.section>
             <Copy viewport={viewport}/>
             <Bars ref={barsRef}/>

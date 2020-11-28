@@ -25,10 +25,10 @@ const Bases = React.forwardRef(({}, ref) => {
                         <motion.span variants={sectionTransitions.headerVariant}>very own artisanal</motion.span>
                         <motion.span variants={sectionTransitions.headerVariant}><span className={styles.emph}>cocktail base.</span></motion.span>
                     </motion.h2>
-                    <motion.p variants={sectionTransitions.headerVariantDelayed}>We curate and bottle, you shake with your favorite spirit and finish with our beautiful
+                    <motion.p variants={sectionTransitions.headerVariant}>We curate and bottle, you shake with your favorite spirit and finish with our beautiful
                     garnishes. Our perfectly balanced cocktail bases are made with fresh ingredients, flavorful
                     botanicals, handcrafted simple syrups and bitters delivered to your door.</motion.p>
-                    <motion.p variants={sectionTransitions.headerVariantDelayed}>We will work with you to craft a deliciously, special flavor for your next event. Our cocktail bases are also available in pre-made, curated flavors kept in limited stock. Follow the link below to check out out latest bases!</motion.p>
+                    <motion.p variants={sectionTransitions.headerVariant}>We will work with you to craft a deliciously, special flavor for your next event. Our cocktail bases are also available in pre-made, curated flavors kept in limited stock. Follow the link below to check out out latest bases!</motion.p>
                     <motion.div variants={sectionTransitions.opacity} className={styles.CTA}>
                         <button className='STYLED_BTN'>
                             <a href='http://www.cocktailcurations-shop.com' target='_blank' rel='noopener noreferrer'>Shop Bases</a>
