@@ -20,10 +20,10 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
             </div>
             <div className={styles.info}>
                 {viewport !== 'mobile' && NAV_SPACER}
-                <div style={{ height: viewport === 'mobile' ? '' : `calc(100vh - ${navHeight}px )`}} className={styles.textContainer}>
+                <div className={styles.textContainer}>
                     {viewport === 'mobile' && <h2>Learn about</h2>}
                     <h2>our services</h2>
-                    {viewport !== 'mobile' && <LandingInfo/>}
+                    {viewport !== 'mobile' && <LandingInfo refs={refs} navHeight={navHeight} viewport={viewport}/>}
                     {viewport !== 'mobile' && <div className={styles.divider}>
                         <img src="/imgs/embellishments/divider-white.png" alt=""/>
                     </div>}
@@ -32,7 +32,7 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
                     <FontAwesomeIcon size='lg' icon={['fas', 'glass-cheers']}/>
                 </div>
             </div>
-            {viewport === 'mobile' && <LandingMobileInfo ref={mobileInfoRef} refs={refs}/>}
+            {viewport === 'mobile' && <LandingMobileInfo ref={mobileInfoRef} refs={refs} navHeight={navHeight} viewport={viewport}/>}
         </motion.section>   
     )
 }

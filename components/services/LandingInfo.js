@@ -1,6 +1,10 @@
 import styles from './LandingInfo.module.scss';
+import smoothscroll from 'smoothscroll';
 
-export default function LandingInfo(){
+export default function LandingInfo({refs, navHeight, viewport}){
+    const scrollAnchorDesktopAdjustment = viewport === 'mobile' ? 0 : navHeight / 2;
+    const scrollAnchorDuration = 2000;
+
     return (
         <div className={styles.infoBlock}>
             <h3>We offer a variety of services to share our love and passion for mixology.</h3>
@@ -10,7 +14,7 @@ export default function LandingInfo(){
                 <li>
                     Experience-based, <strong>speciality bars</strong>. 
                     <span
-                        onClick={() => smoothscroll(refs.bars.current.offsetTop - navHeight / 2, 2000)} 
+                        onClick={() => smoothscroll(refs.bars.current.offsetTop - scrollAnchorDesktopAdjustment, scrollAnchorDuration)} 
                         className={styles.scrollAnchor}
                     >Learn more.
                     </span>
@@ -18,7 +22,7 @@ export default function LandingInfo(){
                 <li>
                     Interactive <strong>cocktail classes</strong>. 
                     <span 
-                        onClick={() => smoothscroll(refs.classes.current.offsetTop - navHeight / 2, 2000)}
+                        onClick={() => smoothscroll(refs.classes.current.offsetTop - scrollAnchorDesktopAdjustment, scrollAnchorDuration)}
                         className={styles.scrollAnchor}
                     >Learn more.
                     </span>
@@ -26,7 +30,7 @@ export default function LandingInfo(){
                 <li>
                     Custom-curated <strong>cocktail bases</strong>. 
                     <span
-                        onClick={() => smoothscroll(refs.bases.current.offsetTop - navHeight / 2, 2000)} 
+                        onClick={() => smoothscroll(refs.bases.current.offsetTop - scrollAnchorDesktopAdjustment, scrollAnchorDuration)} 
                         className={styles.scrollAnchor}
                     >Learn more.
                     </span>

@@ -5,7 +5,7 @@
     grid-template-rows: 60vh 40vh auto;
     @media screen and (min-width: 750px){
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: calc(100vh + var(--landing-spacer-height)) auto;
+        grid-template-rows: auto;
     }
     @media screen and (min-width: 990px){
         grid-template-columns: 4fr 3fr;
@@ -42,6 +42,7 @@
         @media screen and (min-width: 750px){
             border-left: 1px solid var(--secondary-color-fade);
             display: block;
+            padding-bottom: 3rem;
         }
         &::before { //LINE SPACER FOR CTA
             content: '';
@@ -94,8 +95,9 @@
                     font-style: italic;
                 }
                 @media screen and (min-width: 750px){
+                    margin-top: 5vw;
                     border: 3px solid var(--secondary-color);
-                    font-size: 4rem;
+                    font-size: 3rem;
                     font-weight: 700;
                     color: white;
                     line-height: 2.5rem;
@@ -113,77 +115,26 @@
                         left: 50%;
                         transform: translate(-50%, -50%);
                         display: block;
-                        width: 500px;
-                        height: 200px;
+                        width: 375px;
+                        height: 150px;
                         background-image: url('../../public/imgs/embellishments/flowers-desat.png');
                         background-position: center;
                         background-size: cover;
                         z-index: -1;
-                    }
-                }
-            }
-            .infoBlock {
-                margin: 0 auto 10vw;
-                padding: 0 3rem;
-                max-width: 750px;
-                color: white;
-                text-align: center;
-                font-family: var(--main-font);
-                > * {
-                    text-shadow: 0 0 4px rgba(0,0,0,.1);
-                }
-                &::before {
-                    content: '';
-                    display: block;
-                    height: 1px;
-                    width: 25%;
-                    background-color: var(--secondary-color);
-                    margin: 3rem auto;
-                }
-                h3 {
-                    font-family: var(--serif-font);
-                    font-size: 1.75rem;
-                    font-weight: 600;
-                    line-height: 1.75rem;
-                }
-                p, h4 {
-                    margin: 1rem 0;
-                }
-                ul {
-                    margin-top: .5rem;
-                    li {
-                        padding-left: .5rem;
-                        white-space: nowrap;
                         @media screen and (min-width: 990px){
-                            font-size: 1.15rem;
-                        }
-                        &:last-of-type {
-                            &::before {
-                                content: unset;
-                            }
-                        }
-                        strong {
-                            font-weight: 600;
-                        }
-                        &::before {
-                            content: '•';
-                            margin-right: 1rem;
-                        }
-                        & + li {
-                            margin-top: .25rem;
-                        }
-                        .scrollAnchor {
-                            font-size: .7rem;
-                            text-decoration: underline;
-                            color: var(--highlight-color);
-                            cursor: pointer;
-                            margin-left: 4px;
+                            width: 500px;
+                            height: 200px;
                         }
                     }
                 }
+                @media screen and (min-width: 990px){
+                    font-size: 4rem;
+                }
             }
+            //LANDINGINFO COMPONENT EXISTS HERE
             .divider {
                 width: 50%;
+                margin-top: 5vw;
                 img {
                     width: 100%;
                 }
