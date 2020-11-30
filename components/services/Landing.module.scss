@@ -1,0 +1,207 @@
+#Landing {
+    --landing-spacer-height: 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh 40vh auto;
+    @media screen and (min-width: 750px){
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: calc(100vh + var(--landing-spacer-height)) auto;
+    }
+    @media screen and (min-width: 990px){
+        grid-template-columns: 4fr 3fr;
+    }
+    .imgContainer {
+        background-image: url('../../public/imgs/stock/services_page/landing-min.jpg');
+        @media screen and (min-width: 750px){
+            background-image: url('../../public/imgs/stock/services_page/landing.jpg');
+        }
+        background-size: cover;
+        background-position: bottom;
+        position: relative;
+        .mouseSprite {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: 2;
+            transform: translate(-50%, 50%) scale(1.2);
+            @media screen and (min-width: 750px){
+                bottom: unset;
+                left: unset;
+                right: 0;
+                top: 50%;
+                transform: translate(50%, -50%);
+            }
+        }
+    }
+    .info {
+        background-color: var(--highlight-color-fade);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        @media screen and (min-width: 750px){
+            border-left: 1px solid var(--secondary-color-fade);
+            display: block;
+        }
+        &::before { //LINE SPACER FOR CTA
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -185%);
+            width: 1px;
+            height: 20%;
+            background-color: var(--secondary-color-fade-more);
+            @media screen and (min-width: 750px){
+                display: none;
+            }
+        }
+        .textContainer {
+            position: relative;
+            @media screen and (min-width: 750px){
+                margin-bottom: unset;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            &::after {
+                content: '';
+                display: block;
+                height: 1px;
+                width: 10vw;
+                background-color: var(--secondary-color-fade);
+                position: absolute;
+                bottom: -2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                @media screen and (min-width: 750px){
+                    background-color: var(--secondary-color);
+                    width: 7.5vw;
+                    display: none;
+                }
+            }
+            h2 {
+                text-align: center;
+                color: var(--secondary-color);
+                font-family: var(--serif-font);
+                font-size: 2.5rem;
+                line-height: 2rem;
+                font-weight: 500;
+                letter-spacing: -1.5px;
+                text-shadow: 0 0 4px rgba(0,0,0,.1);
+                &:nth-of-type(2){
+                    font-style: italic;
+                }
+                @media screen and (min-width: 750px){
+                    border: 3px solid var(--secondary-color);
+                    font-size: 4rem;
+                    font-weight: 700;
+                    color: white;
+                    line-height: 2.5rem;
+                    text-transform: capitalize;
+                    display: inline-block;
+                    padding: .5rem 1rem;
+                    box-shadow: 5px 5px 15px 2px rgba(0,0,0,.05);
+                    background-color: var(--highlight-color-fade);
+                    position: relative;
+                    z-index: 1;
+                    &::before { //FLOWER BANNER
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: block;
+                        width: 500px;
+                        height: 200px;
+                        background-image: url('../../public/imgs/embellishments/flowers-desat.png');
+                        background-position: center;
+                        background-size: cover;
+                        z-index: -1;
+                    }
+                }
+            }
+            .infoBlock {
+                margin: 0 auto 10vw;
+                padding: 0 3rem;
+                max-width: 750px;
+                color: white;
+                text-align: center;
+                font-family: var(--main-font);
+                > * {
+                    text-shadow: 0 0 4px rgba(0,0,0,.1);
+                }
+                &::before {
+                    content: '';
+                    display: block;
+                    height: 1px;
+                    width: 25%;
+                    background-color: var(--secondary-color);
+                    margin: 3rem auto;
+                }
+                h3 {
+                    font-family: var(--serif-font);
+                    font-size: 1.75rem;
+                    font-weight: 600;
+                    line-height: 1.75rem;
+                }
+                p, h4 {
+                    margin: 1rem 0;
+                }
+                ul {
+                    margin-top: .5rem;
+                    li {
+                        padding-left: .5rem;
+                        white-space: nowrap;
+                        @media screen and (min-width: 990px){
+                            font-size: 1.15rem;
+                        }
+                        &:last-of-type {
+                            &::before {
+                                content: unset;
+                            }
+                        }
+                        strong {
+                            font-weight: 600;
+                        }
+                        &::before {
+                            content: '•';
+                            margin-right: 1rem;
+                        }
+                        & + li {
+                            margin-top: .25rem;
+                        }
+                        .scrollAnchor {
+                            font-size: .7rem;
+                            text-decoration: underline;
+                            color: var(--highlight-color);
+                            cursor: pointer;
+                            margin-left: 4px;
+                        }
+                    }
+                }
+            }
+            .divider {
+                width: 50%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .iconContainer {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            @media screen and (min-width: 750px){
+                display: none;
+            }
+            svg {
+                color: var(--secondary-color);
+                opacity: .75;
+            }
+        }
+    }
+}

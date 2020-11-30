@@ -52,6 +52,7 @@
                 padding-left: .5rem;
                 border-left: 3px solid var(--highlight-color);
                 max-width: 90%;
+                overflow: hidden;
                 @media screen and (min-width: 500px){
                     font-size: 2rem;
                     max-width: 75%;

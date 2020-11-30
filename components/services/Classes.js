@@ -45,7 +45,7 @@ const Classes = React.forwardRef(({}, ref) => {
                 </motion.div>
             </div>
             <Spacer 
-                img='/imgs/stock/services_page/classes_spacer_bg.jpg'
+                img='/imgs/stock/services_page/classes_spacer.jpg'
                 buttonText='Book a class today'
                 href='/contact'    
             />

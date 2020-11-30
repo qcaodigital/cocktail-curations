@@ -23,7 +23,9 @@ export default function Spacer({ img, buttonText, href }){
 
     return(
         <div className={styles.spacer}>
-            <div ref={ref} className={styles.parallaxContainer} style={{backgroundImage: `url(${img})`}}/>
+            <div className={styles.imgContainer}>
+                <img ref={ref} src={img} alt=""/>
+            </div>
             <header>
                 <motion.button animate={inView ? 'animate' : 'initial'} variants={spacerTransitions.headerScale}>
                     <div className={styles.beforeLine}/>

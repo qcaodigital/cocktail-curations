@@ -1,0 +1,57 @@
+.LandingMobileInfo {
+    background-color: var(--highlight-color-fade);
+    display: flex;
+    justify-content: center;
+    padding: 0 .5rem calc(var(--landing-spacer-height) + 7.5vh);
+    @media screen and (min-width: 750px){
+        grid-row: 2/3;
+        grid-column: 1/-1;
+        padding: calc(var(--landing-spacer-height) + 5vh) .5rem calc(var(--landing-spacer-height) + 5vh);
+    }
+    &::before {
+        content: unset;
+    }
+    .infoContainer {
+        position: relative;
+        padding: 2rem;
+        background-color: var(--secondary-color);
+        max-width: 550px;
+        @media screen and (min-width: 750px){
+            display: flex;
+            align-items: center;
+            gap: 2.5vw;
+            width: 75vw;
+            max-width: 1110px;
+        }
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+            height: 15vw;
+            background-color: var(--highlight-color-fade);
+            @media screen and (min-width: 750px){
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 10vw;
+                right: unset;
+                height: unset;
+            }
+        }
+        .imgContainer {
+            background-image: unset;
+            background-size: unset;
+            background-position: unset;
+            position: relative;
+            border-top: 5px solid var(--main-color);
+            z-index: 1;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -22,8 +22,8 @@ export default function Copy({ viewport }){
         <section id={styles.Copy}>
             <ArrowDivider size={{value: 1.5, measurement: 'rem'}} border={{size: 1, color: 'var(--main-color-fade-more)'}} BGcolor='#F1F2EB'/>
             <div className={styles.headerSection}>
-                <h2 className={styles.headerEmp}>We provide</h2>
-                <h2>a vast variety of services to bring our knowledge and passion for next-level mixology to the world.</h2>
+                <h2 className={styles.headerEmp}>Our Promise</h2>
+                <h2>is to offer a specially-curated event or experience that is fitted to every individual client's needs. No need or desire gets left behind.</h2>
                 <img src="/imgs/stock/logos/cc-icon-logo-color.png" alt="Cocktail Curations Logo Icon"/>
             </div>
             <div className={styles.gallery}>

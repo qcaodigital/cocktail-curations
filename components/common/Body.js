@@ -18,7 +18,7 @@ export default function Body({ children }){
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
     const scrollThreshold = useScrollThreshold(120, { team: 100 }, router)
-    const [loadComplete, setLoadComplete] = useState(false);
+    const [loadComplete, setLoadComplete] = useState(true);
     const [navHeight, setNavHeight] = useState(null);
 
     return (
@@ -29,7 +29,7 @@ export default function Body({ children }){
             toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
         />
         <main className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}>
-            <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>
+            {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> */}
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 

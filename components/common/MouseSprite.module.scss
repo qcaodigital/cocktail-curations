@@ -1,26 +1,13 @@
 .mouseSprite {
     cursor: pointer;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
     width: 13px;
     height: 20px;
     border-radius: 40%;
-    transform: translate(-50%, 50%) scale(1.2);
     background-color: var(--secondary-color);
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 2px 2px 5px rgba(0,0,0,.15);
-    z-index: 2;
-    @media screen and (min-width: 750px){
-        bottom: unset;
-        left: unset;
-        right: 0;
-        top: 50%;
-        transform: translate(50%, -50%) scale(1.2);
-        display: none;
-    }
     &:hover {
         &::before,
         &::after {

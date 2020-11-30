@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 FeatureItems.propTypes = {
     items: PropTypes.array.isRequired,
-    viewport: PropTypes.string.isRequired
+    viewport: PropTypes.string
 }
 
 export default function FeatureItems({ items, viewport }){

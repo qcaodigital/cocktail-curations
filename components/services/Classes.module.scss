@@ -1,5 +1,5 @@
 #Classes {
-    background-color: #D9D7D4;
+    background-color: #e2dade;
     position: relative;
     overflow: hidden;
     --highlight-color: #f95b5b;
@@ -56,6 +56,7 @@
                 max-width: 90%;
                 border-left: 3px solid var(--highlight-color);
                 padding-left: .5rem;
+                overflow: hidden;
                 @media screen and (min-width: 500px){
                     font-size: 2rem;
                     line-height: 1.9rem;

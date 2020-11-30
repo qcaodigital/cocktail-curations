@@ -4,6 +4,8 @@ export default function MouseDirection({ children }){
     const [direction, setDirection] = useState('left');
     const ref = useRef();
 
+    useEffect(() => console.log(direction), [direction])
+
     useEffect(() => { 
         function handleHover(e){
             const mouseX = e.layerX;

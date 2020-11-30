@@ -2,21 +2,26 @@
     height: 40vh;
     overflow: hidden;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @media screen and (min-width: 750px){
         height: 50vh;
     }
-    .parallaxContainer {
-        position: absolute;
-        bottom: -5%;
-        left: 0;
-        right: 0;
-        z-index: 0;
-        height: 60vh;
-        background-size: cover;
-        background-position: center bottom;
-        opacity: .5;
+    .imgContainer {
+        height: 150%;
         @media screen and (min-width: 750px){
-            height: 65vh;
+            width: 100%;
+            height: unset;
+        }
+        img {
+            opacity: 1;
+            height: 100%;
+            // filter: brightness(80%);
+            @media screen and (min-width: 750px){
+                width: 100%;
+                height: unset;
+            }
         }
     }
     header {

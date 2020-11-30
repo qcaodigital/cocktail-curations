@@ -44,8 +44,8 @@ const Bars = React.forwardRef(({}, ref) => {
                 </div>
             </motion.div>
             <Spacer
-                img='/imgs/stock/services_page/bars_spacer_bg.jpg'
-                buttonText='Inquire About Booking'
+                img='/imgs/stock/services_page/bars_spacer.jpg'
+                buttonText='Inquire About Booking'k
                 href='/contact'
             />
         </section>
