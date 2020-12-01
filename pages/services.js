@@ -8,6 +8,7 @@ import Bases from '../components/services/Bases';
 import { motion } from 'framer-motion';
 
 export default function Services({ state: { viewport, navHeight }, NAV_SPACER }){
+    const copyRef = useRef();
     const classesRef = useRef();
     const barsRef = useRef();
     const basesRef = useRef();
@@ -28,12 +29,13 @@ export default function Services({ state: { viewport, navHeight }, NAV_SPACER })
                 navHeight={navHeight}
                 NAV_SPACER={NAV_SPACER}
                 refs={{
+                    copy: copyRef,
                     classes: classesRef,
                     bars: barsRef,
                     bases: basesRef
                 }}
             />
-            <Copy viewport={viewport}/>
+            <Copy ref={copyRef} viewport={viewport}/>
             <Bars ref={barsRef}/>
             <Classes ref={classesRef}/>
             <Bases ref={basesRef}/>

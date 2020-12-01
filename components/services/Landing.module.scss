@@ -5,7 +5,7 @@
     grid-template-rows: 60vh 40vh auto;
     @media screen and (min-width: 750px){
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: minmax(min-content, 100vh);
     }
     @media screen and (min-width: 990px){
         grid-template-columns: 4fr 3fr;
@@ -97,6 +97,7 @@
                 @media screen and (min-width: 750px){
                     margin-top: 5vw;
                     border: 3px solid var(--secondary-color);
+                    border-bottom: none;
                     font-size: 3rem;
                     font-weight: 700;
                     color: white;
@@ -121,9 +122,9 @@
                         background-position: center;
                         background-size: cover;
                         z-index: -1;
+                        transition: 350ms ease;
                         @media screen and (min-width: 990px){
-                            width: 500px;
-                            height: 200px;
+                            transform: translate(-50%, -50%) scale(1.3);
                         }
                     }
                 }

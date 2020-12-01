@@ -42,7 +42,7 @@
         height: 25%;
         margin-bottom: 33%;
         background-color: var(--main-color);
-        transform-origin: bottom;
+        transform-origin: top;
         animation: animate 750ms infinite alternate;
         @keyframes animate {
             0% {

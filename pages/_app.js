@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps, router }) {
     return (
         <>
             <Head>
-                <link rel="shortcut icon" href='/favicons/favicon.ico'/>
+                <link rel="shortcut icon" href='/favicons/favicon-32x32.png' type='image/png'/>
                 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
             </Head>

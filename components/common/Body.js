@@ -17,7 +17,7 @@ export default function Body({ children }){
     const viewport = useViewport();
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
-    const scrollThreshold = useScrollThreshold(120, { team: 100 }, router)
+    const scrollThreshold = useScrollThreshold(120, { team: 100, services: 100 }, router)
     const [loadComplete, setLoadComplete] = useState(true);
     const [navHeight, setNavHeight] = useState(null);
 

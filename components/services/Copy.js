@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Rellax from 'rellax';
@@ -7,7 +7,7 @@ import { copyTransitions } from '../../page_transitions/services';
 import styles from './Copy.module.scss';
 import ArrowDivider from '../common/ArrowDivider';
 
-export default function Copy({ viewport }){
+const Copy = React.forwardRef(({ viewport }, ref) => {
     const copyLeftImgRellax = useRef();
     const copyRightImgRellax = useRef();
 
@@ -19,7 +19,7 @@ export default function Copy({ viewport }){
     const copyCenterImgRef = useRef();
     const inView = useInViewFromTop(copyCenterImgRef, { threshold: .1 })
     return(
-        <section id={styles.Copy}>
+        <section ref={ref} id={styles.Copy}>
             <ArrowDivider size={{value: 1.5, measurement: 'rem'}} border={{size: 1, color: 'var(--main-color-fade-more)'}} BGcolor='#F1F2EB'/>
             <div className={styles.headerSection}>
                 <h2 className={styles.headerEmp}>Our Promise</h2>
@@ -67,5 +67,7 @@ export default function Copy({ viewport }){
             </div>
         </section>
     )
-}
+})
+
+export default Copy;
             

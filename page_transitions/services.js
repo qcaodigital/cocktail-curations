@@ -1,26 +1,13 @@
 export const landingTransitions = {
-    serviceBox: {
+    info: {
+        initial: {
+            opacity: 0
+        },
         animate: {
             opacity: 1,
             transition: {
-                duration: .35,
-                delay: .5
+                duration: 1.5
             }
-        },
-        initial: {
-            opacity: 0
-        }
-    },
-    serviceBoxChildren: {
-        animate: {
-            opacity: 1,
-            transition: {
-                duration: 1.5,
-                delay: 1
-            }
-        },
-        initial: {
-            opacity: 0
         }
     }
 }
@@ -32,7 +19,8 @@ export const copyTransitions = {
             y: 0,
             transition: {
                 ease: [.38, .25, 0, 1],
-                duration: 1
+                duration: 1,
+                when: 'beforeChildren'
             }
         },
         initial: {
@@ -44,8 +32,7 @@ export const copyTransitions = {
         animate: {
             scaleX: 1,
             transition: {
-                duration: .5,
-                delay: .5
+                duration: .5
             }
         },
         initial: {
