@@ -7,7 +7,7 @@ const transitions = {
                 }
             },
         initial: {
-            scale: 1.25
+            scale: 1.15
         }
     }
 }

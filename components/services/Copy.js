@@ -6,6 +6,7 @@ import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { copyTransitions } from '../../page_transitions/services';
 import styles from './Copy.module.scss';
 import ArrowDivider from '../common/ArrowDivider';
+import PropTypes from 'prop-types';
 
 const Copy = React.forwardRef(({ viewport }, ref) => {
     const copyLeftImgRellax = useRef();
@@ -16,16 +17,28 @@ const Copy = React.forwardRef(({ viewport }, ref) => {
         new Rellax(copyRightImgRellax.current, { speed: 3 })
     }, [])
 
+    const headerRef = useRef();
+    const headerInView = useInViewFromTop(headerRef, { threshold: .1 })
+
     const copyCenterImgRef = useRef();
     const inView = useInViewFromTop(copyCenterImgRef, { threshold: .1 })
     return(
         <section ref={ref} id={styles.Copy}>
             <ArrowDivider size={{value: 1.5, measurement: 'rem'}} border={{size: 1, color: 'var(--main-color-fade-more)'}} BGcolor='#F1F2EB'/>
-            <div className={styles.headerSection}>
-                <h2 className={styles.headerEmp}>Our Promise</h2>
-                <h2>is to offer a specially-curated event or experience that is fitted to every individual client's needs. No need or desire gets left behind.</h2>
+            <motion.div
+                ref={headerRef} 
+                animate={headerInView ? 'animate' : 'initial'} 
+                variants={copyTransitions.headerContainer} 
+                className={styles.headerSection}
+            >
+                <div style={{ overflow: 'hidden' }}>
+                    <motion.h2 variants={copyTransitions.headerText} className={styles.headerEmp}>Our Promise</motion.h2>
+                </div>                
+                <div style={{ overflow: 'hidden' }}>
+                    <motion.h2 variants={copyTransitions.headerText}>is to offer a specially-curated event or experience that is fitted to every individual client's needs. No need or desire gets left behind.</motion.h2>
+                </div>                
                 <img src="/imgs/stock/logos/cc-icon-logo-color.png" alt="Cocktail Curations Logo Icon"/>
-            </div>
+            </motion.div>
             <div className={styles.gallery}>
                 <div className={styles.parallaxContainer}>
                     <div ref={copyLeftImgRellax} id={styles.galleryLeft} className={styles.imgContainer}>
@@ -68,6 +81,10 @@ const Copy = React.forwardRef(({ viewport }, ref) => {
         </section>
     )
 })
+
+Copy.propTypes = {
+    viewport: PropTypes.string.isRequired
+}
 
 export default Copy;
             

@@ -132,14 +132,25 @@ export const infoTransitions = {
                 }
             },
             initial: {
-                scale: 1.25
+                scale: 1.15
+            }
+        },
+        text: {
+            animate: {
+                opacity: 1,
+                transition: {
+                    duration: .75
+                }
+            },
+            initial: {
+                opacity: 0
             }
         },
         link: {
             animate: {
                 scaleX: 1,
                 transition: {
-                    duration: .75
+                    duration: 1
                 }
             },
             initial: {
@@ -150,12 +161,22 @@ export const infoTransitions = {
 }
 
 export const personnelTransitions = {
+    nameContainer: {
+        animate: {
+            transition: {
+                staggerChildren: .2
+            }
+        }
+    },
     name: {
         animate: {
-            y: 0
+            y: 0,
+            transition: {
+                duration: .75
+            }
         },
         initial: {
-            y: '30px'
+            y: '100%'
         }
     }
 }

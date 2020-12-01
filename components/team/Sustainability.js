@@ -1,4 +1,6 @@
 import styles from './Sustainability.module.scss';
+import { motion } from 'framer-motion';
+import FadeInViewContainer from './../HOC/FadeInViewContainer';
 
 export default function Sustainability(){
     return(
@@ -10,7 +12,9 @@ export default function Sustainability(){
                     </div>
                     <div className={styles.info}>
                         <header>
-                            <h3>We believe in applied sustainability</h3>
+                            <FadeInViewContainer>
+                                <motion.h3>We believe in applied sustainability</motion.h3>
+                            </FadeInViewContainer>
                             <p>Cocktail Curations strives to be a sustainable zero-waste company.</p>
                         </header>
                         <div className={styles.text}>

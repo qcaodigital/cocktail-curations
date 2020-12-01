@@ -21,11 +21,11 @@ export default function Team({ state: { viewport }, NAV_SPACER }){
     const bg2Ref = useRef();
     useEffect(() => constructRellax(bg2Ref, {speed: -2, center: true}), []) 
 
-    const linkRef = useRef();
-    const linkInView = useInViewFromTop(linkRef, { threshold: 1 })
+    const infoRef = useRef();
+    const infoInView = useInViewFromTop(infoRef, { threshold: .25 })
 
     const imgRef = useRef();
-    const imgInView = useInViewFromTop(imgRef)
+    const imgInView = useInViewFromTop(imgRef, { threshold: -.1 })
 
     return (
         <>
@@ -92,16 +92,16 @@ export default function Team({ state: { viewport }, NAV_SPACER }){
                     border={{size: 1, color: 'rgba(175 ,175, 175)'}} 
                 />    
                 <div className={styles.contentContainer}>
-                    <div className={styles.text}>
-                        <FadeInViewContainer reverse>
+                    <div ref={infoRef} className={styles.text}>
+                        <FadeInViewContainer>
                             <h3>The Duo</h3>
                         </FadeInViewContainer>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nesciunt ex tempore minus laborum architecto accusantium aliquid illum explicabo incidunt autem voluptatem quia, mollitia porro, aspernatur ut ullam cumque ipsum quam! Libero nobis mollitia enim porro voluptates exercitationem repellendus eos nemo aliquam quas perferendis, quis distinctio, sequi necessitatibus voluptatum ducimus, quod modi.</p>
+                        <motion.p animate={infoInView ? 'animate' : 'initial'} variants={infoTransitions.contentContainer.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nesciunt ex tempore minus laborum architecto accusantium aliquid illum explicabo incidunt autem voluptatem quia, mollitia porro, aspernatur ut ullam cumque ipsum quam! Libero nobis mollitia enim porro voluptates exercitationem repellendus eos nemo aliquam quas perferendis, quis distinctio, sequi necessitatibus voluptatum ducimus, quod modi.</motion.p>
                         <Link href='/contact'>
-                            <a ref={linkRef}>
+                            <a>
                                 <p>Connect With Us →</p>
                                 <motion.div 
-                                    animate={linkInView ? 'animate' : 'initial'}
+                                    animate={infoInView ? 'animate' : 'initial'}
                                     variants={infoTransitions.contentContainer.link} 
                                     className={styles.underline}
                                 />

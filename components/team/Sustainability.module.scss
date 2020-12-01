@@ -52,6 +52,19 @@
                 @media screen and (min-width: 750px){
                     margin: 0 auto;
                 }
+                header {
+                    h3 {
+                        font-size: 1.5rem;
+                        font-weight: 300;
+                        &::first-letter {
+                            text-transform: capitalize;
+                        }
+                    }
+                    p {
+                        font-style: italic;
+                        font-weight: 300;
+                    }
+                }
                 .text {
                     @media screen and (min-width: 990px){
                         display: flex;
@@ -65,33 +78,20 @@
                             margin: 1.35rem 0;
                         }
                     }
-                }
-                header {
-                    h3 {
-                        font-size: 1.5rem;
-                        font-weight: 300;
-                        margin-bottom: 1.25rem;
+                    h4 {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        color: var(--highlight-color);
+                        margin-bottom: .5rem;
                         &::first-letter {
                             text-transform: capitalize;
                         }
                     }
                     p {
-                        font-style: italic;
+                        color: var(--main-color-fade-less);
+                        line-height: 1.25rem;
+                        font-weight: 300;
                     }
-                }
-                h4 {
-                    font-size: 1.1rem;
-                    font-weight: 600;
-                    color: var(--highlight-color);
-                    margin-bottom: .5rem;
-                    &::first-letter {
-                        text-transform: capitalize;
-                    }
-                }
-                p {
-                    color: var(--main-color-fade-less);
-                    line-height: 1.25rem;
-                    font-weight: 300;
                 }
             }
         }
@@ -161,7 +161,7 @@
                 }
                 p {
                     color: var(--secondary-color) !important;
-                    margin: 0 auto;
+                    margin: 1.25rem auto 0;
                 }
                 &::before {
                     content: '';

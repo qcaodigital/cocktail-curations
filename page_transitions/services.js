@@ -13,6 +13,24 @@ export const landingTransitions = {
 }
 
 export const copyTransitions = {
+    headerContainer: {
+        animate: {
+            transition: {
+                staggerChildren: .2
+            }
+        }
+    },
+    headerText: {
+        initial: {
+            y: '100%'
+        },
+        animate: {
+            y: 0,
+            transition: {
+                duration: 1
+            }
+        }
+    },
     textboxVariant: {
         animate: {
             opacity: 1,
