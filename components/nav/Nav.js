@@ -14,7 +14,7 @@ Nav.propTypes = {
     navList: PropTypes.array.isRequired,
     viewport: PropTypes.oneOf(['mobile', 'tablet', 'desktop', null]),
     hamburgerCB: PropTypes.func.isRequired,
-    currentPath: PropTypes.oneOf([...navList.map(nav => nav.href), '/error']).isRequired
+    currentPath: PropTypes.oneOf([...navList.map(nav => nav.href), '/_error']).isRequired
 }
 
 export default function Nav({render, navList, viewport, hamburgerCB, currentPath, scrollThreshold, navHeight, navHeightCB}){

@@ -37,7 +37,7 @@ export default function Team({ state: { viewport }, NAV_SPACER }){
             animate={{ opacity: 1 }} 
             initial={{ opacity: 0 }} 
             exit={{ opacity: 0 }}
-            transition={{ duration: .5 }}
+            transition={{ duration: .75 }}
         >
             <motion.section animate='animate' initial='initial' className={styles.landing}>
                 <div className={styles.landingBackgrounds}>
@@ -122,7 +122,7 @@ export default function Team({ state: { viewport }, NAV_SPACER }){
                 </div>
             </section>
             <Personnel/>
-            <Sustainability />
+            <Sustainability viewport={viewport}/>
         </motion.main>
         </>
     )

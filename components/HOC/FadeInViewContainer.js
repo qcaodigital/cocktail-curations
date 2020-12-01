@@ -9,11 +9,12 @@ FadeInViewContainer.propTypes = {
     animateOnly: PropTypes.bool
 }
 
-export default function FadeInViewContainer({ threshold, reverse, animateOnly, delay, duration, children }) {
+export default function FadeInViewContainer({ threshold, noFade, reverse, animateOnly, delay, duration, children }) {
     const ref = useRef();
     const variants = {
         fadeUp: {
             y: '0%',
+            opacity: 1,
             transition: {
                 delay: delay ? delay : 0,
                 duration: duration ? duration : 1.15,
@@ -22,6 +23,7 @@ export default function FadeInViewContainer({ threshold, reverse, animateOnly, d
         },
         hide: {
             y: reverse ? '-100%' : '100%',
+            opacity: noFade ? 1 : 0,
             transition: {
                 duration: .5,
             }

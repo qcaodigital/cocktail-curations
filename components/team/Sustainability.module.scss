@@ -61,6 +61,7 @@
                         }
                     }
                     p {
+                        margin-top: 1.25rem;
                         font-style: italic;
                         font-weight: 300;
                     }
@@ -69,11 +70,11 @@
                     @media screen and (min-width: 990px){
                         display: flex;
                         gap: 1rem;
-                        div {
+                        .textContainer {
                             margin: 1.35rem 0;
                         }
                     }
-                    div {
+                    .textContainer {
                         &:not(:last-of-type){
                             margin: 1.35rem 0;
                         }
@@ -183,11 +184,11 @@
                     gap: 1rem;
                     display: flex;
                     text-align: left;
-                    div {
+                    .textContainer {
                         margin-top: 1.35rem;
                     }
                 }
-                div {
+                .textContainer {
                     // display: flex;
                     &::before,
                     &::after {

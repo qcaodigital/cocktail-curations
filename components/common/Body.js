@@ -51,7 +51,7 @@ export default function Body({ children }){
                         navHeight: navHeight,
                         scrollThreshold: scrollThreshold 
                     },
-                    NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight, transition: '100ms ease' }}/>,
+                    NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight, transition: '350ms linear' }}/>,
                 })}
             </AnimatePresence>
             {loadComplete && <Footer navList={navList}/>}

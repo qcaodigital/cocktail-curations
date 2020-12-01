@@ -1,4 +1,5 @@
 // BOX ANIMATION VALUES //
+import Sustainability from './../components/team/Sustainability';
 const topInitDelay = .5;
 const topInitDuration = .5;
 
@@ -139,7 +140,7 @@ export const infoTransitions = {
             animate: {
                 opacity: 1,
                 transition: {
-                    duration: .75
+                    duration: 1
                 }
             },
             initial: {
@@ -177,6 +178,31 @@ export const personnelTransitions = {
         },
         initial: {
             y: '100%'
+        }
+    }
+}
+
+export const sustainabilityTransitions = {
+    subHeader: {
+        animate: {
+            opacity: 1,
+            transition: {
+                duration: 1
+            }
+        },
+        initial: {
+            opacity: 0
+        }
+    },
+    text: {
+        animate: {
+            opacity: 1,
+            transition: {
+                duration: 1
+            }
+        },
+        initial: {
+            opacity: 0
         }
     }
 }
