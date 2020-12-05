@@ -35,9 +35,9 @@ export default function Sustainability({ viewport }){
                         alt: 'Cocktail Curations Garnish'
                     }}
                     header='taking care of the earth should be ingrained in everything a company does.'
-                    subheader='We suscribe to the idea of working toward keeping our home beautiful for future generations to come. So what are we doing about it?'
+                    subheader='We suscribe to the idea of working towards keeping our home beautiful for future generations to come. So what are we doing about it?'
                     textblocks={[{
-                        header: ['We use fruits and vegetables ', <span style={{ display: "inline-block"}}>pith to peel</span>],
+                        header: ['We use fruits and vegetables ', <span key={2} style={{ display: "inline-block"}}>pith to peel</span>],
                         text: 'From juicing fresh fruits to create our mixes, using the pith to make our bitters, and utilizing the peel to create our beautiful Botanical Waters, no produce goes to waste in our kitchen.'
                     },
                     {
@@ -75,7 +75,7 @@ export const SectionInfo = ({ viewport, img, header, subheader, textblocks }) =>
                 </header>
                 <motion.div ref={textRef} animate={textInview ? 'animate' : 'initial'} className={styles.text}>
                     {textblocks.map((block, idx) => (
-                        <div className={styles.textContainer}>
+                        <div key={block.header} className={styles.textContainer}>
                             <FadeInViewContainer delay={viewport !== 'mobile' && idx === 1 ? .2 : 0}>
                                 <motion.h4>{block.header}</motion.h4>
                             </FadeInViewContainer>

@@ -10,24 +10,16 @@ export default function Person({ name, img, text, quote, reverse, bgColor }){
     const imgRef = useRef();
     const imgInView = useInViewFromTop(imgRef, { threshold: -.05 });
 
-    const nameRef = useRef();
-    const nameInView = useInViewFromTop(nameRef)
-
     return(
         <div id={styles.Person} className={reverse && styles.reverse}>
-            <motion.div 
-                ref={nameRef} 
-                animate={nameInView ? 'animate' : 'initial'} 
-                variants={personnelTransitions.nameContainer}
-                className={styles.nameContainer}
-            >
-                <div style={{ overflow: 'hidden' }}>
-                    <motion.h3 variants={personnelTransitions.name}>{name.first}</motion.h3>
-                </div>
-                <div style={{ overflow: 'hidden' }}>
+            <div className={styles.nameContainer}>
+                <FadeInViewContainer>
+                    <motion.h3>{name.first}</motion.h3>
+                </FadeInViewContainer>
+                <FadeInViewContainer delay={.2}>
                     <motion.h3 variants={personnelTransitions.name}>{name.last}</motion.h3>
-                </div>
-            </motion.div>
+                </FadeInViewContainer>
+            </div>
             <div ref={imgRef} className={styles.imgContainer} style={{ overflow: 'hidden' }}>
                 <motion.img variants={transitions.imgScaleIn} animate={imgInView ? 'animate' : 'initial'} src={img.src} alt={img.alt}/>
             </div>

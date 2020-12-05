@@ -1,152 +1,216 @@
 #Home {
-    .backgroundContainer {
-        overflow: hidden;
-        min-height: 100vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: -2;
-    }
-    .background {
-        min-height: 115vh;
-        background: url('../public/imgs/stock/home_page/IMG_1228-edit-blurred-desat.jpg');
-        // background-color: var(--secondary-color-fade-less);
-        background-position: center bottom;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        transform: scale(1.15);
-    }
     .landing {
+        height: 100vh;
         position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        @media screen and (min-width: 750px){
-            padding-bottom: 7.5rem;
-        }
-        .headingContainer {
-            text-align: center;
-            padding: 1rem;
-            opacity: .9;
+        .sections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
             @media screen and (min-width: 750px){
-                margin-bottom: 1rem;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
             }
-            .heading {
-                color: var(--main-color);
-                font-family: var(--serif-font);
-                text-transform: uppercase;
-                text-shadow: 2px 2px 15px var(--main-color-fade-more);
-                opacity: .9;
-                font-size: 10.11vw;
-                letter-spacing: -.419vw;
-                font-weight: 300;
-                line-height: 10vw;
-                margin-bottom: .75rem;
-                @media screen and (min-width: 750px){
-                    font-size: 5.9vw;
-                    line-height: 5vw;
-                    letter-spacing: -.231vw;
-                }
-                @media screen and (min-width: 1500px){
-                    font-size: 5.8rem;
-                    line-height: 4.68rem;
-                }
-                .small {
-                    font-family: var(--main-font);
-                    line-height: 0;
-                    font-size: 2.778vw;
-                    line-height: 4.168vw;
-                    margin-bottom: 5.56vw;
-                    letter-spacing: .75vw;
-                    font-weight: 700;
+            #one {
+                position: relative;
+                overflow: hidden;
+                .bg {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    display: block;
+                    background-image: url('../public/imgs/stock/home_page/bg-edge-trans2.png');
+                    background-size: cover;
+                    background-position: 50% 50%;
+                    background-repeat: no-repeat;
+                    transition: 350ms ease;
                     @media screen and (min-width: 750px){
-                        font-size: 1.2vw;
-                        letter-spacing: .188vw;
-                        margin-bottom: 1.5rem;
+                        right: 0%;
+                        background-position: right center;
+                        @media screen and (orientation: portrait){
+                            right: -25%;
+                        }
+                    }
+                    @media screen and (min-width: 990px){
+                        right: 17%;
+                        @media screen and (orientation: portrait){
+                            right: -20%;
+                        }
+                    }
+                    @media screen and (min-width: 1150px){
+                        right: 15%;
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        left: 0;
+                        width: 100vw;
+                        z-index: -1;
+                        background-image: url('../public/imgs/textures/natural-paper.png');
+                        opacity: .8;
                     }
                 }
-                .it {
-                    font-style: italic;
-                    text-transform: lowercase;
-                    &::after {
-                        content: ' ';
-                        margin-left: 1vw;
+                .line {
+                    height: 120vh;
+                    width: 3px;
+                    background-color: var(--main-color);
+                    position: absolute;
+                    left: 25%;
+                    top: 50%;
+                    z-index: -1;
+                    transition: 350ms ease;
+                    opacity: 0;
+                    @media screen and (min-width: 990px){
+                        opacity: 1;
+                        transform: translateY(-50%) rotate(25deg) scale(1);
+                    }
+                }
+                img {
+                    visibility: hidden;
+                    opacity: 0;
+                    position: absolute;
+                    z-index: -1;
+                    bottom: 0;
+                    right: 0;
+                    height: 85vh;
+                    width: auto;
+                    display: block;
+                    transform: translate(0%, 35%) rotate(-5deg);
+                    transition: 350ms ease;
+                    @media screen and (min-width: 750px){
+                        visibility: visible;
+                        opacity: .15;
+                    }
+                }
+                header {
+                    position: absolute;
+                    top: 45%;
+                    left: 50%;
+                    width: 100%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    font-family: var(--serif-font);
+                    text-transform: uppercase;
+                    transition: 350ms ease;
+                    @media screen and (min-width: 750px){
+                        width: unset;
+                        left: unset;
+                        right: 7.5%;
+                        text-align: left;
+                        transform: translate(0%, -50%);
+                    }
+                    @media screen and (min-width: 990px){
+                        right: unset;
+                        left: 45%;
+                        white-space: nowrap;
+                        transform: translate(-10%, -50%);
+                    }
+                    @media screen and (min-width: 1250px){
+                        left: 70%;
+                        transform: translate(-50%, -50%);
+                    }
+                    > * {
+                        text-shadow: 
+                            -1px -1px 1px rgb(255, 255, 255, .35), 
+                            2px 2px 1px #cfcfcf7e;
+                    }
+                    p {
+                        font-family: var(--main-font);
+                        font-size: 3.5vw;
+                        letter-spacing: .1vw;
+                        font-weight: 600;
+                        transform: scaleY(.95);
                         @media screen and (min-width: 750px){
-                            margin-left: .6vw;
+                            font-size: 1rem;
+                        }
+                        @media screen and (min-width: 990px){
+                            font-size: 1.25rem;
+                        }
+                    }
+                    h1 {
+                        font-size: 12vw;
+                        line-height: 13vw;
+                        @media screen and (min-width: 750px){
+                            font-size: 3.5rem;
+                            line-height: 4rem;
+                        }
+                        @media screen and (min-width: 990px){
+                            font-size: clamp(3.5rem, 5.5vw, 5rem);
+                            line-height: clamp(3.5rem, 5.5vw, 5rem);
+                        }
+                    }
+                    h2 {
+                        font-size: 7vw;
+                        line-height: 7.5vw;
+                        @media screen and (min-width: 750px){
+                            display: inline-block;
+                            font-size: 1.5rem;
+                            line-height: 1.5rem;
+                            margin-top: .5rem;
+                        }
+                        @media screen and (min-width: 990px){
+                            font-size: clamp(1rem, 3vw, 2.5rem);
+                            line-height: clamp(1rem, 3vw, 2.5rem);
+                            white-space: nowrap;
+                        }
+                    }
+                    .cta {
+                        position: absolute;
+                        top: calc(100% + 3vw);
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        gap: 3vw;
+                        @media screen and (min-width: 750px){
+                            top: calc(100% + 2vw);
+                            left: 0;
+                            transform: unset;
+                            justify-content: flex-start;
+                        }
+                        @media screen and (min-width: 990px){
+                            gap: 1.5rem;
+                        }
+                        button {
+                            a {
+                                padding: clamp(.75rem, 2vw, 1rem);
+                            }
+                            &:nth-of-type(2){
+                                a {
+                                    background-color: var(--main-color);
+                                }
+                            }
                         }
                     }
                 }
-            }
-        }
-        .CTAContainer {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 4rem;
-            opacity: .95;
-            @media screen and (min-width: 750px){
-                flex-direction: row;
-            }
-        }
-        .chevronContainer {
-            position: absolute;
-            bottom: 2%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2rem;
-            margin: 0 auto;
-            cursor: pointer;
-            .arrow {
-                animation: arrowspointing forwards infinite 3s cubic-bezier(.52, .01, .16, 1);
-                > div {
-                    display: inline-block;
-                    height: 3px;
-                    width: 1rem;
-                    background-color: white;
-                    &:first-of-type {
-                        transform: rotate(25deg) translateX(8%);
-                    }
-                    &:nth-of-type(2) {
-                        transform: rotate(-25deg) translateX(-8%);
-                    }
-                }
-                &:nth-of-type(2) {
-                    animation-delay: 1.5s;
-                    margin-top: -1.25rem;
-                }
-                @keyframes arrowspointing {
-                    0% {
-                        transform: translateY(0);
-                        opacity: 1;
-                    }
-                    30% {
-                        transform: translateY(0);
-                        opacity: 1;
-                    }
-                    50% {
-                        transform: translateY(8px);
-                        opacity: 0;
-                    }
-                    85% {
-                        transform: translateY(-7px);
-                        opacity: 0;
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: translateY(0);
+                .socialList {
+                    display: none;
+                    @media screen and (min-width: 750px){
+                        position: fixed;
+                        bottom: 1rem;
+                        right: 1.5rem;
+                        transform: scale(1.25);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center ;
+                        gap: .5rem;
+                        li a {
+                            color: var(--main-color);
+                        }
                     }
                 }
             }
         }
     }
 }
-    
-    

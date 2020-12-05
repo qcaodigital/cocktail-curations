@@ -14,7 +14,7 @@ import FadeInViewContainer from '../components/HOC/FadeInViewContainer';
 import { landingTransitions, infoTransitions } from '../page_transitions/team';
 import useInViewFromTop from '../custom_hooks/useInViewFromTop';
 
-export default function Team({ state: { viewport }, NAV_SPACER }){
+export default function Team({ state: { viewport, isNavAniComplete }, NAV_SPACER }){
     const bg1Ref = useRef();
     useEffect(() => constructRellax(bg1Ref, {speed: -5, center: false}), []) 
 
@@ -39,7 +39,7 @@ export default function Team({ state: { viewport }, NAV_SPACER }){
             exit={{ opacity: 0 }}
             transition={{ duration: .75 }}
         >
-            <motion.section animate='animate' initial='initial' className={styles.landing}>
+            <motion.section animate={isNavAniComplete ? 'animate' : 'initial'} initial='initial' className={styles.landing}>
                 <div className={styles.landingBackgrounds}>
                     <div className={styles.background1container}>
                         <div ref={bg1Ref} className={styles.background1}/>
@@ -53,10 +53,10 @@ export default function Team({ state: { viewport }, NAV_SPACER }){
                     <header>
                         {/* TOTAL ANIMATION TIME BELOW - .5s */}
                         <h1>
-                            <FadeInViewContainer animateOnly>
+                            <FadeInViewContainer animateOnly followParent>
                                 <p><span>We</span> are</p>
                             </FadeInViewContainer>
-                            <FadeInViewContainer animateOnly>
+                            <FadeInViewContainer animateOnly followParent>
                                 <p className={styles.headerBrand}>Cocktail Curations</p>
                             </FadeInViewContainer>
                         </h1>

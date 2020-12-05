@@ -29,8 +29,12 @@ function useInViewFromTop(ref, options){
         }
 
         checkIfAlreadyInView()
+        window.addEventListener('resize', checkIfAlreadyInView)
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', checkIfAlreadyInView)
+        }
     }, [])
 
     return inView;

@@ -93,14 +93,8 @@
         }
         h3 {
             font-size: 2.5rem;
-            line-height: 1.75rem;
+            line-height: 2.25rem;
             letter-spacing: -1.5px;
-            &:first-of-type {
-                transform: translateX(-1rem);
-            }
-            &:nth-of-type(2){
-                transform: translateX(1rem);
-            }
         }
     }
     .imgContainer {

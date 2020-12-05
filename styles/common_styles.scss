@@ -9,6 +9,8 @@
     font-weight: 600;
     box-shadow: 3px 3px 10px rgba(0,0,0,.125);
     overflow-x: hidden;
+    position: relative;
+    display: inline-block;
     &::before {
         content: '>';
         display: inline-block;

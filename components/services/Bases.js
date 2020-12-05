@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { sectionTransitions } from '../../page_transitions/services';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { useInView } from 'react-intersection-observer';
-import Spacer from './Spacer';
 
 const Bases = React.forwardRef(({}, ref) => {
     const inView = useInViewFromTop(ref, { threshold: .1 });

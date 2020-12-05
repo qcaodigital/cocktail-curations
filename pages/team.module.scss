@@ -17,7 +17,7 @@
                 &.background1container {
                     height: 65%;
                     .background1 {
-                        height: 125%;
+                        height: 100%;
                         background-color: var(--secondary-color);
                         background-image: url('../public/imgs/stock/team_page/ThyNicole_Portrait-washed.jpg');
                         background-position: center;
@@ -28,12 +28,11 @@
                 &.background2container {
                     height: 35%;
                     position: relative;
+                    display: flex;
+                    align-items: center;
                     .background2 {
-                        position: absolute;
-                        top: 25;
-                        left: 0;
-                        right: 0;
-                        height: 150%;
+                        height: 200%;
+                        width: 100%;
                         background-color: #a6af85;
                         background-image: url('../public/imgs/textures/dust.png');
                         opacity: .75;
@@ -175,7 +174,7 @@
     }
     .info {
         background-color: #e0e4de;
-        background-image: url("https://www.transparenttextures.com/patterns/vintage-speckles.png");
+        background-image: url("../public/imgs/textures/vintage-speckles.png");
         padding: 4rem 0 0;
         position: relative;
         .contentContainer {
@@ -218,6 +217,7 @@
                     margin: .75rem 0;
                     font-size: .8rem;
                     line-height: 1.1rem;
+                    letter-spacing: 1px;
                 }
                 a {
                     position: relative;

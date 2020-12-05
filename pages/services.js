@@ -7,7 +7,7 @@ import Bars from '../components/services/Bars';
 import Bases from '../components/services/Bases';
 import { motion } from 'framer-motion';
 
-export default function Services({ state: { viewport, navHeight }, NAV_SPACER }){
+export default function Services({ state: { viewport, navHeight, isNavAniComplete }, NAV_SPACER }){
     const copyRef = useRef();
     const classesRef = useRef();
     const barsRef = useRef();
@@ -22,12 +22,13 @@ export default function Services({ state: { viewport, navHeight }, NAV_SPACER })
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
-            transition={{ duration: .5 }}
+            transition={{ duration: 1 }}
         >
             <Landing 
                 viewport={viewport} 
                 navHeight={navHeight}
                 NAV_SPACER={NAV_SPACER}
+                isNavAniComplete={isNavAniComplete}
                 refs={{
                     copy: copyRef,
                     classes: classesRef,

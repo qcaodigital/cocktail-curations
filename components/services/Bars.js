@@ -1,17 +1,14 @@
-import React, { useRef } from 'react';
 import styles from './Bars.module.scss';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { sectionTransitions } from '../../page_transitions/services';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { useInView } from 'react-intersection-observer';
-import Spacer from './Spacer';
+import AdditionalInfo from './AdditionalInfo';
 
 const Bars = React.forwardRef(({}, ref) => {
     const headerRef = useRef();
     const headerInView = useInViewFromTop(headerRef, { threshold: .1 });
-
-    const blockQuoteRef = useRef();
-    const blockQuoteInView = useInViewFromTop(blockQuoteRef, { threshold: .1 });
 
     return (
         <section id={styles.Bars} ref={ref}>
@@ -27,26 +24,32 @@ const Bars = React.forwardRef(({}, ref) => {
                 </motion.header>
                 <div className={styles.gallery}>
                     <div id={styles.center} className={styles.imgContainer}>
-                        <motion.img variants={sectionTransitions.mainImgScale} animate={headerInView ? 'animate' : 'initial'} src="/imgs/stock/services_page/bars_main.jpg" alt="Cocktail Curations Wedding Wire The Knot Event"/>
+                        <motion.img 
+                            variants={sectionTransitions.mainImgScale} 
+                            animate={headerInView ? 'animate' : 'initial'} 
+                            src="/imgs/stock/services_page/bars_main.jpg" 
+                            alt="Cocktail Curations Wedding Wire The Knot Event"
+                        />
                     </div>
                     <div id={styles.top} className={styles.imgContainer}>
                         <img className={styles.galleryImg} src="/imgs/stock/services_page/bars-sq.jpg" alt="Cocktail Curations Book of Lists Event 2020"/>
-                        <img className={styles.embellishment} src="/imgs/embellishments/pink-dots.png" alt=""/>
-                        <motion.p 
-                            ref={blockQuoteRef} 
-                            variants={sectionTransitions.blockQuoteText_bars} 
-                            animate={blockQuoteInView ? 'animate' : 'initial'} 
-                            className={styles.desktopText}
-                        >
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.
-                        </motion.p>
+                        <img className={styles.embellishment} src="/imgs/embellishments/pink-dots.png" alt="pink dots"/>
+                        <p className={styles.desktopText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.</p>
                     </div>
                 </div>
             </motion.div>
-            <Spacer
-                img='/imgs/stock/services_page/bars_spacer.jpg'
-                buttonText='Inquire About Booking'k
-                href='/contact'
+            <AdditionalInfo 
+                textBlocks={[{
+                    header: 'Header Text One',
+                    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis nemo debitis iste libero maiores illum nisi est itaque repellendus totam rem reiciendis delectus adipisci sit, quaerat minus quis facilis consequuntur doloremque fuga quod. Quis at debitis eaque provident, qui tenetur ullam, cum accusantium vel sunt tempora eum! Ipsa, ullam. Dolor?'
+                }, {
+                    header: 'Header Text Two',
+                    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis nemo debitis iste libero maiores illum nisi est itaque repellendus totam rem reiciendis delectus adipisci sit, quaerat minus quis facilis consequuntur doloremque fuga quod. Quis at debitis eaque provident, qui tenetur ullam, cum accusantium vel sunt tempora eum! Ipsa, ullam. Dolor?'
+                }]}
+                cta={{
+                    text: 'Inquire about booking',
+                    href: '/contact'
+                }}
             />
         </section>
     )

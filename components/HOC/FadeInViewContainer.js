@@ -6,23 +6,26 @@ import PropTypes from 'prop-types';
 FadeInViewContainer.propTypes = {
     threshold: PropTypes.number,
     delay: PropTypes.number,
-    animateOnly: PropTypes.bool
+    duration: PropTypes.number,
+    animateOnly: PropTypes.bool,
+    noFade: PropTypes.bool,
+    reverse: PropTypes.bool
 }
 
-export default function FadeInViewContainer({ threshold, noFade, reverse, animateOnly, delay, duration, children }) {
+export default function FadeInViewContainer({ threshold, noFade, noTranslate, reverse, animateOnly, delay, duration, children, followParent }) {
     const ref = useRef();
     const variants = {
-        fadeUp: {
+        animate: {
             y: '0%',
             opacity: 1,
             transition: {
                 delay: delay ? delay : 0,
                 duration: duration ? duration : 1.15,
-                ease: [.23, .02, .0, 1.01] 
+                ease: [.23, .02, .0, 1.01]
             }
         },
-        hide: {
-            y: reverse ? '-100%' : '100%',
+        initial: {
+            y: noTranslate ? '0%' : reverse ? '-100%' : '100%',
             opacity: noFade ? 1 : 0,
             transition: {
                 duration: .5,
@@ -35,18 +38,36 @@ export default function FadeInViewContainer({ threshold, noFade, reverse, animat
 
     if(!animateOnly){
         const inView = useInViewFromTop(ref, { threshold: threshold || .5 })
-        animateProp = inView ? 'fadeUp' : 'hide';
+        animateProp = inView ? 'animate' : 'initial';
         initialProp = null;
     } else {
-        animateProp = 'fadeUp';
-        initialProp = 'hide'
+        animateProp = 'animate';
+        initialProp = 'initial';
     }
 
-    return (
-        <motion.div animate={animateProp} initial={initialProp} ref={ref} style={{ overflow: 'hidden '}}>
-            <motion.div style={{ display: 'inline-block'}} variants={variants}>
-                { React.cloneElement(children) } 
+    if(followParent){
+        return (
+            <motion.div 
+                style={{ overflow: 'hidden' }}
+            >
+                <motion.div style={{ display: 'inline-block'}} variants={variants}>
+                    { React.cloneElement(children) } 
+                </motion.div>
             </motion.div>
-        </motion.div>
-    )
+        )
+    } else {
+        return (
+            <motion.div 
+                animate={animateProp} 
+                initial={initialProp} 
+                ref={ref} 
+                style={{ overflow: 'hidden' }}
+            >
+                <motion.div style={{ display: 'inline-block'}} variants={variants}>
+                    { React.cloneElement(children) } 
+                </motion.div>
+            </motion.div>
+        )
+    }
+
 }

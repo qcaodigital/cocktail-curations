@@ -6,20 +6,19 @@ import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import Rellax from 'rellax';
 import { useInView } from 'react-intersection-observer';
-import Spacer from './Spacer';
+import AdditionalInfo from './AdditionalInfo';
 
 const Classes = React.forwardRef(({}, ref) => {
     const headerRef = useRef();
     const headerInView = useInViewFromTop(headerRef)
-
-    const blockQuoteRef = useRef();
-    const blockQuoteInView = useInViewFromTop(blockQuoteRef, { threshold: .1 });
 
     const imgRef = useRef();
     const imgInView = useInViewFromTop(imgRef, { threshold: .1 });
 
     return(
         <section ref={ref} id={styles.Classes}>
+            <div className={styles.bottomBorder}/>
+            <div className={styles.topBorder}/>
             <div className={styles.contentContainer}>
                 <motion.header ref={headerRef} animate={headerInView ? 'animate' : 'initial'}>
                     <motion.h2 variants={sectionTransitions.stagger}>
@@ -39,15 +38,23 @@ const Classes = React.forwardRef(({}, ref) => {
                     </svg>
                     <img className={styles.emb} src="/imgs/embellishments/dots.png" alt=""/>
                 </div>
-                <motion.div ref={blockQuoteRef} animate={blockQuoteInView ? 'animate' : 'initial'} className={styles.desktopText}>
-                    <motion.h3 variants={sectionTransitions.blockQuoteText}>Our cocktail classes are also available <span className={styles.emph}>virtually!</span> Have your guests learn proper ratios and techniques for crafting their own, perfect cocktail at home. 
-                    </motion.h3>
-                </motion.div>
+                <div className={styles.desktopText}>
+                    <h3>Our cocktail classes are also available <span className={styles.emph}>virtually!</span> Have your guests learn proper ratios and techniques for crafting their own, perfect cocktail at home. 
+                    </h3>
+                </div>
             </div>
-            <Spacer 
-                img='/imgs/stock/services_page/classes_spacer.jpg'
-                buttonText='Book a class today'
-                href='/contact'    
+            <AdditionalInfo 
+                textBlocks={[{
+                    header: 'Header Text One',
+                    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis nemo debitis iste libero maiores illum nisi est itaque repellendus totam rem reiciendis delectus adipisci sit, quaerat minus quis facilis consequuntur doloremque fuga quod. Quis at debitis eaque provident, qui tenetur ullam, cum accusantium vel sunt tempora eum! Ipsa, ullam. Dolor?'
+                }, {
+                    header: 'Header Text Two',
+                    text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis nemo debitis iste libero maiores illum nisi est itaque repellendus totam rem reiciendis delectus adipisci sit, quaerat minus quis facilis consequuntur doloremque fuga quod. Quis at debitis eaque provident, qui tenetur ullam, cum accusantium vel sunt tempora eum! Ipsa, ullam. Dolor?'
+                }]}
+                cta={{
+                    text: 'Book a class',
+                    href: '/contact'
+                }}
             />
         </section>
     )

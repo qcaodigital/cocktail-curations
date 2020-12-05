@@ -14,7 +14,7 @@
     left: 50%;
     width: 90vw;
     height: var(--height);
-    background-color: var(--highlight-color-fade-more);
+    background-color: var(--highlight-color-fade);
     transform: translate(-50%, -50%);
     border: 1px solid var(--main-color-fade-more);
     &::before,

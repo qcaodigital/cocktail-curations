@@ -1,5 +1,6 @@
 .LandingMobileInfo {
-    background-color: var(--highlight-color-fade);
+    background-color: var(--bg-color);
+    background-image: var(--bg-texture);
     display: flex;
     justify-content: center;
     padding: 0 .5rem calc(var(--landing-spacer-height) + 7.5vh);
@@ -32,7 +33,8 @@
             right: 0;
             z-index: 0;
             height: 15vw;
-            background-color: var(--highlight-color-fade);
+            background-color: var(--bg-color);
+            background-image: var(--bg-texture);
             @media screen and (min-width: 750px){
                 top: 0;
                 bottom: 0;

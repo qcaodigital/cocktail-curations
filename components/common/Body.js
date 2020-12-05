@@ -10,16 +10,15 @@ import navListData from '../../data/navList';
 import useViewport from '../../custom_hooks/main_state/useViewport'
 import useIsHamburgerMenuOpen from '../../custom_hooks/main_state/useIsHamburgerMenuOpen'
 import useNavList from '../../custom_hooks/main_state/useNavList'
-import useScrollThreshold from './../../custom_hooks/main_state/useScrollThreshold';
 
 export default function Body({ children }){
     const router = useRouter();
     const viewport = useViewport();
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
-    const scrollThreshold = useScrollThreshold(120, { team: 100, services: 100 }, router)
-    const [loadComplete, setLoadComplete] = useState(true);
-    const [navHeight, setNavHeight] = useState(null);
+    const [loadComplete, setLoadComplete] = useState(false);
+    const [navHeight, setNavHeight] = useState(viewport === 'mobile' ? '128px' : '160px');
+    const [isNavAniComplete, setIsNavAniComplete] = useState(false);
 
     return (
         <>
@@ -29,7 +28,7 @@ export default function Body({ children }){
             toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
         />
         <main className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}>
-            {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> */}
+            <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 
@@ -38,8 +37,8 @@ export default function Body({ children }){
                 navHeightCB={height => setNavHeight(height)} 
                 isHamburgerOpen={isHamburgerMenuOpen} 
                 hamburgerCB={() => setIsHamburgerMenuOpen(curr => !curr)}
-                currentPath={router.pathname}
-                scrollThreshold={scrollThreshold}
+                router={router}
+                navAniCompletionCB={() => setIsNavAniComplete(true)}
             />
             <AnimatePresence exitBeforeEnter>
                 {loadComplete && React.cloneElement(children, { 
@@ -49,12 +48,12 @@ export default function Body({ children }){
                         isHamburgerMenuOpen: isHamburgerMenuOpen,
                         navList: navList,
                         navHeight: navHeight,
-                        scrollThreshold: scrollThreshold 
+                        isNavAniComplete: isNavAniComplete
                     },
-                    NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight, transition: '350ms linear' }}/>,
+                    NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight }}/>,
                 })}
             </AnimatePresence>
-            {loadComplete && <Footer navList={navList}/>}
+            {loadComplete && router.pathname !== '/' && <Footer navList={navList}/>}
         </main>
         </>
     )

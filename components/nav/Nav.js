@@ -8,16 +8,20 @@ import transitions from './NavTransitions';
 import PropTypes from 'prop-types';
 import FadeOnUnmount from '../HOC/FadeOnUnmount';
 import navList from './../../data/navList';
+import SocialList from './SocialList';
 
 Nav.propTypes = {
     render: PropTypes.bool.isRequired,
     navList: PropTypes.array.isRequired,
     viewport: PropTypes.oneOf(['mobile', 'tablet', 'desktop', null]),
     hamburgerCB: PropTypes.func.isRequired,
-    currentPath: PropTypes.oneOf([...navList.map(nav => nav.href), '/_error']).isRequired
+    router: PropTypes.object.isRequired,
+    navHeight: PropTypes.oneOfType([ PropTypes.string, PropTypes.number]),
+    navHeightCB: PropTypes.func.isRequired,
+    navAniCompletionCB: PropTypes.func.isRequired
 }
 
-export default function Nav({render, navList, viewport, hamburgerCB, currentPath, scrollThreshold, navHeight, navHeightCB}){
+export default function Nav({render, navList, viewport, hamburgerCB, router, navHeight, navHeightCB, navAniCompletionCB }){
     //RENDER PROP IS TRUE ONCE INITIAL RENDER IN THE MAIN BODY COMPONENT HAPPENS SO THAT THE WINDOW OBJECT IS ACCESSIBLE TO THIS NAV COMPONENT ON FIRST REAL RENDER
     if(!render) return null;
     const navRef = useRef();
@@ -26,6 +30,7 @@ export default function Nav({render, navList, viewport, hamburgerCB, currentPath
     //EACH PATH'S SCROLL THRESHOLD IS DEFINED IN A USEEFFECT HOOK IN THE MAIN BODY COMPONENT
     //DEFAULT THRESHOLD IS 120 PIXELS SCROLLED IF NOT DEFINED
     const [minimizeNav, setMinimizeNav] = useState(false);
+    const scrollThreshold = 100;
     useEffect(() => {
         function handleMinimizeNavOnScroll(){
             if(window.scrollY > scrollThreshold && !minimizeNav){
@@ -33,13 +38,19 @@ export default function Nav({render, navList, viewport, hamburgerCB, currentPath
             } else if(window.scrollY < scrollThreshold && minimizeNav){
                 setMinimizeNav(false)
             }
-        }   
+        }
+
         window.addEventListener('scroll', handleMinimizeNavOnScroll)
         return () => window.removeEventListener('scroll', handleMinimizeNavOnScroll)
-    }, [minimizeNav, currentPath])
+    }, [minimizeNav, router])
 
     //DETERMINE HEIGHT OF FIXED NAV FOR SPACER USAGE
-    useEffect(() => navHeightCB(navRef.current.offsetHeight), []) //ONLOAD
+    useEffect(() => {
+        setTimeout(() => {
+            navHeightCB(navRef.current.offsetHeight)
+        }, 350)
+    }, [router])
+    
     useEffect(() => {
         setTimeout(() => {
             if(!minimizeNav){
@@ -58,11 +69,13 @@ export default function Nav({render, navList, viewport, hamburgerCB, currentPath
 
     return (
         <motion.nav id={styles.Nav}
-            className={minimizeNav ? styles.min : null}
+            className={minimizeNav || router.pathname === '/' ? styles.min : null}
+            data-path={viewport !== 'mobile' ? router.pathname : null}
             ref={ navRef }
             variants={transitions.mainFade}
             initial='hide'
             animate={initialRenderComplete ? 'show' : 'showWithDelay'}
+            onAnimationComplete={() => navAniCompletionCB()}
         >
             <FadeOnUnmount unmountIf={viewport === 'mobile' || minimizeNav} dontAnimate={minimizeNav}>
                 <motion.img 
@@ -76,9 +89,9 @@ export default function Nav({render, navList, viewport, hamburgerCB, currentPath
                     <Link href='/'>
                         {minimizeNav ? (
                             <a><img src="/imgs/stock/logos/cc-logo-min2.png" alt="Cocktail Curations Logo"/></a>
-                            ) : (
-                                <a><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
-                                )}
+                        ) : (
+                            <a><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
+                        )}
                     </Link>
                 </motion.div>
             </FadeOnUnmount>       
@@ -97,15 +110,7 @@ export default function Nav({render, navList, viewport, hamburgerCB, currentPath
             </FadeOnUnmount>
             <FadeOnUnmount unmountIf={minimizeNav} dontAnimate={viewport !== 'mobile'}>
                 <motion.ul className={styles.socialList}>
-                    <a href='https://www.facebook.com/cocktailcurations/' target='_blank'>
-                        <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'facebook']}/>
-                    </a>
-                    <a href='https://www.instagram.com/cocktailcurations/' target='_blank'>
-                        <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'instagram']}/>
-                    </a>
-                    <a href='https://twitter.com/CocktailCurate' target='_blank'>
-                        <FontAwesomeIcon size={viewport !== 'desktop' ? 'lg' : 'lg'} icon={['fab', 'twitter']}/>
-                    </a>
+                    <SocialList/>
                 </motion.ul>
             </FadeOnUnmount>
             <FadeOnUnmount unmountIf={viewport !== 'mobile'}>

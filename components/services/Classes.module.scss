@@ -1,8 +1,9 @@
 #Classes {
     background-color: #e2dade;
-    position: relative;
-    overflow: hidden;
     --highlight-color: #f95b5b;
+    --highlight-color-fade: #f95b5b46;
+    position: relative;
+    padding: 4rem 1rem;
     &::before {
         content: '';
         position: absolute;
@@ -11,11 +12,28 @@
         right: 0;
         bottom: 0;
         opacity: .3;
+        // background-image: url("../../public/imgs/textures/natural-paper.png");
         background-image: url("../../public/imgs/textures/asfalt-dark.png");
     }
+    //TOP AND BOTTOM BORDER - DUE TO MAX-WIDTH CANNOT USE BORDER PROPS
+    .bottomBorder,
+    .topBorder {
+        content: '';
+        position: absolute;
+        width: 100vw;
+        top: 0;
+        left: 50%;
+        height: 2px;
+        background-color: #bdbbb859;
+        transform: translateX(-50%);
+    }
+    .bottomBorder {
+        top: unset;
+        bottom: 0;
+    }
+    // -------------- //
     .contentContainer {
-        padding: 4rem 1rem;
-        padding-bottom: 20vw;
+        padding-bottom: clamp(8rem, 25vw, 4rem);
         display: flex;
         flex-wrap: wrap;
         max-width: 1100px;
@@ -24,23 +42,10 @@
         @media screen and (min-width: 750px) {
             padding-bottom: 0;
         }
-        //TOP AND BOTTOM BORDER - DUE TO MAX-WIDTH CANNOT USE BORDER PROPS
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            width: 100vw;
-            top: 0;
-            left: 50%;
-            height: 1px;
-            background-color: #bdbbb859;
-            transform: translateX(-50%);
+        @media screen and (min-width: 990px) {
+            padding-bottom: 0;
+            margin-bottom: -3rem;
         }
-        &::after {
-            top: unset;
-            bottom: 0;
-        }
-        // -------------- //
         header {
             padding-bottom: 1.75rem;
             flex-basis: 100%;
@@ -130,7 +135,7 @@
                 flex-basis: 35%;
                 margin-left: -1rem;
                 margin-top: 5rem;
-                transform: translateY(40%) scale(1.15);
+                transform: translateY(calc(40% + 10vw)) scale(1.15);
                 z-index: 0;
                 position: relative;
                 @media screen and (min-width: 750px) {

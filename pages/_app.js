@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, router }) {
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
             </Head>
             <Body router={router}>
-                <Component {...pageProps} key={router.route}/>
+                <Component {...pageProps} key={router.route} router={router}/>
             </Body>
         </>
 )
