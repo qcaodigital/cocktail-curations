@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Didot';
+    src: url('../public/fonts/proxima_nova/Didot-HTF-B16-Bold-Ital.eot');
+    src: url('../public/fonts/proxima_nova/Didot-HTF-B16-Bold-Ital.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/proxima_nova/Didot-HTF-B16-Bold-Ital.woff2') format('woff2'),
+        url('../public/fonts/proxima_nova/Didot-HTF-B16-Bold-Ital.woff') format('woff'),
+        url('../public/fonts/proxima_nova/Didot-HTF-B16-Bold-Ital.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Didot';
+    src: url('../public/fonts/proxima_nova/DidotLTStd-Bold.eot');
+    src: url('../public/fonts/proxima_nova/DidotLTStd-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/proxima_nova/DidotLTStd-Bold.woff2') format('woff2'),
+        url('../public/fonts/proxima_nova/DidotLTStd-Bold.woff') format('woff'),
+        url('../public/fonts/proxima_nova/DidotLTStd-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Didot';
+    src: url('../public/fonts/proxima_nova/DidotLTStd-Italic.eot');
+    src: url('../public/fonts/proxima_nova/DidotLTStd-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/proxima_nova/DidotLTStd-Italic.woff2') format('woff2'),
+        url('../public/fonts/proxima_nova/DidotLTStd-Italic.woff') format('woff'),
+        url('../public/fonts/proxima_nova/DidotLTStd-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Didot';
+    src: url('../public/fonts/proxima_nova/Didot-HTF-M96-Medium.eot');
+    src: url('../public/fonts/proxima_nova/Didot-HTF-M96-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/proxima_nova/Didot-HTF-M96-Medium.woff2') format('woff2'),
+        url('../public/fonts/proxima_nova/Didot-HTF-M96-Medium.woff') format('woff'),
+        url('../public/fonts/proxima_nova/Didot-HTF-M96-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Didot';
+    src: url('../public/fonts/proxima_nova/Didot.eot');
+    src: url('../public/fonts/proxima_nova/Didot.eot?#iefix') format('embedded-opentype'),
+        url('../public/fonts/proxima_nova/Didot.woff2') format('woff2'),
+        url('../public/fonts/proxima_nova/Didot.woff') format('woff'),
+        url('../public/fonts/proxima_nova/Didot.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -16,8 +16,8 @@ export default function Body({ children }){
     const viewport = useViewport();
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
-    const [loadComplete, setLoadComplete] = useState(false);
-    const [navHeight, setNavHeight] = useState(viewport === 'mobile' ? '128px' : '160px');
+    const [loadComplete, setLoadComplete] = useState(true);
+    const [navHeight, setNavHeight] = useState();
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
 
     return (
@@ -28,7 +28,7 @@ export default function Body({ children }){
             toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
         />
         <main className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}>
-            <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>
+            {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> */}
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 

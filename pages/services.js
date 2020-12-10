@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Landing from '../components/services/Landing';
 import Copy from '../components/services/Copy';
 import Classes from '../components/services/Classes'
@@ -13,22 +13,33 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
     const barsRef = useRef();
     const basesRef = useRef();
 
+    const pageVariant = {
+        initial: { opacity: 0 },
+        exit: { opacity: 0 },
+        animate: { 
+            opacity: 1,
+            transition: {
+                duration: 1,
+                when: 'beforeChildren'
+            }
+        }
+    }
+
     return(
         <>
         <Head>
             <title>Services | Cocktail Curations</title>
         </Head>
         <motion.main 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
+            initial='initial'
+            animate='animate' 
+            exit='exit'
+            variants={pageVariant}
         >
             <Landing 
                 viewport={viewport} 
                 navHeight={navHeight}
                 NAV_SPACER={NAV_SPACER}
-                isNavAniComplete={isNavAniComplete}
                 refs={{
                     copy: copyRef,
                     classes: classesRef,

@@ -2,7 +2,6 @@ import Link from 'next/link';
 import styles from './Home.module.scss';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
-import SocialList from './../components/nav/SocialList';
 import { landingTransitions, headerTransitions } from './../page_transitions/home';
 import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 
@@ -75,9 +74,6 @@ export default function Home({ state: { isNavAniComplete, viewport }}){
                                 </motion.button>
                             </motion.div>
                         </motion.header>
-                        <ul className={styles.socialList}>
-                            <SocialList animateOnHover />
-                        </ul>
                     </motion.section>
                 </div>
             </section>

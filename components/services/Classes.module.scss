@@ -55,6 +55,7 @@
                 font-family: var(--serif-font);
                 line-height: 1.7rem;
                 letter-spacing: 1px;
+                word-spacing: -.1rem;
                 margin-bottom: 1.5rem;
                 color: white;
                 font-weight: 400;
@@ -73,9 +74,10 @@
                 @media screen and (min-width: 990px){
                     font-size: 2.8rem;
                     line-height: 2.75rem;
+                    word-spacing: -.35rem;
                 }
                 span {
-                    &:not(.emp) {
+                    &:not(.emph) {
                         text-shadow: 0 0 4px rgba(0,0,0,.1);
                     }
                     &::before {
@@ -84,11 +86,22 @@
                     @media screen and (min-width: 750px){
                         display: inline-block;
                     }
-                    .emp {
+                    .emph {
+                        margin-left: .1rem;
                         color: var(--highlight-color);
-                        display: inline-block;
+                        @media screen and (min-width: 500px){
+                            margin-left: .15rem;
+                        }
                         @media screen and (min-width: 750px){
-                            border-bottom: 3px solid var(--highlight-color);
+                            margin-left: .35rem;
+                            .emphUnderline {
+                                height: 3px;
+                                width: 100%;
+                                background-color: var(--highlight-color);
+                            }
+                        }
+                        @media screen and (min-width: 990px){
+                            margin-left: .5rem;
                         }
                     }
                 }

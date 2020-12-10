@@ -22,7 +22,15 @@ const Bases = React.forwardRef(({}, ref) => {
                     <motion.h2 variants={sectionTransitions.stagger}>
                         <motion.span variants={sectionTransitions.headerVariant}>Customize your</motion.span>
                         <motion.span variants={sectionTransitions.headerVariant}>very own artisanal</motion.span>
-                        <motion.span variants={sectionTransitions.headerVariant}><span className={styles.emph}>cocktail base.</span></motion.span>
+                        <motion.span variants={sectionTransitions.headerVariant}>
+                            <span className={styles.emph}>
+                                cocktail base.
+                                <motion.div 
+                                    className={styles.emphUnderline}
+                                    variants={sectionTransitions.emphUnderline}
+                                />
+                            </span>
+                        </motion.span>
                     </motion.h2>
                     <motion.p variants={sectionTransitions.headerVariant}>We curate and bottle, you shake with your favorite spirit and finish with our beautiful
                     garnishes. Our perfectly balanced cocktail bases are made with fresh ingredients, flavorful

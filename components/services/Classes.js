@@ -24,7 +24,15 @@ const Classes = React.forwardRef(({}, ref) => {
                     <motion.h2 variants={sectionTransitions.stagger}>
                         <motion.span variants={sectionTransitions.headerVariant}>Elevate your bartending</motion.span> 
                         <motion.span variants={sectionTransitions.headerVariant}>knowledge and skills by</motion.span>
-                        <motion.span variants={sectionTransitions.headerVariant}>hosting a <span className={styles.emp}>cocktail class.</span></motion.span>
+                        <motion.span variants={sectionTransitions.headerVariant}>hosting a  
+                            <span className={styles.emph}>
+                                cocktail class.
+                                <motion.div 
+                                    className={styles.emphUnderline}
+                                    variants={sectionTransitions.emphUnderline}
+                                />
+                            </span>
+                        </motion.span>
                     </motion.h2>
                     <motion.p variants={sectionTransitions.headerVariant}>We will teach your guests how to craft cocktail classics or customize a cocktail based on your group’s theme or preference. Cocktail Curations will provide instructors, barware, cocktail utensils, and all additional natural juices, handcraft mixers and garnishes.</motion.p>
                 </motion.header>

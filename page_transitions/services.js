@@ -1,12 +1,28 @@
 export const landingTransitions = {
-    info: {
+    title: {
         initial: {
-            opacity: 0
+            y: '150%'
         },
         animate: {
-            opacity: 1,
+            y: '0',
             transition: {
-                duration: 1.5
+                duration: .75,
+                type: 'spring'
+            }
+        }
+    },
+    info: {
+        animate: {
+            transition: {
+                staggerChildren: .2
+            }
+        },
+        children: {
+            initial: {
+                opacity: 0
+            },
+            animate: {
+                opacity: 1
             }
         }
     }
@@ -73,7 +89,8 @@ export const sectionTransitions = {
             y: 0,
             transition: {
                 ease: [.38, .25, 0, 1],
-                duration: 1
+                duration: 1,
+                when: 'beforeChildren'
             }
         },
         initial: {
@@ -81,21 +98,17 @@ export const sectionTransitions = {
             y: 50
         }
     },
-    // headerVariant: {
-    //     animate: {
-    //         opacity: 1,
-    //         y: 0,
-    //         transition: {
-    //             ease: [.38, .25, 0, 1],
-    //             duration: 1,
-    //             delay: .5
-    //         }
-    //     },
-    //     initial: {
-    //         opacity: 0,
-    //         y: 50
-    //     }
-    // },
+    emphUnderline: {
+        animate: {
+            scaleX: 1,
+            transition: {
+                duration: .5
+            }
+        },
+        initial: {
+            scaleX: 0
+        }
+    },
     stagger: {
         animate: {
             transition: {

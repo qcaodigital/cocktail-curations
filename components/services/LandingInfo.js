@@ -1,16 +1,20 @@
 import styles from './LandingInfo.module.scss';
 import smoothscroll from 'smoothscroll';
+import { motion } from 'framer-motion';
+import { landingTransitions } from './../../page_transitions/services';
 
 export default function LandingInfo({refs, navHeight, viewport}){
     const scrollAnchorDesktopAdjustment = viewport === 'mobile' ? 0 : navHeight / 2;
     const scrollAnchorDuration = 2000;
 
     return (
-        <div className={styles.infoBlock}>
-            <h3>We offer a variety of services to share our love and passion for mixology.</h3>
-            <h4>From specialized private event bars to in-person or virtual cocktail classes, we've got you covered.</h4>
-            <p><em>We provide:</em></p>
-            <ul>
+        <motion.div className={styles.infoBlock}
+            variants={landingTransitions.info}
+        >
+            <motion.h3 variants={landingTransitions.info.children}>We offer a variety of services to share our love and passion for mixology.</motion.h3>
+            <motion.h4 variants={landingTransitions.info.children}>From specialized private event bars to in-person or virtual cocktail classes, we've got you covered.</motion.h4>
+            <motion.p variants={landingTransitions.info.children}><em>We provide:</em></motion.p>
+            <motion.ul variants={landingTransitions.info.children}>
                 <li>
                     Experience-based, <strong>speciality bars</strong>. 
                     <span
@@ -36,7 +40,7 @@ export default function LandingInfo({refs, navHeight, viewport}){
                     </span>
                 </li>
                 <li>... and more!</li>
-            </ul>
-        </div>
+            </motion.ul>
+        </motion.div>
     )
 }

@@ -29,7 +29,7 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
     //DETERMINE WHETHER OR NOT TO HIDE NAV BASED ON SCROLL THRESHOLD PROP
     //EACH PATH'S SCROLL THRESHOLD IS DEFINED IN A USEEFFECT HOOK IN THE MAIN BODY COMPONENT
     //DEFAULT THRESHOLD IS 120 PIXELS SCROLLED IF NOT DEFINED
-    const [minimizeNav, setMinimizeNav] = useState(false);
+    const [minimizeNav, setMinimizeNav] = useState(true);
     const scrollThreshold = 100;
     useEffect(() => {
         function handleMinimizeNavOnScroll(){
@@ -67,56 +67,9 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
         }, 3000);
     }, [])
 
-    const changeLogoColorVariant = {
-        white: {
-            animate: {
-                opacity: 1,
-                transition: {
-                    duration: .5,
-                    delay: window.scrollY === 0 ? 1 : 0
-                }
-            },
-            initial: {
-                opacity: 0,
-                transition: {
-                    duration: .5,
-                    delay: 1
-                }
-            },
-            exit: {
-                opacity: 0,
-                transition: {
-                    duration: .5
-                }
-            }
-        },
-        black: {
-            animate: {
-                opacity: 1,
-                transition: {
-                    duration: .5,
-                    delay: window.scrollY === 0 ? 1 : 0
-                }
-            },
-            initial: {
-                opacity: 0,
-                transition: {
-                    duration: .5,
-                    delay: 1
-                }
-            },
-            exit: {
-                opacity: 0,
-                transition: {
-                    duration: .5
-                }
-            }
-        }
-    }
-
     return (
         <motion.nav id={styles.Nav}
-            className={minimizeNav ? styles.min : null}
+            className={minimizeNav || router.pathname === '/' ? styles.min : null}
             data-path={viewport !== 'mobile' ? router.pathname : null}
             ref={ navRef }
             variants={transitions.mainFade}
@@ -124,54 +77,28 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
             animate={initialRenderComplete ? 'show' : 'showWithDelay'}
             onAnimationComplete={() => navAniCompletionCB()}
         >
+            <FadeOnUnmount unmountIf={viewport === 'mobile' || minimizeNav} dontAnimate={minimizeNav}>
+                <motion.img 
+                    className={styles.leftIcon} 
+                    src='/imgs/stock/logos/cc-icon-black.png'
+                    alt='Cocktail Curations Logo' 
+                />
+            </FadeOnUnmount>
             <FadeOnUnmount unmountIf={viewport === 'mobile' && minimizeNav}>
                 <motion.div className={minimizeNav ? `${styles.brand} ${styles.min}` : styles.brand}>
                     <Link href='/'>
                         {minimizeNav ? (
-                            <a><img id={styles.min} src="/imgs/stock/logos/cc-logo-min2.png" alt="Cocktail Curations Logo"/></a>
+                            <a><img src="/imgs/stock/logos/cc-logo-min2.png" alt="Cocktail Curations Logo"/></a>
                         ) : (
-                            <a>
-                                <AnimatePresence exitBeforeEnter>
-                                    {router.pathname === '/services' && viewport !== 'mobile'
-                                        ? <motion.img
-                                            key='white'
-                                            animate='animate'
-                                            initial='initial'
-                                            exit='exit'
-                                            variants={changeLogoColorVariant.white}
-                                            id={styles.full} 
-                                            src="/imgs/stock/logos/cc-logo-white.png" 
-                                            alt="Cocktail Curations Logo"
-                                        />
-                                        : <motion.img 
-                                            key='black'
-                                            animate='animate'
-                                            initial='initial'
-                                            exit='exit'
-                                            variants={changeLogoColorVariant.black}
-                                            id={styles.full} 
-                                            src="/imgs/stock/logos/cc-logo.png" 
-                                            lt="Cocktail Curations Logo"
-                                        />
-                                    }
-                                </AnimatePresence>
-                            </a>
+                            <a><img src="/imgs/stock/logos/cc-logo.png" alt="Cocktail Curations Logo"/></a>
                         )}
                     </Link>
                 </motion.div>
             </FadeOnUnmount>       
-            <FadeOnUnmount unmountIf={viewport === 'mobile'} dontAnimate>
+            <FadeOnUnmount unmountIf={viewport === 'mobile'}>
                 <motion.ul className={minimizeNav ? `${styles.list} ${styles.min}` : styles.list}>
                     {navList.map((item, idx) => (
-                        <li 
-                            key={item.label} 
-                            className={styles.item} 
-                            style={{
-                            '--font-color': router.pathname === '/services' && !minimizeNav
-                                ? 'var(--secondary-color)'
-                                : 'var(--main-color)'
-                            }}
-                        >
+                        <li key={item.label} className={styles.item}>
                             {!item.external ? (
                                 <Link href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>
                             ) : (
@@ -181,9 +108,9 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
                     ))}
                 </motion.ul>
             </FadeOnUnmount>
-            <FadeOnUnmount unmountIf={minimizeNav}>
+            <FadeOnUnmount unmountIf={minimizeNav} dontAnimate={viewport !== 'mobile'}>
                 <motion.ul className={styles.socialList}>
-                    <SocialList animateOnHover/>
+                    <SocialList/>
                 </motion.ul>
             </FadeOnUnmount>
             <FadeOnUnmount unmountIf={viewport !== 'mobile'}>

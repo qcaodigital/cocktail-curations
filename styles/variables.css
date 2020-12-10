@@ -1,6 +1,6 @@
 :root {
     --main-font: 'Aktiv Grotesk W01', sans-serif;
-    --serif-font: 'Saol Display', serif;
+    --serif-font: 'Didot', serif;
     --main-color-fade-less: #2f2f2fa6;
     --main-color: #2f2f2f;
     --main-color-fade: #2f2f2f48;
@@ -15,6 +15,7 @@
     --highlight-color-fade-less-2x: #7f8c4fd5;
     --highlight-color-fade-less: #7f8c4fb0;
     --highlight-color-light: #CCD1B9;
+    --highlight-color-light-less: #A6AF85;
     --highlight-color-fade: #7f8c4f96;
     --highlight-color-fade-more: #7f8c4f36;
     --highlight-color2: #FAD956;

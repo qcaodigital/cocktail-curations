@@ -55,6 +55,7 @@
                 padding-left: .5rem;
                 border-left: 3px solid var(--highlight-color);
                 max-width: 90%;
+                word-spacing: -.1rem;
                 overflow: hidden;
                 @media screen and (min-width: 500px){
                     font-size: 2rem;
@@ -71,11 +72,20 @@
                 @media screen and (min-width: 990px){
                     font-size: 2.75rem;
                     line-height: 2.75rem;
+                    word-spacing: -.35rem;
                 }
                 .emph {
                     color: var(--highlight-color);
+                    margin-left: .3rem;
+                    @media screen and (min-width: 500px){
+                        margin-left: .5rem;
+                    }
                     @media screen and (min-width: 750px){
-                        border-bottom: 3px solid var(--highlight-color);
+                        .emphUnderline {
+                            height: 3px;
+                            width: 100%;
+                            background-color: var(--highlight-color);
+                        }
                     }
                 }
                 span {

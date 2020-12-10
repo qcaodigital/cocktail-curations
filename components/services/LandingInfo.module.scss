@@ -83,6 +83,9 @@
                 color: var(--highlight-color);
                 cursor: pointer;
                 margin-left: 4px;
+                @media screen and (min-width: 750px){
+                    color: white;
+                }
             }
         }
     }
