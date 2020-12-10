@@ -1,13 +1,31 @@
 export const landingTransitions = {
+    fadeIn: {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 }
+    },
     title: {
-        initial: {
-            y: '150%'
+        boxAndFlower: {
+            initial: {
+                opacity: 0
+            },
+            animate: {
+                opacity: 1,
+                transition: {
+                    duration: .75,
+                    // when: 'beforeChildren'
+                }
+            }
         },
-        animate: {
-            y: '0',
-            transition: {
-                duration: .75,
-                type: 'spring'
+        text: {
+            initial: {
+                y: '150%'
+            },
+            animate: {
+                y: '0',
+                transition: {
+                    duration: .75,
+                    type: 'spring'
+                }
             }
         }
     },
@@ -22,7 +40,10 @@ export const landingTransitions = {
                 opacity: 0
             },
             animate: {
-                opacity: 1
+                opacity: 1,
+                transition: {
+                    duration: .75
+                }
             }
         }
     }
@@ -53,7 +74,21 @@ export const copyTransitions = {
             y: 0,
             transition: {
                 ease: [.38, .25, 0, 1],
-                duration: 1,
+                duration: 1
+            }
+        },
+        initial: {
+            opacity: 0,
+            y: 50
+        }
+    },
+    ctaVariant: {
+        animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                ease: [.38, .25, 0, 1],
+                duration: .5,
                 when: 'beforeChildren'
             }
         },

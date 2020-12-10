@@ -11,6 +11,7 @@ export default function LandingInfo({refs, navHeight, viewport}){
         <motion.div className={styles.infoBlock}
             variants={landingTransitions.info}
         >
+            <motion.div variants={landingTransitions.info.children} className={styles.smallHr}/>
             <motion.h3 variants={landingTransitions.info.children}>We offer a variety of services to share our love and passion for mixology.</motion.h3>
             <motion.h4 variants={landingTransitions.info.children}>From specialized private event bars to in-person or virtual cocktail classes, we've got you covered.</motion.h4>
             <motion.p variants={landingTransitions.info.children}><em>We provide:</em></motion.p>

@@ -20,6 +20,7 @@ export default function FadeInViewContainer({ threshold, noFade, noTranslate, re
             opacity: 1,
             transition: {
                 delay: delay ? delay : 0,
+                type: 'spring',
                 duration: duration ? duration : 1.15,
                 ease: [.23, .02, .0, 1.01]
             }

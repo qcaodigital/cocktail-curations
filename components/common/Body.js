@@ -17,7 +17,7 @@ export default function Body({ children }){
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
     const [loadComplete, setLoadComplete] = useState(true);
-    const [navHeight, setNavHeight] = useState();
+    const [navHeight, setNavHeight] = useState(120);
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
 
     return (

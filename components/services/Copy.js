@@ -70,7 +70,7 @@ const Copy = React.forwardRef(({ viewport }, ref) => {
                         <motion.p variants={copyTransitions.textboxVariant}>and see what we can do</motion.p>
                         <motion.p variants={copyTransitions.textboxVariant}>just for you</motion.p>
                         <Link href='/contact'>
-                            <motion.a variants={copyTransitions.textboxVariant}>
+                            <motion.a variants={copyTransitions.ctaVariant}>
                                 <p>Contact Us</p>
                                 <motion.div variants={copyTransitions.ctaUnderlineVariant}/>
                             </motion.a>
