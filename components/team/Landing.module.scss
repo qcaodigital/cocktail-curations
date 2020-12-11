@@ -1,0 +1,84 @@
+.Landing {
+    padding-bottom: 3rem;
+    background-color: var(--secondary-color);
+    background-image: url('../../public/imgs/textures/dust.png');
+    background-position: center;        
+    background-size: cover;
+    display: grid;
+    grid-template-rows: min-content min-content;
+    .content {
+        display: grid;
+        grid-template-rows: min-content min-content 3rem;
+        row-gap: 5vh;
+        header {
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h1 {
+                font-family: var(--serif-font);
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+                word-spacing: -.15rem;
+            }
+            p {
+                margin-top: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 600;
+                font-size: .75rem;
+                color: var(--highlight-color);
+            }
+            .underline {
+                margin-top: 2rem;
+                width: 25%;
+                max-width: 100px;
+                height: 2px;
+                background-color: black;
+            }
+        }
+        .carousel {
+            padding: 0rem 2rem 4rem;
+            height: auto;
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            .counters {
+                position: absolute;
+                bottom: 1.75rem;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                gap: .25rem;
+                div {
+                    width: 5px;
+                    height: 5px;
+                    background-color: transparent;
+                    border: 1px solid black;
+                    border-radius: 50%;
+                }
+            }
+            .chevron {
+                position: absolute;
+                bottom: 1.75rem;
+                transform: translateY(25%);
+                &#UP_LEFT {
+                    left: 25%;
+                }
+                &#DOWN_RIGHT {
+                    right: 25%;
+                }
+            }
+            .imgContainer {
+                img {
+                    width: 100%;
+                    box-shadow: 5px 5px 10px rgba(0,0,0,.1);
+                    border: 2px solid var(--main-color-fade-less);
+                }
+            }
+        }
+        .cta {
+            margin: 0 auto;
+        }
+    }
+}

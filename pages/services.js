@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Landing from '../components/services/Landing';
 import Copy from '../components/services/Copy';
 import Classes from '../components/services/Classes'

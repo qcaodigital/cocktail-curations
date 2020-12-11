@@ -21,7 +21,7 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
             id={styles.Landing}
             style={{ 
                 '--bg-color': 'var(--highlight-color-light-less)', 
-                '--bg-texture': 'url("/imgs/textures/[insert texture file]")'
+                // '--bg-texture': 'url("/imgs/textures/[insert texture file]")'
             }}
         >
             <div ref={bgImgRef} className={styles.imgContainer}/>

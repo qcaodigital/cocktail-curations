@@ -27,7 +27,10 @@ export default function Body({ children }){
             navList={navList} 
             toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
         />
-        <main className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}>
+        <main 
+            className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}
+            style={{ '--navHeight': `${navHeight}px` }}
+        >
             {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> */}
             <Nav
                 render={viewport !== null && loadComplete} 

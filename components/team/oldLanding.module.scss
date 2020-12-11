@@ -1,0 +1,172 @@
+.Landing {
+        position: relative;
+        min-height: auto;
+        .landingBackgrounds {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            > div {
+                overflow: hidden;
+                &.background1container {
+                    height: 65%;
+                    .background1 {
+                        height: 100%;
+                        background-color: var(--secondary-color);
+                        background-image: url('../../public/imgs/stock/team_page/ThyNicole_Portrait-washed.jpg');
+                        background-position: center;
+                        background-size: cover;
+                        opacity: .35;
+                    }
+                }
+                &.background2container {
+                    height: 35%;
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    .background2 {
+                        height: 200%;
+                        width: 100%;
+                        background-color: #a6af85;
+                        background-image: url('../../public/imgs/textures/dust.png');
+                        opacity: .75;
+                    }
+                }
+            }
+        }
+        .landingContent {
+            max-width: 1200px;
+            margin: 0 auto;
+            header {
+                width: 100%;
+                font-family: var(--serif-font);
+                text-align: center;
+                position: relative;
+                h1 {
+                    font-size: clamp(2.1rem, 10vw, 3rem);
+                    line-height: clamp(1.9rem, 9.2vw, 2.75rem);
+                    letter-spacing: -2.5px;
+                    text-shadow: 2px 2px 5px rgba(0,0,0,.05);
+                    padding: 0 3rem;
+                    span {
+                        font-style: italic;
+                        margin-right: .35rem;
+                    }
+                    .headerBrand {
+                        display: inline-block;
+                        white-space: nowrap;
+                    }
+                }
+                .underline {
+                    display: block;
+                    height: 2px;
+                    width: 50px;
+                    margin: 1.25rem auto;
+                    background-color: var(--highlight-color);
+                }
+                .box {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 90%;
+                    max-width: 500px;
+                    height: 95vw;
+                    max-height: 550px;
+                    z-index: -1;
+                    --border-width: 2px;
+                    --border-color: var(--main-color);
+                    .top {
+                        position: absolute;
+                        top: 0;
+                        width: 5vw;
+                        max-width: 50px;
+                        height: var(--border-width);
+                        background-color: var(--border-color);
+                    }
+                    .top#topLeft {
+                        left: 0;
+                        transform-origin: right;
+                    }
+                    .top#topRight {
+                        right: 0;
+                        transform-origin: left;
+                    }
+                    .bottom {
+                        position: absolute;
+                        bottom: 0;
+                        width: 50%;
+                        height: var(--border-width);
+                        background-color: var(--border-color);
+                    }
+                    .bottom#bottomRight {
+                        right: 0;
+                        transform-origin: right;
+                    }
+                    .bottom#bottomLeft {
+                        left: 0;
+                        transform-origin: left;
+                    }
+                    .left,
+                    .right {
+                        position: absolute;
+                        height: 100%;
+                        width: var(--border-width);
+                        background-color: var(--border-color);
+                        left: 0;
+                        transform-origin: top;
+                    }
+                    .right {
+                        left: unset;
+                        right: 0;
+                    }
+                }
+            }
+            .landingGallery {
+                display: flex;
+                place-items: center;
+                gap: 2.5rem;
+                padding: 0 .5rem clamp(2rem, 8.5vw, 6rem);
+                .landingImgContainer {
+                    margin: 0 auto;
+                    box-shadow: 5px 5px 25px rgba(0,0,0,.15), 
+                    2px 2px 10px rgba(0,0,0,.2);
+                    width: 75%;
+                    max-width: 435px;
+                    height: 100%;
+                    &:not(#center){
+                        display: none;
+                        position: relative;
+                        @media screen and (min-width: 990px){
+                            width: 25%;
+                            max-width: 300px;
+                            display: block;
+                            margin-left: auto;
+                        }
+                        &::after {
+                            content: '';
+                            z-index: -1;
+                            position: absolute;
+                            top: -.35rem;
+                            left: -.35rem;
+                            height: 100%;
+                            width: 100%;
+                            background-color: var(--highlight-color);
+                        }
+                        &:last-of-type::after {
+                            left: unset;
+                            right: -.35rem;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }

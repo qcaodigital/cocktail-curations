@@ -83,7 +83,7 @@ const Copy = React.forwardRef(({ viewport }, ref) => {
 })
 
 Copy.propTypes = {
-    viewport: PropTypes.string.isRequired
+    viewport: PropTypes.string
 }
 
 export default Copy;
