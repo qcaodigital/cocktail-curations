@@ -16,7 +16,7 @@
 /build
 
 # misc
-.DS_Store
+.DS_Store`
 *.pem
 
 # debug
@@ -38,3 +38,6 @@ yarn-error.log*
 
 # env
 .env
+
+# mailgun templates
+/mailgun_templates
