@@ -12,8 +12,8 @@ const Bars = React.forwardRef(({}, ref) => {
 
     return (
         <section id={styles.Bars} ref={ref}>
-            <motion.div ref={headerRef} className={styles.contentContainer}>
-                <motion.header animate={headerInView ? 'animate' : 'initial'}>
+            <div ref={headerRef} className={styles.contentContainer}>
+                <motion.header animate={headerInView ? 'animate' : 'initial'} initial='initial'>
                     <motion.h2 variants={sectionTransitions.stagger}>
                         <motion.span variants={sectionTransitions.headerVariant}>Personalize and tailor</motion.span>
                         <motion.span variants={sectionTransitions.headerVariant}>your event with one</motion.span>
@@ -45,7 +45,7 @@ const Bars = React.forwardRef(({}, ref) => {
                         <p className={styles.desktopText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.</p>
                     </div>
                 </div>
-            </motion.div>
+            </div>
             <AdditionalInfo 
                 textBlocks={[{
                     header: 'Header Text One',

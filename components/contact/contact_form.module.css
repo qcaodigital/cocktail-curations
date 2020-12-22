@@ -1,0 +1,233 @@
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0 2rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 990px) {
+  .form form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 2rem;
+  }
+}
+
+.form form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .25rem;
+}
+
+@media screen and (min-width: 990px) {
+  .form form div {
+    gap: .5rem;
+  }
+  .form form div#date {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .form form div#date input {
+    margin: 0 auto;
+  }
+}
+
+.form form div.textArea {
+  width: 80vw;
+}
+
+.form form div.textArea textarea {
+  font-family: var(--main-font);
+  font-size: 1rem;
+  resize: none;
+  width: 100%;
+  max-width: 550px;
+  height: 15rem;
+  padding: .5rem;
+}
+
+.form form div.textArea textarea::-webkit-input-placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div.textArea textarea:-ms-input-placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div.textArea textarea::-ms-input-placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div.textArea textarea::placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div label {
+  text-align: left;
+  display: block;
+  color: var(--highlight-color);
+  font-weight: 500;
+}
+
+.form form div label:not(.noColon)::after {
+  content: ':';
+}
+
+.form form div select, .form form div input {
+  width: 75vw;
+  max-width: 300px;
+  padding: .5rem;
+  font-size: .9rem;
+  letter-spacing: .5px;
+  background-color: var(--secondary-color-fade);
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  outline: unset;
+  border-style: unset;
+  border: 1px solid var(--highlight-color);
+}
+
+@media screen and (min-width: 990px) {
+  .form form div select:not(.long), .form form div input:not(.long) {
+    max-width: 200px;
+  }
+}
+
+.form form div input {
+  font-family: var(--main-font);
+}
+
+.form form div input[type="date"] {
+  width: auto;
+}
+
+.form form div input[type="number"] {
+  width: 4rem;
+}
+
+.form form div input[type="text"]::-webkit-input-placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div input[type="text"]:-ms-input-placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div input[type="text"]::-ms-input-placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div input[type="text"]::placeholder {
+  font-style: italic;
+  opacity: .25;
+}
+
+.form form div select option:hover {
+  background-color: var(--highlight-color-fade);
+}
+
+.form form div .note {
+  font-size: .75rem;
+  opacity: .5;
+  font-style: italic;
+  text-align: left;
+}
+
+.form form div .note::first-letter {
+  text-transform: capitalize;
+}
+
+#Personal form {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+@media screen and (min-width: 750px) {
+  #Personal form {
+    gap: .5rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+#Personal form div {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media screen and (min-width: 750px) {
+  #Personal form div {
+    max-width: 48% !important;
+  }
+  #Personal form div input {
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #Personal form div#email, #Personal form div#phone {
+    margin: 1.5rem 0;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #Personal form div#company {
+    max-width: calc(96% + .5rem) !important;
+    margin-bottom: 1.5rem;
+  }
+}
+/*# sourceMappingURL=contact_form.module.css.map */

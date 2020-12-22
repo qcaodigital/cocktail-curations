@@ -1,0 +1,144 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1rem 0 2rem;
+        margin: 0 auto;
+        @media screen and (min-width: 990px){
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: .25rem;
+            @media screen and (min-width: 990px){
+                gap: .5rem;
+                &#date {
+                    flex-basis: 100%;
+                    input {
+                        margin: 0 auto;
+                    }
+                }
+            }
+            &.textArea {
+                width: 80vw;
+                textarea {
+                    font-family: var(--main-font);
+                    font-size: 1rem;
+                    resize: none;
+                    width: 100%;
+                    max-width: 550px;
+                    height: 15rem;
+                    padding: .5rem;
+                    &::placeholder {
+                        font-style: italic;
+                        opacity: .25;
+                    }
+                }
+            }
+            label {
+                text-align: left;
+                display: block;
+                color: var(--highlight-color);
+                font-weight: 500;
+                &:not(.noColon){
+                    &::after {
+                        content: ':';
+                    }
+                }
+            }
+            select, input {
+                width: 75vw;
+                max-width: 300px;
+                padding: .5rem;
+                font-size: .9rem;
+                letter-spacing: .5px;
+                background-color: var(--secondary-color-fade);
+                box-shadow: unset;
+                outline: unset;
+                border-style: unset;
+                border: 1px solid var(--highlight-color);
+                @media screen and (min-width: 990px){
+                    &:not(.long){
+                        max-width: 200px;
+                    }
+                }
+            }
+            input {
+                font-family: var(--main-font);
+                &[type="date"]{
+                    width: auto;
+                }
+                &[type="number"]{
+                    width: 4rem;
+                }
+                &[type="text"]{
+                    &::placeholder {
+                        font-style: italic;
+                        opacity: .25;
+                    }
+                }
+            }
+            select {
+                option {
+                    &:hover {
+                        background-color: var(--highlight-color-fade);
+                    }
+                }
+            }
+            .note {
+                font-size: .75rem;
+                opacity: .5;
+                font-style: italic;
+                text-align: left;
+                &::first-letter {
+                    text-transform: capitalize
+                }
+            }
+        }
+    }
+}
+
+#Personal {
+    form {
+        margin: 0 auto;
+        max-width: 600px;
+        @media screen and (min-width: 750px){
+            gap: .5rem;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        div {
+            align-items: flex-start;
+            @media screen and (min-width: 750px){
+                max-width: 48% !important;
+                input {
+                    max-width: 100% !important;
+                }
+            }
+            &#email,
+            &#phone {
+                @media screen and (min-width: 750px){
+                    margin: 1.5rem 0;
+                }
+            }
+            &#company {
+                @media screen and (min-width: 750px){
+                    max-width: calc(96% + .5rem) !important;
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+}

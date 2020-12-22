@@ -5,21 +5,72 @@
     background-position: center;        
     background-size: cover;
     display: grid;
-    grid-template-rows: min-content min-content;
+    grid-template-rows: var(--navHeight) calc(100vh - var(--navHeight));
+    overflow: hidden;
+    position: relative;
+    @media screen and (max-height: 800px) and (max-width: 989px){
+        grid-template-rows: var(--navHeight) min-content;
+    }
+    @media screen and (max-width: 500px){
+        max-height: 800px;
+    }
+    .logoBG {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: .15;
+    }
     .content {
         display: grid;
-        grid-template-rows: min-content min-content 3rem;
+        grid-template-rows: min-content min-content min-content;
         row-gap: 5vh;
+        padding: 1rem;
+        @media screen and (min-height: 835px) and (min-width: 500px){
+            align-content: center;
+        }
+        @media screen and (min-width: 990px){
+            grid-template-rows: min-content;
+            grid-template-columns: 3fr 3fr;
+            align-content: center;
+            padding: 1rem 0;
+        }
         header {
-            padding-top: 1rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            @media screen and (min-width: 990px){
+                grid-row: 1;
+                justify-content: center;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    right: 50%;
+                    left: 0;
+                    top: 10%;
+                    bottom: 10%;
+                    background-color: var(--highlight-color-fade);
+                    background-image: url('../../public/imgs/textures/dust.png');
+                    opacity: .8;
+                    z-index: 0;
+                }
+                > * {
+                    position: relative;
+                }
+            }
             h1 {
                 font-family: var(--serif-font);
                 font-size: 2.5rem;
                 line-height: 2.5rem;
                 word-spacing: -.15rem;
+                text-align: center;
+                white-space: nowrap;
+                @media screen and (min-width: 990px){
+                    font-size: clamp(2.5rem, 4vw, 4rem);
+                    line-height: clamp(2.5rem, 4vw, 4rem);
+                    word-spacing: -.002vw;
+                }
             }
             p {
                 margin-top: 1rem;
@@ -28,6 +79,10 @@
                 font-weight: 600;
                 font-size: .75rem;
                 color: var(--highlight-color);
+                @media screen and (min-width: 990px){
+                    margin-top: clamp(1rem, 1.6vw, 2rem);
+                    font-size: clamp(.75rem, 1.2vw, 1.15rem);
+                }
             }
             .underline {
                 margin-top: 2rem;
@@ -37,48 +92,9 @@
                 background-color: black;
             }
         }
-        .carousel {
-            padding: 0rem 2rem 4rem;
-            height: auto;
-            position: relative;
-            width: 100%;
-            margin: 0 auto;
-            .counters {
-                position: absolute;
-                bottom: 1.75rem;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                display: flex;
-                gap: .25rem;
-                div {
-                    width: 5px;
-                    height: 5px;
-                    background-color: transparent;
-                    border: 1px solid black;
-                    border-radius: 50%;
-                }
-            }
-            .chevron {
-                position: absolute;
-                bottom: 1.75rem;
-                transform: translateY(25%);
-                &#UP_LEFT {
-                    left: 25%;
-                }
-                &#DOWN_RIGHT {
-                    right: 25%;
-                }
-            }
-            .imgContainer {
-                img {
-                    width: 100%;
-                    box-shadow: 5px 5px 10px rgba(0,0,0,.1);
-                    border: 2px solid var(--main-color-fade-less);
-                }
-            }
-        }
+        //Carousel Child Here
         .cta {
-            margin: 0 auto;
+            margin: 2rem auto;
         }
     }
 }

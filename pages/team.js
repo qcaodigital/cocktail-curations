@@ -7,8 +7,22 @@ import Sustainability from '../components/team/Sustainability';
 import Landing from './../components/team/Landing';
 import DuoInfo from './../components/team/DuoInfo';
 import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Team({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER }){
+    const pageVariant = {
+        load_initial: { opacity: 0 },
+        load_exit: { opacity: 0 },
+        load_animate: { 
+            opacity: 1,
+            transition: {
+                duration: 1
+            }
+        }
+    }
+
+    const storyRef = useRef();
+
     return (
         <>
         <Head>
@@ -16,13 +30,19 @@ export default function Team({ state: { viewport, isNavAniComplete, navHeight },
         </Head>
         <motion.main 
             id={styles.Team}
-            animate={{ opacity: 1 }} 
-            initial={{ opacity: 0 }} 
-            exit={{ opacity: 0 }}
-            transition={{ duration: .75 }}
+            initial='load_initial'
+            animate='load_animate' 
+            exit='load_exit'
+            variants={pageVariant}
         >
-            <Landing isNavAniComplete={isNavAniComplete} NAV_SPACER={NAV_SPACER}/>
-            <Story viewport={viewport} />
+            <Landing 
+                isNavAniComplete={isNavAniComplete} 
+                NAV_SPACER={NAV_SPACER} 
+                navHeight={navHeight} 
+                viewport={viewport}
+                storyRef={storyRef}
+            />
+            <Story ref={storyRef} viewport={viewport} />
             <DuoInfo viewport={viewport} />
             <Personnel/>
             <Sustainability viewport={viewport}/>

@@ -1,0 +1,312 @@
+#Sustainability section {
+  font-family: var(--main-font);
+  padding: 6rem 1.5rem 0;
+  position: relative;
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability section {
+    padding-bottom: 6rem;
+  }
+}
+
+#Sustainability section::before {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../../public/imgs/embellishments/triangle-textured-trans.png");
+  background-size: cover;
+  min-width: 325px;
+  min-height: 325px;
+  width: 75vw;
+  height: 75vw;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability section::before {
+    width: 50vw;
+    height: 50vw;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability section .contentContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  #Sustainability section .contentContainer > * {
+    margin: unset !important;
+  }
+}
+
+#Sustainability section .contentContainer .imgContainer {
+  margin: 0 auto;
+  max-width: 320px;
+  -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+          box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+#Sustainability section .contentContainer .imgContainer img {
+  width: 100%;
+}
+
+#Sustainability section .contentContainer .info {
+  margin: 3rem auto;
+  max-width: 600px;
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability section .contentContainer .info {
+    margin: 0 auto;
+  }
+}
+
+#Sustainability section .contentContainer .info header h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+#Sustainability section .contentContainer .info header h3::first-letter {
+  text-transform: capitalize;
+}
+
+#Sustainability section .contentContainer .info header p {
+  margin-top: 1.25rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 990px) {
+  #Sustainability section .contentContainer .info .text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem;
+  }
+  #Sustainability section .contentContainer .info .text .textContainer {
+    margin: 1.35rem 0;
+  }
+}
+
+#Sustainability section .contentContainer .info .text .textContainer:not(:last-of-type) {
+  margin: 1.35rem 0;
+}
+
+#Sustainability section .contentContainer .info .text h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--highlight-color);
+  margin-bottom: .5rem;
+}
+
+#Sustainability section .contentContainer .info .text h4::first-letter {
+  text-transform: capitalize;
+}
+
+#Sustainability section .contentContainer .info .text p {
+  color: var(--main-color-fade-less);
+  line-height: 1.25rem;
+  font-weight: 300;
+}
+
+#Sustainability #primary {
+  background-color: #63722e;
+  background-image: url("../../public/imgs/textures/45-degree-fabric-light.png");
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability #primary {
+    padding-top: 3rem;
+  }
+}
+
+#Sustainability #primary::before {
+  all: unset;
+  content: '';
+  display: block;
+  width: 20vw;
+  height: 20vw;
+  position: absolute;
+  z-index: 10;
+  top: 0%;
+  left: -10%;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-image: url("../../public/imgs/stock/team_page/nature.jpg");
+  border: .5rem solid white;
+}
+
+@media screen and (min-width: 990px) {
+  #Sustainability #primary::before {
+    border: 1.25rem solid white;
+  }
+}
+
+#Sustainability #primary .contentContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability #primary .contentContainer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  #Sustainability #primary .contentContainer {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+#Sustainability #primary .imgContainer {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  margin-left: -1.5rem !important;
+  margin-right: -1.5rem !important;
+  margin-top: 1.5rem;
+  max-width: 450px;
+  border: 1.5rem solid white;
+}
+
+#Sustainability #primary .imgContainer img {
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.055);
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability #primary .imgContainer {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+#Sustainability #primary .info {
+  color: var(--secondary-color) !important;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+#Sustainability #primary .info header {
+  color: var(--secondary-color);
+}
+
+#Sustainability #primary .info header h3 {
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+#Sustainability #primary .info header p {
+  color: var(--secondary-color) !important;
+  margin: 1.25rem auto 0;
+}
+
+#Sustainability #primary .info header::before {
+  content: '';
+  display: block;
+  width: 25vw;
+  height: 25vw;
+  max-width: 75px;
+  max-height: 75px;
+  background-image: url("../../public/imgs/stock/svgs/sustainability.png");
+  background-size: cover;
+  margin: 0 auto 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability #primary .info header::before {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  #Sustainability #primary .info .text {
+    gap: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: left;
+  }
+  #Sustainability #primary .info .text .textContainer {
+    margin-top: 1.35rem;
+  }
+}
+
+#Sustainability #primary .info .text .textContainer::before, #Sustainability #primary .info .text .textContainer::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: var(--secondary-color-fade-more);
+}
+
+#Sustainability #primary .info .text .textContainer::before {
+  margin-bottom: 1.35rem;
+}
+
+#Sustainability #primary .info .text .textContainer::after {
+  margin-top: 1.35rem;
+}
+
+@media screen and (min-width: 750px) {
+  #Sustainability #primary .info .text .textContainer::after {
+    content: unset;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #Sustainability #primary .info .text .textContainer:not(:first-of-type)::before, #Sustainability #primary .info .text .textContainer:not(:first-of-type)::after {
+    content: unset;
+  }
+}
+
+#Sustainability #primary .info .text .textContainer h4 {
+  color: #b44444;
+  font-weight: 500;
+  font-size: 2rem;
+  opacity: .9;
+}
+
+#Sustainability #primary .info .text h4 {
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+
+#Sustainability #primary .info .text p {
+  color: var(--secondary-color);
+  max-width: 400px;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=Sustainability.module.css.map */

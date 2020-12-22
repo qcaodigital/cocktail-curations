@@ -6,12 +6,12 @@ import { useRef } from 'react';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { storyTransitions } from '../../page_transitions/team';
 
-export default function Story({ viewport }){
+const Story = React.forwardRef(({ viewport }, ref) => {
     const textRef = useRef();
     const textInView = useInViewFromTop(textRef, { threshold: 0 })
 
     return (
-        <section id={styles.Story}>
+        <section id={styles.Story} ref={ref}>
             <ArrowDivider 
                 size={{ value: viewport === 'mobile' ? 1 : 2, measurement: 'rem'}} 
                 BGcolor='var(--secondary-color)' 
@@ -44,4 +44,6 @@ export default function Story({ viewport }){
             </motion.div>
         </section>
     )
-}
+});
+
+export default Story;

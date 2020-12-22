@@ -27,6 +27,7 @@ export default function FadeOnUnmount({unmountIf, children, exitTransition, anim
         return (
             <AnimatePresence>
                 {!unmountIf && React.cloneElement(children, {
+                    key: children,
                     animate: 'animate',
                     initial: 'initial',
                     exit: 'exit',

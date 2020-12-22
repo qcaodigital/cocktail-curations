@@ -50,6 +50,12 @@ button {
     display: inline-block;
 }
 
+/* @media screen and (min-width: 500px){
+    *:hover {
+        pointer-events: none !important;
+    }
+} */
+
 /*
     responsive breakpoints:
     mobile < 750px

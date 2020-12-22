@@ -119,17 +119,17 @@
                     }
                     @media screen and (min-width: 990px){
                         right: unset;
-                        left: 45%;
+                        left: calc(45% - 1rem);
                         white-space: nowrap;
                         transform: translate(-10%, -50%);
                     }
                     @media screen and (min-width: 1250px){
-                        left: 70%;
+                        left: calc(70% - 1rem);
                         transform: translate(-50%, -50%);
                     }
                     > * {
                         text-shadow: 
-                            -1px -1px 1px rgb(255, 255, 255, .35), 
+                            -1px -1px 1px rgba(255, 255, 255, .35), 
                             2px 2px 1px #cfcfcf7e;
                     }
                     p {

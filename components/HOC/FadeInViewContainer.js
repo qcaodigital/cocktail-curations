@@ -9,11 +9,21 @@ FadeInViewContainer.propTypes = {
     duration: PropTypes.number,
     animateOnly: PropTypes.bool,
     noFade: PropTypes.bool,
-    reverse: PropTypes.bool
+    reverse: PropTypes.bool,
+    followParent: PropTypes.bool,
+    noTranslate: PropTypes.bool
 }
 
 export default function FadeInViewContainer({ threshold, noFade, noTranslate, reverse, animateOnly, delay, duration, children, followParent }) {
     const ref = useRef();
+    const containerVariant = {
+        animate: {
+            overflowY: 'unset'
+        },
+        initial: {
+            overflowY: 'hidden'
+        }
+    }
     const variants = {
         animate: {
             y: '0%',
@@ -47,7 +57,7 @@ export default function FadeInViewContainer({ threshold, noFade, noTranslate, re
 
     if(followParent){
         return (
-            <motion.div 
+            <motion.div
                 style={{ overflow: 'hidden' }}
             >
                 <motion.div style={{ display: 'inline-block'}} variants={variants}>
@@ -58,12 +68,13 @@ export default function FadeInViewContainer({ threshold, noFade, noTranslate, re
     } else {
         return (
             <motion.div 
+                style={{ overflow: 'hidden' }}
                 animate={animateProp} 
                 initial={initialProp} 
                 ref={ref} 
-                style={{ overflow: 'hidden' }}
+                variant={containerVariant}
             >
-                <motion.div style={{ display: 'inline-block'}} variants={variants}>
+                <motion.div style={{ display: 'inline-block' }} variants={variants}>
                     { React.cloneElement(children) } 
                 </motion.div>
             </motion.div>

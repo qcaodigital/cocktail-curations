@@ -8,9 +8,8 @@ const handler = app.getRequestHandler();
 app.prepare().then(() => {
     const server = express();
 
-    server.get('*', (req, res) => {
-        return handler(req, res)
-    })
+    server.get("*", (req, res) => handler(req, res));
+    server.post("*", (req, res) => handler(req, res));
 
     const port = process.env.PORT || 3000;
     server.listen(port, () => {

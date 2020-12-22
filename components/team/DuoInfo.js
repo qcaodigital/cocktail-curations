@@ -3,7 +3,7 @@ import { infoTransitions } from './../../page_transitions/team';
 import { motion } from 'framer-motion';
 import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
 import styles from './DuoInfo.module.scss';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
 import Link from 'next/link';
 
@@ -43,8 +43,9 @@ export default function DuoInfo({ viewport }){
                         </a>
                     </Link>
                 </div>
-                <div ref={imgRef} className={styles.img}>
+                <div className={styles.img}>
                     <motion.img
+                        ref={imgRef}
                         animate={imgInView ? 'animate' : 'initial'}    
                         variants={infoTransitions.contentContainer.img} 
                         src={`/imgs/stock/team_page/thy_nicole_bookoflists.jpg`} 

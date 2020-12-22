@@ -1,14 +1,14 @@
 export const landingTransitions = {
     fadeIn: {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 }
+        load_initial: { opacity: 0 },
+        load_animate: { opacity: 1 }
     },
     title: {
         boxAndFlower: {
-            initial: {
+            load_initial: {
                 opacity: 0
             },
-            animate: {
+            load_animate: {
                 opacity: 1,
                 transition: {
                     duration: .75,
@@ -17,10 +17,10 @@ export const landingTransitions = {
             }
         },
         text: {
-            initial: {
+            load_initial: {
                 y: '150%'
             },
-            animate: {
+            load_animate: {
                 y: '0',
                 transition: {
                     duration: .75,
@@ -30,16 +30,16 @@ export const landingTransitions = {
         }
     },
     info: {
-        animate: {
+        load_animate: {
             transition: {
                 staggerChildren: .2
             }
         },
         children: {
-            initial: {
+            load_initial: {
                 opacity: 0
             },
-            animate: {
+            load_animate: {
                 opacity: 1,
                 transition: {
                     duration: .75

@@ -1,0 +1,188 @@
+.carousel {
+  --side-padding: 2rem;
+  padding: 0rem var(--side-padding);
+  height: 60vw;
+  max-height: 365px;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 990px) {
+  .carousel {
+    -ms-grid-row: 1;
+    grid-row: 1;
+    height: calc(100vh - var(--navHeight) - 4rem);
+    max-height: unset;
+    padding: unset;
+    padding-left: 4rem;
+    overflow: hidden;
+  }
+}
+
+.carousel .counters {
+  position: absolute;
+  bottom: -2.75rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, -150%);
+          transform: translate(-50%, -150%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .25rem;
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .counters {
+    left: 0;
+    bottom: 50%;
+    -webkit-transform: translate(0%, -50%) rotate(90deg);
+            transform: translate(0%, -50%) rotate(90deg);
+  }
+}
+
+.carousel .counters div {
+  width: 5px;
+  height: 5px;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 50%;
+  -webkit-transition: 350ms ease;
+  transition: 350ms ease;
+}
+
+.carousel .chevron {
+  position: absolute;
+  bottom: -2.75rem;
+  width: 40px;
+  height: 40px;
+  -webkit-transform: translate(0, 25%);
+          transform: translate(0, 25%);
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .chevron {
+    bottom: 50%;
+    -webkit-transform: translate(-22.5%, 35%) rotate(90deg);
+            transform: translate(-22.5%, 35%) rotate(90deg);
+  }
+}
+
+.carousel .chevron:hover {
+  -webkit-transition: 350ms ease;
+  transition: 350ms ease;
+  opacity: .5;
+}
+
+.carousel .chevron#UP_LEFT {
+  left: 25%;
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .chevron#UP_LEFT {
+    left: 0%;
+    bottom: 60%;
+  }
+}
+
+.carousel .chevron#DOWN_RIGHT {
+  right: 25%;
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .chevron#DOWN_RIGHT {
+    right: unset;
+    left: 0;
+    bottom: 40%;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .imgContainer {
+    height: inherit;
+    position: relative;
+  }
+}
+
+.carousel .imgContainer img {
+  width: calc(100% - var(--side-padding) * 2);
+  max-width: 550px;
+  position: absolute;
+  top: 50%;
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .imgContainer img {
+    max-width: unset;
+  }
+}
+
+.carousel .imgContainer #shown {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--main-color-fade-less);
+  z-index: 2;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .imgContainer #shown {
+    left: unset;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    width: 100%;
+    border-right: none;
+    -webkit-transform-origin: right;
+            transform-origin: right;
+  }
+}
+
+.carousel .imgContainer #left,
+.carousel .imgContainer #right {
+  z-index: 1;
+  opacity: .5;
+  -webkit-transform: translate(0, -50%) scale(0.8);
+          transform: translate(0, -50%) scale(0.8);
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .imgContainer #left,
+  .carousel .imgContainer #right {
+    -webkit-transform: unset;
+            transform: unset;
+    right: 0% !important;
+    -webkit-transform-origin: right;
+            transform-origin: right;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    width: 100%;
+  }
+}
+
+.carousel .imgContainer #left {
+  right: 50%;
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .imgContainer #left {
+    -webkit-transform: translate(0, -85%) scale(0.8);
+            transform: translate(0, -85%) scale(0.8);
+  }
+}
+
+.carousel .imgContainer #right {
+  left: 50%;
+}
+
+@media screen and (min-width: 990px) {
+  .carousel .imgContainer #right {
+    -webkit-transform: translate(0, -15%) scale(0.8);
+            transform: translate(0, -15%) scale(0.8);
+    left: unset;
+  }
+}
+/*# sourceMappingURL=Carousel.module.css.map */

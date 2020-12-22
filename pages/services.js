@@ -14,9 +14,9 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
     const basesRef = useRef();
 
     const pageVariant = {
-        initial: { opacity: 0 },
-        exit: { opacity: 0 },
-        animate: { 
+        load_initial: { opacity: 0 },
+        load_exit: { opacity: 0 },
+        load_animate: { 
             opacity: 1,
             transition: {
                 duration: 1,
@@ -31,9 +31,9 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
             <title>Services | Cocktail Curations</title>
         </Head>
         <motion.main 
-            initial='initial'
-            animate='animate' 
-            exit='exit'
+            initial='load_initial'
+            animate='load_animate' 
+            exit='load_exit'
             variants={pageVariant}
         >
             <Landing 

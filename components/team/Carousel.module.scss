@@ -1,0 +1,126 @@
+.carousel {
+    --side-padding: 2rem;
+    padding: 0rem var(--side-padding);
+    height: 60vw;
+    max-height: 365px;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    @media screen and (min-width: 990px){
+        grid-row: 1;
+        //4rem for padding Y
+        height: calc(100vh - var(--navHeight) - 4rem);
+        max-height: unset;
+        padding: unset;
+        padding-left: 4rem;
+        overflow: hidden;
+    }
+    .counters {
+        position: absolute;
+        bottom: -2.75rem;
+        left: 50%;
+        transform: translate(-50%, -150%);
+        display: flex;
+        gap: .25rem;
+        @media screen and (min-width: 990px){
+            left: 0;
+            bottom: 50%;
+            transform: translate(0%, -50%) rotate(90deg);
+        }
+        div {
+            width: 5px;
+            height: 5px;
+            background-color: transparent;
+            border: 1px solid black;
+            border-radius: 50%;
+            transition: 350ms ease;
+        }
+    }
+    .chevron {
+        position: absolute;
+        bottom: -2.75rem;
+        width: 40px;
+        height: 40px;
+        transform: translate(0, 25%);
+        @media screen and (min-width: 990px){
+            bottom: 50%;
+            transform: translate(-22.5%, 35%) rotate(90deg);
+        }
+        &:hover {
+            transition: 350ms ease;
+            opacity: .5;
+        }
+        &#UP_LEFT {
+            left: 25%;
+            @media screen and (min-width: 990px){
+                left: 0%;
+                bottom: 60%;
+            }
+        }
+        &#DOWN_RIGHT {
+            right: 25%;
+            @media screen and (min-width: 990px){
+                right: unset;
+                left: 0;
+                bottom: 40%;
+            }
+        }
+    }
+    .imgContainer {
+        @media screen and (min-width: 990px){
+            height: inherit;
+            position: relative;
+        }
+        img {
+            width: calc(100% - var(--side-padding) * 2);
+            max-width: 550px;
+            position: absolute;
+            top: 50%;
+            @media screen and (min-width: 990px){
+                max-width: unset;
+            }
+        }
+        #shown {
+            box-shadow: 5px 5px 10px rgba(0,0,0,.1);
+            border: 2px solid var(--main-color-fade-less);
+            z-index: 2;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @media screen and (min-width: 990px){
+                left: unset;
+                right: 0;
+                transform: translate(-0, -50%);
+                width: 100%;
+                border-right: none;
+                transform-origin: right;
+            }
+        }
+        #left,
+        #right {
+            z-index: 1;
+            opacity: .5;
+            transform: translate(0, -50%) scale(.8);
+            @media screen and (min-width: 990px){
+                transform: unset;
+                right: 0% !important;
+                transform-origin: right;
+                top: 50%;
+                transform: translate(0, -50%);
+                width: 100%;
+            }
+        }
+        #left {
+            right: 50%;
+            @media screen and (min-width: 990px){
+                transform: translate(0, -85%) scale(.8);
+            }
+        }
+        #right {
+            left: 50%;
+            @media screen and (min-width: 990px){
+                transform: translate(0, -15%) scale(.8);
+                left: unset;
+            }
+        }
+    }
+}

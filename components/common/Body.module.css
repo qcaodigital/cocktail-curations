@@ -1,0 +1,25 @@
+.Body {
+  -webkit-transition: 500ms ease;
+  transition: 500ms ease;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+.Body.HBMopen {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+.enter {
+  opacity: 0;
+}
+
+.enterActive {
+  opacity: 1;
+  -webkit-transition: 1000ms ease;
+  transition: 1000ms ease;
+}
+/*# sourceMappingURL=Body.module.css.map */

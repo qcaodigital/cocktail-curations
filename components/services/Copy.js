@@ -23,7 +23,7 @@ const Copy = React.forwardRef(({ viewport }, ref) => {
     const copyCenterImgRef = useRef();
     const inView = useInViewFromTop(copyCenterImgRef, { threshold: .1 })
     return(
-        <section ref={ref} id={styles.Copy}>
+        <motion.section ref={ref} id={styles.Copy}>
             <ArrowDivider size={{value: 1.5, measurement: 'rem'}} border={{size: 1, color: 'var(--main-color-fade-more)'}} BGcolor='#F1F2EB'/>
             <motion.div
                 ref={headerRef} 
@@ -78,7 +78,7 @@ const Copy = React.forwardRef(({ viewport }, ref) => {
                     </motion.div>}
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 })
 

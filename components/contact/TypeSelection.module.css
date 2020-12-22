@@ -1,0 +1,92 @@
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 550px) {
+  .list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: clamp(1rem, 10vw, 7.5rem);
+  }
+}
+
+.list .item {
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5%;
+  cursor: pointer;
+  -webkit-transition: 500ms ease;
+  transition: 500ms ease;
+  -webkit-box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 550px) {
+  .list .item {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+.list .item:hover {
+  -webkit-box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+
+.list .item:hover svg {
+  -webkit-transition-delay: 250ms;
+          transition-delay: 250ms;
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.list .item svg {
+  color: var(--highlight-color);
+  -webkit-transition: 350ms ease;
+  transition: 350ms ease;
+}
+
+.list .item p {
+  color: var(--main-color);
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: .5rem;
+}
+
+@media screen and (min-width: 550px) {
+  .list .item p {
+    margin-top: 1rem;
+  }
+}
+/*# sourceMappingURL=TypeSelection.module.css.map */

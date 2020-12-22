@@ -1,0 +1,285 @@
+#Copy {
+  padding: 4rem 2rem 55vw;
+  position: relative;
+  border-bottom: 1px solid var(--main-color-fade-more);
+  background-color: #F1F2EB;
+}
+
+@media screen and (min-width: 750px) {
+  #Copy {
+    padding-bottom: 15vw;
+  }
+}
+
+#Copy::after {
+  /* arrow section seperator */
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, calc(-50% + 1px)) rotate(45deg);
+          transform: translate(-50%, calc(-50% + 1px)) rotate(45deg);
+  width: 15px;
+  height: 15px;
+  display: block;
+  border-right: 1px solid var(--main-color-fade-more);
+  border-bottom: 1px solid var(--main-color-fade-more);
+  background-color: #F1F2EB;
+}
+
+#Copy .headerSection {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+@media screen and (min-width: 750px) {
+  #Copy .headerSection {
+    margin-bottom: 5rem;
+  }
+}
+
+#Copy .headerSection h2 {
+  font-family: var(--main-font);
+  font-size: .9rem;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  max-width: 380px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+#Copy .headerSection h2:first-letter {
+  text-transform: uppercase;
+}
+
+#Copy .headerSection h2.headerEmp {
+  text-transform: capitalize;
+  font-family: var(--serif-font);
+  font-size: 2.25rem;
+  margin-bottom: .5rem;
+  font-weight: 300;
+  letter-spacing: -.75px;
+}
+
+@media screen and (min-width: 750px) {
+  #Copy .headerSection h2.headerEmp {
+    font-weight: 400;
+    font-size: 3rem;
+  }
+}
+
+#Copy .headerSection img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100px;
+  z-index: 0;
+  opacity: .2;
+}
+
+#Copy .gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#Copy .gallery .parallaxContainer {
+  position: relative;
+  margin-left: 1rem;
+  width: 75vw;
+  z-index: 1;
+}
+
+@media screen and (min-width: 750px) {
+  #Copy .gallery .parallaxContainer {
+    width: 45vw;
+    max-width: 500px;
+  }
+}
+
+#Copy .gallery .parallaxContainer .imgContainer {
+  background-color: transparent;
+}
+
+#Copy .gallery .parallaxContainer .imgContainer img {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+#Copy .gallery .parallaxContainer #galleryLeft {
+  position: absolute;
+  top: 113%;
+  left: -12%;
+  width: 50vw;
+  z-index: 1;
+}
+
+@media screen and (min-width: 750px) {
+  #Copy .gallery .parallaxContainer #galleryLeft {
+    width: 28vw;
+    top: 80%;
+    left: -50%;
+    max-width: 300px;
+  }
+}
+
+#Copy .gallery .parallaxContainer #galleryRight {
+  display: none;
+  position: absolute;
+}
+
+@media screen and (min-width: 750px) {
+  #Copy .gallery .parallaxContainer #galleryRight {
+    display: block;
+    bottom: -30%;
+    right: -45%;
+    width: 25vw;
+    z-index: 2;
+    max-width: 280px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  #Copy .gallery .parallaxContainer #galleryRight {
+    bottom: -20%;
+  }
+}
+
+#Copy .gallery .parallaxContainer #galleryRight .embellishment {
+  position: absolute;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  z-index: -1;
+  bottom: -10%;
+  right: -10%;
+  width: 10vw;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+  max-width: 110px;
+}
+
+#Copy .gallery .parallaxContainer #galleryCenter {
+  position: relative;
+}
+
+#Copy .gallery .parallaxContainer #galleryCenter img {
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px);
+  -webkit-transition: 1s cubic-bezier(0.38, 0.25, 0, 0.97);
+  transition: 1s cubic-bezier(0.38, 0.25, 0, 0.97);
+}
+
+#Copy .gallery .parallaxContainer #galleryCenter img.inView {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#Copy .gallery .parallaxContainer #galleryCenter .embellishment {
+  position: absolute;
+  z-index: -1;
+}
+
+#Copy .gallery .parallaxContainer #galleryCenter .embellishment#dot_circle {
+  top: -5%;
+  left: -15%;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  width: 40vw;
+  max-width: 220px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media screen and (min-width: 750px) {
+  #Copy .gallery .parallaxContainer #galleryCenter .embellishment#dot_circle {
+    left: -20%;
+    width: 20vw;
+  }
+}
+
+#Copy .gallery .parallaxContainer #galleryCenter .embellishment#dots {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  bottom: -5%;
+  right: -5%;
+  width: 20vw;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+}
+
+@media screen and (min-width: 750px) {
+  #Copy .gallery .parallaxContainer #galleryCenter .embellishment#dots {
+    display: none;
+  }
+}
+
+#Copy .gallery .parallaxContainer .galleryTextRight {
+  position: absolute;
+  top: 0;
+  right: -1rem;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  font-family: var(--main-font);
+  letter-spacing: 1px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 990px) {
+  #Copy .gallery .parallaxContainer .galleryTextRight {
+    right: -2rem;
+  }
+}
+
+#Copy .gallery .parallaxContainer .galleryTextRight > p {
+  font-weight: 300;
+  font-size: .8rem;
+}
+
+#Copy .gallery .parallaxContainer .galleryTextRight > p:last-of-type {
+  margin-bottom: .5rem;
+}
+
+#Copy .gallery .parallaxContainer .galleryTextRight a {
+  position: relative;
+  font-family: var(--serif-font);
+  text-transform: lowercase;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.25rem;
+  -webkit-transition: 500ms var(--ease);
+  transition: 500ms var(--ease);
+}
+
+#Copy .gallery .parallaxContainer .galleryTextRight a > div {
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--main-color);
+  -webkit-transition: 500ms var(--ease);
+  transition: 500ms var(--ease);
+}
+
+#Copy .gallery .parallaxContainer .galleryTextRight a:hover {
+  opacity: .5 !important;
+}
+
+#Copy .gallery .parallaxContainer .galleryTextRight a:hover > div {
+  -webkit-transform: scaleX(0) !important;
+          transform: scaleX(0) !important;
+}
+/*# sourceMappingURL=Copy.module.css.map */

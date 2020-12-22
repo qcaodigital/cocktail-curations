@@ -1,0 +1,220 @@
+.Landing {
+  position: relative;
+  min-height: auto;
+}
+
+.Landing .landingBackgrounds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.Landing .landingBackgrounds > div {
+  overflow: hidden;
+}
+
+.Landing .landingBackgrounds > div.background1container {
+  height: 65%;
+}
+
+.Landing .landingBackgrounds > div.background1container .background1 {
+  height: 100%;
+  background-color: var(--secondary-color);
+  background-image: url("../../public/imgs/stock/team_page/ThyNicole_Portrait-washed.jpg");
+  background-position: center;
+  background-size: cover;
+  opacity: .35;
+}
+
+.Landing .landingBackgrounds > div.background2container {
+  height: 35%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Landing .landingBackgrounds > div.background2container .background2 {
+  height: 200%;
+  width: 100%;
+  background-color: #a6af85;
+  background-image: url("../../public/imgs/textures/dust.png");
+  opacity: .75;
+}
+
+.Landing .landingContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.Landing .landingContent header {
+  width: 100%;
+  font-family: var(--serif-font);
+  text-align: center;
+  position: relative;
+}
+
+.Landing .landingContent header h1 {
+  font-size: clamp(2.1rem, 10vw, 3rem);
+  line-height: clamp(1.9rem, 9.2vw, 2.75rem);
+  letter-spacing: -2.5px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 0 3rem;
+}
+
+.Landing .landingContent header h1 span {
+  font-style: italic;
+  margin-right: .35rem;
+}
+
+.Landing .landingContent header h1 .headerBrand {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.Landing .landingContent header .underline {
+  display: block;
+  height: 2px;
+  width: 50px;
+  margin: 1.25rem auto;
+  background-color: var(--highlight-color);
+}
+
+.Landing .landingContent header .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  height: 95vw;
+  max-height: 550px;
+  z-index: -1;
+  --border-width: 2px;
+  --border-color: var(--main-color);
+}
+
+.Landing .landingContent header .box .top {
+  position: absolute;
+  top: 0;
+  width: 5vw;
+  max-width: 50px;
+  height: var(--border-width);
+  background-color: var(--border-color);
+}
+
+.Landing .landingContent header .box .top#topLeft {
+  left: 0;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+.Landing .landingContent header .box .top#topRight {
+  right: 0;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.Landing .landingContent header .box .bottom {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: var(--border-width);
+  background-color: var(--border-color);
+}
+
+.Landing .landingContent header .box .bottom#bottomRight {
+  right: 0;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+.Landing .landingContent header .box .bottom#bottomLeft {
+  left: 0;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.Landing .landingContent header .box .left,
+.Landing .landingContent header .box .right {
+  position: absolute;
+  height: 100%;
+  width: var(--border-width);
+  background-color: var(--border-color);
+  left: 0;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.Landing .landingContent header .box .right {
+  left: unset;
+  right: 0;
+}
+
+.Landing .landingContent .landingGallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-items: center;
+  gap: 2.5rem;
+  padding: 0 0.5rem clamp(2rem, 8.5vw, 6rem);
+}
+
+.Landing .landingContent .landingGallery .landingImgContainer {
+  margin: 0 auto;
+  -webkit-box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.15), 2px 2px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.15), 2px 2px 10px rgba(0, 0, 0, 0.2);
+  width: 75%;
+  max-width: 435px;
+  height: 100%;
+}
+
+.Landing .landingContent .landingGallery .landingImgContainer:not(#center) {
+  display: none;
+  position: relative;
+}
+
+@media screen and (min-width: 990px) {
+  .Landing .landingContent .landingGallery .landingImgContainer:not(#center) {
+    width: 25%;
+    max-width: 300px;
+    display: block;
+    margin-left: auto;
+  }
+}
+
+.Landing .landingContent .landingGallery .landingImgContainer:not(#center)::after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  top: -.35rem;
+  left: -.35rem;
+  height: 100%;
+  width: 100%;
+  background-color: var(--highlight-color);
+}
+
+.Landing .landingContent .landingGallery .landingImgContainer:not(#center):last-of-type::after {
+  left: unset;
+  right: -.35rem;
+}
+
+.Landing .landingContent .landingGallery .landingImgContainer img {
+  width: 100%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=oldLanding.module.css.map */

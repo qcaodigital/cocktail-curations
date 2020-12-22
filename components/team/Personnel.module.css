@@ -1,0 +1,62 @@
+.personnel {
+  background-color: #e0e4de;
+  background-image: url("../../public/imgs/textures/vintage-speckles.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  place-items: center;
+  padding-bottom: clamp(2rem, 8.5vw, 6rem);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.personnel .spacer {
+  display: inline-block;
+  --size: 3rem;
+  font-size: var(--size);
+  line-height: calc(var(--size) * 1.166667);
+  width: calc(var(--size) * 1.3333);
+  height: calc(var(--size) * 1.3333);
+  margin-bottom: .5rem;
+  text-align: center;
+  font-family: var(--serif-font);
+  color: black;
+  opacity: .75;
+  border: 1px dotted var(--main-color-fade);
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  margin: 2rem 0 2.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+.personnel .spacer .bg {
+  position: absolute;
+  background-color: var(--secondary-color);
+  height: 500vh;
+  width: 200vw;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform: translateX(-50%) rotate(-5deg);
+          transform: translateX(-50%) rotate(-5deg);
+  top: 55%;
+  z-index: -1;
+}
+
+@media screen and (min-width: 990px) {
+  .personnel .spacer {
+    margin: -1.5rem 0 -1rem;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .personnel .spacer {
+    margin: -1rem 0 -.5rem;
+  }
+}
+/*# sourceMappingURL=Personnel.module.css.map */
