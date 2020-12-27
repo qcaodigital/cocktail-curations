@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAC;EACF,WAAW,EAAE,gBAAgB;CAChC",
-    "sources": [
-        "team.module.scss"
-    ],
-    "names": [],
-    "file": "team.module.css"
-}

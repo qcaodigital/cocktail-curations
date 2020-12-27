@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from './gallery.module.scss';
 import Image from 'next/image';
+import Modal from '../components/gallery/modal';
 
 export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport } }){
     const imageGallery = assignResultTo('gallery_page', prismicResults)
@@ -26,7 +27,8 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
 
     //sory by portrait and landscape
     useEffect(() => {
-        const galleryCopy = imageGalleryArr;
+        //Prismic includes empty media templates so we need to remove them from the array
+        const galleryCopy = imageGalleryArr.filter(img => img.dimensions)
         const portraits = [];
         const landscapes = [];
         galleryCopy.forEach(img => {
@@ -38,6 +40,7 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
         })
         console.log(`Portrait count: ${portraits.length}, Landscape Count: ${landscapes.length}`)
         setImageGalleryArr([...portraits, ...landscapes])
+        window.scrollTo({ top: 0 })
     }, [viewport])
 
 
@@ -94,6 +97,7 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
                     </div>
                 ))}
             </div>
+            <Modal img={imageGalleryArr[40]}/>
         </motion.section>
         </>
     )
@@ -108,10 +112,10 @@ export async function getStaticProps(){
     }
 }
 
-export function GalleryImg({src, alt}){
+export function GalleryImg({key, src, alt}){
     return (
-        <div className={styles.imgContainer}>
-            <img src={src} alt={alt}/>
+        <div key={key} className={styles.imgContainer}>
+            <img loading='lazy' src={src} alt={alt}/>
         </div>
     )
 }

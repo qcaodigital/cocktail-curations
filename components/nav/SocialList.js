@@ -22,7 +22,7 @@ export default function SocialList({ animateOnHover }){
                 initial='initial'
             >
                 <a href='https://www.facebook.com/cocktailcurations/' target='_blank'>
-                    <FontAwesomeIcon size='lg' icon={['fab', 'facebook']}/>
+                    <FontAwesomeIcon icon={['fab', 'facebook']}/>
                 </a>
             </motion.li>
             <motion.li
@@ -31,7 +31,7 @@ export default function SocialList({ animateOnHover }){
                 initial='initial'
             >
                 <a href='https://www.instagram.com/cocktailcurations/' target='_blank'>
-                    <FontAwesomeIcon size='lg' icon={['fab', 'instagram']}/>
+                    <FontAwesomeIcon icon={['fab', 'instagram']}/>
                 </a>
             </motion.li>
             <motion.li
@@ -40,7 +40,7 @@ export default function SocialList({ animateOnHover }){
                 initial='initial'
             >
                 <a href='https://twitter.com/CocktailCurate' target='_blank'>
-                    <FontAwesomeIcon size='lg' icon={['fab', 'twitter']}/>
+                    <FontAwesomeIcon icon={['fab', 'twitter']}/>
                 </a>
             </motion.li>
         </>

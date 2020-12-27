@@ -127,6 +127,10 @@
             gap: .5rem;
             li a {
                 color: var(--main-color);
+                font-size: 1rem;
+                svg {
+                    width: 1rem;
+                }
             }
         }
     }

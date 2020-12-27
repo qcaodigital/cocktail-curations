@@ -131,6 +131,9 @@
             justify-content: center;
             gap: .5rem;
             margin: 1rem;
+            li a svg {
+                width: 1.15rem;
+            }
             > *:hover {
                 animation: hover 500ms infinite;
                 animation-direction: alternate;

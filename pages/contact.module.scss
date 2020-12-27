@@ -144,20 +144,21 @@
                 position: absolute;
                 top: 1rem;
                 left: 1.5rem;
-                &:hover {
-                    span {
-                        border-bottom: 1px solid var(--main-color);
+                button {
+                    display: flex;
+                    align-items: center;
+                    &:hover {
+                        span {
+                            border-bottom: 1px solid var(--main-color);
+                        }
                     }
-                }
-                svg {
-                    margin-bottom: .5px;
-                }
-                span {
-                    font-weight: 600;
-                    margin-left: .5rem;
-                    transition: 350ms ease;
-                    font-size: .9rem;
-                    border-bottom: 1px solid transparent;
+                    span {
+                        font-weight: 600;
+                        margin-left: .5rem;
+                        transition: 350ms ease;
+                        font-size: .9rem;
+                        border-bottom: 1px solid transparent;
+                    }
                 }
             }
             .nextButton {

@@ -48,9 +48,15 @@ export default function Footer({ navList }){
             </div>
             <section className={styles.socialCopyright}>
                 <ul className={styles.socialList}>
-                    <a href=''><FontAwesomeIcon size='lg' icon={['fab', 'facebook']}/></a>
-                    <a href=''><FontAwesomeIcon size='lg' icon={['fab', 'twitter']}/></a>
-                    <a href=''><FontAwesomeIcon size='lg' icon={['fab', 'instagram']}/></a>
+                    <li>
+                        <a href=''><FontAwesomeIcon icon={['fab', 'facebook']}/></a>
+                    </li>
+                    <li>
+                        <a href=''><FontAwesomeIcon icon={['fab', 'twitter']}/></a>
+                    </li>
+                    <li>
+                        <a href=''><FontAwesomeIcon icon={['fab', 'instagram']}/></a>
+                    </li>
                 </ul>
                 <p>©2019 Cocktail Curations. All rights reserved.</p>
             </section>

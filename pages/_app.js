@@ -8,7 +8,7 @@ import '../styles/saol_display.css';
 import '../styles/aktiv_grotesk.css';
 import Body from '../components/common/Body';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fas, fab)

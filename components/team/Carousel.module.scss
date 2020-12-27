@@ -13,19 +13,21 @@
         max-height: unset;
         padding: unset;
         padding-left: 4rem;
-        overflow: hidden;
+        overflow-y: hidden;
     }
     .counters {
         position: absolute;
-        bottom: -2.75rem;
+        bottom: -4rem;
         left: 50%;
         transform: translate(-50%, -150%);
         display: flex;
+        align-items: center;
         gap: .25rem;
         @media screen and (min-width: 990px){
-            left: 0;
-            bottom: 50%;
-            transform: translate(0%, -50%) rotate(90deg);
+            top: 50%;
+            left: 2.5%;
+            bottom: unset;
+            transform: translate(-50%, -50%) rotate(90deg);
         }
         div {
             width: 5px;
@@ -35,34 +37,13 @@
             border-radius: 50%;
             transition: 350ms ease;
         }
-    }
-    .chevron {
-        position: absolute;
-        bottom: -2.75rem;
-        width: 40px;
-        height: 40px;
-        transform: translate(0, 25%);
-        @media screen and (min-width: 990px){
-            bottom: 50%;
-            transform: translate(-22.5%, 35%) rotate(90deg);
-        }
-        &:hover {
-            transition: 350ms ease;
-            opacity: .5;
-        }
-        &#UP_LEFT {
-            left: 25%;
+        .chevron {
+            margin: .0 3rem;
             @media screen and (min-width: 990px){
-                left: 0%;
-                bottom: 60%;
+                transform: translateY(5%);
             }
-        }
-        &#DOWN_RIGHT {
-            right: 25%;
-            @media screen and (min-width: 990px){
-                right: unset;
-                left: 0;
-                bottom: 40%;
+            svg {
+                width: .45rem;
             }
         }
     }

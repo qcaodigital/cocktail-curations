@@ -208,7 +208,7 @@ export default function Contact({ NAV_SPACER, state: { viewport } }){
                         <FadeOnUnmount>
                             <motion.div className={styles.backButton}>
                                 <button onClick={() => setCurrentProgress(curr => curr - 1)}>
-                                    <FontAwesomeIcon size='xs' icon={['fas', 'chevron-left']}/>
+                                    <FontAwesomeIcon style={{ width: '.5rem' }} icon={['fas', 'chevron-left']}/>
                                     <span>Back</span>
                                 </button>
                             </motion.div>
@@ -219,7 +219,7 @@ export default function Contact({ NAV_SPACER, state: { viewport } }){
                             <motion.div className={`${styles.nextButton} ${isValidated ? styles.enabled : styles.disabled}`}>
                                 <motion.button onClick={() => isValidated ? setCurrentProgress(curr => curr + 1) : null}>
                                     <span>Next</span>
-                                    <FontAwesomeIcon size='xs' icon={['fas', 'chevron-right']}/>
+                                    <FontAwesomeIcon style={{ width: '.5rem' }} icon={['fas', 'chevron-right']}/>
                                 </motion.button>
                             </motion.div>
                         </FadeOnUnmount>

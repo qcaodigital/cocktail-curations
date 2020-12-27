@@ -54,7 +54,7 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
                     </motion.div>}
                 </div>
                 <div className={styles.iconContainer}> {/* MOBILE ONLY */}
-                    <FontAwesomeIcon size='lg' icon={['fas', 'glass-cheers']}/>
+                    <FontAwesomeIcon size='lg' icon={['fas', 'glass-cheers']} style={{ width: '3rem'}} />
                 </div>
             </div>
             {viewport === 'mobile' && 

@@ -3,6 +3,10 @@ import styles from './TypeSelection.module.scss';
 import { motion } from 'framer-motion';
 
 export default function TypeSelection({ viewport, setFormData, formData, setCurrentProgress }){
+    const iconWidth = {
+        width: viewport === 'mobile' ? '1.5rem' : '2rem'
+    }
+
     return (
         <motion.ul exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 1 }} className={styles.list}>
             <li className={styles.item}
@@ -11,7 +15,7 @@ export default function TypeSelection({ viewport, setFormData, formData, setCurr
                     setCurrentProgress(2)
                 }}
             >
-                <FontAwesomeIcon size={viewport !== 'mobile' ? '3x' : '2x'} icon={['fas', 'calendar-alt']}/>
+                <FontAwesomeIcon icon={['fas', 'calendar-alt']} style={iconWidth}/>
                 <p>Events</p>
             </li>
             <li className={styles.item}
@@ -20,7 +24,7 @@ export default function TypeSelection({ viewport, setFormData, formData, setCurr
                     setCurrentProgress(2)
                 }}
             >
-                <FontAwesomeIcon size={viewport !== 'mobile' ? '3x' : '2x'}  icon={['fas', 'shopping-bag']}/>
+                <FontAwesomeIcon icon={['fas', 'shopping-bag']} style={iconWidth}/>
                 <p>Products</p>
             </li>
             <li className={styles.item}
@@ -29,7 +33,7 @@ export default function TypeSelection({ viewport, setFormData, formData, setCurr
                     setCurrentProgress(2)
                 }}
             >
-                <FontAwesomeIcon size={viewport !== 'mobile' ? '3x' : '2x'}icon={['fas', 'question']}/>
+                <FontAwesomeIcon icon={['fas', 'question']} style={iconWidth}/>
                 <p>Other</p>
             </li>
         </motion.ul>
