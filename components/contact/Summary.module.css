@@ -89,6 +89,7 @@
       flex-basis: 100%;
   margin: 0 auto;
   text-align: center;
+  white-space: wrap;
 }
 
 #Summary .contentContainer p#textArea .label {
@@ -115,5 +116,9 @@
 
 #Summary .contentContainer p#email .value {
   text-transform: lowercase;
+}
+
+#Summary button {
+  margin-bottom: .5rem;
 }
 /*# sourceMappingURL=Summary.module.css.map */

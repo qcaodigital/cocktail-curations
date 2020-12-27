@@ -148,7 +148,7 @@ export default function Contact({ NAV_SPACER, state: { viewport } }){
         <Head>
             <title>Contact Us | Cocktail Curations</title>
         </Head>
-        <motion.section exit={{ opacity: 0 }} id={styles.Contact}>
+        <motion.section exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }} id={styles.Contact}>
             <section className={styles.landing}>
                 {NAV_SPACER}
                 <header className={styles.landingHeader}>
