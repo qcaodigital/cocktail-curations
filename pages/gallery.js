@@ -68,6 +68,9 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
 
     }, [imageGalleryArr])
 
+    //Modal Image Selector
+    const [modalImg, setModalImg] = useState();
+
     return (
         <>
         <Head>
@@ -86,18 +89,15 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
                             return (
                                 <GalleryImg 
                                     key={img.url} 
-                                    src={img.url} 
-                                    alt={img.alt} 
-                                    col={idx + 1}
-                                    lastInCol={i === column.length - 1}
-                                    viewport={viewport}
+                                    img={img}
+                                    setModalImg={setModalImg}
                                 />
                             )
                         })} 
                     </div>
                 ))}
             </div>
-            <Modal img={imageGalleryArr[40]}/>
+            {modalImg && <Modal img={modalImg} setModalImg={setModalImg}/>}
         </motion.section>
         </>
     )
@@ -112,10 +112,10 @@ export async function getStaticProps(){
     }
 }
 
-export function GalleryImg({key, src, alt}){
+export function GalleryImg({key, img, setModalImg}){
     return (
-        <div key={key} className={styles.imgContainer}>
-            <img loading='lazy' src={src} alt={alt}/>
+        <div key={key} className={styles.imgContainer} onClick={() => setModalImg(img)}>
+            <img loading='lazy' src={img.url} alt={img.alt}/>
         </div>
     )
 }
