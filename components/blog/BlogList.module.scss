@@ -1,0 +1,77 @@
+#BlogList {
+    // display: flex;
+    // flex-direction: column;
+    // gap: 
+    h3 {
+        background-color: var(--highlight-color);
+        color: var(--secondary-color);
+        font-family: var(--serif-font);
+        font-size: 2.2rem;
+        line-height: 3rem;
+        text-align: center;
+        @media screen and (min-width: 990px){
+            font-size: 3rem;
+            line-height: 4.25rem;
+        }
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        @media screen and (min-width: 750px){
+            flex-direction: row;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .blog {
+            text-align: center;
+            padding: 4.25rem 0;
+            margin: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            border-bottom: 1px solid var(--main-color-fade);
+            .date {
+                font-size: .9rem;
+                color: var(--highlight-color);
+                font-weight: 500;
+            }
+            .title {
+                font-size: 1.75rem;
+                font-family: var(--serif-font);
+                font-weight: 600;
+                letter-spacing: 1px;
+                @media screen and (min-width: 990px){
+                    font-size: 2.25rem;
+                }
+            }
+            .author {
+                font-style: italic;
+                font-size: .85rem;
+                color: var(--highlight-color);
+                font-weight: 500;
+            }
+            img {
+                width: 300px;
+                height: 300px;
+                object-fit: cover;
+                margin: 0 auto;
+            }
+            .tags {
+                display: flex;
+                gap: .3rem;
+                align-items: center;
+                justify-content: center;
+                margin-top: .5rem;
+                svg {
+                    width: .75rem;
+                }
+                span {
+                    opacity: .65;
+                    font-size: .75rem;
+                    padding: 0rem .2rem;
+                    border: 1px solid var(--main-color);
+                }
+            }
+        }
+    }
+}

@@ -2,10 +2,13 @@ import Link from 'next/link';
 import styles from './Home.module.scss';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { landingTransitions, headerTransitions } from './../page_transitions/home';
 import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 
 export default function Home({ state: { isNavAniComplete, viewport }}){
+    const headerVariant = headerTransitions.fadeIn;
+
     return (
         <>
         <Head>
@@ -38,22 +41,22 @@ export default function Home({ state: { isNavAniComplete, viewport }}){
                         >   
                             <div style={{ overflow: 'hidden' }}>
                                 <motion.p
-                                    variants={headerTransitions.fadeUp}
+                                    variants={headerVariant}
                                 >Beautifully crafted</motion.p>
                             </div>
                             <div style={{ overflow: 'hidden' }}>
                                 <motion.h1
-                                    variants={headerTransitions.fadeUp}
+                                    variants={headerVariant}
                                 >Cocktail Bars</motion.h1>
                             </div>
                             <div style={{ overflow: 'hidden', display: 'inline-block' }}>
                                 <motion.h2
-                                    variants={headerTransitions.fadeUp}
+                                    variants={headerVariant}
                                 >— for private</motion.h2>
                             </div>
                             <div style={{ overflow: 'hidden', display: 'inline-block' }}>
                                 <motion.h2
-                                    variants={headerTransitions.fadeUp}
+                                    variants={headerVariant}
                                     style={{ marginLeft: '.5vw'}}
                                 > & corporate events</motion.h2>
                             </div>

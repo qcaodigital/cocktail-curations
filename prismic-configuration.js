@@ -17,10 +17,10 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
 }
 
 export function assignResultTo(query, results){
-    let data;
+    const data = [];
     results.results.forEach(result => {
-        if(result.uid === query){
-            data = result.data;
+        if(result.type === query){
+            data.push(result);
         }
     })
 

@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from './gallery.module.scss';
-import Image from 'next/image';
 import Modal from '../components/gallery/modal';
+import { galleryTransitions } from './../page_transitions/gallery';
 
 export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport } }){
-    const imageGallery = assignResultTo('gallery_page', prismicResults)
-    const [imageGalleryArr, setImageGalleryArr] = useState(Object.keys(imageGallery).map(key => imageGallery[key]));
+    if(!prismicResults) return null;
+    const results = assignResultTo('gallery_page', prismicResults)
+    const imgGallery = results[0].data;
+    const [imgGalleryArr, setImgGalleryArr] = useState(Object.keys(imgGallery).map(key => imgGallery[key]));
     const [galleryColumns, setGalleryColumns] = useState([]);
 
     //Initialize columns
@@ -28,7 +30,7 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
     //sory by portrait and landscape
     useEffect(() => {
         //Prismic includes empty media templates so we need to remove them from the array
-        const galleryCopy = imageGalleryArr.filter(img => img.dimensions)
+        const galleryCopy = imgGalleryArr.filter(img => img.dimensions)
         const portraits = [];
         const landscapes = [];
         galleryCopy.forEach(img => {
@@ -38,16 +40,15 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
                 landscapes.push(img)
             }
         })
-        console.log(`Portrait count: ${portraits.length}, Landscape Count: ${landscapes.length}`)
-        setImageGalleryArr([...portraits, ...landscapes])
+        setImgGalleryArr([...portraits, ...landscapes])
         window.scrollTo({ top: 0 })
     }, [viewport])
 
 
-    //Assign each image to a column, distributed evenly and then shuffled
+    //Assign each img to a column, distributed evenly and then shuffled
     useEffect(() => {
         let counter = 0;
-        imageGalleryArr.forEach(img => {
+        imgGalleryArr.forEach(img => {
             columnsArr[counter].push(img);
             counter++;
             if(counter >= columns){
@@ -66,38 +67,74 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
 
         setGalleryColumns(columnsArr);
 
-    }, [imageGalleryArr])
+    }, [imgGalleryArr])
 
     //Modal Image Selector
     const [modalImg, setModalImg] = useState();
+    function handleModalImgChange(img){
+        for(let i = 0; i < imgGalleryArr.length; i++){
+            if(img.url === imgGalleryArr[i].url){
+                setModalImg(i);
+                break;
+            }
+        }
+    }
+
+    //Disable scrolling and hide scrollbar if modal has an image to show/aka is open
+    useEffect(() => {
+        document.body.style.overflow = modalImg || modalImg === 0 ? 'hidden' : '';
+    }, [modalImg])
 
     return (
         <>
         <Head>
             <title>Gallery | Cocktail Curations</title>
         </Head>
-        <motion.section exit={{ opacity: 0 }} intitial={{ opacity: 0 }} animate={{ opacity: 1 }} id={styles.Gallery}>
+        <motion.section 
+            exit={{ opacity: 0 }} 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ duration: .5 }}
+            id={styles.Gallery}
+        >
             {NAV_SPACER}
             <header>
                 <h1>A look into what we do</h1>
-                <h2>Our events, bars, cocktails, and more.</h2>
+                <h2>Our events, bars, classes, cocktails, and more.</h2>
             </header>
-            <div className={styles.galleryContainer}>
+            <motion.div 
+                animate='animate' 
+                initial='initial' 
+                className={styles.galleryContainer}
+            >
                 {galleryColumns.map((column, idx) => (
-                    <div key={idx} style={COLUMN_SIZE_STYLES} className={styles.column}>
-                        {column.map((img, i) => {
-                            return (
-                                <GalleryImg 
-                                    key={img.url} 
-                                    img={img}
-                                    setModalImg={setModalImg}
-                                />
+                    <motion.div 
+                        key={idx} 
+                        style={COLUMN_SIZE_STYLES} 
+                        className={styles.column}
+                        variants={galleryTransitions.imgStagger}
+                    >
+                        {column.map((img, idx) => (
+                                <motion.div
+                                    key={idx} 
+                                    className={styles.imgContainer} 
+                                    onClick={() => handleModalImgChange(img)}
+                                >
+                                    <motion.img src={img.url} alt={img.alt} variants={galleryTransitions.imgs}/>
+                                </motion.div>
                             )
-                        })} 
-                    </div>
+                        )} 
+                    </motion.div>
                 ))}
-            </div>
-            {modalImg && <Modal img={modalImg} setModalImg={setModalImg}/>}
+            </motion.div>
+            {modalImg >= 0 && 
+                <Modal 
+                    img={modalImg} 
+                    setModalImg={setModalImg} 
+                    imgs={imgGalleryArr}
+                    viewport={viewport}
+                />
+            }
         </motion.section>
         </>
     )
@@ -110,12 +147,4 @@ export async function getStaticProps(){
             prismicResults: prismicResults || null
         }
     }
-}
-
-export function GalleryImg({key, img, setModalImg}){
-    return (
-        <div key={key} className={styles.imgContainer} onClick={() => setModalImg(img)}>
-            <img loading='lazy' src={img.url} alt={img.alt}/>
-        </div>
-    )
 }

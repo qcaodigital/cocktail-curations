@@ -61,7 +61,7 @@ export default function Summary({ formData }){
                     </React.Fragment>
                 ))}
             </div>
-            <button className='STYLED_BTN' onClick={() => router.back()}>Back To Homepage</button>
+            <button className='STYLED_BTN' onClick={() => router.back()}>Back</button>
         </section>
     )
 }

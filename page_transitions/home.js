@@ -19,6 +19,11 @@ export const landingTransitions = {
             scale: 0,
             rotate: '25deg',
             y: '-50%'
+        },
+        exit: {
+            scale: 0,
+            rotate: '25deg',
+            y: '-50%'
         }
     },
     logo: {

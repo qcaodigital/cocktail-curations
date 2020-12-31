@@ -195,7 +195,7 @@ export default function Contact({ NAV_SPACER, state: { viewport } }){
                                 `}
                             >
                                 <p className={styles.label} onClick={() => {
-                                        if(currentProgress > idx){ //ADD && currentProgress !== 5 in production 
+                                        if(currentProgress > idx && currentProgress !== 5){
                                             setCurrentProgress(idx + 1)}
                                         }
                                     }

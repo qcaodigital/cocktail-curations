@@ -26,11 +26,9 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
     if(!render) return null;
     const navRef = useRef();
     
-    //DETERMINE WHETHER OR NOT TO HIDE NAV BASED ON SCROLL THRESHOLD PROP
-    //EACH PATH'S SCROLL THRESHOLD IS DEFINED IN A USEEFFECT HOOK IN THE MAIN BODY COMPONENT
-    //DEFAULT THRESHOLD IS 120 PIXELS SCROLLED IF NOT DEFINED
+    //DETERMINE WHETHER OR NOT TO HIDE NAV BASED ON SCROLL THRESHOLD VARIABLE
     const [minimizeNav, setMinimizeNav] = useState(false);
-    const scrollThreshold = 100;
+    const scrollThreshold = 50;
     useEffect(() => {
         function handleMinimizeNavOnScroll(){
             if(window.scrollY > scrollThreshold && !minimizeNav){

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { landingTransitions } from './../../page_transitions/team';
+import useGetSwipeDirection from './../../custom_hooks/useGetSwipeDirection';
 
 export default function Carousel({ imgs, viewport }){
     const { mobile: mobileTransitions, desktop: desktopTransitions } = landingTransitions.carousel;
@@ -20,9 +21,8 @@ export default function Carousel({ imgs, viewport }){
         
     }
 
-    useEffect(() => {
-       changeImg('inc')
-    }, [viewport])
+    //On viewport change, change the img to force layout change
+    useEffect(() => changeImg('inc'), [viewport])
 
     useEffect(() => {
         if(variants.operator === 'dec'){
@@ -42,11 +42,21 @@ export default function Carousel({ imgs, viewport }){
         }
     }, [variants])
 
+    const [handleDown, handleUp, swipeDirection] = useGetSwipeDirection({ breakOn: viewport === 'desktop' });
+    useEffect(() => {
+        if(swipeDirection.dir === 'left'){
+            changeImg('dec');
+        } else if(swipeDirection.dir === 'right'){
+            changeImg('inc');
+        }
+    }, [swipeDirection])
+
     return (
         <motion.div variants={landingTransitions.carousel} className={styles.carousel}>
             <div className={styles.imgContainer}>
                 <AnimatePresence>
                     <motion.img
+                        draggable="false"
                         key={imgs[currImg.idx]}
                         id={styles.right} 
                         src={imgs[currImg.idx === 0 ? imgs.length - 1 : currImg.idx - 1]} alt=""
@@ -58,9 +68,14 @@ export default function Carousel({ imgs, viewport }){
                 </AnimatePresence>
                 <AnimatePresence>
                     <motion.img
+                        draggable="false"
                         key={imgs[currImg.idx]} 
                         id={styles.shown} 
                         src={imgs[currImg.idx]} alt=""
+                        onMouseDown={handleDown}
+                        onTouchStart={handleDown}
+                        onMouseUp={handleUp}
+                        onTouchEnd={handleUp}
                         animate='animate'
                         initial='initial'
                         exit='exit'
@@ -69,6 +84,7 @@ export default function Carousel({ imgs, viewport }){
                 </AnimatePresence>
                 <AnimatePresence>
                     <motion.img
+                        draggable="false"
                         key={imgs[currImg.idx]} 
                         id={styles.left} 
                         src={imgs[currImg.idx === imgs.length - 1 ? 0 : currImg.idx + 1]} alt=""
