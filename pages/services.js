@@ -6,6 +6,7 @@ import Classes from '../components/services/Classes'
 import Bars from '../components/services/Bars';
 import Bases from '../components/services/Bases';
 import { motion } from 'framer-motion';
+import styles from './services.module.scss';
 
 export default function Services({ state: { viewport, navHeight, isNavAniComplete }, NAV_SPACER }){
     const copyRef = useRef();
@@ -30,7 +31,8 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
         <Head>
             <title>Services | Cocktail Curations</title>
         </Head>
-        <motion.main 
+        <motion.main
+            id={styles.services} 
             initial='load_initial'
             animate='load_animate' 
             exit='load_exit'

@@ -1,25 +1,34 @@
 import styles from './BlogList.module.scss';
 import convertPrismicDate from './../../helpers/convertDate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 
 export default function BlogList({ blogs }){
-    console.log(blogs)
     return (
         <section id={styles.BlogList}>
-            <h3>Blog Articles</h3>
+            <h3>Articles</h3>
             <ul className={styles.list}>
                 {blogs.map(blog => (
-                    <div className={styles.blog}>
-                        <p className={styles.date}>{`${convertPrismicDate(blog.data.date_published)}`}</p>
-                        <p className={styles.title}>{blog.data.title[0].text}</p>
-                        <p className={styles.author}>{`by ${blog.data.author[0].text}`}</p> 
-                        <img src={blog.data.main_img.url} alt=""/> 
-                        <div className={styles.tags}>
-                            <FontAwesomeIcon icon={['fas', 'tag']}/>
-                            {blog.tags.map(tag => (
-                                <span>{tag}</span>
-                            ))}
-                        </div>
+                    <div 
+                        className={styles.blog}
+                        key={blog.data.title[0].text} 
+                    >
+                            <p className={styles.date}>{`${convertPrismicDate(blog.data.date_published)}`}</p>
+                            <Link href={`/blog/${blog.uid}`}><a>
+                                <p className={styles.title}>{blog.data.title[0].text}</p>
+                            </a></Link>
+                            <p className={styles.author}>{`by ${blog.data.author[0].text}`}</p> 
+                            <Link href={`/blog/${blog.uid}`}><a>
+                                <div className={styles.img}>
+                                    <img src={blog.data.thumbnail.url} alt=""/> 
+                                </div>
+                            </a></Link>
+                            <div className={styles.tags}>
+                                <FontAwesomeIcon icon={['fas', 'tag']}/>
+                                {blog.tags.map(tag => (
+                                    <span key={tag}>{tag}</span>
+                                ))}
+                            </div>
                     </div>
                 ))}
             </ul>

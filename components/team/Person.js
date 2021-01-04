@@ -3,23 +3,27 @@ import styles from './Person.module.scss';
 import FadeInViewContainer from '../HOC/FadeInViewContainer';
 import { motion } from 'framer-motion';
 import transitions from '../../page_transitions/common';
-import { personnelTransitions } from '../../page_transitions/team';
-import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
+import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
+import { personnelTransitions } from './../../page_transitions/team';
 
 export default function Person({ name, img, text, quote, reverse, bgColor }){
     const imgRef = useRef();
     const imgInView = useInViewFromTop(imgRef, { threshold: -.05 });
 
+    const nameContainerRef = useRef();
+    const nameInView = useInViewFromTop(nameContainerRef, { threshold: .1 });
+
     return(
         <div id={styles.Person} className={reverse && styles.reverse}>
-            <div className={styles.nameContainer}>
-                <FadeInViewContainer>
-                    <motion.h3>{name.first}</motion.h3>
-                </FadeInViewContainer>
-                <FadeInViewContainer delay={.2}>
-                    <motion.h3 variants={personnelTransitions.name}>{name.last}</motion.h3>
-                </FadeInViewContainer>
-            </div>
+            <motion.div 
+                ref={nameContainerRef} 
+                className={styles.nameContainer}
+                animate={nameInView ? 'animate' : 'initial'}
+                variants={personnelTransitions.nameContainer}
+            >
+                <motion.h3 variants={personnelTransitions.name}>{name.first}</motion.h3>
+                <motion.h3 variants={personnelTransitions.name}>{name.last}</motion.h3>
+            </motion.div>
             <div ref={imgRef} className={styles.imgContainer} style={{ overflow: 'hidden' }}>
                 <motion.img variants={transitions.imgScaleIn} animate={imgInView ? 'animate' : 'initial'} src={img.src} alt={img.alt}/>
             </div>

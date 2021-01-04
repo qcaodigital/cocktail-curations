@@ -1,4 +1,4 @@
-import { Client, assignResultTo } from './../prismic-configuration';
+import { Client, queryPrismicResults } from './../prismic-configuration';
 import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Head from 'next/head';
@@ -8,7 +8,7 @@ import { galleryTransitions } from './../page_transitions/gallery';
 
 export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport } }){
     if(!prismicResults) return null;
-    const results = assignResultTo('gallery_page', prismicResults)
+    const results = queryPrismicResults('type', 'gallery_page', prismicResults)
     const imgGallery = results[0].data;
     const [imgGalleryArr, setImgGalleryArr] = useState(Object.keys(imgGallery).map(key => imgGallery[key]));
     const [galleryColumns, setGalleryColumns] = useState([]);
@@ -27,7 +27,7 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
         maxWidth: `${1/columns}`
     }
 
-    //sory by portrait and landscape
+    //sort by portrait and landscape
     useEffect(() => {
         //Prismic includes empty media templates so we need to remove them from the array
         const galleryCopy = imgGalleryArr.filter(img => img.dimensions)
@@ -83,6 +83,7 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
     //Disable scrolling and hide scrollbar if modal has an image to show/aka is open
     useEffect(() => {
         document.body.style.overflow = modalImg || modalImg === 0 ? 'hidden' : '';
+        return () => document.body.style.overflow = '';
     }, [modalImg])
 
     return (

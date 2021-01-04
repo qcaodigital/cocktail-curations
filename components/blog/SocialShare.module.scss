@@ -1,0 +1,15 @@
+.SocialShare {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: .35rem;
+    @media screen and (min-width: 990px){
+        justify-content: flex-start;
+    }
+    button {
+        margin: 0 !important;
+        svg {
+            height: auto;
+        }
+    }
+}

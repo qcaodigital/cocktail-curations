@@ -48,7 +48,7 @@
                 font-size: .9rem;
             }
             .blank {
-                height: .5rem;
+                height: 1.5rem;
                 opacity: 0;
             }
             &#nav {
@@ -86,7 +86,8 @@
                 }
                 a.tel {
                     opacity: 1;
-                    border-bottom: 1px solid var(--main-color);
+                    color: var(--highlight-color);
+                    border-bottom: 1px solid var(--highlight-color);
                 }
             }
         }

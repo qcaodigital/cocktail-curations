@@ -16,10 +16,10 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
     }
 }
 
-export function assignResultTo(query, results){
+export function queryPrismicResults(prop, query, results){
     const data = [];
     results.results.forEach(result => {
-        if(result.type === query){
+        if(result[prop] === query){
             data.push(result);
         }
     })
@@ -27,4 +27,12 @@ export function assignResultTo(query, results){
     // console.log(`Received Prismic results for query '${query}':`, data)
 
     return data;
+}
+
+export function linkResolver(doc){
+    if(doc.type === 'blog'){
+        return `/blog/${doc.uid}`
+    }
+
+    return '/';
 }

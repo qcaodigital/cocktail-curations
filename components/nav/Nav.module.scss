@@ -45,7 +45,6 @@
         justify-self: right;
         display: flex;
         flex-direction: row;
-        opacity: .8;
         --gap: 1.5rem;
         gap: var(--gap);
         @media screen and (min-width: 750px){
@@ -63,12 +62,11 @@
             font-weight: 600;
             letter-spacing: 2.5px;
             font-size: .75rem;
-            --font-color: var(--main-color);
             color: var(--font-color);
             white-space: nowrap;
             a {
                 position: relative;
-                &::before {
+                &::before { //DIVIDERS
                     content: '';
                     position: absolute;
                     top: 50%;
@@ -78,7 +76,7 @@
                     height: 1.5rem;
                     background-color: var(--font-color);
                 }
-                &::after {
+                &::after { //HOVER LINE
                     content: '';
                     position: absolute;
                     bottom: -1rem;

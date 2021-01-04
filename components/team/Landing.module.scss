@@ -1,13 +1,22 @@
 .Landing {
     padding-bottom: 3rem;
     background-color: var(--secondary-color);
-    background-image: url('../../public/imgs/textures/dust.png');
-    background-position: center;        
-    background-size: cover;
     display: grid;
     grid-template-rows: var(--navHeight) calc(100vh - var(--navHeight));
     overflow: hidden;
     position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('../../public/imgs/textures/dust.png');
+        background-position: center;        
+        background-size: cover;
+        opacity: .7;
+    }
     @media screen and (max-height: 800px) and (max-width: 989px){
         grid-template-rows: var(--navHeight) min-content;
     }

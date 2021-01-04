@@ -20,6 +20,10 @@ export default function Body({ children }){
     const [navHeight, setNavHeight] = useState(120);
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
 
+    useEffect(() => {
+        window.scrollTo({ top: 0 })
+    }, [])
+
     return (
         <>
         <HamburgerMenu 

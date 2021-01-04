@@ -2,7 +2,7 @@ export const landingTransitions = {
     staggerContent: {
         animate: {
             transition: {
-                staggerChildren: .35
+                staggerChildren: .15
             }
         }
     },
@@ -12,7 +12,7 @@ export const landingTransitions = {
             rotate: '25deg',
             y: '-50%',
             transition: {
-                duration: .35
+                duration: .15
             }
         },
         initial: {

@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps, router }) {
                 <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
             </Head>
+            {/* Facebook share button plugin */}
             <Body router={router}>
                 <Component {...pageProps} key={router.route} router={router}/>
             </Body>

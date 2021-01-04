@@ -65,6 +65,7 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
         }, 3000);
     }, [])
 
+    const whiteList = ['/services', '/blog'];
     const changeLogoColorVariant = {
         white: {
             animate: {
@@ -130,7 +131,7 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
                         ) : (
                             <a>
                                 <AnimatePresence exitBeforeEnter>
-                                    {router.pathname === '/services' && viewport !== 'mobile'
+                                    {whiteList.includes(router.pathname) && viewport !== 'mobile'
                                         ? <motion.img
                                             key='white'
                                             animate='animate'
@@ -165,8 +166,8 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
                             key={item.label} 
                             className={styles.item} 
                             style={{
-                            '--font-color': router.pathname === '/services' && !minimizeNav
-                                ? 'var(--secondary-color)'
+                            '--font-color': whiteList.includes(router.pathname) && !minimizeNav
+                                ? 'white'
                                 : 'var(--main-color)'
                             }}
                         >
