@@ -133,7 +133,7 @@
                     }
                     > * {
                         text-shadow: 
-                            -1px -1px 1px rgba(255, 255, 255, .35), 
+                            -1px -1px 1px rgba(255, 255, 255, .15), 
                             2px 2px 1px #cfcfcf7e;
                     }
                     p {
@@ -188,7 +188,7 @@
                         width: 100%;
                         gap: 3vw;
                         @media screen and (min-width: 750px){
-                            top: calc(100% + 2vw);
+                            top: calc(100% + 1vw);
                             left: 0;
                             transform: unset;
                             justify-content: flex-start;
@@ -198,7 +198,7 @@
                         }
                         button {
                             a {
-                                padding: clamp(.75rem, 2vw, 1rem);
+                                padding: clamp(.75rem, 2vw, 1rem) clamp(1.6rem, 2vw, 1.5rem);
                             }
                             &:nth-of-type(2){
                                 a {

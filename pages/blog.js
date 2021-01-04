@@ -7,11 +7,17 @@ import convertPrismicDate from '../helpers/convertDate';
 import BlogList from '../components/blog/BlogList';
 import { useEffect, useRef } from 'react';
 import constructRellax from './../helpers/constructRellax';
+import ArrowDivider from './../components/common/ArrowDivider';
 
 export default function Blog({ blogs, NAV_SPACER, state: { viewport } }){
     const latestBlog = blogs[blogs.length - 1];
+
     const bannerRef = useRef()
     useEffect(() => constructRellax(bannerRef, { speed: -2 }), [])
+
+    const latestRef = useRef()
+    // useEffect(() => constructRellax(latestRef, { speed: -1 }), [])
+    
     return (
         <>
         <Head>
@@ -29,7 +35,8 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport } }){
                         <Link href='/blog'><a><p className={styles.CTA}>Our Most Popular Blogs</p></a></Link>
                     </header>    
                 </div>
-                <div className={styles.latest}>
+                <div ref={latestRef} className={styles.latest}>
+                    <ArrowDivider size={{value: 1.5, measurement: 'rem'}} BGcolor='var(--secondary-color)'/>
                     <header>
                         <h2>Whats New</h2>
                         <h1>On Our Blog</h1>

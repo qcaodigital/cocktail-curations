@@ -37,9 +37,27 @@
             font-weight: 400;
             color: var(--main-color);
             letter-spacing: 1px;
+            font-size: .85rem;
             @media screen and (min-width: 750px){
                 letter-spacing: 2.5px;
             }
+        }
+    }
+    .banner {
+        // &::before { content: "\\\\"; margin-right: .25rem };
+        position: relative;
+        color: var(--secondary-color);
+        background-color: var(--main-color);
+        padding: .75rem;
+        text-align: center;
+        font-family: var(--main-font);
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: .75rem;
+        letter-spacing: 3px;
+        margin-bottom: .7rem;
+        @media screen and (min-width: 750px){
+            font-size: .9rem;
         }
     }
     .galleryContainer {

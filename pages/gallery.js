@@ -103,6 +103,7 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
                 <h1>A look into what we do</h1>
                 <h2>Our events, bars, classes, cocktails, and more.</h2>
             </header>
+            <p className={styles.banner}>Our Gallery</p>
             <motion.div 
                 animate='animate' 
                 initial='initial' 

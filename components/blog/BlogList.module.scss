@@ -1,4 +1,5 @@
 #BlogList {
+    position: relative;
     h3 {
         background-color: var(--main-color);
         color: var(--secondary-color);
@@ -80,22 +81,10 @@
                     border: 1px solid var(--main-color-fade);
                     transition: 350ms ease;
                     @media screen and (min-width: 750px){
-                        opacity: .75;
+                        opacity: .8;
                         width: 225px;
                         height: 225px;
                     }
-                }
-                &::after {
-                    @media screen and (min-width: 750px){
-                        content: '';
-                    }
-                    transition: 350ms ease;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background-color: rgba(0,0,0,.1);
                 }
             }
             .tags {

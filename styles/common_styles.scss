@@ -1,7 +1,8 @@
 .STYLED_BTN {
     background-color: var(--highlight-color);
     color: var(--secondary-color);
-    padding: .75rem 1.25rem;
+    border-radius: 2px;
+    padding: .75rem 1.6rem;
     font-size: .65rem;
     font-family: var(--main-font);
     letter-spacing: .1vw;

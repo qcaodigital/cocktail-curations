@@ -28,8 +28,11 @@ export default function ProductAds({ products: productsData, parentStyles, numPr
                         <a target='_blank' href={p.shopify_link[0].text} className={styles.imgContainer}>
                             <img src={p.product_image.url} alt={p.product_image.alt}/>
                         </a>
-                        <a target='_blank' href={p.shopify_link[0].text}><h6 className={styles.name}>{p.product_name[0].text}</h6></a>
-                        <h6 className={styles.price}>{p.product_price[0].text}</h6>
+                        <div className={styles.info}>
+                            <a target='_blank' href={p.shopify_link[0].text}><h6 className={styles.name}>{p.product_name[0].text}</h6></a>
+                            <h6 className={styles.price}>{p.product_price[0].text}</h6>
+                            <a target='_blank' href={p.shopify_link[0].text}><p>see in shop</p></a>
+                        </div>
                     </div>
                 ))}
             </div>
