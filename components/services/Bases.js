@@ -37,9 +37,9 @@ const Bases = React.forwardRef(({}, ref) => {
                     botanicals, handcrafted simple syrups and bitters delivered to your door.</motion.p>
                     <motion.p variants={sectionTransitions.headerVariant}>We will work with you to craft a deliciously, special flavor for your next event. Our cocktail bases are also available in pre-made, curated flavors kept in limited stock. Follow the link below to check out out latest bases!</motion.p>
                     <motion.div variants={sectionTransitions.opacity} className={styles.CTA}>
-                        <button className='STYLED_BTN'>
-                            <a href='http://www.cocktailcurations-shop.com' target='_blank' rel='noopener noreferrer'>Shop Bases</a>
-                        </button>
+                        <a href='http://www.cocktailcurations-shop.com' target='_blank' rel='noopener noreferrer'>
+                            <button className='STYLED_BTN'>Shop Bases</button>
+                        </a>
                     </motion.div>
                 </motion.header>
                 <div className={styles.gallery}>

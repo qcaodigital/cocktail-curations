@@ -179,11 +179,13 @@
                 }
                 a {
                     position: relative;
-                    font-family: var(--serif-font);
+                    font-family: var(--main-font);
                     text-transform: lowercase;
                     cursor: pointer;
                     display: inline-block;
-                    font-size: 1.25rem;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: var(--highlight-color);
                     transition: 500ms var(--ease);
                     > div {
                         position: absolute;
@@ -191,7 +193,7 @@
                         left: 0;
                         right: 0;
                         height: 1px;
-                        background-color: var(--main-color);
+                        background-color: var(--highlight-color);
                         transition: 500ms var(--ease);
                     }
                     &:hover {
