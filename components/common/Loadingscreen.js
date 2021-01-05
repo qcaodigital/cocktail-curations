@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import styles from './Loadingscreen.module.scss';
+import styles from './LoadingScreen.module.scss';
 import Head from 'next/head';
 
 export default function LoadingScreen({ turnOffLoading }){
