@@ -60,9 +60,9 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport } }){
                                 .filter((word, idx) => viewport === 'desktop' ? idx < Infinity : idx < 30).join(" ")
                             }
                         </p>
-                        <button className='STYLED_BTN'>
-                            <Link href={`/blog/${latestBlog.uid}`}><a>Read more</a></Link>
-                        </button>
+                        <Link href={`/blog/${latestBlog.uid}`}><a>
+                            <button className='STYLED_BTN'>Read more</button>
+                        </a></Link>
                     </div>
                 </div>
             </section>
