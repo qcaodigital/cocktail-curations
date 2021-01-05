@@ -12,7 +12,10 @@ import Body from '../components/common/Body';
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fixTimeoutTransition } from './../utils/fixTimeoutTransitions';
 library.add(fas, fab)
+
+fixTimeoutTransition(1000);
 
 function MyApp({ Component, pageProps, router }) {
     const routeChange = () => {
