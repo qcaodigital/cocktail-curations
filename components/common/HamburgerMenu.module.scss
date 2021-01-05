@@ -6,137 +6,43 @@
 }
 
 #HamburgerMenu {
-    --height: 85vh;
-    @include justifyCenterCol;
+    background-color: var(--secondary-color);
+    height: 100vh;
+    width: 100vw;
     position: fixed;
-    z-index: 5;
-    top: 50%;
-    left: 50%;
-    width: 90vw;
-    height: var(--height);
-    background-color: var(--highlight-color-fade);
-    transform: translate(-50%, -50%);
-    border: 1px solid var(--main-color-fade-more);
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        background-color: transparent;
-        height: 20px;
-        width: 20px;
-    }
-    &::before {
-        bottom: -3px;
-        left: -3px;
-        border-bottom: 5px solid var(--main-color);
-        border-left: 5px solid var(--main-color);
-    }
-    &::after {
-        top: -3px;
-        right: -3px;
-        border-top: 5px solid var(--main-color);
-        border-right: 5px solid var(--main-color);
-    }
-    .closeIcon {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        transition: 350ms ease;
-        &:hover {
-            color: var(--secondary-color);
-        }
-    }
-    .brand {
-        max-height: 100px;
-    }
-    .navList {
-        @include justifyCenterCol;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    ul {
+        height: 100%;
+        font-family: var(--serif-font);
+        @include justifyCenterCol();
         gap: .5rem;
-        padding-bottom: 5rem;
-        padding-top: 2.5rem;
-    }
-    .navItem {
-        text-transform: uppercase;
-        font-family: var(--main-font);
-        font-weight: 600;
-        letter-spacing: .5px;
-        color: var(--secondary-color);
-        .link {
-            display: flex;
-            &::before {
-                content: '[';
-                transform: translateX(-50px);
-            }
+        padding-bottom: 10%;
+        li {
+            font-weight: 400;
+            font-size: 1.7rem;
+            letter-spacing: 1px;
+            text-transform: capitalize;
             &::after {
-                content: ']';
-                transform: translateX(50px);
+                content: '.'
             }
-            &::before,
-            &::after {
-                display: block;
-                opacity: 0;
-                transition: 500ms ease;
-            }
-            &:hover::before,
-            &.active::before {
-                opacity: 1;
-                transform: translateX(-1rem);
-            }
-            &:hover::after,
-            &.active::after {
-                opacity: 1;
-                transform: translateX(1rem);
+            &[data-label='Contact']{
+                border: 2px solid var(--secondary-color);
+                color: var(--secondary-color);
+                background-color: var(--main-color);
+                padding: .25rem .75rem;
+                position: absolute;
+                bottom: 20%;
+                &::after {
+                    content: '';
+                }
             }
             &.active {
-                color: white;
-                opacity: .35;
                 pointer-events: none;
-            }
-            &:hover {
-                transition: 150ms linear;
-                color: white;
+                color: var(--highlight-color);
+                opacity: .5 !important;
             }
         }
-    }
-    .socialList {
-        display: flex;
-        gap: .75rem;
-        > *:hover {
-            transition: 350ms ease;
-            color: var(--secondary-color);
-            animation: hover 250ms infinite alternate;
-            @keyframes hover {
-                0% {
-                    transform: translateY(0);
-                }
-                100% {
-                    transform: translateY(-15%);
-                }
-            }
-        }
-    }
-    .footer {
-        margin-top: 1rem;
-        font-family: var(--main-font);
-        font-size: .65rem;
-        text-transform: uppercase;
-    }
-    &.enter {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(.95);
-    }
-    &.enterActive {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-        transition: 500ms ease;
-    }
-    &.exit {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    &.exitActive {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(.95);
-        transition: 500ms ease;
     }
 }

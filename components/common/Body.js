@@ -26,11 +26,15 @@ export default function Body({ children }){
 
     return (
         <>
-        <HamburgerMenu 
-            isHamburgerMenuOpen={isHamburgerMenuOpen}
-            navList={navList} 
-            toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
-        />
+        <AnimatePresence>
+            {isHamburgerMenuOpen && viewport === 'mobile' &&  
+                <HamburgerMenu 
+                    navList={navList} 
+                    toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
+                    navHeight={navHeight}
+                />
+            }
+        </AnimatePresence>
         <main 
             className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}
             style={{ '--navHeight': `${navHeight}px` }}

@@ -12,6 +12,7 @@ import SocialList from './SocialList';
 
 Nav.propTypes = {
     render: PropTypes.bool.isRequired,
+    isHamburgerOpen: PropTypes.bool.isRequired,
     navList: PropTypes.array.isRequired,
     viewport: PropTypes.oneOf(['mobile', 'tablet', 'desktop', null]),
     hamburgerCB: PropTypes.func.isRequired,
@@ -21,7 +22,7 @@ Nav.propTypes = {
     navAniCompletionCB: PropTypes.func.isRequired
 }
 
-export default function Nav({render, navList, viewport, hamburgerCB, router, navHeight, navHeightCB, navAniCompletionCB }){
+export default function Nav({render, navList, viewport, isHamburgerOpen, hamburgerCB, router, navHeight, navHeightCB, navAniCompletionCB }){
     //RENDER PROP IS TRUE ONCE INITIAL RENDER IN THE MAIN BODY COMPONENT HAPPENS SO THAT THE WINDOW OBJECT IS ACCESSIBLE TO THIS NAV COMPONENT ON FIRST REAL RENDER
     if(!render) return null;
     const navRef = useRef();
@@ -123,9 +124,9 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
             animate={initialRenderComplete ? 'show' : 'showWithDelay'}
             onAnimationComplete={() => navAniCompletionCB()}
         >
-            <FadeOnUnmount unmountIf={viewport === 'mobile' && minimizeNav}>
+            <FadeOnUnmount unmountIf={viewport === 'mobile' && (minimizeNav && !isHamburgerOpen)}>
                 <motion.div className={minimizeNav ? `${styles.brand} ${styles.min}` : styles.brand}>
-                    <Link href='/'>
+                    <Link href='/'> 
                         {minimizeNav ? (
                             <a><img id={styles.min} src="/imgs/stock/logos/cc-logo-min2.png" alt="Cocktail Curations Logo"/></a>
                         ) : (
@@ -180,7 +181,7 @@ export default function Nav({render, navList, viewport, hamburgerCB, router, nav
                     ))}
                 </motion.ul>
             </FadeOnUnmount>
-            <FadeOnUnmount unmountIf={minimizeNav}>
+            <FadeOnUnmount unmountIf={minimizeNav && !isHamburgerOpen}>
                 <motion.ul className={styles.socialList}>
                     <SocialList animateOnHover/>
                 </motion.ul>
