@@ -184,6 +184,28 @@ export default function Contact({ NAV_SPACER, state: { viewport } }){
                             })}
                         </motion.div>
                     </AnimatePresence>
+                    <div className={styles.buttonContainer}>
+                        {currentProgress > 1 && currentProgress !== 5 &&
+                            <FadeOnUnmount>
+                                <motion.div className={styles.backButton}>
+                                    <button onClick={() => setCurrentProgress(curr => curr - 1)}>
+                                        <FontAwesomeIcon icon={['fas', 'chevron-left']}/>
+                                        <span>Back</span>
+                                    </button>
+                                </motion.div>
+                            </FadeOnUnmount>
+                        }
+                        {currentProgress !== 1 && currentProgress !== 5 &&
+                            <FadeOnUnmount>
+                                <motion.div className={`${styles.nextButton} ${isValidated ? styles.enabled : styles.disabled}`}>
+                                    <motion.button onClick={() => isValidated ? setCurrentProgress(curr => curr + 1) : null}>
+                                        <span>Next</span>
+                                        <FontAwesomeIcon data-isValidated={isValidated ? 'true' : 'false'} icon={['fas', 'chevron-right']}/>
+                                    </motion.button>
+                                </motion.div>
+                            </FadeOnUnmount>
+                        }
+                    </div>
                     <div className={styles.progressBar}>
                         {progressMarkers.map((step, idx) => (
                             <div key={step} id={styles[step]} 
@@ -203,26 +225,6 @@ export default function Contact({ NAV_SPACER, state: { viewport } }){
                             </div>
                         ))}
                     </div>
-                    {currentProgress > 1 && currentProgress !== 5 &&
-                        <FadeOnUnmount>
-                            <motion.div className={styles.backButton}>
-                                <button onClick={() => setCurrentProgress(curr => curr - 1)}>
-                                    <FontAwesomeIcon style={{ width: '.5rem' }} icon={['fas', 'chevron-left']}/>
-                                    <span>Back</span>
-                                </button>
-                            </motion.div>
-                        </FadeOnUnmount>
-                    }
-                    {currentProgress !== 1 && currentProgress !== 5 &&
-                        <FadeOnUnmount>
-                            <motion.div className={`${styles.nextButton} ${isValidated ? styles.enabled : styles.disabled}`}>
-                                <motion.button onClick={() => isValidated ? setCurrentProgress(curr => curr + 1) : null}>
-                                    <span>Next</span>
-                                    <FontAwesomeIcon style={{ width: '.5rem' }} icon={['fas', 'chevron-right']}/>
-                                </motion.button>
-                            </motion.div>
-                        </FadeOnUnmount>
-                    }
                 </div>
             </section>
         </motion.section>  

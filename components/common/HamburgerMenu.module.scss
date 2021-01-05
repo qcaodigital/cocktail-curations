@@ -38,7 +38,7 @@
                     content: '';
                 }
             }
-            &.active {
+            &.active:not([data-label='Contact']) {
                 pointer-events: none;
                 color: var(--highlight-color);
                 opacity: .5 !important;

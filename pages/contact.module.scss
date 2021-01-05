@@ -140,58 +140,76 @@
                     }
                 }
             }
-            .backButton, .nextButton {
-                position: absolute;
-                top: 1rem;
-                left: 1.5rem;
-                button {
-                    display: flex;
-                    align-items: center;
+            .buttonContainer {
+                display: flex;
+                justify-content: space-between;
+                gap: 4rem;
+                .backButton, .nextButton {
+                    top: 1rem;
+                    left: 1.5rem;
+                    @media screen and (min-width: 750px){
+                        position: absolute;
+                    }
+                    button {
+                        display: flex;
+                        align-items: center;
+                        &:hover {
+                            span {
+                                border-bottom: 1px solid var(--main-color);
+                            }
+                        }
+                        span {
+                            font-weight: 600;
+                            margin-left: .5rem;
+                            transition: 350ms ease;
+                            font-size: .9rem;
+                            border-bottom: 1px solid transparent;
+                        }
+                        svg {
+                            width: .5rem;
+                        }
+                    }
+                }
+                .nextButton {
+                    left: unset;
+                    right: 1.5rem;
                     &:hover {
                         span {
-                            border-bottom: 1px solid var(--main-color);
+                            border-bottom: 1px solid var(--highlight-color) !important;
                         }
                     }
                     span {
-                        font-weight: 600;
-                        margin-left: .5rem;
-                        transition: 350ms ease;
-                        font-size: .9rem;
-                        border-bottom: 1px solid transparent;
+                        margin: 0 .5rem 0 0;
+                        position: relative;
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -.125rem;
+                            left: 0;
+                            right: 0;
+                            background-color: var(--highlight-color);
+                            height: 1px;
+                            transform: scale(0);
+                            transform-origin: left;
+                            transition: 500ms ease;
+                        }
                     }
-                }
-            }
-            .nextButton {
-                left: unset;
-                right: 1.5rem;
-                span {
-                    margin: 0 .5rem 0 0;
-                    position: relative;
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        bottom: -.125rem;
-                        left: 0;
-                        right: 0;
-                        background-color: var(--highlight-color);
-                        height: 1px;
-                        transform: scale(0);
-                        transform-origin: left;
-                        transition: 500ms ease;
+                    svg {
+                        color: var(--main-color);
                     }
-                }
-                svg {
-                    color: var(--highlight-color);
-                }
-                &.disabled {
-                    pointer-events: none;
-                }
-                &.enabled {
-                    span {
-                        color: var(--highlight-color);
-                        &::after,
-                        &:hover::after  {
-                            transform: scale(1);
+                    &.disabled {
+                        pointer-events: none;
+                    }
+                    &.enabled {
+                        span {
+                            color: var(--highlight-color);
+                            &::after,
+                            &:hover::after  {
+                                transform: scale(1);
+                            }
+                        }
+                        svg {
+                            color: var(--highlight-color);
                         }
                     }
                 }

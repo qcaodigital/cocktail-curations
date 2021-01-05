@@ -7,13 +7,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import transitions from './../../page_transitions/hamburgerMenu';
 
 HamburgerMenu.propTypes = {
-    isHamburgerMenuOpen: PropTypes.bool.isRequired,
     navList: PropTypes.array.isRequired,
     navHeight: PropTypes.number.isRequired,
     toggleHBM: PropTypes.func.isRequired
 }
 
-export default function HamburgerMenu({ isHamburgerMenuOpen, navList, toggleHBM, navHeight }){
+export default function HamburgerMenu({ navList, toggleHBM, navHeight }){
     const { contactBtnVariant, navItemVariants, stagger } = transitions;
 
     const navItems = navList.map((item, idx) => (

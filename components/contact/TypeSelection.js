@@ -8,7 +8,7 @@ export default function TypeSelection({ viewport, setFormData, formData, setCurr
     }
 
     return (
-        <motion.ul exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ duration: 1 }} className={styles.list}>
+        <motion.ul className={styles.list}>
             <li className={styles.item}
                 onClick={() => {
                     setFormData(formData => ({ ...formData, type: 'events'}))
