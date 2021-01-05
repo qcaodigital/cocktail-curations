@@ -3,3 +3,7 @@ module.exports = {
     domains: ['images.prismic.io'],
   },
 }
+
+module.exports = {
+  distDir: 'build',
+}
