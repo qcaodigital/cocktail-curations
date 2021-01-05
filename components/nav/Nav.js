@@ -152,7 +152,7 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
                                             variants={changeLogoColorVariant.black}
                                             id={styles.full} 
                                             src="/imgs/stock/logos/cc-logo.png" 
-                                            lt="Cocktail Curations Logo"
+                                            alt="Cocktail Curations Logo"
                                         />
                                     }
                                 </AnimatePresence>

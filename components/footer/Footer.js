@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from './Footer.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
+import SocialList from './../nav/SocialList';
 
 Footer.propTypes = {
     navList: PropTypes.array.isRequired
@@ -19,7 +20,7 @@ export default function Footer({ navList }){
         <footer id={styles.Footer}>
             <div className={styles.CTA_nav_container}>
                 <section className={styles.CTA}>
-                    <h5>Curate your <span style={{display: 'inline-block'}}>experience today.</span></h5>
+                    <h2>Curate your <span style={{display: 'inline-block'}}>experience today.</span></h2>
                     <p>Join the hundreds of people who've enjoyed a marvelous beverage with us.</p>
                     <Link href='/contact'>
                         <button className='STYLED_BTN'>
@@ -48,15 +49,7 @@ export default function Footer({ navList }){
             </div>
             <section className={styles.socialCopyright}>
                 <ul className={styles.socialList}>
-                    <li>
-                        <a href=''><FontAwesomeIcon icon={['fab', 'facebook']}/></a>
-                    </li>
-                    <li>
-                        <a href=''><FontAwesomeIcon icon={['fab', 'twitter']}/></a>
-                    </li>
-                    <li>
-                        <a href=''><FontAwesomeIcon icon={['fab', 'instagram']}/></a>
-                    </li>
+                    <SocialList />
                 </ul>
                 <p>©2019 Cocktail Curations. All rights reserved.</p>
             </section>

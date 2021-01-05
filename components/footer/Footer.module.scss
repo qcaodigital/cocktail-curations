@@ -52,6 +52,9 @@
                 opacity: 0;
             }
             &#nav {
+                display: flex;
+                flex-direction: column;
+                gap: .2rem;
                 a {
                     position: relative;
                     transition: 350ms ease;
@@ -81,6 +84,9 @@
                 }
             }
             &#contact {
+                display: flex;
+                flex-direction: column;
+                gap: .15rem;
                 li p {
                     font-style: italic;
                 }
@@ -88,6 +94,7 @@
                     opacity: 1;
                     color: var(--highlight-color);
                     border-bottom: 1px solid var(--highlight-color);
+                    font-weight: 500;
                 }
             }
         }
@@ -102,7 +109,7 @@
             flex-basis: 75%;
             margin-left: .75rem;
         }
-        h5 {
+        h2 {
             display: inline-block;
             font-family: var(--serif-font);
             font-size: 1.9rem;
