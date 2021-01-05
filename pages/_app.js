@@ -12,7 +12,7 @@ import Body from '../components/common/Body';
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { fixTimeoutTransition } from './../utils/fixTimeoutTransitions';
+import { fixTimeoutTransition } from './../utils/fixTimeoutTransitions.ts';
 library.add(fas, fab)
 
 fixTimeoutTransition(1000);
