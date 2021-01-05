@@ -157,26 +157,6 @@
             opacity: 0;
             visibility: hidden;
         }
-        // &:hover {
-        //     p {
-        //         opacity: 1;
-        //         visibility: visible;
-        //     }
-        //     div {
-        //         &:first-of-type {
-        //             transform-origin: left;
-        //             transform: rotate(-20deg) translate(-2px, 7px) scaleX(.5);
-        //         }
-        //         &:nth-of-type(2){
-        //             transform-origin: left;
-        //             transform: translateX(0%) scaleX(90%);
-        //         }
-        //         &:last-of-type {
-        //             transform-origin: left;
-        //             transform: rotate(20deg) translate(-2px, -7px) scaleX(.5);
-        //         }
-        //     }
-        // }
         div {
             transition: 350ms ease;
             height: 1.5px;
@@ -184,6 +164,49 @@
             background-color: var(--main-color);
             &:nth-of-type(2){
                 transform: translateX(15%);
+            }
+        }
+    }
+    &[data-hbmopen='false']{
+        @media (hover: hover) and (pointer: fine) {
+            .hamburgerIcon:hover {
+                p {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                div {
+                    &:first-of-type {
+                        transform-origin: left;
+                        transform: rotate(-20deg) translate(-2px, 7px) scaleX(.5);
+                    }
+                    &:nth-of-type(2){
+                        transform-origin: left;
+                        transform: translateX(0%) scaleX(90%);
+                        opacity: .8;
+                    }
+                    &:last-of-type {
+                        transform-origin: left;
+                        transform: rotate(20deg) translate(-2px, -7px) scaleX(.5);
+                    }
+                }
+            }
+        }
+    }
+    &[data-hbmopen='true']{
+        .hamburgerIcon {
+            div {
+                height: 2px;
+                width: 1.5rem;
+            }
+            div:first-of-type {
+                transform: rotate(45deg) translate(.2rem, .65rem);
+            }
+            div:nth-of-type(2) {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            div:last-of-type {
+                transform: rotate(-45deg) translate(0rem, -.5rem);
             }
         }
     }

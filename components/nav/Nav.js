@@ -118,6 +118,7 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
         <motion.nav id={styles.Nav}
             className={minimizeNav ? styles.min : null}
             data-path={viewport !== 'mobile' ? router.pathname : null}
+            data-hbmopen={isHamburgerOpen ? true : false}
             ref={ navRef }
             variants={transitions.mainFade}
             initial='hide'
