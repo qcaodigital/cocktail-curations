@@ -5,11 +5,10 @@ import { AnimatePresence } from 'framer-motion';
 
 export async function getStaticPaths(){
     const prismicResults = await Client().query('');
-    const paths = prismicResults.results.map(result => {
-        if(result.type === 'blog'){ 
-            return { params: { blogid: result.uid } }
-        }
-    })
+    const blogPaths = queryPrismicResults('type', 'blog', prismicResults);
+    const paths = blogPaths.map(result => ({ 
+        params: { blogid: result.uid }
+    }))
 
     return {
         paths,
