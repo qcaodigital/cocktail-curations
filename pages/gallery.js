@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from './gallery.module.scss';
-import Modal from '../components/gallery/modal';
+import Modal from '../components/gallery/Modal';
 import { galleryTransitions } from './../page_transitions/gallery';
 
 export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport } }){

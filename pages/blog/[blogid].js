@@ -10,6 +10,8 @@ export async function getStaticPaths(){
         params: { blogid: result.uid }
     }))
 
+    console.log(paths)
+
     return {
         paths,
         fallback: false
@@ -21,8 +23,6 @@ export async function getStaticProps({ params }){
     const blog = queryPrismicResults('uid', params.blogid, prismicResults);
     const blogs = queryPrismicResults('type', 'blog', prismicResults);
     const products = queryPrismicResults('uid', 'shopify_product_list', prismicResults);
-
-    console.log(products)
 
     return {
         props: {
