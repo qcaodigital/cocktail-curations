@@ -17,13 +17,12 @@ export default function Summary({ formData }){
                 const resp = await axios.post('/api/sendContactEmail', formData, { 'content-type': 'application/json'});
                 setEmailSent(resp.data)
             } catch(err) {
-                alert(err)
+                throw err;
             }
         }
         sendEmail()
     }, [])
 
-    if(!emailSent) return null;
     return (
         <section id={styles.Summary}>
             <header>
