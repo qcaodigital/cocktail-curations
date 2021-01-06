@@ -16,7 +16,7 @@ export default function Body({ children }){
     const viewport = useViewport();
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
-    const [loadComplete, setLoadComplete] = useState(true);
+    const [loadComplete, setLoadComplete] = useState(false);
     const [navHeight, setNavHeight] = useState(120);
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
 
@@ -39,7 +39,7 @@ export default function Body({ children }){
             className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}
             style={{ '--navHeight': `${navHeight}px` }}
         >
-            {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> */}
+            <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 
