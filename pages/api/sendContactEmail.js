@@ -21,6 +21,6 @@ export default (req, res) => {
             res.send(req.body)
         })
     } else {
-        throw 'This api request should be a post request.'
+        throw 'This api request should be a post request'
     }
 }
