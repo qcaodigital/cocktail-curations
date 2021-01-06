@@ -2,25 +2,28 @@ import styles from './Summary.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Summary({ formData }){
     const formSections = Object.keys(formData).map(key => formData[key]);
     const [subject, ...sections] = formSections;
     const router = useRouter();
 
+    const [emailSent, setEmailSent] = useState();
+
     useEffect(() => {
         async function sendEmail(){
             try {
                 const resp = await axios.post('/api/sendContactEmail', formData, { 'content-type': 'application/json'});
-                console.log(resp.data)
+                setEmailSent(resp.data)
             } catch(err) {
-                console.log(err)
+                alert(err)
             }
         }
         sendEmail()
     }, [])
 
+    if(!emailSent) return null;
     return (
         <section id={styles.Summary}>
             <header>

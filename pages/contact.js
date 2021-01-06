@@ -200,7 +200,7 @@ export default function Contact({ NAV_SPACER, state: { viewport } }){
                                 <motion.div className={`${styles.nextButton} ${isValidated ? styles.enabled : styles.disabled}`}>
                                     <motion.button onClick={() => isValidated ? setCurrentProgress(curr => curr + 1) : null}>
                                         <span>Next</span>
-                                        <FontAwesomeIcon data-isValidated={isValidated ? 'true' : 'false'} icon={['fas', 'chevron-right']}/>
+                                        <FontAwesomeIcon icon={['fas', 'chevron-right']}/>
                                     </motion.button>
                                 </motion.div>
                             </FadeOnUnmount>

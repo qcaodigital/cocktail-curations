@@ -29,12 +29,15 @@ export default function Home({ state: { isNavAniComplete, viewport }}){
                         variants={landingTransitions.staggerContent}
                         id={styles.one}
                     >
-                        <div className={styles.bg}/>
+                        <div className={styles.bg} 
+                            // src='/imgs/stock/home_page/bg-edge-trans2-min.png'
+                        />
                         <motion.div variants={landingTransitions.line} className={styles.line}/>
                         <motion.img 
                             src="/imgs/stock/logos/cc-icon-logo-color.png" 
                             alt="Cocktail Curations Logo"
                             variants={landingTransitions.logo}
+                            className={styles.logo}
                         />
                         <motion.header 
                             variants={headerTransitions.staggerHeader}

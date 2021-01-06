@@ -6,12 +6,6 @@ export default navList = [
         active: false
     },
     {
-        label: 'Shop',
-        href: 'http://cocktailcurations-shop.com',
-        active: false,
-        external: true
-    },
-    {
         label: 'Services',
         href: '/services',
         active: false
@@ -35,5 +29,11 @@ export default navList = [
         label: 'Contact',
         href: '/contact',
         active: false
+    },
+    {
+        label: 'Shopify',
+        href: 'http://cocktailcurations-shop.com',
+        active: false,
+        external: true
     }
 ];
