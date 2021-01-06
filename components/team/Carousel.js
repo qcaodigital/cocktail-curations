@@ -106,7 +106,7 @@ export default function Carousel({ imgs, viewport }){
                 {imgs.map((img, idx) => (
                     <div 
                         key={img} 
-                        style={{ backgroundColor: idx === currImg.idx ? 'var(--main-color)' : 'transparent' }}
+                        style={{ backgroundColor: idx === currImg.idx ? 'var(--highlight-color)' : 'var(--main-color)' }}
                     />
                 ))}
                 <button 
