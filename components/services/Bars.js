@@ -27,8 +27,8 @@ const Bars = React.forwardRef(({}, ref) => {
                             </span>
                         </motion.span>
                     </motion.h2>
-                    <motion.p variants={sectionTransitions.headerVariant}>To curate is to design and select items from among a large number of possibilities. Our mixology bars offer customized  experiences for your special event. It's more than just a specialty cocktail. Our bartenders engage with guests and craft cocktails to their preference. From liquid, garnish, to displays, we curate your perfect cocktail bar and guest experience.</motion.p>
-                    <motion.p variants={sectionTransitions.headerVariant}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.</motion.p>
+                    <motion.p variants={sectionTransitions.headerVariant}>To curate is to design and select items from among a large number of possibilities. Our mixology bars offer customized experiences for your special event. It's more than just a specialty cocktail. Our bartenders engage with guests and craft cocktails to their preference. From liquid, garnish, to displays, we curate your perfect cocktail bar and guest experience.</motion.p>
+                    <motion.p variants={sectionTransitions.headerVariant}>With our experience, we can tailor to virtually any need our clients have. From bar-mitvahs to holiday parties, we've done it all and we're passionate about the details. Our creative process includes finding out what food will be serviced and playing up flavors from there. Each event dictates what kind of garnishes and glassware use. We liken our company to a "chamleon". We aim to blend in each each event's look and style.</motion.p>
                 </motion.header>
                 <div className={styles.gallery}>
                     <div id={styles.center} className={styles.imgContainer}>
@@ -42,7 +42,7 @@ const Bars = React.forwardRef(({}, ref) => {
                     <div id={styles.top} className={styles.imgContainer}>
                         <img className={styles.galleryImg} src="/imgs/stock/services_page/bars-sq.jpg" alt="Cocktail Curations Book of Lists Event 2020"/>
                         <img className={styles.embellishment} src="/imgs/embellishments/pink-dots.png" alt="pink dots"/>
-                        <p className={styles.desktopText}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore ullam voluptatem error, adipisci debitis veniam nemo explicabo.</p>
+                        <p className={styles.desktopText}>We offer cocktail couture. Our designs are your personal preference and style!</p>
                     </div>
                 </div>
             </div>

@@ -24,6 +24,7 @@
             position: relative;
             order: 2;
             border-bottom: var(--border-bottom);
+            flex-basis: 50%;
             @media screen and (min-width: 990px){
                 width: 40%;
                 order: unset;
@@ -70,17 +71,12 @@
                 }
             }
         }
-        .img {
-            width: 100%;
-            position: relative;
+        img {
+            display: block;
+            flex-basis: 50%;
             overflow: hidden;
-            @media screen and (min-width: 990px){
-                width: 60%;
-                height: auto;
-            }
-            img {
-                width: 100%;
-            }
+            object-fit: cover;
+            width: 100%;
         }
     }
     .divider {

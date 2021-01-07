@@ -3,7 +3,6 @@ import { linkResolver } from './../prismic-configuration';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function parsePrismicSlice(document, styles){
-    console.log(document)
     let cssClass;
     return document.data.body.map((slice, idx) => {
         if(styles){

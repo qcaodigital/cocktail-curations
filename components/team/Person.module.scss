@@ -157,26 +157,29 @@
             @media screen and (min-width: 1200px){
                 display: block;
                 font-family: var(--serif-font);
-                font-style: italic;
                 font-weight: 500;
                 font-size: 2rem;
-                line-height: 2.5rem;
+                line-height: 2.2rem;
                 text-align: center;
                 margin: 3rem 4rem 0 4rem;
                 position: relative;
-                opacity: .5;
                 &::before,
                 &::after {
                     content: '"';
                     font-family: var(--serif-font);
-                    font-size: 8rem;
-                    margin: 1rem 0 0 -3.75rem;
+                    display: inline-block;
                     position: absolute;
                     opacity: .75;
-                    color: var(--highlight-color);
+                    color: var(--highlight-color-fade);
+                    top: 2rem;
+                    left: -1rem;
+                    transform: scale(400%);
                 }
                 &::after {
-                    margin: 2rem -3rem 0 .25rem;
+                    left: unset;
+                    right: -1rem;
+                    // display: none;
+                    // margin: 2rem -3rem 0 .25rem;
                 }
             }
         }

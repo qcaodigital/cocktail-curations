@@ -4,6 +4,7 @@ import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import Loadingscreen from './Loadingscreen';
 import HamburgerMenu from './HamburgerMenu';
+import PopUp from './PopUp';
 import styles from './Body.module.scss';
 import { AnimatePresence } from 'framer-motion';
 import navListData from '../../data/navList';
@@ -16,9 +17,10 @@ export default function Body({ children }){
     const viewport = useViewport();
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
-    const [loadComplete, setLoadComplete] = useState(false);
+    const [loadComplete, setLoadComplete] = useState(true);
     const [navHeight, setNavHeight] = useState(120);
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
+    const [isPopUpOpen, setIsPopUpOpen] = useState(false)
 
     useEffect(() => {
         window.scrollTo({ top: 0 })
@@ -39,7 +41,8 @@ export default function Body({ children }){
             className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}
             style={{ '--navHeight': `${navHeight}px` }}
         >
-            <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>
+            {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> */}
+            {isPopUpOpen && <PopUp setIsPopUpOpen={setIsPopUpOpen} />}
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 
@@ -59,7 +62,8 @@ export default function Body({ children }){
                         isHamburgerMenuOpen: isHamburgerMenuOpen,
                         navList: navList,
                         navHeight: navHeight,
-                        isNavAniComplete: isNavAniComplete
+                        isNavAniComplete: isNavAniComplete,
+                        setIsPopUpOpen: setIsPopUpOpen
                     },
                     NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight }}/>,
                 })}

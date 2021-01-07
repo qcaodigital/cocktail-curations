@@ -5,7 +5,7 @@ export default function useNavList(navListData, router){
 
     useEffect(() => {
         const updatedNav = navList.map(nav => {
-            if(nav.href === router.pathname){
+            if(nav.href === `/${router.pathname.split('/')[1]}`){
                 nav.active = true;
             } else {
                 nav.active = false;

@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 import constructRellax from './../helpers/constructRellax';
 import ArrowDivider from './../components/common/ArrowDivider';
 
-export default function Blog({ blogs, NAV_SPACER, state: { viewport } }){
+export default function Blog({ blogs, NAV_SPACER, state: { viewport, setIsPopUpOpen } }){
     const latestBlog = blogs[blogs.length - 1];
 
     const bannerRef = useRef()
@@ -32,7 +32,8 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport } }){
                     <header>
                         <h3>Cocktails, Recipes, <span style={{ display: 'inline-block'}}>& More</span></h3>
                         <p className={styles.subheader}>Let's talk about it.</p>
-                        <Link href='/blog'><a><p className={styles.CTA}>Our Most Popular Blogs</p></a></Link>
+                        {/* <Link href='/blog'><a><p className={styles.CTA}>Our Most Popular Blogs</p></a></Link> TEMP FUNCTION BELOW*/}
+                        <p onClick={() => setIsPopUpOpen(true)} className={styles.CTA}>Our Most Popular Blogs</p>
                     </header>    
                 </div>
                 <div ref={latestRef} className={styles.latest}>

@@ -30,7 +30,7 @@ export default function DuoInfo({ viewport }){
                         animate={infoInView ? 'animate' : 'initial'} 
                         variants={infoTransitions.contentContainer.text}
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nesciunt ex tempore minus laborum architecto accusantium aliquid illum explicabo incidunt autem voluptatem quia, mollitia porro, aspernatur ut ullam cumque ipsum quam! Libero nobis mollitia enim porro voluptates exercitationem repellendus eos nemo aliquam quas perferendis, quis distinctio, sequi necessitatibus voluptatum ducimus, quod modi.
+                        Thy Parra and Nicole Hassoun have a combined energy that fizzes like your favorite glass of Champagne. It’s a meeting of the spirits that began years ago, when Parra—a former chef, luxury event planner, and catering and events director—contracted Hassoun, a craft bartending expert, as a gin specialist and mixologist. Their careers kept them together (even working at the same DC distillery) so at some point they said, "We’ve been working together in every way possible, so it’s about time we followed our dreams." 
                     </motion.p>
                     <Link href='/contact'>
                         <a>
@@ -43,15 +43,13 @@ export default function DuoInfo({ viewport }){
                         </a>
                     </Link>
                 </div>
-                <div className={styles.img}>
-                    <motion.img
-                        ref={imgRef}
-                        animate={imgInView ? 'animate' : 'initial'}    
-                        variants={infoTransitions.contentContainer.img} 
-                        src={`/imgs/stock/team_page/thy_nicole_bookoflists.jpg`} 
-                        alt='Cocktail Curations Owner Thy Parra & Nicole Hassoun At Book of Lists 2020'
-                    />
-                </div>
+                <motion.img
+                    ref={imgRef}
+                    animate={imgInView ? 'animate' : 'initial'}    
+                    variants={infoTransitions.contentContainer.img} 
+                    src={`/imgs/stock/team_page/thy_nicole_bookoflists.jpg`} 
+                    alt='Cocktail Curations Owner Thy Parra & Nicole Hassoun At Book of Lists 2020'
+                />
             </div>
             <div className={styles.divider}>
                 <img src="/imgs/embellishments/divider.png" alt="line divider"/>

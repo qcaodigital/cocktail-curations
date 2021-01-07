@@ -415,13 +415,13 @@ export const infoTransitions = {
     contentContainer: {
         img: {
             animate: {
-                scale: 1,
+                opacity: 1,
                 transition: {
-                    duration: 2
+                    duration: 1
                 }
             },
             initial: {
-                scale: 1.15
+                opacity: .75
             }
         },
         text: {

@@ -6,7 +6,7 @@ import transitions from '../../page_transitions/common';
 import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
 import { personnelTransitions } from './../../page_transitions/team';
 
-export default function Person({ name, img, text, quote, reverse, bgColor }){
+export default function Person({ name, img, text, quote, reverse, bgColor, quoteColor }){
     const imgRef = useRef();
     const imgInView = useInViewFromTop(imgRef, { threshold: -.05 });
 
@@ -31,7 +31,7 @@ export default function Person({ name, img, text, quote, reverse, bgColor }){
                 {text.map(textsection => (
                     <p key={textsection}>{textsection}</p>
                 ))}
-                <blockquote>{quote}</blockquote>
+                <blockquote style={{ color: quoteColor }}>{quote}</blockquote>
             </div>
         </div>
     )

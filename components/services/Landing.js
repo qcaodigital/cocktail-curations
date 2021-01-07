@@ -36,23 +36,19 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
                     />
                 </div>
                 {viewport !== 'mobile' && NAV_SPACER}
-                <div
+                <motion.div
                     className={styles.textContainer}
                     style={{ minHeight: viewport !== 'mobile' ? `calc(100vh - ${navHeight}px` : 'unset' }} 
                 >
                     {viewport === 'mobile' && <motion.h2 variants={landingTransitions.fadeIn}>Learn about</motion.h2>}
                     <motion.h2 variants={landingTransitions.title.boxAndFlower}>
-                        <div className={styles.overflowContainer}>
-                            <motion.span
-                                variants={landingTransitions.fadeIn}
-                            >our services</motion.span>
-                        </div>
+                    <motion.span variants={landingTransitions.fadeIn}>our services</motion.span>
                     </motion.h2>
                     {viewport !== 'mobile' && <LandingInfo refs={refs} navHeight={navHeight} viewport={viewport}/>}
                     {viewport !== 'mobile' && <motion.div variants={landingTransitions.fadeIn} className={styles.divider}>
                         <img src="/imgs/embellishments/divider-white.png" alt=""/>
                     </motion.div>}
-                </div>
+                </motion.div>
                 <div className={styles.iconContainer}> {/* MOBILE ONLY */}
                     <FontAwesomeIcon size='lg' icon={['fas', 'glass-cheers']} style={{ width: '2rem'}} />
                 </div>

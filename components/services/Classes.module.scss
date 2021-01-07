@@ -120,7 +120,6 @@
                 }
                 @media screen and (min-width: 990px){
                     width: 65%;
-                    font-size: .95rem;
                 }
             }
             @media screen and (min-width: 750px) {
@@ -209,12 +208,13 @@
                 border-radius: 2%;
                 padding-left: 1rem;
                 font-family: var(--main-font);
-                font-size: 1.5rem;
+                font-size: 1.25rem;
                 line-height: 1.45rem;
-                font-weight: 200;
+                font-weight: 300;
                 color: var(--main-color);
                 overflow: hidden;
                 position: relative;
+                opacity: .9;
                 &:first-letter {
                     text-transform: uppercase;
                 }

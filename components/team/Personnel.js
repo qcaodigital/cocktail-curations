@@ -11,7 +11,8 @@ export default function Personnel(){
                     'In 2011, Nicole began crafting creative cocktails at a small bar called Gin Joint. She uniquely transformed her skills in engineering into pairing flavored tonics with an endless supply of gins to showcase different characteristics. In 2013, Nicole started Sinchona LLC, a bespoke tonic water company, where she designed and created delicious homemade tonic syrups branded as Chronic Tonic. In that same year, she taught classes all around the DC Metropolitan area on cocktail-making, tonic-making, and the history of gin. In the following year, Nicole was awarded Best Bartender in DC by the Washington Post Express. She then made the move from creating cocktails to distilling spirits and worked her way up to become Master Distiller of Gin and Vodka at Jos. A. Magnus & Co. Distillery in Washington DC. In 2018, she won Best Navy Strength Gin in the World by Gin Magazine, as well as multiple other awards for her line of gins', 
                     'Currently, Nicole owns and operates two companies in the food & beverage industry: Cocktail Curations produces beautifully crafted cocktails and Botanical Waters for every type of event, and Sinchona LLC specializes in distillery and beverage industry advising.'
                 ]}
-                quote='Some quote by Nicole Hassoun with roughly ten words no- maybe actually fifteen words.'
+                quote='I always say that I create out of hunger. We approach beverages as if we are cooking: finding fresh ingredients and outstanding spirits to create something delicious.'
+                quoteColor='var(--secondary-color)'
             />
             <div className={styles.spacer}>
                 <div className={styles.bg}/>
@@ -26,6 +27,7 @@ export default function Personnel(){
                     'Thy has received accolades for her work in the event industry including 2012 Top 30 Under 40 Rising Young Event Professionals by Special Events Magazine, as well as, Washington DC’s 2018 Top 12 Dynamic Women by national publication Modern Luxury.'
                 ]}
                 quote='Some quote by Thy Parra with roughly ten words no- maybe actually fifteen words.'
+                quoteColor='var(--main-color)'
             />
         </section>
     )

@@ -17,7 +17,7 @@ export default function Landing({ isNavAniComplete, NAV_SPACER, navHeight, viewp
     return (
         <motion.section 
             style={{ '--navHeight': `${navHeight}px`}}
-            animate={isNavAniComplete ? 'animate' : 'initial'} 
+            animate='animate'
             initial='initial'
             className={styles.Landing}
         >
