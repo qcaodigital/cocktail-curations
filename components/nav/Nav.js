@@ -45,6 +45,7 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
 
     //DETERMINE HEIGHT OF FIXED NAV FOR SPACER USAGE
     useEffect(() => {
+        setMinimizeNav(false)
         setTimeout(() => {
             navHeightCB(navRef.current.offsetHeight)
         }, 350)

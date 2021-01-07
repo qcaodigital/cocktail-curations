@@ -44,7 +44,7 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
                     <motion.h2 variants={landingTransitions.title.boxAndFlower}>
                         <div className={styles.overflowContainer}>
                             <motion.span
-                                variants={landingTransitions.title.text}
+                                variants={landingTransitions.fadeIn}
                             >our services</motion.span>
                         </div>
                     </motion.h2>
@@ -54,7 +54,7 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
                     </motion.div>}
                 </div>
                 <div className={styles.iconContainer}> {/* MOBILE ONLY */}
-                    <FontAwesomeIcon size='lg' icon={['fas', 'glass-cheers']} style={{ width: '3rem'}} />
+                    <FontAwesomeIcon size='lg' icon={['fas', 'glass-cheers']} style={{ width: '2rem'}} />
                 </div>
             </div>
             {viewport === 'mobile' && 
