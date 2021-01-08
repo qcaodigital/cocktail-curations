@@ -76,7 +76,7 @@ export default function Home({ state: { isNavAniComplete, viewport }}){
                                         target='_blank'
                                         rel='noopener referrer'
                                     >
-                                        <span><FontAwesomeIcon icon={['fab', 'shopify']}/> Our Products</span>
+                                        <span>Our Products</span>
                                     </a>
                                 </motion.button>
                             </motion.div>
