@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
-import { landingTransitions } from './../../page_transitions/team';
+import { landingTransitions } from './../../page_transitions/about';
 import constructRellax from './../../helpers/constructRellax';
 import { useRef, useEffect, useState } from 'react';
 import styles from './Landing.module.scss';
@@ -8,7 +8,7 @@ import smoothscroll from 'smoothscroll';
 import Carousel from './Carousel';
 
 //FOR NOW, ALL IMGS MUST BE EXACTLY IDENTICAL IN SIZE TO THE PIXEL
-const imgArr = [ 'IMG_1734.jpg', 'thy_nicole_bookoflists.jpg', 'ThyNicole_Landscape.jpg'].map(filename => `/imgs/stock/team_page/landing_carousel/${filename}`);
+const imgArr = [ 'IMG_1734.jpg', 'thy_nicole_bookoflists.jpg', 'ThyNicole_Landscape.jpg'].map(filename => `/imgs/stock/about_page/landing_carousel/${filename}`);
 
 export default function Landing({ isNavAniComplete, NAV_SPACER, navHeight, viewport, storyRef }){
     const headerRef = useRef();

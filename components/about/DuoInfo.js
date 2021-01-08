@@ -1,5 +1,5 @@
 import ArrowDivider from './../common/ArrowDivider';
-import { infoTransitions } from './../../page_transitions/team';
+import { infoTransitions } from './../../page_transitions/about';
 import { motion } from 'framer-motion';
 import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
 import styles from './DuoInfo.module.scss';
@@ -47,7 +47,7 @@ export default function DuoInfo({ viewport }){
                     ref={imgRef}
                     animate={imgInView ? 'animate' : 'initial'}    
                     variants={infoTransitions.contentContainer.img} 
-                    src={`/imgs/stock/team_page/thy_nicole_bookoflists.jpg`} 
+                    src={`/imgs/stock/about_page/thy_nicole_bookoflists.jpg`} 
                     alt='Cocktail Curations Owner Thy Parra & Nicole Hassoun At Book of Lists 2020'
                 />
             </div>

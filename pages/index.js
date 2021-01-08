@@ -76,7 +76,7 @@ export default function Home({ state: { isNavAniComplete, viewport }}){
                                         target='_blank'
                                         rel='noopener referrer'
                                     >
-                                        <span>Our Products</span>
+                                        <span>Our Shop</span>
                                     </a>
                                 </motion.button>
                             </motion.div>

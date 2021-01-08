@@ -171,13 +171,18 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
                             style={{
                             '--font-color': whiteList.includes(router.pathname) && !minimizeNav
                                 ? 'white'
+                                : 'var(--main-color)',
+                            '--icon-color': whiteList.includes(router.pathname) && !minimizeNav
+                                ? 'white'
                                 : 'var(--main-color)'
                             }}
                         >
                             {!item.external ? (
                                 <Link href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>
                             ) : (
-                                <a className={item.active ? styles.active : null} href={item.href} target='_blank'>{item.label}</a>
+                                <a className={item.active ? styles.active : null} href={item.href} target='_blank'>
+                                    <FontAwesomeIcon icon={['fab', 'shopify']}/>{item.label}
+                                </a>
                             )}
                         </li>
                     ))}

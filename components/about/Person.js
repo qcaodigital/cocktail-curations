@@ -4,7 +4,7 @@ import FadeInViewContainer from '../HOC/FadeInViewContainer';
 import { motion } from 'framer-motion';
 import transitions from '../../page_transitions/common';
 import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
-import { personnelTransitions } from './../../page_transitions/team';
+import { personnelTransitions } from './../../page_transitions/about';
 
 export default function Person({ name, img, text, quote, reverse, bgColor, quoteColor }){
     const imgRef = useRef();

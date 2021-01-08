@@ -3,7 +3,7 @@ import styles from './Sustainability.module.scss';
 import { motion } from 'framer-motion';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
 import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
-import { sustainabilityTransitions } from './../../page_transitions/team';
+import { sustainabilityTransitions } from './../../page_transitions/about';
 
 export default function Sustainability({ viewport }){
     return(
@@ -12,7 +12,7 @@ export default function Sustainability({ viewport }){
                 <SectionInfo 
                     viewport={viewport} 
                     img={{
-                        src: '/imgs/stock/team_page/Gin_Reception Cocktail_Curations-sq.jpg',
+                        src: '/imgs/stock/about_page/Gin_Reception Cocktail_Curations-sq.jpg',
                         alt: 'Cocktail Curations Gin Reception'
                     }}
                     header='We believe in applied sustainability'
@@ -31,7 +31,7 @@ export default function Sustainability({ viewport }){
                 <SectionInfo 
                     viewport={viewport} 
                     img={{
-                        src: '/imgs/stock/team_page/sustainability-1-sq.jpg',
+                        src: '/imgs/stock/about_page/sustainability-1-sq.jpg',
                         alt: 'Cocktail Curations Garnish'
                     }}
                     header='taking care of the earth should be ingrained in everything a company does.'

@@ -4,7 +4,7 @@ import FadeInViewContainer from '../HOC/FadeInViewContainer';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
-import { storyTransitions } from '../../page_transitions/team';
+import { storyTransitions } from '../../page_transitions/about';
 
 const Story = React.forwardRef(({ viewport }, ref) => {
     const textRef = useRef();

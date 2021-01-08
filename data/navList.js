@@ -11,8 +11,8 @@ export default navList = [
         active: false
     },
     {
-        label: 'Our Team',
-        href: '/team',
+        label: 'About Us',
+        href: '/about',
         active: false
     },
     {
@@ -31,7 +31,7 @@ export default navList = [
         active: false
     },
     {
-        label: 'Shopify',
+        label: 'Shop',
         href: 'http://cocktailcurations-shop.com',
         active: false,
         external: true

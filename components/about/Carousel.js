@@ -2,7 +2,7 @@ import styles from './Carousel.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { landingTransitions } from './../../page_transitions/team';
+import { landingTransitions } from './../../page_transitions/about';
 import useGetSwipeDirection from './../../custom_hooks/useGetSwipeDirection';
 
 export default function Carousel({ imgs, viewport }){

@@ -12,9 +12,9 @@ export default function LandingInfo({refs, navHeight, viewport}){
             variants={landingTransitions.info}
         >
             <motion.div variants={landingTransitions.info.children} className={styles.smallHr}/>
-            <motion.h3 variants={landingTransitions.info.children}>We offer a variety of services to share our love and passion for mixology.</motion.h3>
-            <motion.h4 variants={landingTransitions.info.children}>From specialized private event bars to in-person or virtual cocktail classes, we've got you covered.</motion.h4>
-            <motion.p variants={landingTransitions.info.children}><em>We provide:</em></motion.p>
+            <motion.h3 variants={landingTransitions.info.children}>We offer a variety of services to share our love and passion for mixology. </motion.h3>
+            <motion.h4 variants={landingTransitions.info.children}>Our expertise includes technical education and training in: spirits, mixology, and recipe creation, developing cocktail menus, designing thoughtfully garnished cocktail, and curating mind-blowing cocktails with or without alcohol.</motion.h4>
+            <motion.p variants={landingTransitions.info.children}><em>Check out our:</em></motion.p>
             <motion.ul variants={landingTransitions.info.children}>
                 <li>
                     Experience-based, <strong>speciality bars</strong>. 

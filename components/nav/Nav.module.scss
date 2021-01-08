@@ -102,6 +102,14 @@
                 &.active {
                     pointer-events: none;
                 }
+                display: flex;
+                align-items: center;
+                svg {
+                    display: block;
+                    width: .75rem;
+                    margin-right: .35rem;
+                    color: var(--icon-color);
+                }
             }
             &:last-of-type {
                 a::before {

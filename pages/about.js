@@ -1,15 +1,15 @@
 import Head from 'next/head';
-import styles from './team.module.scss';
-import Person from '../components/team/Person';
-import Story from '../components/team/Story';
-import Personnel from '../components/team/Personnel';
-import Sustainability from '../components/team/Sustainability';
-import Landing from './../components/team/Landing';
-import DuoInfo from './../components/team/DuoInfo';
+import styles from './about.module.scss';
+import Person from '../components/about/Person';
+import Story from '../components/about/Story';
+import Personnel from '../components/about/Personnel';
+import Sustainability from '../components/about/Sustainability';
+import Landing from './../components/about/Landing';
+import DuoInfo from './../components/about/DuoInfo';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
-export default function Team({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER }){
+export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER }){
     const pageVariant = {
         load_initial: { opacity: 0 },
         load_exit: { opacity: 0 },
@@ -26,10 +26,10 @@ export default function Team({ state: { viewport, isNavAniComplete, navHeight },
     return (
         <>
         <Head>
-            <title>Our Team | Cocktail Curations</title>
+            <title>Our About | Cocktail Curations</title>
         </Head>
         <motion.main 
-            id={styles.Team}
+            id={styles.About}
             initial='load_initial'
             animate='load_animate' 
             exit='load_exit'
