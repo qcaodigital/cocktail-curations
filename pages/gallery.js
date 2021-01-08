@@ -5,12 +5,11 @@ import Head from 'next/head';
 import styles from './gallery.module.scss';
 import Modal from '../components/gallery/Modal';
 import { galleryTransitions } from './../page_transitions/gallery';
+import GallerySort from './../components/gallery/GallerySort';
 
-export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport } }){
-    if(!prismicResults) return null;
-    const results = queryPrismicResults('type', 'gallery_page', prismicResults)
-    const imgGallery = results[0].data;
-    const [imgGalleryArr, setImgGalleryArr] = useState(Object.keys(imgGallery).map(key => imgGallery[key]));
+export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
+    const allImgs = imgs.gallery_item;
+    const [imgList, setImgList] = useState(allImgs);
     const [galleryColumns, setGalleryColumns] = useState([]);
 
     //Initialize columns
@@ -27,28 +26,30 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
         maxWidth: `${1/columns}`
     }
 
-    //sort by portrait and landscape
+    //Search by tags if 'sortBy' is set then resort by portrait and landscape
+    const [sortBy, setSortBy] = useState('all');
     useEffect(() => {
-        //Prismic includes empty media templates so we need to remove them from the array
-        const galleryCopy = imgGalleryArr.filter(img => img.dimensions)
+        //Prismic includes empty media templates so we need to remove them from the array if they exist
+        const galleryCopy = allImgs.filter(item => item.img.dimensions)
+        const sortedByTags = galleryCopy.filter(item => sortBy !== 'all' ? item.tags.includes(sortBy) : true);
         const portraits = [];
         const landscapes = [];
-        galleryCopy.forEach(img => {
-            if(img.dimensions.height > img.dimensions.width){
-                portraits.push(img)
+        sortedByTags.forEach(item => {
+            if(item.img.dimensions.height > item.img.dimensions.width){
+                portraits.push(item)
             } else {
-                landscapes.push(img)
+                landscapes.push(item)
             }
         })
-        setImgGalleryArr([...portraits, ...landscapes])
+        setImgList([...portraits, ...landscapes])
         window.scrollTo({ top: 0 })
-    }, [viewport])
-
+    }, [viewport, sortBy])
 
     //Assign each img to a column, distributed evenly and then shuffled
     useEffect(() => {
+        //distribute imgs
         let counter = 0;
-        imgGalleryArr.forEach(img => {
+        imgList.forEach(img => {
             columnsArr[counter].push(img);
             counter++;
             if(counter >= columns){
@@ -56,6 +57,7 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
             }
         })
 
+        //shuffle arrays
         columnsArr.forEach((col, idx) => {
             for(let i = 0; i < col.length; i++){
                 let tempVal = col[i];
@@ -66,14 +68,13 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
         })
 
         setGalleryColumns(columnsArr);
-
-    }, [imgGalleryArr])
+    }, [imgList])
 
     //Modal Image Selector
     const [modalImg, setModalImg] = useState();
-    function handleModalImgChange(img){
-        for(let i = 0; i < imgGalleryArr.length; i++){
-            if(img.url === imgGalleryArr[i].url){
+    function handleModalImgChange(item){
+        for(let i = 0; i < imgList.length; i++){
+            if(item.img.url === imgList[i].img.url){
                 setModalImg(i);
                 break;
             }
@@ -101,9 +102,13 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
             {NAV_SPACER}
             <header>
                 <h1>A look into what we do</h1>
-                <h2>Our events, bars, classes, cocktails, and more.</h2>
+                <h2>Our events, bars, classes, cocktails, <span>and more</span>.</h2>
             </header>
-            <p className={styles.banner}>Our Gallery</p>
+            <GallerySort 
+                tags={['all', 'cocktails', 'bars', 'events', 'classes']} 
+                setSortBy={setSortBy}
+                sortBy={sortBy}
+            />
             <motion.div 
                 animate='animate' 
                 initial='initial' 
@@ -116,13 +121,13 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
                         className={styles.column}
                         variants={galleryTransitions.imgStagger}
                     >
-                        {column.map((img, idx) => (
+                        {column.map((item, idx) => (
                                 <motion.div
                                     key={idx} 
                                     className={styles.imgContainer} 
-                                    onClick={() => handleModalImgChange(img)}
+                                    onClick={() => handleModalImgChange(item)}
                                 >
-                                    <motion.img src={img.url} alt={img.alt} variants={galleryTransitions.imgs}/>
+                                    <motion.img src={item.img.url} alt={item.img.alt} variants={galleryTransitions.imgs}/>
                                 </motion.div>
                             )
                         )} 
@@ -133,9 +138,9 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
                 {modalImg >= 0 && 
                     <Modal
                         key='modal' 
-                        img={modalImg} 
+                        modalImgIdx={modalImg} 
+                        imgList={imgList}
                         setModalImg={setModalImg} 
-                        imgs={imgGalleryArr}
                         viewport={viewport}
                     />
                 }
@@ -147,9 +152,10 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
 
 export async function getStaticProps(){
     const prismicResults = await Client().query('')
+    const results = queryPrismicResults('uid', 'gallery', prismicResults)
     return {
         props: {
-            prismicResults: prismicResults || null
+            imgs: results[0].data
         }
     }
 }

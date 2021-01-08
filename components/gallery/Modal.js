@@ -5,13 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { modalTransitions } from '../../page_transitions/gallery';
 import useGetSwipeDirection from './../../custom_hooks/useGetSwipeDirection';
 
-export default function Modal({ img, setModalImg, imgs, viewport }){
-    if (!imgs[img]) return null;
-    const [orientation, setOrientation] = useState(imgs[img].dimensions.height > imgs[img].dimensions.width ? 'portrait' : 'landscape');
+export default function Modal({ modalImgIdx, imgList, setModalImg, viewport }){
+    if (!imgList[modalImgIdx]) return null;
+    const [orientation, setOrientation] = useState(imgList[modalImgIdx].img.dimensions.height > imgList[modalImgIdx].img.dimensions.width ? 'portrait' : 'landscape');
 
     useEffect(() => {
-        setOrientation(imgs[img].dimensions.height > imgs[img].dimensions.width ? 'portrait' : 'landscape')
-    }, [img])
+        setOrientation(imgList[modalImgIdx].img.dimensions.height > imgList[modalImgIdx].img.dimensions.width ? 'portrait' : 'landscape')
+    }, [modalImgIdx])
 
     useEffect(() => {
         const handleKeypress = (evt) => (evt.keyCode === '27' || evt.key === 'Escape') ? setModalImg(null) : null;
@@ -21,9 +21,8 @@ export default function Modal({ img, setModalImg, imgs, viewport }){
         }
     }, [])
 
-    const handleNextImg = () => imgs.length - 1 > img ? setModalImg(curr => curr + 1) : setModalImg(0);
-    const handlePrevImg = () => img > 0 ? setModalImg(curr => curr - 1) : setModalImg(imgs.length - 1);
-
+    const handleNextImg = () => imgList.length - 1 > modalImgIdx ? setModalImg(curr => curr + 1) : setModalImg(0);
+    const handlePrevImg = () => modalImgIdx > 0 ? setModalImg(curr => curr - 1) : setModalImg(imgList.length - 1);
     const [downHandler, upHandler, swipeDirection] = useGetSwipeDirection();
     useEffect(() => {
         if(swipeDirection.dir === 'left'){
@@ -47,9 +46,9 @@ export default function Modal({ img, setModalImg, imgs, viewport }){
                         initial='initial'
                         animate='animate'
                         variants={modalTransitions.img}
-                        key={img} 
-                        src={imgs[img].url} 
-                        alt={imgs[img].alt}
+                        key={imgList[modalImgIdx].img.url} 
+                        src={imgList[modalImgIdx].img.url} 
+                        alt={imgList[modalImgIdx].img.alt}
                         onMouseDown={downHandler}
                         onTouchStart={downHandler}
                         onMouseUp={upHandler}
@@ -60,11 +59,11 @@ export default function Modal({ img, setModalImg, imgs, viewport }){
             {/* absolute elements below */}
             <div id={styles.LEFT} className={styles.chevronContainer} onClick={handlePrevImg} >
                 <div className={styles.chevron}/>
-                <p>{`${img + 1} / ${imgs.length}`}</p>
+                <p>{`${modalImgIdx + 1} / ${imgList.length}`}</p>
             </div>
             <div id={styles.RIGHT} className={styles.chevronContainer} onClick={handleNextImg} >
                 <div className={styles.chevron}/>
-                <p>{`${img + 1} / ${imgs.length}`}</p>
+                <p>{`${modalImgIdx + 1} / ${imgList.length}`}</p>
             </div>
             <div className={styles.closeIcon} onClick={() => setModalImg(null)}>
                 <p>+</p>
