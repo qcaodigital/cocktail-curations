@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 import constructRellax from './../helpers/constructRellax';
 import ArrowDivider from './../components/common/ArrowDivider';
 
-export default function Blog({ blogs, NAV_SPACER, state: { viewport, setIsPopUpOpen } }){
+export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } }){
     const latestBlog = blogs[blogs.length - 1];
 
     const bannerRef = useRef()
@@ -33,7 +33,7 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport, setIsPopUpO
                         <h3>Cocktails, Recipes, <span style={{ display: 'inline-block'}}>& More</span></h3>
                         <p className={styles.subheader}>Let's talk about it.</p>
                         {/* <Link href='/blog'><a><p className={styles.CTA}>Our Most Popular Blogs</p></a></Link> TEMP FUNCTION BELOW*/}
-                        <p onClick={() => setIsPopUpOpen(true)} className={styles.CTA}>Our Most Popular Blogs</p>
+                        <p onClick={() => setPopup({ isOpen: true, content: 'error' })} className={styles.CTA}>Our Most Popular Blogs</p>
                     </header>    
                 </div>
                 <div ref={latestRef} className={styles.latest}>
@@ -67,7 +67,7 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport, setIsPopUpO
                     </div>
                 </div>
             </section>
-            <BlogList blogs={blogs}/>
+            <BlogList blogs={blogs} setPopup={setPopup}/>
         </motion.section>
         </>
     )

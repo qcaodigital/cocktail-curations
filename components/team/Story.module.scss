@@ -39,8 +39,8 @@
             font-size: clamp(1rem, 4.5vw, 1.45rem);
             font-weight: 400;
             margin: 0 auto;
-            width: clamp(100px, 75%, 500px);
             position: relative;
+            opacity: .75;
         }
         .divider {
             display: block;

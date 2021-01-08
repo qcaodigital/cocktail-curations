@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { landingTransitions, headerTransitions } from './../page_transitions/home';
 import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Home({ state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
@@ -75,7 +76,7 @@ export default function Home({ state: { isNavAniComplete, viewport }}){
                                         target='_blank'
                                         rel='noopener referrer'
                                     >
-                                        Our Products
+                                        <span><FontAwesomeIcon icon={['fab', 'shopify']}/> Our Products</span>
                                     </a>
                                 </motion.button>
                             </motion.div>

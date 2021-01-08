@@ -1,5 +1,5 @@
 import { Client, queryPrismicResults } from './../prismic-configuration';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from './gallery.module.scss';
@@ -129,14 +129,17 @@ export default function Gallery({ prismicResults, NAV_SPACER, state: { viewport 
                     </motion.div>
                 ))}
             </motion.div>
-            {modalImg >= 0 && 
-                <Modal 
-                    img={modalImg} 
-                    setModalImg={setModalImg} 
-                    imgs={imgGalleryArr}
-                    viewport={viewport}
-                />
-            }
+            <AnimatePresence>
+                {modalImg >= 0 && 
+                    <Modal
+                        key='modal' 
+                        img={modalImg} 
+                        setModalImg={setModalImg} 
+                        imgs={imgGalleryArr}
+                        viewport={viewport}
+                    />
+                }
+            </AnimatePresence>
         </motion.section>
         </>
     )

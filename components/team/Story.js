@@ -23,7 +23,7 @@ const Story = React.forwardRef(({ viewport }, ref) => {
                     <h2>Our Story</h2>
                 </FadeInViewContainer>
                 <FadeInViewContainer>
-                    <h3>"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit."</h3>
+                    <h3>"A meeting of the spirits"</h3>
                 </FadeInViewContainer>
                 <div className={styles.divider}/>
             </header>

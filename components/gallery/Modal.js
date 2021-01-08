@@ -34,7 +34,11 @@ export default function Modal({ img, setModalImg, imgs, viewport }){
     }, [swipeDirection])
 
     return (
-        <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} id={styles.Modal}>
+        <motion.div id={styles.Modal}
+            animate={{ opacity: 1 }} 
+            initial={{ opacity: 0 }} 
+            exit={{ opacity: 0 }} 
+        >
             <div className={`${styles.imgContainer} ${styles[orientation]}`}>
                 <AnimatePresence>
                     <motion.img

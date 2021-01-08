@@ -20,7 +20,7 @@ export default function Body({ children }){
     const [loadComplete, setLoadComplete] = useState(true);
     const [navHeight, setNavHeight] = useState(120);
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
-    const [isPopUpOpen, setIsPopUpOpen] = useState(false)
+    const [popup, setPopup] = useState({ isOpen: false, content: {} })
 
     useEffect(() => {
         window.scrollTo({ top: 0 })
@@ -42,7 +42,9 @@ export default function Body({ children }){
             style={{ '--navHeight': `${navHeight}px` }}
         >
             {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> */}
-            {isPopUpOpen && <PopUp setIsPopUpOpen={setIsPopUpOpen} />}
+            <AnimatePresence>
+                {popup.isOpen && <PopUp key='popup' setPopup={setPopup} popup={popup}/>}
+            </AnimatePresence>
             <Nav
                 render={viewport !== null && loadComplete} 
                 navList={navList} 
@@ -63,7 +65,7 @@ export default function Body({ children }){
                         navList: navList,
                         navHeight: navHeight,
                         isNavAniComplete: isNavAniComplete,
-                        setIsPopUpOpen: setIsPopUpOpen
+                        setPopup: setPopup
                     },
                     NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight }}/>,
                 })}

@@ -9,7 +9,7 @@
     // -------- SWITCH TO GRID LAYOUT AT TABLET SIZING ----------- //
     @media screen and (min-width: 750px){
         flex-direction: row;
-        max-width: 1100px;
+        max-width: 1250px;
         display: grid;
         grid-template-columns: 2fr 3fr;
         grid-template-rows: minmax(auto, 75px) auto;
@@ -157,12 +157,14 @@
             @media screen and (min-width: 1200px){
                 display: block;
                 font-family: var(--serif-font);
-                font-weight: 500;
-                font-size: 2rem;
+                font-weight: 200;
+                font-size: 1.9rem;
                 line-height: 2.2rem;
                 text-align: center;
                 margin: 3rem 4rem 0 4rem;
                 position: relative;
+                opacity: .85;
+                color: var(--main-color);
                 &::before,
                 &::after {
                     content: '"';
@@ -170,14 +172,15 @@
                     display: inline-block;
                     position: absolute;
                     opacity: .75;
-                    color: var(--highlight-color-fade);
+                    color: var(--highlight-color);
                     top: 2rem;
-                    left: -1rem;
+                    left: -2rem;
+                    font-weight: 500;
                     transform: scale(400%);
                 }
                 &::after {
                     left: unset;
-                    right: -1rem;
+                    right: -2rem;
                     // display: none;
                     // margin: 2rem -3rem 0 .25rem;
                 }

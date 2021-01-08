@@ -8,7 +8,7 @@ import useGetSwipeDirection from './../../custom_hooks/useGetSwipeDirection';
 export default function Carousel({ imgs, viewport }){
     const { mobile: mobileTransitions, desktop: desktopTransitions } = landingTransitions.carousel;
 
-    const [currImg, setCurrImg] = useState({ idx: 0 })
+    const [currImg, setCurrImg] = useState({ idx: 1 })
     const [variants, setVariants] = useState(viewport === 'mobile' ? mobileTransitions.inc : desktopTransitions.inc);
     function changeImg(operator){
         if(!['inc', 'dec'].includes(operator)){

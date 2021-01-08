@@ -1,57 +1,115 @@
 #PopUp {
     background-color: rgba(0,0,0,.5);
     position: absolute;
+    z-index: 100000;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .window {
-        --popupSize: 80vw;
-        width: var(--popupSize);
-        height: var(--popupSize);
-        background-color: #eaeddd;
-        position: relative;
-        padding: 1.5rem;
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: block;
-            width: calc(var(--popupSize) - 1rem);
-            height: calc(var(--popupSize) - 1rem);
-            border: 1px solid black;
+    --popupSize: 90vw;
+    --maxPopupSize: 400px;
+    --borderOffset: 1.25rem;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        > * {
+            outline: 1px solid var(--main-color-fade);
         }
-        .closeIcon {
-            cursor: pointer;
-            position: absolute;
-            top: 1.5rem;
-            right: 1rem;
-            padding: .25rem;
-            transform: rotate(-45deg);
-            transition: 350ms ease;
-            &:hover {
-                transform: rotate(45deg);
+        .popupImg {
+            display: none;
+            @media screen and (min-width: 750px){
+                display: block;
             }
-            div {
-                height: 2px;
-                width: 1.5rem;
-                background-color: var(--main-color);
-                &:first-of-type {
-                    position: relative;
-                    top: 1px;
-                    left: 1px;
+            img {
+                width: var(--popupSize);
+                height: var(--popupSize);
+                max-width: var(--maxPopupSize);
+                max-height: var(--maxPopupSize);
+                object-fit: cover;
+            }
+        }
+        .window {
+            width: var(--popupSize);
+            height: var(--popupSize);
+            max-width: var(--maxPopupSize);
+            max-height: var(--maxPopupSize);
+            background-color: #f0f3e3;
+            position: relative;
+            padding: calc(var(--borderOffset) + .5rem);
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: block;
+                width: calc(100% - var(--borderOffset));
+                height: calc(100% - var(--borderOffset));
+                border: 1px solid var(--main-color-fade-less);
+                @media screen and (min-width: 750px){
+                    border: none;
                 }
-                &:last-of-type {
-                    position: relative;
-                    left: 1px;
-                    top: -1px;
-                    transform: rotate(90deg);
+            }
+            .closeIcon {
+                cursor: pointer;
+                position: absolute;
+                top: 1.5rem;
+                right: 1rem;
+                padding: .25rem;
+                transform: rotate(-45deg);
+                transition: 350ms ease;
+                &:hover {
+                    transform: rotate(45deg);
+                }
+                div {
+                    height: 2px;
+                    width: 1.5rem;
+                    background-color: var(--main-color);
+                    &:first-of-type {
+                        position: relative;
+                        top: 1px;
+                        left: 1px;
+                    }
+                    &:last-of-type {
+                        position: relative;
+                        left: 1px;
+                        top: -1px;
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+            .logo {
+                position: absolute;
+                width: clamp(50px, 30vw, 125px);
+                top: .75rem;
+                left: 1.25rem;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                height: 100%;
+                gap: 1rem;
+                .heading {
+                    font-family: var(--serif-font);
+                    font-size: 1.5rem;
+                }
+                .text {
+                    font-family: var(--main-font);
+                    font-size: .9rem;
+                    line-height: 1.25rem;
+                    letter-spacing: .5px;
+                }
+                button {
+                    margin-top: .25rem;
                 }
             }
         }

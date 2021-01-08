@@ -12,7 +12,6 @@ export default function Personnel(){
                     'Currently, Nicole owns and operates two companies in the food & beverage industry: Cocktail Curations produces beautifully crafted cocktails and Botanical Waters for every type of event, and Sinchona LLC specializes in distillery and beverage industry advising.'
                 ]}
                 quote='I always say that I create out of hunger. We approach beverages as if we are cooking: finding fresh ingredients and outstanding spirits to create something delicious.'
-                quoteColor='var(--secondary-color)'
             />
             <div className={styles.spacer}>
                 <div className={styles.bg}/>
@@ -26,8 +25,7 @@ export default function Personnel(){
                     'A professionally trained chef, Thy’s career is a 20+ year repertoire of coveted Washington DC hospitality jobs. After attending, the University of Maryland and L’academie de Cuisine, Thy began her career working as a chef for renowned restaurateurs Jeff Buben of Bistro Bis and Cathal Armstrong of Restaurant Eve. She expanded her hospitality expertise as Senior Account Executive for a boutique catering company, as Director of Social Catering at the 5-star Mandarin Oriental Hotel, as well as luxury Event Planner at EVOKE Design and Creative. Thy then led the Events and Marketing department for the award-winning Jos. A. Magnus & Co. Distillery. With her multitude of experience in the hospitality, food and beverage industry, it was inevitable that she integrates her passions to co-found Cocktail Curations with distiller Nicole Hassoun.', 
                     'Thy has received accolades for her work in the event industry including 2012 Top 30 Under 40 Rising Young Event Professionals by Special Events Magazine, as well as, Washington DC’s 2018 Top 12 Dynamic Women by national publication Modern Luxury.'
                 ]}
-                quote='Some quote by Thy Parra with roughly ten words no- maybe actually fifteen words.'
-                quoteColor='var(--main-color)'
+                quote='My friends call me ‘fancy’ when I make them a cocktail at home. It’s truly not anything complicated, but I like to take the extra step.'
             />
         </section>
     )

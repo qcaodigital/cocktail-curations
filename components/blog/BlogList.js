@@ -3,7 +3,7 @@ import convertPrismicDate from './../../helpers/convertDate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
-export default function BlogList({ blogs }){
+export default function BlogList({ blogs, setPopup }){
     return (
         <section id={styles.BlogList}>
             <h3>Articles</h3>
@@ -26,7 +26,12 @@ export default function BlogList({ blogs }){
                             <div className={styles.tags}>
                                 <FontAwesomeIcon icon={['fas', 'tag']}/>
                                 {blog.tags.map(tag => (
-                                    <span key={tag}>{tag}</span>
+                                    <span 
+                                        key={tag}
+                                        onClick={() => setPopup({ isOpen: true, content: 'error'})} 
+                                    >
+                                        {tag}
+                                    </span>
                                 ))}
                             </div>
                     </div>

@@ -1,5 +1,6 @@
 .carousel {
     --side-padding: 2rem;
+    --max-img-size: 775px;
     padding: 0rem var(--side-padding);
     height: 60vw;
     max-height: 365px;
@@ -7,6 +8,7 @@
     width: 100%;
     margin: 0 auto;
     @media screen and (min-width: 990px){
+        position: unset;
         grid-row: 1;
         //4rem for padding Y
         height: calc(100vh - var(--navHeight) - 4rem);
@@ -24,8 +26,9 @@
         align-items: center;
         gap: .25rem;
         @media screen and (min-width: 990px){
+            z-index: 100;
             top: 50%;
-            left: 2.5%;
+            left: calc(100% - clamp(1rem, 50vw, var(--max-img-size)) - 2rem);
             bottom: unset;
             transform: translate(-50%, -50%) rotate(90deg);
         }
@@ -58,7 +61,8 @@
             position: absolute;
             top: 50%;
             @media screen and (min-width: 990px){
-                max-width: unset;
+                width: 50vw;
+                max-width: var(--max-img-size);
             }
         }
         #shown {
@@ -71,7 +75,7 @@
                 left: unset;
                 right: 0;
                 transform: translate(-0, -50%);
-                width: 100%;
+                // width: 100%;
                 border-right: none;
                 transform-origin: right;
             }
@@ -87,7 +91,7 @@
                 transform-origin: right;
                 top: 50%;
                 transform: translate(0, -50%);
-                width: 100%;
+                // width: 100%;
             }
         }
         #left {
