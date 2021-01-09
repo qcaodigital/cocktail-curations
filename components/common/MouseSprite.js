@@ -1,9 +1,10 @@
 import styles from './MouseSprite.module.scss';
+import { motion } from 'framer-motion';
 
 export default function MouseSprite({ clickCB }){
     return (
-        <div onClick={clickCB} className={styles.mouseSprite}>
+        <motion.div onClick={clickCB} className={styles.mouseSprite} whileTap={{ scale: .9 }}>
             <div className={styles.mouseAnimation}/>
-        </div>
+        </motion.div>
     )
 }

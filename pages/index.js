@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { landingTransitions, headerTransitions } from './../page_transitions/home';
 import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { onTap } from './../page_transitions/common';
 
 export default function Home({ state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
@@ -65,12 +66,12 @@ export default function Home({ state: { isNavAniComplete, viewport }}){
                                 > & corporate events</motion.h2>
                             </div>
                             <motion.div variants={headerTransitions.staggerHeader} className={styles.cta}>
-                                <motion.button variants={headerTransitions.fadeIn}>
+                                <motion.button variants={headerTransitions.fadeIn} whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}>
                                     <Link href='/services'>
                                         <a className='STYLED_BTN'>What we do</a>
                                     </Link>
                                 </motion.button>
-                                <motion.button variants={headerTransitions.fadeIn}>
+                                <motion.button variants={headerTransitions.fadeIn} whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}>
                                     <a className='STYLED_BTN'
                                         href='http://www.cocktailcurations-shop.com'
                                         target='_blank'

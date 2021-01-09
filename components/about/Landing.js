@@ -38,14 +38,14 @@ export default function Landing({ isNavAniComplete, NAV_SPACER, navHeight, viewp
                 </motion.header>
                 <Carousel imgs={imgArr} viewport={viewport}/>
                 {viewport !== 'desktop' && isNavAniComplete && 
-                    <CTA_BUTTON storyRef={storyRef} navHeight={navHeight}/>
+                    <CTA_BUTTON storyRef={storyRef} navHeight={navHeight} viewport={viewport} />
                 }
             </motion.div>
         </motion.section>
     )
 }
 
-export const CTA_BUTTON = ({ storyRef, navHeight }) => (
+export const CTA_BUTTON = ({ storyRef, navHeight, viewport }) => (
     <motion.div 
         animate='animate'
         initial='initial'
@@ -54,6 +54,7 @@ export const CTA_BUTTON = ({ storyRef, navHeight }) => (
     >
         <motion.button 
             className='STYLED_BTN'
+            whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
             onClick={() => {
                 smoothscroll(storyRef.current.offsetTop - navHeight, 1000)
             }}

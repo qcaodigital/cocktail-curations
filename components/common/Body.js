@@ -67,10 +67,11 @@ export default function Body({ children }){
                         isNavAniComplete: isNavAniComplete,
                         setPopup: setPopup
                     },
+                    router: router,
                     NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight }}/>,
                 })}
             </AnimatePresence>
-            {loadComplete && router.pathname !== '/' && <Footer navList={navList}/>}
+            {loadComplete && router.pathname !== '/' && <Footer navList={navList} viewport={viewport}/>}
         </main>
         </>
     )

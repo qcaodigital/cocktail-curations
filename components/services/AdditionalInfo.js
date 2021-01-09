@@ -1,8 +1,9 @@
 import styles from './AdditionalInfo.module.scss';
 import Link from 'next/link';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
+import { motion } from 'framer-motion';
 
-export default function AdditionalInfo({ textBlocks, cta }){
+export default function AdditionalInfo({ textBlocks, cta, viewport }){
     return (
         <div className={styles.AdditionalInfo}>
             <div className={styles.textContainer}>
@@ -19,7 +20,11 @@ export default function AdditionalInfo({ textBlocks, cta }){
             </div>
             <div className={styles.CTA}>
                 <Link href={cta.href}>
-                    <a className='STYLED_BTN'>{cta.text}</a>
+                    <motion.a className='STYLED_BTN' 
+                        whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
+                    >
+                        {cta.text}
+                    </motion.a>
                 </Link>
             </div>
         </div>

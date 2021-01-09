@@ -12,4 +12,15 @@ const transitions = {
     }
 }
 
+export const onTap = {
+    opacity: {
+        tap: {
+            opacity: .2,
+            transition: {
+                duration: 3
+            }
+        }
+    }
+}
+
 export default transitions;

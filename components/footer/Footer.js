@@ -4,12 +4,13 @@ import styles from './Footer.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import SocialList from './../nav/SocialList';
+import { motion } from 'framer-motion';
 
 Footer.propTypes = {
     navList: PropTypes.array.isRequired
 }
 
-export default function Footer({ navList }){
+export default function Footer({ navList, viewport }){
     const footerNav = navList.map(link => (
         <li key={link.label}>
             <Link href={link.href}><a className={link.active ? styles.active : null}>{link.label}</a></Link>
@@ -23,9 +24,9 @@ export default function Footer({ navList }){
                     <h2>Curate your <span style={{display: 'inline-block'}}>experience today.</span></h2>
                     <p>Join the hundreds of people who've enjoyed a marvelous beverage with us.</p>
                     <Link href='/contact'>
-                        <button className='STYLED_BTN'>
+                        <motion.button className='STYLED_BTN' whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}>
                             <a>Contact Us Now</a>
-                        </button>
+                        </motion.button>
                     </Link>
                 </section>
                 <section className={styles.nav}>
@@ -49,7 +50,7 @@ export default function Footer({ navList }){
             </div>
             <section className={styles.socialCopyright}>
                 <ul className={styles.socialList}>
-                    <SocialList />
+                    <SocialList viewport={viewport}/>
                 </ul>
                 <p>©2019 Cocktail Curations. All rights reserved.</p>
             </section>

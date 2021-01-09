@@ -1,17 +1,23 @@
 export const galleryTransitions = {
     imgStagger: {
+        initial: {
+            opacity: 0
+        },
         animate: {
+            opacity: 1,
             transition: {
-                delayChildren: .45,
-                staggerChildren: .3
+                staggerChildren: .3,
+                duration: 1
             }
         }
     },
     imgs: {
         initial: {
-            opacity: 0
+            opacity: 0,
+            y: 20
         },
         animate: {
+            y: 0,
             opacity: 1,
             transition: {
                 duration: 1

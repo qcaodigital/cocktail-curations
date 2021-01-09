@@ -16,12 +16,16 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
 
     const pageVariant = {
         load_initial: { opacity: 0 },
-        load_exit: { opacity: 0 },
+        load_exit: { 
+            opacity: 0,
+            transition: {
+                duration: .65
+            }
+        },
         load_animate: { 
             opacity: 1,
             transition: {
                 duration: 1,
-                when: 'beforeChildren'
             }
         }
     }
@@ -50,8 +54,8 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
                 }}
             />
             <Copy ref={copyRef} viewport={viewport}/>
-            <Bars ref={barsRef}/>
-            <Classes ref={classesRef}/>
+            <Bars ref={barsRef} viewport={viewport}/>
+            <Classes ref={classesRef} viewport={viewport}/>
             <Bases ref={basesRef}/>
         </motion.main>
         </>

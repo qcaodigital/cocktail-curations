@@ -47,34 +47,4 @@
             }
         }
     }
-    .galleryContainer {
-        --gap: .5rem;
-        display: flex;
-        flex-direction: row;
-        gap: var(--gap);
-        @media screen and (min-width: 990px){
-            --gap: .7rem;
-        }
-        .column {
-            flex-basis: 33%;
-            display: flex;
-            flex-direction: column;
-            gap: var(--gap);
-            .imgContainer {
-                box-shadow: 2px 2px 5px rgba(0,0,0,.15);
-                cursor: pointer;
-                transition: 100ms ease;
-                @media screen and (min-width: 750px){
-                    &:hover {
-                        transition: 250ms ease;
-                        box-shadow: 2px 2px 5px rgba(0,0,0,.35);
-                        transform: scale(1.025);
-                    }
-                }
-                img {
-                    width: 100%;
-                }
-            }
-        }
-    }
 }

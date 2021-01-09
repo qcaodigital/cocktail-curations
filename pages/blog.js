@@ -62,7 +62,12 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } 
                             }
                         </p>
                         <Link href={`/blog/${latestBlog.uid}`}><a>
-                            <button className='STYLED_BTN'>Read more</button>
+                            <motion.button 
+                                className='STYLED_BTN'
+                                whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
+                            >
+                                Read more
+                            </motion.button>
                         </a></Link>
                     </div>
                 </div>

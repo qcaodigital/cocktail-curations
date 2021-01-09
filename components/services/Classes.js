@@ -8,7 +8,7 @@ import Rellax from 'rellax';
 import { useInView } from 'react-intersection-observer';
 import AdditionalInfo from './AdditionalInfo';
 
-const Classes = React.forwardRef(({}, ref) => {
+const Classes = React.forwardRef(({ viewport }, ref) => {
     const headerRef = useRef();
     const headerInView = useInViewFromTop(headerRef)
 
@@ -63,6 +63,7 @@ const Classes = React.forwardRef(({}, ref) => {
                     text: 'Book a class',
                     href: '/contact'
                 }}
+                viewport={viewport}
             />
         </section>
     )

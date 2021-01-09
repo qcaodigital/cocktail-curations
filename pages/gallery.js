@@ -6,6 +6,7 @@ import styles from './gallery.module.scss';
 import Modal from '../components/gallery/Modal';
 import { galleryTransitions } from './../page_transitions/gallery';
 import GallerySort from './../components/gallery/GallerySort';
+import ImgGallery from './../components/gallery/ImgGallery';
 
 export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
     const allImgs = imgs.gallery_item;
@@ -26,24 +27,34 @@ export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
         maxWidth: `${1/columns}`
     }
 
-    //Search by tags if 'sortBy' is set then resort by portrait and landscape
-    const [sortBy, setSortBy] = useState('all');
+    const [filterBy, setFilterBy] = useState('all');
     useEffect(() => {
+        //Search by tags if 'filterBy' is set then resort by portrait and landscape
         //Prismic includes empty media templates so we need to remove them from the array if they exist
-        const galleryCopy = allImgs.filter(item => item.img.dimensions)
-        const sortedByTags = galleryCopy.filter(item => sortBy !== 'all' ? item.tags.includes(sortBy) : true);
-        const portraits = [];
-        const landscapes = [];
-        sortedByTags.forEach(item => {
-            if(item.img.dimensions.height > item.img.dimensions.width){
-                portraits.push(item)
-            } else {
-                landscapes.push(item)
-            }
-        })
-        setImgList([...portraits, ...landscapes])
-        window.scrollTo({ top: 0 })
-    }, [viewport, sortBy])
+        setImgList([]);
+        setTimeout(() => { //Timed out for animation on filter change
+            const filteredByTags = allImgs.filter(item => {
+                if(item.img.dimensions){
+                    if(filterBy !== 'all'){
+                        return item.tags.includes(filterBy); 
+                    } else {
+                        return true;
+                    }
+                }
+            });
+            const portraits = [];
+            const landscapes = [];
+            filteredByTags.forEach(item => {
+                if(item.img.dimensions.height > item.img.dimensions.width){
+                    portraits.push(item)
+                } else {
+                    landscapes.push(item)
+                }
+            })
+            setImgList([...portraits, ...landscapes])
+            window.scrollTo({ top: 0 })
+        }, Math.random() * 750);
+    }, [viewport, filterBy])
 
     //Assign each img to a column, distributed evenly and then shuffled
     useEffect(() => {
@@ -105,35 +116,20 @@ export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
                 <h2>Our events, bars, classes, cocktails, <span>and more</span>.</h2>
             </header>
             <GallerySort 
-                tags={['all', 'cocktails', 'bars', 'events', 'classes']} 
-                setSortBy={setSortBy}
-                sortBy={sortBy}
+                tags={['all', 'cocktails', 'bars', 'events', 'classes', 'products', 'team']} 
+                setFilterBy={setFilterBy}
+                filterBy={filterBy}
             />
-            <motion.div 
-                animate='animate' 
-                initial='initial' 
-                className={styles.galleryContainer}
-            >
-                {galleryColumns.map((column, idx) => (
-                    <motion.div 
-                        key={idx} 
-                        style={COLUMN_SIZE_STYLES} 
-                        className={styles.column}
-                        variants={galleryTransitions.imgStagger}
-                    >
-                        {column.map((item, idx) => (
-                                <motion.div
-                                    key={idx} 
-                                    className={styles.imgContainer} 
-                                    onClick={() => handleModalImgChange(item)}
-                                >
-                                    <motion.img src={item.img.url} alt={item.img.alt} variants={galleryTransitions.imgs}/>
-                                </motion.div>
-                            )
-                        )} 
-                    </motion.div>
-                ))}
-            </motion.div>
+            <AnimatePresence>
+                {imgList.length > 0 && 
+                    <ImgGallery
+                        key={imgList.length} 
+                        galleryColumns={galleryColumns} 
+                        colStyles={COLUMN_SIZE_STYLES} 
+                        handleModalImgChange={handleModalImgChange} 
+                    />
+                }
+            </AnimatePresence>
             <AnimatePresence>
                 {modalImg >= 0 && 
                     <Modal

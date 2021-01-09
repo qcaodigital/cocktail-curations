@@ -1,14 +1,14 @@
 import styles from './GallerySort.module.scss';
 
-export default function GallerySort({ tags, setSortBy, sortBy }){
+export default function GallerySort({ tags, setFilterBy, filterBy }){
     return (
         <div className={styles.GallerySort}>
             <ul className={styles.tagList}>
                 {tags.map(tag => (
                     <li className={styles.tag}
                         key={tag}
-                        onClick={() => setSortBy(tag)}
-                        data-active={sortBy === tag}
+                        onClick={() => setFilterBy(tag)}
+                        data-active={filterBy === tag}
                     >
                         {tag}
                     </li>

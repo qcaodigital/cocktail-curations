@@ -12,7 +12,12 @@ import { useRef } from 'react';
 export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER }){
     const pageVariant = {
         load_initial: { opacity: 0 },
-        load_exit: { opacity: 0 },
+        load_exit: { 
+            opacity: 0,
+            transition: {
+                duration: .65
+            } 
+        },
         load_animate: { 
             opacity: 1,
             transition: {

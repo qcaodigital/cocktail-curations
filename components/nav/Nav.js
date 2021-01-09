@@ -190,7 +190,7 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
             </FadeOnUnmount>
             <FadeOnUnmount unmountIf={minimizeNav && !isHamburgerOpen}>
                 <motion.ul className={styles.socialList}>
-                    <SocialList animateOnHover/>
+                    <SocialList animateOnHover viewport={viewport}/>
                 </motion.ul>
             </FadeOnUnmount>
             <FadeOnUnmount unmountIf={viewport !== 'mobile'}>

@@ -10,16 +10,16 @@ export default function Modal({ modalImgIdx, imgList, setModalImg, viewport }){
     const [orientation, setOrientation] = useState(imgList[modalImgIdx].img.dimensions.height > imgList[modalImgIdx].img.dimensions.width ? 'portrait' : 'landscape');
 
     useEffect(() => {
-        setOrientation(imgList[modalImgIdx].img.dimensions.height > imgList[modalImgIdx].img.dimensions.width ? 'portrait' : 'landscape')
-    }, [modalImgIdx])
-
-    useEffect(() => {
         const handleKeypress = (evt) => (evt.keyCode === '27' || evt.key === 'Escape') ? setModalImg(null) : null;
         window.addEventListener('keyup', handleKeypress)
         return () => {
             window.removeEventListener('keyup', handleKeypress)
         }
     }, [])
+
+    useEffect(() => {
+        setOrientation(imgList[modalImgIdx].img.dimensions.height > imgList[modalImgIdx].img.dimensions.width ? 'portrait' : 'landscape')
+    }, [modalImgIdx])
 
     const handleNextImg = () => imgList.length - 1 > modalImgIdx ? setModalImg(curr => curr + 1) : setModalImg(0);
     const handlePrevImg = () => modalImgIdx > 0 ? setModalImg(curr => curr - 1) : setModalImg(imgList.length - 1);

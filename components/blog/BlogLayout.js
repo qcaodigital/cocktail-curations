@@ -69,7 +69,12 @@ export default function BlogLayout({ blog: blogArr, blogs, products, NAV_SPACER,
                             <SliceZone document={document}/>
                         </div>
                         <Link href='/blog'><a>
-                            <button className='STYLED_BTN'>Back To All Blogs</button>
+                            <motion.button 
+                                className='STYLED_BTN'
+                                whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
+                            >
+                                Back To All Blogs
+                            </motion.button>
                         </a></Link>
                     </article>
                     <aside>

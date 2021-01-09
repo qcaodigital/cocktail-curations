@@ -6,7 +6,7 @@ import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { useInView } from 'react-intersection-observer';
 import AdditionalInfo from './AdditionalInfo';
 
-const Bars = React.forwardRef(({}, ref) => {
+const Bars = React.forwardRef(({ viewport }, ref) => {
     const headerRef = useRef();
     const headerInView = useInViewFromTop(headerRef, { threshold: .1 });
 
@@ -58,6 +58,7 @@ const Bars = React.forwardRef(({}, ref) => {
                     text: 'Inquire about booking',
                     href: '/contact'
                 }}
+                viewport={viewport}
             />
         </section>
     )

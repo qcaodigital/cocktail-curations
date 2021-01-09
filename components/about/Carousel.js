@@ -96,26 +96,28 @@ export default function Carousel({ imgs, viewport }){
                 </AnimatePresence>
             </div>
             <div className={styles.counters}>
-                <button 
+                <motion.button 
                     id={styles.UP_LEFT} 
                     className={styles.chevron}
                     onClick={() => changeImg('dec')}
+                    whileTap={{ scale: viewport !== 'desktop' ? [1, 4, 1] : 1 }}
                 >
                     <FontAwesomeIcon icon={['fa', 'chevron-left']}/>
-                </button>
+                </motion.button>
                 {imgs.map((img, idx) => (
                     <div 
                         key={img} 
                         style={{ backgroundColor: idx === currImg.idx ? 'var(--highlight-color)' : 'var(--main-color)' }}
                     />
                 ))}
-                <button 
+                <motion.button 
                     id={styles.DOWN_RIGHT} 
                     className={styles.chevron}
-                    onClick={() => changeImg('inc')}    
+                    onClick={() => changeImg('inc')} 
+                    whileTap={{ scale: viewport !== 'desktop' ? [1, 4, 1] : 1 }}   
                 >
                     <FontAwesomeIcon icon={['fa', 'chevron-right']}/>
-                </button>
+                </motion.button>
             </div>
         </motion.div>
     )
