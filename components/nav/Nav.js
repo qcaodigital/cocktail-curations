@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import FadeOnUnmount from '../HOC/FadeOnUnmount';
 import navList from './../../data/navList';
 import SocialList from './SocialList';
-import { changeLogoColorVariant } from './../../page_transitions/nav';
 
 Nav.propTypes = {
     render: PropTypes.bool.isRequired,
@@ -70,6 +69,52 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
 
     //These base routes will feature white font/logo color
     const whiteList = ['/services', '/blog'];
+    const changeLogoColorVariant = {
+        white: {
+            animate: {
+                opacity: 1,
+                transition: {
+                    duration: .5,
+                    delay: window.scrollY === 0 ? 1 : 0
+                }
+            },
+            initial: {
+                opacity: 0,
+                transition: {
+                    duration: .5,
+                    delay: 1
+                }
+            },
+            exit: {
+                opacity: 0,
+                transition: {
+                    duration: .5
+                }
+            }
+        },
+        black: {
+            animate: {
+                opacity: 1,
+                transition: {
+                    duration: .5,
+                    delay: window.scrollY === 0 ? 1 : 0
+                }
+            },
+            initial: {
+                opacity: 0,
+                transition: {
+                    duration: .5,
+                    delay: 1
+                }
+            },
+            exit: {
+                opacity: 0,
+                transition: {
+                    duration: .5
+                }
+            }
+        }
+    }
 
     return (
         <motion.nav id={styles.Nav}
