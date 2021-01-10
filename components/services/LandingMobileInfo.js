@@ -18,7 +18,7 @@ const LandingMobileInfo = React.forwardRef(({refs, navHeight, viewport}, ref) =>
                 <div className={styles.imgContainer}>
                     <img src="/imgs/stock/services_page/landing_block.jpg" alt=""/>
                 </div>
-                <motion.div ref={textRef} animate={textInView ? 'animate' : 'initial'}>
+                <motion.div ref={textRef} animate={textInView ? 'load_animate' : 'load_initial'}>
                     <LandingInfo refs={refs} navHeight={navHeight} viewport={viewport}/>
                 </motion.div>
             </div>

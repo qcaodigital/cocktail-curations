@@ -8,7 +8,7 @@ import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { onTap } from './../page_transitions/common';
 
-export default function Home({ state: { isNavAniComplete, viewport }}){
+export default function Home({ test, state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
 
     return (

@@ -44,6 +44,7 @@
             padding: calc(var(--borderOffset) + .5rem);
             &::before {
                 content: '';
+                z-index: 0;
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -97,7 +98,11 @@
                 text-align: center;
                 justify-content: center;
                 height: 100%;
-                gap: 1rem;
+                position: relative;
+                z-index: 1;
+                > * + * {
+                    margin-top: 1rem;
+                }
                 .heading {
                     font-family: var(--serif-font);
                     font-size: 1.5rem;
@@ -109,7 +114,7 @@
                     letter-spacing: .5px;
                 }
                 button {
-                    margin-top: .25rem;
+                    margin-top: 1.35rem;
                 }
             }
         }

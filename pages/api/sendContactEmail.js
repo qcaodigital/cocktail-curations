@@ -6,6 +6,7 @@ export const config = {
 }
 
 export default (req, res) => {
+    console.log(process.env.MAILGUN_API_KEY)
     const mg = mailgun({ apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN })
     const data = {
         from: 'Cocktail Curations <contactform@cocktailcurations.com>',

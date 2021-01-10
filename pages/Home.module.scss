@@ -186,7 +186,10 @@
                         display: flex;
                         justify-content: center;
                         width: 100%;
-                        gap: 3vw;
+                        --gap: 3vw;
+                        > * + * {
+                            margin-left: var(--gap);
+                        }
                         @media screen and (min-width: 750px){
                             top: calc(100% + 1vw);
                             left: 0;
@@ -194,7 +197,7 @@
                             justify-content: flex-start;
                         }
                         @media screen and (min-width: 990px){
-                            gap: 1.5rem;
+                            --gap: 1.5rem;
                         }
                         button {
                             a {

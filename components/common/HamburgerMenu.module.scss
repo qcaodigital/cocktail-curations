@@ -17,8 +17,10 @@
         height: 100%;
         font-family: var(--serif-font);
         @include justifyCenterCol();
-        gap: .5rem;
         padding-bottom: 10%;
+        > * + * {
+            margin-top: .5rem;
+        }
         li {
             font-weight: 400;
             font-size: 1.7rem;

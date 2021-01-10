@@ -2,12 +2,16 @@
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-    gap: .35rem;
+    > *:first-of-type {
+        margin: 0 !important;
+    }
+    > * + * {
+        margin: 0 0 0 .5rem !important;
+    }
     @media screen and (min-width: 990px){
         justify-content: flex-start;
     }
     button {
-        margin: 0 !important;
         svg {
             height: auto;
         }

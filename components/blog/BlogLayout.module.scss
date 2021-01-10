@@ -60,7 +60,9 @@
         article, aside {
             display: flex;
             flex-direction: column;
-            gap: var(--gap);
+            > * + * {
+                margin-top: var(--gap);
+            }
         }
         article {
             --thumbnail-max-size: 500px;
@@ -74,10 +76,17 @@
                 text-align: left;
                 display: flex;
                 align-items: center;
-                gap: .5rem;
                 transition: 350ms ease;
+                > * + * {
+                    margin-left: .5rem;
+                }
+                span {
+                    transition: 350ms ease;
+                }
                 &:hover {
-                    gap: 1.25rem;
+                    span {
+                        transform: translateX(15px);
+                    }
                     svg {
                         transform: translateX(25%);
                     }
@@ -127,10 +136,12 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    gap: .5rem;
                     opacity: .65;
                     color: var(--highlight-color);
                     font-size: .75rem;
+                    > * + * {
+                        margin-left: .5rem;
+                    }
                     @media screen and (min-width: 990px){
                         justify-content: flex-start;
                         font-size: .9rem;
@@ -146,8 +157,10 @@
             .content {
                 display: flex;
                 flex-direction: column;
-                gap: var(--gap);
                 width: 100%;
+                > * + * {
+                    margin-top: var(--gap);
+                } 
                 .subheader {
                     h2 {
                         font-size: .9rem;
@@ -166,10 +179,8 @@
             }
         }
         aside {
-            gap: 0rem;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
             section {
                 width: 100%;
                 @media screen and (min-width: 990px){

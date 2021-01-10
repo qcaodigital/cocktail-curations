@@ -4,11 +4,13 @@
         border-bottom: 1px solid var(--main-color-fade-more);
         padding-bottom: var(--padding-bottom);
         margin-bottom: 1.15rem;
-        display: flex;
-        gap: .75rem;
         overflow-x: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none;
+        display: flex;
+        > * + * {
+            margin-left: .75rem;
+        }
         &::-webkit-scrollbar {
             display: none;
         }

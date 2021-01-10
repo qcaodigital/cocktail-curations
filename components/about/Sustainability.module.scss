@@ -31,7 +31,6 @@
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
-                gap: 3rem;
                 max-width: 1100px;
                 margin: 0 auto;
                 > * {
@@ -42,6 +41,9 @@
                 margin: 0 auto;
                 max-width: 320px;
                 box-shadow: 5px 5px 15px rgba(0,0,0,.15);
+                @media screen and (min-width: 750px){
+                    margin-right: 3rem !important
+                }
                 img {
                     width: 100%;
                 }
@@ -71,14 +73,18 @@
                 .text {
                     @media screen and (min-width: 990px){
                         display: flex;
-                        gap: 1rem;
+                        > * + * {
+                            margin-left: 1rem;
+                        }
                         .textContainer {
-                            margin: 1.35rem 0;
+                            margin-top: 1.35rem;
+                            margin-bottom: 1.35rem;
                         }
                     }
                     .textContainer {
                         &:not(:last-of-type){
-                            margin: 1.35rem 0;
+                            margin-top: 1.35rem;
+                            margin-bottom: 1.35rem;
                         }
                     }
                     h4 {
@@ -148,7 +154,7 @@
                 border: 2px solid rgba(0,0,0,.055);
             }
             @media screen and (min-width: 750px){
-                margin-left: 0 !important;
+                margin-left: 3rem !important;
                 margin-right: 0 !important;
             }
         }
@@ -184,11 +190,14 @@
             }
             .text {
                 @media screen and (min-width: 990px){
-                    gap: 1rem;
                     display: flex;
                     text-align: left;
+                    > * + * {
+                        margin-left: 1rem;
+                    }
                     .textContainer {
                         margin-top: 1.35rem;
+                        margin-bottom: 1.35rem;
                     }
                 }
                 .textContainer {

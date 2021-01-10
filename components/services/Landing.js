@@ -38,7 +38,8 @@ export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
                 {viewport !== 'mobile' && NAV_SPACER}
                 <motion.div
                     className={styles.textContainer}
-                    style={{ minHeight: viewport !== 'mobile' ? `calc(100vh - ${navHeight}px` : 'unset' }} 
+                    style={{ minHeight: viewport !== 'mobile' ? `calc(100vh - ${navHeight}px` : 'unset' }}
+                    variants={landingTransitions.stagger} 
                 >
                     {viewport === 'mobile' && <motion.h2 variants={landingTransitions.fadeIn}>Learn about</motion.h2>}
                     <motion.h2 variants={landingTransitions.title.boxAndFlower}>

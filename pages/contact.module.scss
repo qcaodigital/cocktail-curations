@@ -36,17 +36,20 @@
             margin: 0 auto;
             padding: 3rem 1rem;
             box-shadow: 2px 2px 15px rgba(0,0,0,.1);
-            display: flex;
-            text-align: center;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 1.5rem;
             font-family: var(--main-font);
             max-width: 850px;
             border-radius: 2.5%;
             position: relative;
             overflow: hidden;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            --gap: 1.5rem;
+            > * + * {
+                margin-top: var(--gap);
+            }
             @media screen and (min-width: 550px){
                 &:last-child {
                     padding-bottom: 10vw;
@@ -62,7 +65,7 @@
                 transition: 350ms ease;
                 color: var(--main-color);
                 text-decoration: underline;
-                margin-top: 1rem;
+                margin-top: calc(var(--gap) + 1rem);
             }
             //[FORM COMPONENT IS HERE]
             .progressBar {
@@ -72,10 +75,12 @@
                 align-items: center;
                 max-width: 1000px;
                 --marker-gap: clamp(1rem, 15vw, 10rem);
-                gap: var(--marker-gap);
                 padding: 1rem clamp(1rem, 10vw, 4rem) 0;
+                > * + * {
+                    margin-left: var(--marker-gap);
+                }
                 @media screen and (min-width: 550px){
-                    margin-top: 2.5rem;
+                    margin-top: calc(var(--gap) + 2.5rem);
                     padding-top: 0;
                 }
                 .mark {
@@ -143,7 +148,9 @@
             .buttonContainer {
                 display: flex;
                 justify-content: space-between;
-                gap: 4rem;
+                > * + * {
+                    margin-left: 4rem;
+                }
                 .backButton, .nextButton {
                     top: 1rem;
                     left: 1.5rem;

@@ -3,10 +3,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    > * + * {
+        margin-top: 1.5rem;
+    }
     @media screen and (min-width: 550px){
         flex-direction: row;
-        gap: clamp(1rem, 10vw, 7.5rem);
+        > * + * {
+            margin-top: unset;
+            margin-left: clamp(1rem, 10vw, 7.5rem);
+        }
     }
     .item {
         width: 100px;

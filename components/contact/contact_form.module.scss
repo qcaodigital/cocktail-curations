@@ -6,23 +6,33 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
         padding: 1rem 0;
         margin: 0 auto;
+        --gap: 1.5rem;
+        > * + * {
+            margin-top: var(--gap);
+        }
         @media screen and (min-width: 990px){
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
+            --gap: 2rem;
+            > * + * {
+                margin-top: unset;
+                margin-left: var(--gap);
+            }
         }
         div {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            gap: .25rem;
+            --divGap: .25rem;
+            > * + * {
+                margin-top: var(--divGap);
+            }
             @media screen and (min-width: 990px){
-                gap: .5rem;
+                --divGap: .5rem;
                 &#date {
                     flex-basis: 100%;
                     input {
@@ -114,7 +124,7 @@
         margin: 0 auto;
         max-width: 600px;
         @media screen and (min-width: 750px){
-            gap: .5rem;
+            --gap: 0rem;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
@@ -122,6 +132,9 @@
         div {
             align-items: flex-start;
             @media screen and (min-width: 750px){
+                &:nth-of-type(even){
+                    margin-left: .5rem;
+                }
                 max-width: 48% !important;
                 input {
                     max-width: 100% !important;
@@ -130,7 +143,8 @@
             &#email,
             &#phone {
                 @media screen and (min-width: 750px){
-                    margin: 1.5rem 0;
+                    margin-top: 1.5rem;
+                    margin-bottom: 1.5rem;
                 }
             }
             &#company {

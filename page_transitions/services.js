@@ -46,6 +46,14 @@ export const landingTransitions = {
                 }
             }
         }
+    },
+    stagger: {
+        load_animate: {
+            transition: {
+                delayChildren: .25,
+                staggerChildren: .25
+            }
+        }
     }
 }
 
