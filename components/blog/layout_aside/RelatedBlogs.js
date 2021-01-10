@@ -7,7 +7,7 @@ export default function RelatedBlogs({ maxBlogs, currentBlog, blogs, parentStyle
             <p className={parentStyles.banner}>Related Blogs</p>
             <div className={styles.blogPreviewContainer}>
                 {blogs.map((b, idx) => 
-                    // b.data.title[0].text !== currentBlog.data.title[0].text &&
+                    b.data.title[0].text !== currentBlog.data.title[0].text &&
                     idx < maxBlogs &&
                     b.category === currentBlog.category && (
                     <div key={b.data.title[0].text} className={styles.blogPreview}>
