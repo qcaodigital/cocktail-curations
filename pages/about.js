@@ -8,8 +8,9 @@ import Landing from './../components/about/Landing';
 import DuoInfo from './../components/about/DuoInfo';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER, pageAniCompleteCB }){
+export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER, pageAniStartCB }){
     const pageVariant = {
         load_initial: { opacity: 0 },
         load_exit: { 
@@ -27,7 +28,7 @@ export default function About({ state: { viewport, isNavAniComplete, navHeight }
     }
 
     const storyRef = useRef();
-
+    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
     return (
         <>
         <Head>
@@ -39,7 +40,7 @@ export default function About({ state: { viewport, isNavAniComplete, navHeight }
             animate='load_animate' 
             exit='load_exit'
             variants={pageVariant}
-             onAnimationStart={pageAniCompleteCB}
+            onAnimationStart={onAniStart}
         >
             <Landing 
                 isNavAniComplete={isNavAniComplete} 

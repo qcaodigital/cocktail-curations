@@ -7,8 +7,9 @@ import Bars from '../components/services/Bars';
 import Bases from '../components/services/Bases';
 import { motion } from 'framer-motion';
 import styles from './services.module.scss';
+import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Services({ state: { viewport, navHeight, isNavAniComplete }, NAV_SPACER, pageAniCompleteCB }){
+export default function Services({ state: { viewport, navHeight, isNavAniComplete }, NAV_SPACER, pageAniStartCB }){
     const copyRef = useRef();
     const classesRef = useRef();
     const barsRef = useRef();
@@ -30,6 +31,7 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
         }
     }
 
+    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
     return(
         <>
         <Head>
@@ -41,7 +43,7 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
             animate='load_animate' 
             exit='load_exit'
             variants={pageVariant}
-            onAnimationStart={pageAniCompleteCB}
+            onAnimationStart={onAniStart}
         >
             <Landing 
                 viewport={viewport} 

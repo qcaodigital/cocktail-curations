@@ -8,15 +8,15 @@ import BlogList from '../components/blog/BlogList';
 import { useEffect, useRef } from 'react';
 import constructRellax from './../helpers/constructRellax';
 import ArrowDivider from './../components/common/ArrowDivider';
+import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Blog({ blogs, NAV_SPACER, pageAniCompleteCB, state: { viewport, setPopup } }){
+export default function Blog({ blogs, NAV_SPACER, pageAniStartCB, state: { viewport, setPopup } }){
     const latestBlog = blogs[blogs.length - 1];
 
     const bannerRef = useRef()
     useEffect(() => constructRellax(bannerRef, { speed: -2 }), [])
 
-    const latestRef = useRef()
-    // useEffect(() => constructRellax(latestRef, { speed: -1 }), [])
+    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
     
     return (
         <>
@@ -29,7 +29,7 @@ export default function Blog({ blogs, NAV_SPACER, pageAniCompleteCB, state: { vi
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             transition={{ duration: 1 }}
-            onAnimationStart={pageAniCompleteCB}
+            onAnimationStart={onAniStart}
         >
             <section 
                 className={styles.landing}
@@ -43,7 +43,7 @@ export default function Blog({ blogs, NAV_SPACER, pageAniCompleteCB, state: { vi
                         <p onClick={() => setPopup({ isOpen: true, content: 'error' })} className={styles.CTA}>Our Most Popular Blogs</p>
                     </header>    
                 </div>
-                <div ref={latestRef} className={styles.latest}>
+                <div className={styles.latest}>
                     <ArrowDivider size={{value: 1.5, measurement: 'rem'}} BGcolor='var(--secondary-color)'/>
                     <header>
                         <h2>Whats New</h2>

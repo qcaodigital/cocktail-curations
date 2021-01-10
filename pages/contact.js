@@ -10,8 +10,9 @@ import Personal from './../components/contact/Personal';
 import Summary from './../components/contact/Summary';
 import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import axios from 'axios';
+import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Contact({ NAV_SPACER, pageAniCompleteCB, state: { viewport } }){
+export default function Contact({ NAV_SPACER, pageAniStartCB, state: { viewport } }){
     const progressMarkers = ['Start', 'Basic Info', 'Details', 'About You', 'Complete'];
     const [currentProgress, setCurrentProgress] = useState(1);
     const [formData, setFormData] = useState({
@@ -143,6 +144,7 @@ export default function Contact({ NAV_SPACER, pageAniCompleteCB, state: { viewpo
         return () => window.removeEventListener('keydown', handleKeyPress)
     }, [isValidated, currentProgress])
 
+    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
     return <>
         <Head>
             <title>Contact Us | Cocktail Curations</title>
@@ -153,7 +155,7 @@ export default function Contact({ NAV_SPACER, pageAniCompleteCB, state: { viewpo
             initial={{ opacity: 0 }} 
             transition={{ duration: 1 }} 
             id={styles.Contact}
-            onAnimationStart={pageAniCompleteCB}
+            onAnimationStart={onAniStart}
         >
             <section className={styles.landing}>
                 {NAV_SPACER}

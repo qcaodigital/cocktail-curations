@@ -22,7 +22,7 @@ export default function Body({ children }){
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
     const [popup, setPopup] = useState({ isOpen: false, content: {} })
 
-    const pageAniCompleteCB = () => {
+    const pageAniStartCB = () => {
         window.scrollTo({ top: 0 })
     }
 
@@ -69,7 +69,7 @@ export default function Body({ children }){
                     },
                     router: router,
                     NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight }}/>,
-                    pageAniCompleteCB: pageAniCompleteCB
+                    pageAniStartCB: pageAniStartCB
                 })}
             </AnimatePresence>
             {loadComplete && router.pathname !== '/' && <Footer navList={navList} viewport={viewport}/>}

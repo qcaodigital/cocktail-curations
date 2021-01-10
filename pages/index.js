@@ -7,10 +7,11 @@ import { landingTransitions, headerTransitions } from './../page_transitions/hom
 import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { onTap } from './../page_transitions/common';
+import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Home({ pageAniCompleteCB, state: { isNavAniComplete, viewport }}){
+export default function Home({ pageAniStartCB, state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
-
+    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
     return (
         <>
         <Head>
@@ -22,7 +23,7 @@ export default function Home({ pageAniCompleteCB, state: { isNavAniComplete, vie
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
             id={styles.Home}
-            onAnimationStart={pageAniCompleteCB}
+            onAnimationStart={onAniStart}
         >
             <section className={styles.landing}>
                 <div className={styles.sections}>

@@ -2,8 +2,11 @@ import styles from './404.module.scss';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Head from 'next/head';
+import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function FourOhFour({ NAV_SPACER, pageAniCompleteCB }){
+export default function FourOhFour({ NAV_SPACER, pageAniStartCB }){
+    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+
     return (
         <>
         <Head>
@@ -15,7 +18,7 @@ export default function FourOhFour({ NAV_SPACER, pageAniCompleteCB }){
             initial={{ opacity: 0 }} 
             transition={{ duration: .5 }}
             id={styles['_404']}
-            onAnimationStart={pageAniCompleteCB}
+            onAnimationStart={onAniStart}
         >
             {NAV_SPACER}
             <header>

@@ -7,8 +7,9 @@ import Modal from '../components/gallery/Modal';
 import { galleryTransitions } from './../page_transitions/gallery';
 import GallerySort from './../components/gallery/GallerySort';
 import ImgGallery from './../components/gallery/ImgGallery';
+import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Gallery({ imgs, NAV_SPACER, pageAniCompleteCB, state: { viewport } }){
+export default function Gallery({ imgs, NAV_SPACER, pageAniStartCB, state: { viewport } }){
     const allImgs = imgs.gallery_item;
     const [imgList, setImgList] = useState(allImgs);
     const [galleryColumns, setGalleryColumns] = useState([]);
@@ -98,6 +99,7 @@ export default function Gallery({ imgs, NAV_SPACER, pageAniCompleteCB, state: { 
         return () => document.body.style.overflow = '';
     }, [modalImg])
 
+    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
     return (
         <>
         <Head>
@@ -109,7 +111,7 @@ export default function Gallery({ imgs, NAV_SPACER, pageAniCompleteCB, state: { 
             animate={{ opacity: 1 }} 
             transition={{ duration: .5 }}
             id={styles.Gallery}
-            onAnimationStart={pageAniCompleteCB}
+            onAnimationStart={onAniStart}
         >
             {NAV_SPACER}
             <header>
