@@ -17,7 +17,7 @@ export default function Body({ children }){
     const viewport = useViewport();
     const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
     const navList = useNavList(navListData, router)
-    const [loadComplete, setLoadComplete] = useState(false);
+    const [loadComplete, setLoadComplete] = useState(true); //set to false to enable loading screen
     const [navHeight, setNavHeight] = useState(120);
     const [isNavAniComplete, setIsNavAniComplete] = useState(false);
     const [popup, setPopup] = useState({ isOpen: false, content: {} })
@@ -41,7 +41,7 @@ export default function Body({ children }){
             className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}
             style={{ '--navHeight': `${navHeight}px` }}
         >
-            <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/>
+            {/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> LOADING DISABLED*/}
             <AnimatePresence>
                 {popup.isOpen && <PopUp key='popup' setPopup={setPopup} popup={popup}/>}
             </AnimatePresence>
