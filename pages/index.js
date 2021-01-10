@@ -11,7 +11,7 @@ import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
 export default function Home({ pageAniStartCB, state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
-    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+    const onAniStart = useOnAniStartOnlyEntry();
     return (
         <>
         <Head>

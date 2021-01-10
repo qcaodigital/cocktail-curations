@@ -9,7 +9,7 @@ import GallerySort from './../components/gallery/GallerySort';
 import ImgGallery from './../components/gallery/ImgGallery';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Gallery({ imgs, NAV_SPACER, pageAniStartCB, state: { viewport } }){
+export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
     const allImgs = imgs.gallery_item;
     const [imgList, setImgList] = useState(allImgs);
     const [galleryColumns, setGalleryColumns] = useState([]);
@@ -99,7 +99,7 @@ export default function Gallery({ imgs, NAV_SPACER, pageAniStartCB, state: { vie
         return () => document.body.style.overflow = '';
     }, [modalImg])
 
-    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+    const onAniStart = useOnAniStartOnlyEntry();
     return (
         <>
         <Head>

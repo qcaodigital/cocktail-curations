@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Head from 'next/head';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function FourOhFour({ NAV_SPACER, pageAniStartCB }){
-    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+export default function FourOhFour({ NAV_SPACER }){
+    const onAniStart = useOnAniStartOnlyEntry();
 
     return (
         <>

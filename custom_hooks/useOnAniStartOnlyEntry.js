@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-export default function useOnAniStartOnlyEntry(cb){
-    const [onAniStart, setOnAniStart] = useState(cb);
+export default function useOnAniStartOnlyEntry(){
+    const [onAniStart, setOnAniStart] = useState();
     useEffect(() => {
-        setOnAniStart(null)
+        setOnAniStart(() => window.scrollTo({top: 0}))
     }, [])
 
     return onAniStart;

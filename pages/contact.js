@@ -12,7 +12,7 @@ import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import axios from 'axios';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Contact({ NAV_SPACER, pageAniStartCB, state: { viewport } }){
+export default function Contact({ NAV_SPACER, state: { viewport } }){
     const progressMarkers = ['Start', 'Basic Info', 'Details', 'About You', 'Complete'];
     const [currentProgress, setCurrentProgress] = useState(1);
     const [formData, setFormData] = useState({
@@ -144,7 +144,7 @@ export default function Contact({ NAV_SPACER, pageAniStartCB, state: { viewport 
         return () => window.removeEventListener('keydown', handleKeyPress)
     }, [isValidated, currentProgress])
 
-    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+    const onAniStart = useOnAniStartOnlyEntry();
     return <>
         <Head>
             <title>Contact Us | Cocktail Curations</title>

@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import styles from './services.module.scss';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Services({ state: { viewport, navHeight, isNavAniComplete }, NAV_SPACER, pageAniStartCB }){
+export default function Services({ state: { viewport, navHeight, isNavAniComplete }, NAV_SPACER }){
     const copyRef = useRef();
     const classesRef = useRef();
     const barsRef = useRef();
@@ -31,7 +31,7 @@ export default function Services({ state: { viewport, navHeight, isNavAniComplet
         }
     }
 
-    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+    const onAniStart = useOnAniStartOnlyEntry();
     return(
         <>
         <Head>

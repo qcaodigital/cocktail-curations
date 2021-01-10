@@ -10,13 +10,13 @@ import constructRellax from './../helpers/constructRellax';
 import ArrowDivider from './../components/common/ArrowDivider';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function Blog({ blogs, NAV_SPACER, pageAniStartCB, state: { viewport, setPopup } }){
+export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } }){
     const latestBlog = blogs[blogs.length - 1];
 
     const bannerRef = useRef()
     useEffect(() => constructRellax(bannerRef, { speed: -2 }), [])
 
-    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+    const onAniStart = useOnAniStartOnlyEntry();
     
     return (
         <>

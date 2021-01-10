@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 
-export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER, pageAniStartCB }){
+export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER }){
     const pageVariant = {
         load_initial: { opacity: 0 },
         load_exit: { 
@@ -28,7 +28,7 @@ export default function About({ state: { viewport, isNavAniComplete, navHeight }
     }
 
     const storyRef = useRef();
-    const onAniStart = useOnAniStartOnlyEntry(pageAniStartCB);
+    const onAniStart = useOnAniStartOnlyEntry();
     return (
         <>
         <Head>
