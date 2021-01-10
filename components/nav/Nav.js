@@ -67,7 +67,7 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
         }, 3000);
     }, [])
 
-    //These base routes will feature white font/logo color
+    //These routes will feature white font/logo color
     const whiteList = ['/services', '/blog'];
     const changeLogoColorVariant = {
         white: {
