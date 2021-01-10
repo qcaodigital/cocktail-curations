@@ -8,7 +8,7 @@ import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { onTap } from './../page_transitions/common';
 
-export default function Home({ test, state: { isNavAniComplete, viewport }}){
+export default function Home({ pageAniCompleteCB, state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
 
     return (
@@ -22,6 +22,7 @@ export default function Home({ test, state: { isNavAniComplete, viewport }}){
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
             id={styles.Home}
+            onAnimationStart={pageAniCompleteCB}
         >
             <section className={styles.landing}>
                 <div className={styles.sections}>
@@ -67,7 +68,7 @@ export default function Home({ test, state: { isNavAniComplete, viewport }}){
                             </div>
                             <motion.div variants={headerTransitions.staggerHeader} className={styles.cta}>
                                 <motion.button variants={headerTransitions.fadeIn} whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}>
-                                    <Link href='/services'>
+                                    <Link scroll={false} href='/services'>
                                         <a className='STYLED_BTN'>What we do</a>
                                     </Link>
                                 </motion.button>

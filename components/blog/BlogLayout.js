@@ -11,7 +11,7 @@ import RelatedBlogs from './layout_aside/RelatedBlogs';
 import ProductAds from './layout_aside/ProductAds';
 import SocialShare from './SocialShare';
 
-export default function BlogLayout({ blog: blogArr, blogs, products, NAV_SPACER, state: { viewport }, router}){
+export default function BlogLayout({ blog: blogArr, blogs, products, NAV_SPACER, state: { viewport, setPopup }, router}){
     const blog = blogArr[0];
     const { date_published, title, author, category, thumbnail, subheader, content1 } = blog.data;
 
@@ -33,6 +33,7 @@ export default function BlogLayout({ blog: blogArr, blogs, products, NAV_SPACER,
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ duration: .5 }}
+                onAnimationStart={() => window.scrollTo({ top: 0 })}
             >
                 <main>
                     {NAV_SPACER}
@@ -46,7 +47,8 @@ export default function BlogLayout({ blog: blogArr, blogs, products, NAV_SPACER,
                         <header>
                             <div className={styles.breadcrumbs}>
                                 <span><Link href='/blog'><a>Blogs</a></Link></span>
-                                <span><Link href='/blog'><a>{category[0].text}</a></Link></span>
+                                {/* <span><Link href='/blog'><a>{category[0].text}</a></Link></span> */}
+                                <span style={{ cursor: 'pointer' }} onClick={() => setPopup({ isOpen: true, content: 'error' })}>{category[0].text}</span>
                                 <span>{title[0].text}</span>
                             </div>
                             <h1>{title[0].text}</h1>

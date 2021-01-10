@@ -9,7 +9,7 @@ import DuoInfo from './../components/about/DuoInfo';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
-export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER }){
+export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER, pageAniCompleteCB }){
     const pageVariant = {
         load_initial: { opacity: 0 },
         load_exit: { 
@@ -39,6 +39,7 @@ export default function About({ state: { viewport, isNavAniComplete, navHeight }
             animate='load_animate' 
             exit='load_exit'
             variants={pageVariant}
+             onAnimationStart={pageAniCompleteCB}
         >
             <Landing 
                 isNavAniComplete={isNavAniComplete} 

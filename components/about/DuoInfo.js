@@ -32,7 +32,7 @@ export default function DuoInfo({ viewport }){
                     >
                         Thy Parra and Nicole Hassoun have a combined energy that fizzes like your favorite glass of Champagne. It’s a meeting of the spirits that began years ago, when Parra—a former chef, luxury event planner, and catering and events director—contracted Hassoun, a craft bartending expert, as a gin specialist and mixologist. Their careers kept them together (even working at the same DC distillery) so at some point they said, "We’ve been working together in every way possible, so it’s about time we followed our dreams." 
                     </motion.p>
-                    <Link href='/contact'>
+                    <Link scroll={false} href='/contact'>
                         <a>
                             <p>Connect With Us →</p>
                             <motion.div 

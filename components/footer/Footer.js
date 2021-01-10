@@ -13,7 +13,7 @@ Footer.propTypes = {
 export default function Footer({ navList, viewport }){
     const footerNav = navList.map(link => (
         <li key={link.label}>
-            <Link href={link.href}><a className={link.active ? styles.active : null}>{link.label}</a></Link>
+            <Link scroll={false} href={link.href}><a className={link.active ? styles.active : null}>{link.label}</a></Link>
         </li>
     ))
 
@@ -23,7 +23,7 @@ export default function Footer({ navList, viewport }){
                 <section className={styles.CTA}>
                     <h2>Curate your <span style={{display: 'inline-block'}}>experience today.</span></h2>
                     <p>Join the hundreds of people who've enjoyed a marvelous beverage with us.</p>
-                    <Link href='/contact'>
+                    <Link scroll={false} href='/contact'>
                         <motion.button className='STYLED_BTN' whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}>
                             <a>Contact Us Now</a>
                         </motion.button>

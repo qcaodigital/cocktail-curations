@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 import constructRellax from './../helpers/constructRellax';
 import ArrowDivider from './../components/common/ArrowDivider';
 
-export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } }){
+export default function Blog({ blogs, NAV_SPACER, pageAniCompleteCB, state: { viewport, setPopup } }){
     const latestBlog = blogs[blogs.length - 1];
 
     const bannerRef = useRef()
@@ -23,7 +23,14 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } 
         <Head>
             <title>Blog | Cocktail Curations</title>
         </Head>
-        <motion.section id={styles.Blog} exit={{ opacity: 0 }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+        <motion.section 
+            id={styles.Blog} 
+            exit={{ opacity: 0 }} 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ duration: 1 }}
+            onAnimationStart={pageAniCompleteCB}
+        >
             <section 
                 className={styles.landing}
             >
@@ -32,7 +39,7 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } 
                     <header>
                         <h3>Cocktails, Recipes, <span style={{ display: 'inline-block'}}>& More</span></h3>
                         <p className={styles.subheader}>Let's talk about it.</p>
-                        {/* <Link href='/blog'><a><p className={styles.CTA}>Our Most Popular Blogs</p></a></Link> TEMP FUNCTION BELOW*/}
+                        {/* <Link scroll={false} href='/blog'><a><p className={styles.CTA}>Our Most Popular Blogs</p></a></Link> TEMP FUNCTION BELOW*/}
                         <p onClick={() => setPopup({ isOpen: true, content: 'error' })} className={styles.CTA}>Our Most Popular Blogs</p>
                     </header>    
                 </div>
@@ -49,7 +56,7 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } 
                         </div>
                     </div>
                     <div className={styles.blogInfo}>
-                        <Link href={`/blog/${latestBlog.uid}`}><a>
+                        <Link scroll={false} href={`/blog/${latestBlog.uid}`}><a>
                             <p className={styles.title}>{latestBlog.data.title[0].text}</p>
                         </a></Link>
                         <div className={styles.author}>
@@ -61,7 +68,7 @@ export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } 
                                 .filter((word, idx) => viewport === 'desktop' ? idx < Infinity : idx < 30).join(" ")
                             }
                         </p>
-                        <Link href={`/blog/${latestBlog.uid}`}><a>
+                        <Link scroll={false} href={`/blog/${latestBlog.uid}`}><a>
                             <motion.button 
                                 className='STYLED_BTN'
                                 whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}

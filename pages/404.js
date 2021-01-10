@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Head from 'next/head';
 
-export default function FourOhFour({ NAV_SPACER }){
+export default function FourOhFour({ NAV_SPACER, pageAniCompleteCB }){
     return (
         <>
         <Head>
@@ -15,6 +15,7 @@ export default function FourOhFour({ NAV_SPACER }){
             initial={{ opacity: 0 }} 
             transition={{ duration: .5 }}
             id={styles['_404']}
+            onAnimationStart={pageAniCompleteCB}
         >
             {NAV_SPACER}
             <header>
@@ -26,10 +27,10 @@ export default function FourOhFour({ NAV_SPACER }){
             </div>
             <div className={styles.buttonContainer}>
                 <button className='STYLED_BTN'>
-                    <Link href='/'><a>Back Home</a></Link>
+                    <Link scroll={false} href='/'><a>Back Home</a></Link>
                 </button>
                 <button className='STYLED_BTN'>
-                    <Link href='/contact'><a>Contact Us</a></Link>
+                    <Link scroll={false} href='/contact'><a>Contact Us</a></Link>
                 </button>
             </div>
         </motion.section>

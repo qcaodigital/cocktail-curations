@@ -14,11 +14,11 @@ export default function BlogList({ blogs, setPopup }){
                         key={blog.data.title[0].text} 
                     >
                             <p className={styles.date}>{`${convertPrismicDate(blog.data.date_published)}`}</p>
-                            <Link href={`/blog/${blog.uid}`}><a>
+                            <Link scroll={false} hrefll={false} href={`/blog/${blog.uid}`}><a>
                                 <p className={styles.title}>{blog.data.title[0].text}</p>
                             </a></Link>
                             <p className={styles.author}>{`by ${blog.data.author[0].text}`}</p> 
-                            <Link href={`/blog/${blog.uid}`}><a>
+                            <Link scroll={false} href={`/blog/${blog.uid}`}><a>
                                 <div className={styles.img}>
                                     <img src={blog.data.thumbnail.url} alt=""/> 
                                 </div>

@@ -8,7 +8,7 @@ import { galleryTransitions } from './../page_transitions/gallery';
 import GallerySort from './../components/gallery/GallerySort';
 import ImgGallery from './../components/gallery/ImgGallery';
 
-export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
+export default function Gallery({ imgs, NAV_SPACER, pageAniCompleteCB, state: { viewport } }){
     const allImgs = imgs.gallery_item;
     const [imgList, setImgList] = useState(allImgs);
     const [galleryColumns, setGalleryColumns] = useState([]);
@@ -109,6 +109,7 @@ export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
             animate={{ opacity: 1 }} 
             transition={{ duration: .5 }}
             id={styles.Gallery}
+            onAnimationStart={pageAniCompleteCB}
         >
             {NAV_SPACER}
             <header>

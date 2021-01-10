@@ -11,10 +11,10 @@ export default function RelatedBlogs({ maxBlogs, currentBlog, blogs, parentStyle
                     idx < maxBlogs &&
                     b.category === currentBlog.category && (
                     <div key={b.data.title[0].text} className={styles.blogPreview}>
-                        <Link href={`/blog/${b.uid}`}><a>
+                        <Link scroll={false} href={`/blog/${b.uid}`}><a>
                             <img src={b.data.thumbnail.url} alt={b.data.thumbnail.alt}/>
                         </a></Link>
-                        <Link href={`/blog/${b.uid}`}><a>
+                        <Link scroll={false} href={`/blog/${b.uid}`}><a>
                             <h4>{b.data.title[0].text}</h4>
                         </a></Link>
                         <p>{b.data.subheader[0].text

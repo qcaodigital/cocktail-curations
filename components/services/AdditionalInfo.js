@@ -19,7 +19,7 @@ export default function AdditionalInfo({ textBlocks, cta, viewport }){
                 ))}
             </div>
             <div className={styles.CTA}>
-                <Link href={cta.href}>
+                <Link scroll={false} href={cta.href}>
                     <motion.a className='STYLED_BTN' 
                         whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
                     >

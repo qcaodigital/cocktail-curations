@@ -22,7 +22,7 @@ export default function HamburgerMenu({ navList, toggleHBM, navHeight }){
             data-label={item.label}
             variants={item.label === 'Contact' ? contactBtnVariant : navItemVariants}
         >
-            <Link href={item.href}>
+            <Link scroll={false} href={item.href}>
                 <a onClick={toggleHBM}>{item.label}</a>
             </Link>
         </motion.li>

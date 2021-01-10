@@ -128,7 +128,7 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
         >
             <FadeOnUnmount unmountIf={viewport === 'mobile' && (minimizeNav && !isHamburgerOpen)}>
                 <motion.div className={minimizeNav ? `${styles.brand} ${styles.min}` : styles.brand}>
-                    <Link href='/'> 
+                    <Link scroll={false} href='/'> 
                         {minimizeNav ? (
                             <a><img id={styles.min} src="/imgs/stock/logos/cc-logo-min2.png" alt="Cocktail Curations Logo"/></a>
                         ) : (
@@ -178,7 +178,7 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
                             }}
                         >
                             {!item.external ? (
-                                <Link href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>
+                                <Link scroll={false} href={item.href}><a className={item.active ? styles.active : null}>{item.label}</a></Link>
                             ) : (
                                 <a className={item.active ? styles.active : null} href={item.href} target='_blank'>
                                     <FontAwesomeIcon icon={['fab', 'shopify']}/>{item.label}
