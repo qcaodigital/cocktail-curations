@@ -117,6 +117,12 @@
                     background-color: transparent;
                 }
             }
+            &[data-label='Shop']{
+                color: var(--highlight-color);
+                svg {
+                    color: inherit;
+                }
+            }
         }
     }
     .socialList {

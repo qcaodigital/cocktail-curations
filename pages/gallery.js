@@ -136,7 +136,7 @@ export default function Gallery({ imgs, NAV_SPACER, pageAniStartCB, state: { vie
             <AnimatePresence>
                 {modalImg >= 0 && 
                     <Modal
-                        key='modal' 
+                        key={modalImg}
                         modalImgIdx={modalImg} 
                         imgList={imgList}
                         setModalImg={setModalImg} 
