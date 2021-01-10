@@ -3,7 +3,6 @@ import styles from './Bases.module.scss';
 import { motion } from 'framer-motion';
 import { sectionTransitions } from '../../page_transitions/services';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
-import { useInView } from 'react-intersection-observer';
 
 const Bases = React.forwardRef(({}, ref) => {
     const inView = useInViewFromTop(ref, { threshold: .1 });

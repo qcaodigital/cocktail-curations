@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Nav.module.scss';
-import { useInView } from 'react-intersection-observer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion, AnimatePresence } from 'framer-motion';
 import transitions from './NavTransitions';

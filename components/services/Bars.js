@@ -3,7 +3,6 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { sectionTransitions } from '../../page_transitions/services';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
-import { useInView } from 'react-intersection-observer';
 import AdditionalInfo from './AdditionalInfo';
 
 const Bars = React.forwardRef(({ viewport }, ref) => {

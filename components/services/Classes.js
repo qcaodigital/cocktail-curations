@@ -5,7 +5,6 @@ import { sectionTransitions } from '../../page_transitions/services';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import Rellax from 'rellax';
-import { useInView } from 'react-intersection-observer';
 import AdditionalInfo from './AdditionalInfo';
 
 const Classes = React.forwardRef(({ viewport }, ref) => {
