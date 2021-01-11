@@ -23,7 +23,6 @@ function useInViewFromTop(ref, options){
         }
 
         function checkIfAlreadyInView(){
-            console.log(ref.current.getBoundingClientRect().y, window.innerHeight)
             if(ref.current.getBoundingClientRect().y - window.innerHeight < 0){
                 setInView(true)
             } 

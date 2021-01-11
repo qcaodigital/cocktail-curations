@@ -1,4 +1,3 @@
-import { useViewportScroll } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export default function useViewport(){
