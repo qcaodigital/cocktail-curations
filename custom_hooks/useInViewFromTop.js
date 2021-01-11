@@ -23,17 +23,18 @@ function useInViewFromTop(ref, options){
         }
 
         function checkIfAlreadyInView(){
+            console.log(ref.current.getBoundingClientRect().y, window.innerHeight)
             if(ref.current.getBoundingClientRect().y - window.innerHeight < 0){
                 setInView(true)
             } 
         }
 
-        // checkIfAlreadyInView()
-        // window.addEventListener('resize', checkIfAlreadyInView)
+        checkIfAlreadyInView()
+        window.addEventListener('resize', checkIfAlreadyInView)
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            // window.removeEventListener('resize', checkIfAlreadyInView)
+            window.removeEventListener('resize', checkIfAlreadyInView)
         }
     }, [])
 
