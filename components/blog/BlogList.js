@@ -20,7 +20,7 @@ export default function BlogList({ blogs, setPopup }){
                             <p className={styles.author}>{`by ${blog.data.author[0].text}`}</p> 
                             <Link scroll={false} href={`/blog/${blog.uid}`}><a>
                                 <div className={styles.img}>
-                                    <img src={blog.data.thumbnail.url} alt=""/> 
+                                    <img src={blog.data.thumbnail.url} alt={blog.data.thumbnail.alt}/> 
                                 </div>
                             </a></Link>
                             <div className={styles.tags}>

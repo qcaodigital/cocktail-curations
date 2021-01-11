@@ -58,7 +58,7 @@ const Copy = React.forwardRef(({ viewport }, ref) => {
                         <img id={styles.dots} className={styles.embellishment} src='/imgs/embellishments/dots.png' alt="dots"/>
                     </div>
                     <div ref={copyRightImgRellax} id={styles.galleryRight} className={styles.imgContainer}>
-                        <img src="/imgs/stock/services_page/services_copy_3.jpg" alt=""/>
+                        <img src="/imgs/stock/services_page/services_copy_3.jpg" alt="Cocktail Curations Cocktail Class"/>
                         <img id={styles.dots} className={styles.embellishment} src='/imgs/embellishments/dots.png' alt="Cocktail Curations Experiential Bar Service"/>
                     </div>
                     {viewport !== 'mobile' && <motion.div 
