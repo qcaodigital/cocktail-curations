@@ -175,7 +175,10 @@ export default function Nav({render, navList, viewport, isHamburgerOpen, hamburg
                                 : 'var(--main-color)',
                             '--icon-color': whiteList.includes(router.pathname) && !minimizeNav
                                 ? 'white'
-                                : 'var(--main-color)'
+                                : 'var(--main-color)',
+                            '--shop-color': whiteList.includes(router.pathname) && !minimizeNav
+                                ? 'white'
+                                : 'var(--highlight-color)'
                             }}
                         >
                             {!item.external ? (
