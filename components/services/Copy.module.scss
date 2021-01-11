@@ -3,7 +3,7 @@
     position: relative;
     border-bottom: 1px solid var(--main-color-fade-more);
     background-color: #F1F2EB;
-    @media screen and (min-width: 750px){
+    @media screen and (min-width: 46.875rem){
         padding-bottom: 15vw;
     }
     &::after { /* arrow section seperator */
@@ -13,8 +13,8 @@
         top: 100%;
         left: 50%;
         transform: translate(-50%, calc(-50% + 1px)) rotate(45deg);
-        width: 15px;
-        height: 15px;
+        width: .9375rem;
+        height: .9375rem;
         display: block;
         border-right: 1px solid var(--main-color-fade-more);
         border-bottom: 1px solid var(--main-color-fade-more);
@@ -24,7 +24,7 @@
         text-align: center;
         margin-bottom: 3rem;
         position: relative;
-        @media screen and (min-width: 750px){
+        @media screen and (min-width: 46.875rem){
             margin-bottom: 5rem;
         }
         h2 {
@@ -32,7 +32,7 @@
             font-size: .9rem;
             letter-spacing: 1px;
             font-weight: 300;
-            max-width: 380px;
+            max-width: 23.75rem;
             margin: 0 auto;
             position: relative;
             z-index: 2;
@@ -46,7 +46,7 @@
                 margin-bottom: .5rem;
                 font-weight: 300;
                 letter-spacing: -.75px;
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     font-weight: 400;
                     font-size: 3rem;
                 }
@@ -57,7 +57,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100px;
+            width: 6.25rem;
             z-index: 0;
             opacity: .2;
         }
@@ -72,9 +72,9 @@
             margin-left: 1rem;
             width: 75vw;
             z-index: 1;
-            @media screen and (min-width: 750px){
+            @media screen and (min-width: 46.875rem){
                 width: 45vw;
-                max-width: 500px;
+                max-width: 31.25rem;
             }
             .imgContainer {
                 // box-shadow: 5px 5px 15px rgba(0,0,0,.075);
@@ -90,25 +90,25 @@
                 left: -12%;
                 width: 50vw;
                 z-index: 1;
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     width: 28vw;
                     top: 80%;
                     left: -50%;
-                    max-width: 300px;
+                    max-width: 18.75rem;
                 }
             }
             #galleryRight {
                 display: none;
                 position: absolute;
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     display: block;
                     bottom: -30%;
                     right: -45%;
                     width: 25vw;
                     z-index: 2;
-                    max-width: 280px
+                    max-width: 17.5rem
                 }
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     bottom: -20%;
                 }
                 .embellishment {
@@ -119,7 +119,7 @@
                     right: -10%;
                     width: 10vw;
                     transform: rotate(-10deg);
-                    max-width: 110px;
+                    max-width: 6.875rem;
                 }
             }
             #galleryCenter {
@@ -139,9 +139,9 @@
                         left: -15%;
                         transform: rotate(-90deg);
                         width: 40vw;
-                        max-width: 220px;
+                        max-width: 13.75rem;
                         box-shadow: none;
-                        @media screen and (min-width: 750px){
+                        @media screen and (min-width: 46.875rem){
                             left: -20%;
                             width: 20vw;
                         }
@@ -152,7 +152,7 @@
                         right: -5%;
                         width: 20vw;
                         transform: rotate(-10deg);
-                        @media screen and (min-width: 750px){
+                        @media screen and (min-width: 46.875rem){
                             display: none;
                         }
                     }
@@ -166,7 +166,7 @@
                 font-family: var(--main-font);
                 letter-spacing: 1px;
                 overflow: hidden;
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     right: -2rem;
                 }
                 > p {

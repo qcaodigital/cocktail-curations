@@ -4,7 +4,7 @@
     > * + * {
         margin-left: var(--gap);
     }
-    @media screen and (min-width: 990px){
+    @media screen and (min-width: 61.85rem){
         --gap: .7rem;
     }
     .column {
@@ -17,7 +17,7 @@
         .imgContainer {
             box-shadow: 2px 2px 5px rgba(0,0,0,.15);
             cursor: pointer;
-            @media screen and (min-width: 750px){
+            @media screen and (min-width: 46.875rem){
                 &:hover {
                     img {
                         transition: 350ms ease;

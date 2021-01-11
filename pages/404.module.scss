@@ -1,25 +1,25 @@
 #_404 {
     height: 100vh;
-    max-height: 1500px;
+    max-height: 93.75rem;
     background-color: var(--secondary-color);
     display: grid;
     grid-template-rows: var(--navHeight) 1fr .75fr 1fr;
     row-gap: .5rem;
     > * {
-        max-width: 575px;
+        max-width: 35.9375rem;
         margin: 0 auto;
     }
-    @media screen and (max-height: 600px){
+    @media screen and (max-height: 37.5rem){
         height: unset;
         min-height: 100vh;
     }
-    @media screen and (min-width: 990px){
+    @media screen and (min-width: 61.85rem){
         grid-template-columns: 1fr 1fr;
         grid-template-rows: var(--navHeight) 1fr 1fr;
         row-gap: 2rem;
         padding: 0 2rem;
         > * {
-            max-width: 775px;
+            max-width: 48.4375rem;
             margin: unset;
         }
     }
@@ -29,7 +29,7 @@
         align-items: center;
         text-align: center;
         flex-direction: column;
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             width: 100%;
             grid-row: 2;
             grid-column: 2;
@@ -42,7 +42,7 @@
             font-size: clamp(1.25rem, 6vw, 2rem);
             line-height: clamp(1.25rem, 6vw, 2rem);
             color: var(--highlight-color);
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 font-size: clamp(2.25rem, 4.25vw, 3.25rem);
                 line-height: clamp(2.25rem, 4.25vw, 3.25rem);
             }
@@ -56,10 +56,10 @@
             font-family: var(--main-font);
             font-size: clamp(.75rem, 2.5vw, .9rem);
             line-height: clamp(.95rem, 3vw, 1.15rem);
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 font-size: 1rem;
                 line-height: 1.25rem;
-                max-width: 650px;
+                max-width: 40.625rem;
             }
         }
         a {
@@ -72,7 +72,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             grid-column: 1;
             grid-row: 2/4;
             margin-left: auto;
@@ -90,7 +90,7 @@
         > * + * {
             margin-left: 1rem;
         }
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             grid-row: 3;
             grid-column: 2;
             align-items: flex-start;

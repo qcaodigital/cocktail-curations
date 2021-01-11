@@ -3,10 +3,10 @@
     main {
         --gap: 1rem;
         font-family: var(--main-font);
-        max-width: 1500px;
+        max-width: 93.75rem;
         margin: 0 auto;
         padding: 1rem 4vw;
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             display: grid;
             grid-template-rows: var(--navHeight) min-content;
             grid-template-columns: 70% 1fr;
@@ -27,7 +27,7 @@
             line-height: 1.5rem;
             letter-spacing: .5px;
             font-weight: 300;
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 font-size: 1rem;
                 letter-spacing: .25px;
             }
@@ -65,10 +65,10 @@
             }
         }
         article {
-            --thumbnail-max-size: 500px;
+            --thumbnail-max-size: 31.25rem;
             margin: 0 auto;
-            max-width: 850px;
-            @media screen and (min-width: 990px){
+            max-width: 53.125rem;
+            @media screen and (min-width: 61.85rem){
                 max-width: unset;
             }
             .banner {
@@ -102,7 +102,7 @@
             }
             header {
                 text-align: center;
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     text-align: left;
                 }
                 .breadcrumbs {
@@ -111,7 +111,7 @@
                         font-size: .75rem;
                         display: inline-block;
                         text-transform: capitalize;
-                        @media screen and (min-width: 990px){
+                        @media screen and (min-width: 61.85rem){
                             font-size: .9rem;
                         }
                         & + span {
@@ -128,7 +128,7 @@
                     font-weight: 600;
                     letter-spacing: 1px;
                     margin: .5rem 0;
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         font-size: 2.75rem;
                     }
                 }
@@ -142,7 +142,7 @@
                     > * + * {
                         margin-left: .5rem;
                     }
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         justify-content: flex-start;
                         font-size: .9rem;
                     }
@@ -151,7 +151,7 @@
             .thumbnailContainer {
                 img {
                     max-width: unset;
-                    max-height: clamp(var(--thumbnail-max-size), 35vw, 600px);
+                    max-height: clamp(var(--thumbnail-max-size), 35vw, 37.5rem);
                 }
             }
             .content {
@@ -165,7 +165,7 @@
                     h2 {
                         font-size: .9rem;
                         line-height: 1.5rem;
-                        @media screen and (min-width: 990px){
+                        @media screen and (min-width: 61.85rem){
                             font-size: 1rem;
                         }
                     }
@@ -183,7 +183,7 @@
             flex-direction: column;
             section {
                 width: 100%;
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     padding-left: 0;
                 }
                 .banner {

@@ -12,7 +12,7 @@
         > * + * {
             margin-top: var(--gap);
         }
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
@@ -31,7 +31,7 @@
             > * + * {
                 margin-top: var(--divGap);
             }
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 --divGap: .5rem;
                 &#date {
                     flex-basis: 100%;
@@ -47,7 +47,7 @@
                     font-size: 1rem;
                     resize: none;
                     width: 100%;
-                    max-width: 550px;
+                    max-width: 34.375rem;
                     height: 15rem;
                     padding: .5rem;
                     &::placeholder {
@@ -69,7 +69,7 @@
             }
             select, input {
                 width: 75vw;
-                max-width: 300px;
+                max-width: 18.75rem;
                 padding: .5rem;
                 font-size: .9rem;
                 letter-spacing: .5px;
@@ -78,9 +78,9 @@
                 outline: unset;
                 border-style: unset;
                 border: 1px solid var(--highlight-color);
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     &:not(.long){
-                        max-width: 200px;
+                        max-width: 12.5rem;
                     }
                 }
             }
@@ -122,8 +122,8 @@
 #Personal {
     form {
         margin: 0 auto;
-        max-width: 600px;
-        @media screen and (min-width: 750px){
+        max-width: 37.5rem;
+        @media screen and (min-width: 46.875rem){
             --gap: 0rem;
             flex-direction: row;
             flex-wrap: wrap;
@@ -131,7 +131,7 @@
         }
         div {
             align-items: flex-start;
-            @media screen and (min-width: 750px){
+            @media screen and (min-width: 46.875rem){
                 &:nth-of-type(even){
                     margin-left: .5rem;
                 }
@@ -142,13 +142,13 @@
             }
             &#email,
             &#phone {
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     margin-top: 1.5rem;
                     margin-bottom: 1.5rem;
                 }
             }
             &#company {
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     max-width: calc(96% + .5rem) !important;
                     margin-bottom: 1.5rem;
                 }

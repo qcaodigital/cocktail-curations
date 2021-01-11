@@ -2,10 +2,10 @@
     .blogPreviewContainer {
         display: grid;
         gap: 1.5rem;
-        @media screen and (min-width: 550px){
+        @media screen and (min-width: 34.375rem){
             grid-template-columns: 1fr 1fr;
         }
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             grid-template-columns: 1fr;
         }
         .blogPreview {
@@ -16,11 +16,11 @@
             > * + * {
                 margin-top: var(--gap);
             }
-            @media screen and (min-width: 550px){
+            @media screen and (min-width: 34.375rem){
                 flex-basis: calc(50% - var(--gap));
             }
             img {
-                height: 250px;
+                height: 15.625rem;
                 object-fit: cover;
                 transition: 350ms ease;
                 &:hover {

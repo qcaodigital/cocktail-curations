@@ -1,13 +1,13 @@
 .carousel {
     --side-padding: 2rem;
-    --max-img-size: 775px;
+    --max-img-size: 48.5rem;
     padding: 0rem var(--side-padding);
     height: 60vw;
-    max-height: 365px;
+    max-height: 22.8rem;
     position: relative;
     width: 100%;
     margin: 0 auto;
-    @media screen and (min-width: 990px){
+    @media screen and (min-width: 61.85rem){
         position: unset;
         grid-row: 1;
         //4rem for padding Y
@@ -27,7 +27,7 @@
         > * + * {
             margin: 0 0 0 .25rem;
         }
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             z-index: 100;
             top: 50%;
             left: calc(100% - clamp(1rem, 50vw, var(--max-img-size)) - 2rem);
@@ -35,8 +35,8 @@
             transform: translate(-50%, -50%) rotate(90deg);
         }
         div {
-            width: 5px;
-            height: 5px;
+            width: .3rem;
+            height: .3rem;
             // background-color: transparent;
             // border: 1px solid black;
             border-radius: 50%;
@@ -44,7 +44,7 @@
         }
         .chevron {
             margin: .0 3rem;
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 transform: translateY(5%);
             }
             svg {
@@ -53,16 +53,16 @@
         }
     }
     .imgContainer {
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             height: inherit;
             position: relative;
         }
         img {
             width: calc(100% - var(--side-padding) * 2);
-            max-width: 550px;
+            max-width: 34.375rem;
             position: absolute;
             top: 50%;
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 width: 50vw;
                 max-width: var(--max-img-size);
             }
@@ -73,7 +73,7 @@
             z-index: 2;
             left: 50%;
             transform: translate(-50%, -50%);
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 left: unset;
                 right: 0;
                 transform: translate(-0, -50%);
@@ -87,7 +87,7 @@
             z-index: 1;
             opacity: .5;
             transform: translate(0, -50%) scale(.8);
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 transform: unset;
                 right: 0% !important;
                 transform-origin: right;
@@ -98,13 +98,13 @@
         }
         #left {
             right: 50%;
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 transform: translate(0, -85%) scale(.8);
             }
         }
         #right {
             left: 50%;
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 transform: translate(0, -15%) scale(.8);
                 left: unset;
             }

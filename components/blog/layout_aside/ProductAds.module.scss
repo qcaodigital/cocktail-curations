@@ -12,14 +12,14 @@
         &::-webkit-scrollbar {
             display: none;
         }
-        @media screen and (min-width: 750px){
+        @media screen and (min-width: 46.875rem){
             grid-template-columns: repeat(4, 1fr);
         }
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             grid-template-columns: repeat(2, 1fr);
         }
         .product {
-            @media screen and (min-width: 750px){
+            @media screen and (min-width: 46.875rem){
                 &:hover {
                     .imgContainer {
                         img {

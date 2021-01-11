@@ -7,7 +7,7 @@
         font-size: 2.2rem;
         line-height: 3rem;
         text-align: center;
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             font-size: 3rem;
             line-height: 4.25rem;
         }
@@ -15,7 +15,7 @@
     .list {
         display: flex;
         flex-direction: column;
-        @media screen and (min-width: 750px){
+        @media screen and (min-width: 46.875rem){
             flex-direction: row;
             > * + * {
                 margin-left: 4rem;
@@ -34,7 +34,7 @@
                 margin-top: .25rem;
             }
             &:hover {
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     box-shadow: 3px 3px 10px rgba(0,0,0,.2);
                     .img {
                         img { opacity: 1; } 
@@ -44,7 +44,7 @@
                     }
                 }
             }
-            @media screen and (min-width: 750px){
+            @media screen and (min-width: 46.875rem){
                 border-bottom: none;
                 box-shadow: 3px 3px 10px rgba(0,0,0,.1);
                 padding: 1.5rem 3rem;
@@ -61,7 +61,7 @@
                 font-weight: 600;
                 letter-spacing: 1px;
                 position: relative;
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     font-size: 1.75rem;
                 }
                 &:hover {
@@ -78,15 +78,15 @@
                 margin: 1rem 0;
                 img {
                     margin: 0 auto;
-                    width: 300px;
-                    height: 300px;
+                    width: 18.75rem;
+                    height: 18.75rem;
                     object-fit: cover;
                     border: 1px solid var(--main-color-fade);
                     transition: 350ms ease;
-                    @media screen and (min-width: 750px){
+                    @media screen and (min-width: 46.875rem){
                         opacity: .8;
-                        width: 225px;
-                        height: 225px;
+                        width: 14rem;
+                        height: 14rem;
                     }
                 }
             }

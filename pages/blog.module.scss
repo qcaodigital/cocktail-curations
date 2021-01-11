@@ -32,7 +32,7 @@
                 left: 0;
                 padding: 0 .5rem;
                 transition: 350ms ease;
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     left: -15%;
                     text-align: left;
                 }
@@ -43,7 +43,7 @@
                     line-height: 2.2rem;
                     font-weight: 500;
                     letter-spacing: 2px;
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         font-size: clamp(2.2rem, 3.75vw, 4rem);
                         line-height: 3vw;
                     }
@@ -53,17 +53,17 @@
                         content: '';
                         display: block;
                         height: 1px;
-                        width: 20px;
+                        width: 1.25rem;
                         background-color: var(--secondary-color);
                         margin: .75rem auto;
-                        @media screen and (min-width: 990px){
+                        @media screen and (min-width: 61.85rem){
                             margin: 1rem auto 1rem 0;
                         }
                     }
                     font-weight: 400;
                     letter-spacing: 2.5px;
                     color: var(--secondary-color);
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         font-size: clamp(1rem, 1vw, 1.5rem);
                         margin-left: .5rem;
                     }
@@ -79,7 +79,7 @@
                         transition: 350ms ease;
                         background-color: rgba(255, 255, 255, .25)
                     }
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         margin-top: 2vw;
                     }
                 }
@@ -89,12 +89,12 @@
             padding: 3rem 0;
             background-color: var(--secondary-color);
             position: relative;
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 display: grid;
                 grid-template-columns: 3fr 4fr;
                 row-gap: 1rem;
                 column-gap: 1rem;
-                padding: 6.5rem clamp(2rem, calc((100vw - 1500px)/2), 100rem);
+                padding: 6.5rem clamp(2rem, calc((100vw - 93.75rem)/2), 100rem);
                 header {
                     grid-column: 1/-1;
                 }
@@ -110,7 +110,7 @@
                 text-align: center;
                 margin-bottom: -2rem;
                 position: relative;
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     margin-bottom: 3rem;
                     z-index: 1;
                     &::after {
@@ -120,8 +120,8 @@
                         background-size: cover;
                         background-position: center;
                         display: block;
-                        width: 125px;
-                        height: 200px;
+                        width: 7.8125rem;
+                        height: 12.5rem;
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%) scale(.75);
@@ -137,7 +137,7 @@
                     text-transform: uppercase;
                     color: var(--highlight-color);
                     opacity: .95;
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         font-size: 1.15rem;
                         margin-bottom: unset;;
                         letter-spacing: 4.5px;
@@ -151,7 +151,7 @@
                     font-family: var(--serif-font);
                     font-size: 2.2rem;
                     line-height: 3rem;
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         background-color: unset;
                         color: var(--main-color);
                         font-size: 3rem;
@@ -163,8 +163,8 @@
                 display: flex;
                 flex-direction: column;
                 margin: 0 auto;
-                --max-width: 525px;
-                @media screen and (min-width: 990px){
+                --max-width: 32.81rem;
+                @media screen and (min-width: 61.85rem){
                     width: unset;
                     max-width: unset;
                 }
@@ -173,14 +173,14 @@
                 max-width: var(--max-width);
                 justify-content: center;
                 align-items: center;
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     width: 100%;
                     align-items: flex-end;
                 }
                 .imgContainer {
                     box-shadow: 3px 5px 10px rgba(0,0,0,.05);
                     margin: 1rem 0 0;
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         margin: 0;
                         border: 1px solid var(--main-color-fade-more);
                         width: calc(100%);
@@ -193,7 +193,7 @@
                         max-width: var(--max-width);
                         max-height: calc(var(--max-width) * .75);
                         object-fit: cover;
-                        @media screen and (min-width: 990px){
+                        @media screen and (min-width: 61.85rem){
                             width: 100%;
                             height: 100%;
                         }
@@ -211,7 +211,7 @@
                 > * + * {
                     margin-top: 1.25rem;
                 }
-                @media screen and (min-width: 990px){
+                @media screen and (min-width: 61.85rem){
                     max-width: unset;
                     align-items: flex-start;
                     border-top: 2px solid var(--main-color-fade-less);
@@ -229,7 +229,7 @@
                     font-family: var(--serif-font);
                     font-weight: 600;
                     letter-spacing: 1px;
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         font-size: 2.25rem;
                     }
                 }
@@ -261,11 +261,11 @@
                     &::after {
                         content: ' ...';
                         white-space: nowrap;
-                        @media screen and (min-width: 990px){
+                        @media screen and (min-width: 61.85rem){
                             content: unset;
                         }
                     }
-                    @media screen and (min-width: 990px){
+                    @media screen and (min-width: 61.85rem){
                         text-align: left;
                     }
                 }

@@ -1,7 +1,7 @@
 #Story {
     padding: 2rem .75rem 5rem;
     position: relative;
-    @media screen and (min-width: 750px){ //adjust for divider size increase
+    @media screen and (min-width: 46.875rem){ //adjust for divider size increase
         padding-bottom: 6rem
     }
     &::after { //background color/texture so that opacity can be controlled
@@ -45,7 +45,7 @@
         .divider {
             display: block;
             height: 1px;
-            width: 25px;
+            width: 1.56rem;
             margin: .5rem auto;
             background-color: var(--main-color-fade);
             margin: 2rem auto;
@@ -54,11 +54,11 @@
     .contentContainer {
         margin: 2rem auto 0;
         padding: 0 .5rem;
-        max-width: 600px;
-        @media screen and (min-width: 750px){
+        max-width: 37.5rem;
+        @media screen and (min-width: 46.875rem){
             display: flex;
             flex-wrap: wrap;
-            max-width: 900px;
+            max-width: 56.25rem;
             padding: 0 2rem;
             > * + * {
                 margin: 0 0 0 1.5rem;
@@ -71,18 +71,18 @@
                 content: '';
                 display: block;
                 height: 1px;
-                width: 25px;
+                width: 1.56rem;
                 margin: 2rem auto;
                 background-color: var(--main-color-fade);
             }
-            @media screen and (min-width: 750px){
+            @media screen and (min-width: 46.875rem){
                 &:first-of-type::after {
                     content: unset;
                 }
             }
             &+ .block {
                 margin-top: 1rem;
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     margin-top: unset;
                 }
             }

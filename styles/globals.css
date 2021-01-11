@@ -8,7 +8,7 @@ body {
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     }
     
-    @media screen and (max-width: 749px){
+    @media screen and (max-width: 46.8125rem){
     html {
         scrollbar-width: none;  /* remove in production */
     }
@@ -71,7 +71,7 @@ svg {
 }
 
 
-/* @media screen and (min-width: 500px){
+/* @media screen and (min-width: 31.25rem){
     *:hover {
         pointer-events: none !important;
     }
@@ -79,9 +79,9 @@ svg {
 
 /*
     responsive breakpoints:
-    mobile < 750px
-    750px < tablet < 990px
-    990px < desktop
+    mobile < 46.875rem
+    46.875rem < tablet < 61.85rem
+    61.85rem < desktop
 */
 
 

@@ -1,9 +1,9 @@
 .infoBlock {
     padding-top: 1rem;
-    @media screen and (min-width: 750px){
+    @media screen and (min-width: 46.875rem){
         margin: 0 auto;
         padding: 0 3rem;
-        max-width: 750px;
+        max-width: 46.875rem;
         color: white;
         text-align: center;
         font-family: var(--main-font);
@@ -21,12 +21,12 @@
         font-family: var(--serif-font);
         font-size: 1.35rem;
         line-height: 1.5rem;
-        @media screen and (min-width: 750px){
+        @media screen and (min-width: 46.875rem){
             font-size: 1.5rem;
             font-weight: 600;
             line-height: 1.75rem;
         }
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             font-size: 1.75rem;
         }
     }
@@ -41,10 +41,10 @@
     p, h4 {
         margin: 1rem 0;
         font-size: .85rem;
-        @media screen and (min-width: 750px){
+        @media screen and (min-width: 46.875rem){
             margin: 1rem 0;
         }
-        @media screen and (min-width: 990px){
+        @media screen and (min-width: 61.85rem){
             font-size: 1rem;
             margin: 1rem auto;
         }
@@ -54,7 +54,7 @@
         li {
             padding-left: .25rem;
             white-space: nowrap;
-            @media screen and (min-width: 990px){
+            @media screen and (min-width: 61.85rem){
                 font-size: 1.15rem;
                 strong {
                     font-weight: 600;
@@ -71,7 +71,7 @@
             }
             & + li {
                 margin-top: 0rem;
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     margin-top: .25rem;
                 }
             }
@@ -83,10 +83,10 @@
                 margin-left: 4px;
                 display: none;
                 transition: 350ms ease;
-                @media screen and (min-width: 350px){
+                @media screen and (min-width: 21.875rem){
                     display: inline-block;
                 }
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     color: white;
                     &:hover {
                         opacity: .5;

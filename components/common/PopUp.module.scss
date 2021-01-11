@@ -8,7 +8,7 @@
     width: 100vw;
     z-index: 100;
     --popupSize: 90vw;
-    --maxPopupSize: 400px;
+    --maxPopupSize: 25rem;
     --borderOffset: 1.25rem;
     .container {
         display: flex;
@@ -23,7 +23,7 @@
         }
         .popupImg {
             display: none;
-            @media screen and (min-width: 750px){
+            @media screen and (min-width: 46.875rem){
                 display: block;
             }
             img {
@@ -53,7 +53,7 @@
                 width: calc(100% - var(--borderOffset));
                 height: calc(100% - var(--borderOffset));
                 border: 1px solid var(--main-color-fade-less);
-                @media screen and (min-width: 750px){
+                @media screen and (min-width: 46.875rem){
                     border: none;
                 }
             }
@@ -85,7 +85,7 @@
             }
             .logo {
                 position: absolute;
-                width: clamp(50px, 30vw, 125px);
+                width: clamp(3.125rem, 30vw, 7.8125rem);
                 top: .75rem;
                 left: 1.25rem;
             }

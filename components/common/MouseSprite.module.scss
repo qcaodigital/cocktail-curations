@@ -1,7 +1,7 @@
 .mouseSprite {
     cursor: pointer;
     width: 13px;
-    height: 20px;
+    height: 1.25rem;
     border-radius: 40%;
     background-color: var(--secondary-color);
     display: flex;
@@ -22,8 +22,8 @@
     &::after {
         content: '';
         display: block;
-        width: 50px;
-        height: 50px;
+        width: 3.125rem;
+        height: 3.125rem;
         border-radius: 50%;
         border: 1px solid var(--secondary-color-fade);
         position: absolute;
