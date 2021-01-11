@@ -30,6 +30,7 @@ export default function Body({ children }){
                     navList={navList} 
                     toggleHBM={() => setIsHamburgerMenuOpen(curr => !curr)}
                     navHeight={navHeight}
+                    viewport={viewport}
                 />
             }
         </AnimatePresence>

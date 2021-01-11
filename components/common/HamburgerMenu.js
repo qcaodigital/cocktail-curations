@@ -12,7 +12,7 @@ HamburgerMenu.propTypes = {
     toggleHBM: PropTypes.func.isRequired
 }
 
-export default function HamburgerMenu({ navList, toggleHBM, navHeight }){
+export default function HamburgerMenu({ navList, toggleHBM, navHeight, viewport }){
     const { contactBtnVariant, navItemVariants, stagger } = transitions;
 
     const navItems = navList.map((item, idx) => (
@@ -21,6 +21,7 @@ export default function HamburgerMenu({ navList, toggleHBM, navHeight }){
             className={item.active && styles.active}
             data-label={item.label}
             variants={item.label === 'Contact' ? contactBtnVariant : navItemVariants}
+            whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
         >
             <Link scroll={false} href={item.href}>
                 <a onClick={toggleHBM}>{item.label}</a>
