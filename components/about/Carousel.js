@@ -113,7 +113,7 @@ export default function Carousel({ imgs, viewport }){
                 <motion.button 
                     id={styles.UP_LEFT} 
                     className={styles.chevron}
-                    onClick={() => changeImg('dec')}
+                    onClick={() => changeImg(viewport !== 'desktop' ? 'inc' : 'dec')}
                     whileTap={{ scale: viewport !== 'desktop' ? [1, 4, 1] : 1 }}
                 >
                     <FontAwesomeIcon icon={['fa', 'chevron-left']}/>
@@ -127,7 +127,7 @@ export default function Carousel({ imgs, viewport }){
                 <motion.button 
                     id={styles.DOWN_RIGHT} 
                     className={styles.chevron}
-                    onClick={() => changeImg('inc')} 
+                    onClick={() => changeImg(viewport !== 'desktop' ? 'dec' : 'inc')} 
                     whileTap={{ scale: viewport !== 'desktop' ? [1, 4, 1] : 1 }}   
                 >
                     <FontAwesomeIcon icon={['fa', 'chevron-right']}/>

@@ -21,7 +21,7 @@
         position: absolute;
         bottom: -4rem;
         left: 50%;
-        transform: translate(-50%, -150%);
+        transform: translate(-50%, -150%) rotate(180deg);
         display: flex;
         align-items: center;
         > * + * {
