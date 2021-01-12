@@ -10,12 +10,23 @@ import SliceZone from './SliceZone';
 import RelatedBlogs from './layout_aside/RelatedBlogs';
 import ProductAds from './layout_aside/ProductAds';
 import SocialShare from './SocialShare';
+import PropTypes from 'prop-types';
 
-export default function BlogLayout({ blog: blogArr, blogs, products, NAV_SPACER, state: { viewport, setPopup }, router}){
-    const blog = blogArr[0];
-    const { date_published, title, author, category, thumbnail, subheader, content1 } = blog.data;
+BlogLayout.propTypes = {
+    blog: PropTypes.object.isRequired,
+    blogs: PropTypes.arrayOf(PropTypes.object).isRequired,
+    products: PropTypes.arrayOf(PropTypes.object).isRequired,
+    NAV_SPACER: PropTypes.object.isRequired,
+    state: PropTypes.shape({ 
+        viewport: PropTypes.string,
+        setPopup: PropTypes.func.isRequired, 
+    }),
+    router: PropTypes.object.isRequired,
+}
 
-    const [document] = useState(blog);
+export default function BlogLayout({ blog, blogs, products, NAV_SPACER, state: { viewport, setPopup }, router}){
+    const { date_published, title, author, category, thumbnail, subheader } = blog.data;
+
     return (
         <>
             <Head>
@@ -68,7 +79,7 @@ export default function BlogLayout({ blog: blogArr, blogs, products, NAV_SPACER,
                                     <h2>{subheader[0].text}</h2>
                                 </SelectFirstSentence>
                             </div>
-                            <SliceZone document={document}/>
+                            <SliceZone blog={blog}/>
                         </div>
                         <Link href='/blog'><a>
                             <motion.button 

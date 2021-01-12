@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Head from 'next/head';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
+import PropTypes from 'prop-types';
+
+FourOhFour.propTypes = {
+    NAV_SPACER: PropTypes.element
+}
 
 export default function FourOhFour({ NAV_SPACER }){
     const onAniStart = useOnAniStartOnlyEntry();

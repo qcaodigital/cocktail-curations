@@ -1,10 +1,15 @@
 import parsePrismicSlice from './../../helpers/parsePrismicSlice';
 import styles from './SliceZone.module.scss';
+import PropTypes from 'prop-types';
 
-export default function SliceZone({ document }){
+SliceZone.propTypes = {
+    blog: PropTypes.object.isRequired
+}
+
+export default function SliceZone({ blog }){
     return (
         <section className={styles.SliceZone}>
-            {parsePrismicSlice(document, styles)}
+            {parsePrismicSlice(blog, styles)}
         </section>
     )
 }

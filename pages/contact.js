@@ -11,6 +11,14 @@ import Summary from './../components/contact/Summary';
 import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import axios from 'axios';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
+import PropTypes from 'prop-types';
+
+Contact.propTypes = {
+    state: PropTypes.shape({
+        viewport: PropTypes.string
+    }),
+    NAV_SPACER: PropTypes.object
+}
 
 export default function Contact({ NAV_SPACER, state: { viewport } }){
     const progressMarkers = ['Start', 'Basic Info', 'Details', 'About You', 'Complete'];

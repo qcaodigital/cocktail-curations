@@ -1,4 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+
+MouseDirection.propTypes = {
+    children: PropTypes.element.isRequired
+}
 
 export default function MouseDirection({ children }){
     const [direction, setDirection] = useState('left');

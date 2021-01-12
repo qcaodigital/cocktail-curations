@@ -4,6 +4,11 @@ import { motion } from 'framer-motion';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
 import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
 import { sustainabilityTransitions } from './../../page_transitions/about';
+import PropTypes from 'prop-types';
+
+Sustainability.propTypes = {
+    viewport: PropTypes.string
+}
 
 export default function Sustainability({ viewport }){
     return(

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { sectionTransitions } from '../../page_transitions/services';
 import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import AdditionalInfo from './AdditionalInfo';
+import PropTypes from 'prop-types';
 
 const Bars = React.forwardRef(({ viewport }, ref) => {
     const headerRef = useRef();
@@ -62,5 +63,9 @@ const Bars = React.forwardRef(({ viewport }, ref) => {
         </section>
     )
 })
+
+Bars.propTypes = {
+    viewport: PropTypes.string
+}
 
 export default Bars;

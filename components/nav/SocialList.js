@@ -1,5 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+
+SocialList.propTypes = {
+    animateOnHover: PropTypes.bool,
+    viewport: PropTypes.string
+}
 
 export default function SocialList({ animateOnHover, viewport }){
     const variants = {

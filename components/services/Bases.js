@@ -6,7 +6,6 @@ import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 
 const Bases = React.forwardRef(({}, ref) => {
     const inView = useInViewFromTop(ref, { threshold: .1 });
-    
     const mainImgRef = useRef();
     const mainImgInView = useInViewFromTop(mainImgRef, { threshold: .1 })
 

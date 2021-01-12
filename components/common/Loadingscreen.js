@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './LoadingScreen.module.scss';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
+
+LoadingScreen.propTypes = {
+    turnOffLoading: PropTypes.func.isRequired
+}
 
 export default function LoadingScreen({ turnOffLoading }){
     const textAnimationDuration = 2.25;

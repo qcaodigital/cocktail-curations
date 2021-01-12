@@ -6,6 +6,7 @@ import useInViewFromTop from '../../custom_hooks/useInViewFromTop';
 import { motion } from 'framer-motion';
 import Rellax from 'rellax';
 import AdditionalInfo from './AdditionalInfo';
+import PropTypes from 'prop-types';
 
 const Classes = React.forwardRef(({ viewport }, ref) => {
     const headerRef = useRef();
@@ -67,5 +68,9 @@ const Classes = React.forwardRef(({ viewport }, ref) => {
         </section>
     )
 })
+
+Classes.propTypes = {
+    viewport: PropTypes.string
+}
 
 export default Classes;

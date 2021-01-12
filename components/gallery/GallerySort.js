@@ -1,4 +1,11 @@
 import styles from './GallerySort.module.scss';
+import PropTypes from 'prop-types';
+
+GallerySort.propTypes = {
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    setFilterBy: PropTypes.func.isRequired,
+    filterBy: PropTypes.string.isRequired
+}
 
 export default function GallerySort({ tags, setFilterBy, filterBy }){
     return (

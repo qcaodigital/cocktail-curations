@@ -1,7 +1,7 @@
 import styles from './ArrowDivider.module.scss';
 import PropTypes from 'prop-types';
 
-const ArrowDivider = ({ size, BGcolor = "red", border }) => {
+const ArrowDivider = ({ size, BGcolor = "transparent", border }) => {
     if(!size){
         throw ': Size prop is required.';
     } else if (!['px', 'rem', 'em'].some(measurement => measurement === size.measurement)){

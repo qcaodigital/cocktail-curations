@@ -1,5 +1,10 @@
 import styles from './contact_form.module.scss';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+
+AdditionalInfo.propTypes = {
+    dataProp: PropTypes.string.isRequired
+}
 
 export default function AdditionalInfo({ formData, dataProp, handleChange, validateForm, handleLoad }){
     const commonProps = {

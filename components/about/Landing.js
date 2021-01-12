@@ -6,6 +6,15 @@ import { useRef, useEffect, useState } from 'react';
 import styles from './Landing.module.scss';
 import smoothscroll from 'smoothscroll';
 import Carousel from './Carousel';
+import PropTypes from 'prop-types';
+
+Landing.propTypes = {
+    isNavAniComplete: PropTypes.bool.isRequired,
+    NAV_SPACER: PropTypes.object.isRequired,
+    navHeight: PropTypes.number.isRequired,
+    viewport: PropTypes.string,
+    storyRef: PropTypes.object.isRequired
+}
 
 //FOR NOW, ALL IMGS MUST BE EXACTLY IDENTICAL IN SIZE TO THE PIXEL
 const imgArr = [ 'IMG_1734.jpg', 'thy_nicole_bookoflists.jpg', 'ThyNicole_Landscape.jpg'].map(filename => `/imgs/stock/about_page/landing_carousel/${filename}`);
@@ -45,21 +54,29 @@ export default function Landing({ isNavAniComplete, NAV_SPACER, navHeight, viewp
     )
 }
 
-export const CTA_BUTTON = ({ storyRef, navHeight, viewport }) => (
-    <motion.div 
-        animate='animate'
-        initial='initial'
-        variants={landingTransitions.header.children} 
-        className={styles.cta}
-    >
-        <motion.button 
-            className='STYLED_BTN'
-            whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
-            onClick={() => {
-                smoothscroll(storyRef.current.offsetTop - navHeight, 1000)
-            }}
+CTA_BUTTON.propTypes = {
+    storyRef: PropTypes.object.isRequired,
+    navHeight: PropTypes.number.isRequired,
+    viewport: PropTypes.string
+}
+
+export function CTA_BUTTON({ storyRef, navHeight, viewport }){
+    return (
+        <motion.div 
+            animate='animate'
+            initial='initial'
+            variants={landingTransitions.header.children} 
+            className={styles.cta}
         >
-            About Us
-        </motion.button>
-    </motion.div>
-)
+            <motion.button 
+                className='STYLED_BTN'
+                whileTap={{ scale: viewport !== 'desktop' ? .9 : 1 }}
+                onClick={() => {
+                    smoothscroll(storyRef.current.offsetTop - navHeight, 1000)
+                }}
+            >
+                About Us
+            </motion.button>
+        </motion.div>
+    )
+}

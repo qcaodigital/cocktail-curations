@@ -7,7 +7,8 @@ import SocialList from './../nav/SocialList';
 import { motion } from 'framer-motion';
 
 Footer.propTypes = {
-    navList: PropTypes.array.isRequired
+    navList: PropTypes.array.isRequired,
+    viewport: PropTypes.string
 }
 
 export default function Footer({ navList, viewport }){

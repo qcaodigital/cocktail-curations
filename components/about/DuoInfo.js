@@ -6,6 +6,11 @@ import styles from './DuoInfo.module.scss';
 import { useRef, useEffect } from 'react';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+
+DuoInfo.propTypes = {
+    viewport: PropTypes.string
+}
 
 export default function DuoInfo({ viewport }){
     const infoRef = useRef();

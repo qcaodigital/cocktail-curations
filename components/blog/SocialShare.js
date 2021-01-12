@@ -1,5 +1,11 @@
 import styles from './SocialShare.module.scss';
 import { FacebookShareButton, FacebookIcon, LinkedinShareButton, LinkedinIcon, RedditShareButton, RedditIcon, EmailShareButton, EmailIcon, TwitterShareButton, TwitterIcon, PinterestShareButton, PinterestIcon } from 'react-share';
+import PropTypes from 'prop-types';
+
+SocialShare.propTypes = {
+    url: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired
+}
 
 export default function SocialShare({ url, img }){
     return (

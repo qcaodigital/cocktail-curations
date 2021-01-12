@@ -1,5 +1,15 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
+import PropTypes from 'prop-types';
+
+FadeOnUnmount.propTypes = {
+    unmountIf: PropTypes.bool.isRequired ,
+    children: PropTypes.element.isRequired ,
+    exitTransition: PropTypes.object,
+    animateTransition: PropTypes.object,
+    initialTransition: PropTypes.object,
+    dontAnimate: PropTypes.bool
+}
 
 export default function FadeOnUnmount({unmountIf, children, exitTransition, animateTransition, initialTransition, dontAnimate}){
     const variants = {

@@ -9,7 +9,8 @@ import transitions from './../../page_transitions/hamburgerMenu';
 HamburgerMenu.propTypes = {
     navList: PropTypes.array.isRequired,
     navHeight: PropTypes.number.isRequired,
-    toggleHBM: PropTypes.func.isRequired
+    toggleHBM: PropTypes.func.isRequired,
+    viewport: PropTypes.string
 }
 
 export default function HamburgerMenu({ navList, toggleHBM, navHeight, viewport }){

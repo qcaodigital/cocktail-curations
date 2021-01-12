@@ -9,6 +9,14 @@ import LandingInfo from './LandingInfo';
 import { landingTransitions } from './../../page_transitions/services';
 import constructRellax from './../../helpers/constructRellax';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
+import PropTypes from 'prop-types';
+
+Landing.propTypes = {
+    viewport: PropTypes.string,
+    navHeight: PropTypes.number.isRequired,
+    NAV_SPACER: PropTypes.object,
+    refs: PropTypes.objectOf(PropTypes.object).isRequired
+}
 
 export default function Landing({ viewport, navHeight, NAV_SPACER, refs }){
     const mobileInfoRef = useRef();

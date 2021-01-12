@@ -4,6 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion, AnimatePresence } from 'framer-motion';
 import { modalTransitions } from '../../page_transitions/gallery';
 import useGetSwipeDirection from './../../custom_hooks/useGetSwipeDirection';
+import PropTypes from 'prop-types';
+
+Modal.propTypes = {
+    modalImgIdx: PropTypes.number,
+    imgList: PropTypes.arrayOf(PropTypes.object).isRequired,
+    setModalImg: PropTypes.func.isRequired,
+    viewport: PropTypes.string
+}
 
 export default function Modal({ modalImgIdx, imgList, setModalImg, viewport }){
     if (!imgList[modalImgIdx]) return null;

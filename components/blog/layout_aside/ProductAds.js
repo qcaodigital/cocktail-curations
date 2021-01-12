@@ -1,8 +1,15 @@
 import styles from './ProductAds.module.scss';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-export default function ProductAds({ products: productsData, parentStyles, numProducts }){
-    const [products, setProducts] = useState(productsData[0].data.product)
+ProductAds.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object).isRequired,
+    parentStyles: PropTypes.object.isRequired,
+    numProducts: PropTypes.number.isRequired
+}
+
+export default function ProductAds({ products: productsArr, parentStyles, numProducts }){
+    const [products, setProducts] = useState(productsArr)
 
     useEffect(() => {
         function randomizeArr(arr){

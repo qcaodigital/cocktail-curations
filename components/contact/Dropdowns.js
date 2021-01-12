@@ -1,5 +1,10 @@
 import styles from './contact_form.module.scss';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+
+Dropdowns.propTypes = {
+    dataProp: PropTypes.string.isRequired
+}
 
 export default function Dropdowns({ formData, dataProp, handleChange, validateForm, handleLoad }){
     const date = new Date();

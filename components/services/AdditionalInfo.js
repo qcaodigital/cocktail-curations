@@ -2,6 +2,16 @@ import styles from './AdditionalInfo.module.scss';
 import Link from 'next/link';
 import FadeInViewContainer from './../HOC/FadeInViewContainer';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+
+AdditionalInfo.propTypes = {
+    textBlocks: PropTypes.arrayOf(PropTypes.shape({
+        header: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+    })),
+    cta: PropTypes.object.isRequired,
+    viewport: PropTypes.string   
+}
 
 export default function AdditionalInfo({ textBlocks, cta, viewport }){
     return (

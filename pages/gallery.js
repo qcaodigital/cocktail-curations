@@ -8,6 +8,15 @@ import { galleryTransitions } from './../page_transitions/gallery';
 import GallerySort from './../components/gallery/GallerySort';
 import ImgGallery from './../components/gallery/ImgGallery';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
+import PropTypes from 'prop-types';
+
+Gallery.propTypes = {
+    state: PropTypes.shape({
+        viewport: PropTypes.string
+    }),
+    imgs: PropTypes.objectOf(PropTypes.array), 
+    NAV_SPACER: PropTypes.object
+}
 
 export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }){
     const allImgs = imgs.gallery_item;

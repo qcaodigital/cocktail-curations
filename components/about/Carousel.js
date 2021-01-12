@@ -4,6 +4,12 @@ import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { landingTransitions } from './../../page_transitions/about';
 import useGetSwipeDirection from './../../custom_hooks/useGetSwipeDirection';
+import PropTypes from 'prop-types';
+
+Carousel.propTypes = {
+    imgs: PropTypes.array.isRequired,
+    viewport: PropTypes.string
+}
 
 export default function Carousel({ imgs, viewport }){
     const { mobile: mobileTransitions, desktop: desktopTransitions } = landingTransitions.carousel;
@@ -64,6 +70,10 @@ export default function Carousel({ imgs, viewport }){
                         animate='animate'
                         exit='exit'
                         variants={variants.rightImg}
+                        onMouseDown={handleDown}
+                        onTouchStart={handleDown}
+                        onMouseUp={handleUp}
+                        onTouchEnd={handleUp}
                     />
                 </AnimatePresence>
                 <AnimatePresence>
@@ -92,6 +102,10 @@ export default function Carousel({ imgs, viewport }){
                         initial='initial'
                         exit='exit'
                         variants={variants.leftImg}
+                        onMouseDown={handleDown}
+                        onTouchStart={handleDown}
+                        onMouseUp={handleUp}
+                        onTouchEnd={handleUp}
                     />
                 </AnimatePresence>
             </div>

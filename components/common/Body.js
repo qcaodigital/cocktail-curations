@@ -11,6 +11,11 @@ import navListData from '../../data/navList';
 import useViewport from '../../custom_hooks/main_state/useViewport';
 import useIsHamburgerMenuOpen from '../../custom_hooks/main_state/useIsHamburgerMenuOpen';
 import useNavList from './../../custom_hooks/main_state/useNavList';
+import PropTypes from 'prop-types';
+
+Body.propTypes = {
+    children: PropTypes.element.isRequired
+}
 
 export default function Body({ children }){
     const router = useRouter();

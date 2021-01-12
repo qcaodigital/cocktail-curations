@@ -2,6 +2,12 @@ import styles from './BlogList.module.scss';
 import convertPrismicDate from './../../helpers/convertDate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+
+BlogList.propTypes = {
+    blogs: PropTypes.arrayOf(PropTypes.object).isRequired,
+    setPopup: PropTypes.func.isRequired
+}
 
 export default function BlogList({ blogs, setPopup }){
     return (

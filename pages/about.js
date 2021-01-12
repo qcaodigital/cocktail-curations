@@ -9,6 +9,16 @@ import DuoInfo from './../components/about/DuoInfo';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
+import PropTypes from 'prop-types';
+
+About.propTypes = {
+    state: PropTypes.shape({
+        viewport: PropTypes.string,
+        isNavAniComplete: PropTypes.bool.isRequired,
+        navHeight: PropTypes.number.isRequired
+    }),
+    NAV_SPACER: PropTypes.object
+}
 
 export default function About({ state: { viewport, isNavAniComplete, navHeight }, NAV_SPACER }){
     const pageVariant = {

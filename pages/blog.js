@@ -9,6 +9,16 @@ import { useEffect, useRef } from 'react';
 import constructRellax from './../helpers/constructRellax';
 import ArrowDivider from './../components/common/ArrowDivider';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
+import PropTypes from 'prop-types';
+
+Blog.propTypes = {
+    state: PropTypes.shape({
+        viewport: PropTypes.string,
+        setPopup: PropTypes.func.isRequired
+    }),
+    blogs: PropTypes.arrayOf(PropTypes.object).isRequired,
+    NAV_SPACER: PropTypes.object
+}
 
 export default function Blog({ blogs, NAV_SPACER, state: { viewport, setPopup } }){
     const latestBlog = blogs[blogs.length - 1];

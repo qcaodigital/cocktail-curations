@@ -10,8 +10,6 @@ export async function getStaticPaths(){
         params: { blogid: result.uid }
     }))
 
-    console.log(paths)
-
     return {
         paths,
         fallback: false
@@ -26,15 +24,15 @@ export async function getStaticProps({ params }){
 
     return {
         props: {
-            blog,
+            blog: blog[0],
             blogs,
-            products
+            products: products[0].data.product
         }
     }
 }
 
 export default function Blog(props){
     return (
-        <BlogLayout key={props.blog[0].uid} {...props} />
+        <BlogLayout key={props.blog.uid} {...props} />
     )
 }

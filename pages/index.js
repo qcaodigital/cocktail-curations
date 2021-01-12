@@ -8,8 +8,16 @@ import FadeOnUnmount from './../components/HOC/FadeOnUnmount';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { onTap } from './../page_transitions/common';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
+import PropTypes from 'prop-types';
 
-export default function Home({ pageAniStartCB, state: { isNavAniComplete, viewport }}){
+Home.propTypes = {
+    state: PropTypes.shape({
+        isNavAniComplete: PropTypes.bool.isRequired,
+        viewport: PropTypes.string.isRequired
+    })
+}
+
+export default function Home({ state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
     const onAniStart = useOnAniStartOnlyEntry();
     return (

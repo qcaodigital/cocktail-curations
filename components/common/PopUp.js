@@ -1,6 +1,12 @@
 import styles from './PopUp.module.scss';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+
+PopUp.propTypes = {
+    setPopup: PropTypes.func.isRequired,
+    popup: PropTypes.object.isRequired
+}
 
 export default function PopUp({ setPopup, popup }){
     useEffect(() => {

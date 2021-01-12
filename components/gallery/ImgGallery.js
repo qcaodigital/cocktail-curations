@@ -2,6 +2,13 @@ import styles from './ImgGallery.module.scss';
 import { motion } from 'framer-motion';
 import { galleryTransitions } from './../../page_transitions/gallery';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
+ImgGallery.propTypes = {
+    galleryColumns: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)).isRequired,
+    colStyles: PropTypes.object.isRequired,
+    handleModalImgChange: PropTypes.func.isRequired
+}
 
 export default function ImgGallery({galleryColumns, colStyles, handleModalImgChange}){
     return (

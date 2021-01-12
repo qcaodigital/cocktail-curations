@@ -4,6 +4,7 @@ import smoothscroll from 'smoothscroll';
 import LandingInfo from './LandingInfo';
 import { motion } from 'framer-motion';
 import useInViewFromTop from './../../custom_hooks/useInViewFromTop';
+import PropTypes from 'prop-types';
 
 const LandingMobileInfo = React.forwardRef(({refs, navHeight, viewport}, ref) => {
     const textRef = useRef();
@@ -25,5 +26,11 @@ const LandingMobileInfo = React.forwardRef(({refs, navHeight, viewport}, ref) =>
         </motion.div>
     )
 })
+
+LandingMobileInfo.propTypes = {
+    refs: PropTypes.objectOf(PropTypes.object).isRequired,
+    navHeight: PropTypes.number.isRequired,
+    viewport: PropTypes.string
+}
 
 export default LandingMobileInfo;

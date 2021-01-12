@@ -2,6 +2,13 @@ import styles from './LandingInfo.module.scss';
 import smoothscroll from 'smoothscroll';
 import { motion } from 'framer-motion';
 import { landingTransitions } from './../../page_transitions/services';
+import PropTypes from 'prop-types';
+
+LandingInfo.propTypes = {
+    refs: PropTypes.objectOf(PropTypes.object).isRequired,
+    navHeight: PropTypes.number.isRequired,
+    viewport: PropTypes.string
+}
 
 export default function LandingInfo({refs, navHeight, viewport}){
     const scrollAnchorDesktopAdjustment = viewport === 'mobile' ? 0 : navHeight / 2;

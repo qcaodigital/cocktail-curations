@@ -1,5 +1,13 @@
 import styles from './RelatedBlogs.module.scss';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
+
+RelatedBlogs.propTypes = {
+    maxBlogs: PropTypes.number.isRequired,
+    currentBlog: PropTypes.object.isRequired,
+    blogs: PropTypes.array.isRequired,
+    parentStyles: PropTypes.object.isRequired
+}
 
 export default function RelatedBlogs({ maxBlogs, currentBlog, blogs, parentStyles }){
     return (
