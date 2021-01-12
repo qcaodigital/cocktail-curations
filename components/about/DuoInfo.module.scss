@@ -19,7 +19,7 @@
         --border-bottom: 5px solid var(--main-color);
         .text {
             background-color: var(--secondary-color);
-            padding: 2.25rem;
+            padding: 2.25rem 1.5rem;
             position: relative;
             order: 2;
             border-bottom: var(--border-bottom);
@@ -27,6 +27,7 @@
             @media screen and (min-width: 61.85rem){
                 width: 40%;
                 order: unset;
+                padding: 2.25rem;
             }
             &::after {
                 top: 0;
