@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { onTap } from './../page_transitions/common';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 import PropTypes from 'prop-types';
+import * as browserUserData from 'browser-user-data';
 
 Home.propTypes = {
     state: PropTypes.shape({
@@ -20,6 +21,11 @@ Home.propTypes = {
 export default function Home({ state: { isNavAniComplete, viewport }}){
     const headerVariant = headerTransitions.fadeIn;
     const onAniStart = useOnAniStartOnlyEntry();
+    useEffect(() => {
+    browserUserData.extractData()
+        .then(data => console.log(data))
+}, [])
+
     return (
         <>
         <Head>
