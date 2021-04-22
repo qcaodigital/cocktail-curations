@@ -1,30 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1><img alt="Demo of qcao.dev" align='center' height='24px' src='./public/imgs/stock/logos/cc-icon-logo-color.png'/> Welcome to the Cocktail Curations Website</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/qcaodigital/qcao-portfolio#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-Yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/qcaodigital/qcao-portfolio/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-Yes-green.svg" />
+  </a>
+  <a href="https://twitter.com/qcao_dev" target="_blank">
+    <img alt="Twitter: Qcao_dev" src="https://img.shields.io/twitter/follow/qcao_dev.svg?style=social" />
+  </a>
+</p>
 
-## Getting Started
+> A Next.js web-application built for Cocktail Curations using Prismic.io as a headless-CMS.
 
-First, run the development server:
+## Built With
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+-   Next.js
+-   React.js
+-   SASS/SCSS
+-   Framer Motion
+-   Prismic.io
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo: [Live](https://cocktailcurations.vercel.app/)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<img alt="Demo of qcao.dev" align='center' width='400px' src='./readme.gif'/><br/>
 
-## Learn More
+## Author
 
-To learn more about Next.js, take a look at the following resources:
+### 👤 **Quan Cao**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   Website: [www.qcao.dev](https://www.qcao.dev)
+-   Github: [@qcaodigital](https://github.com/qcaodigital)
+-   Twitter: [@qcao_dev](https://twitter.com/qcao_dev)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Show Your Support
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to clone this repo if you're interested in seeing how it works or give it a ⭐️ if you like it!
