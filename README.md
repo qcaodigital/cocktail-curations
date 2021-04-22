@@ -28,7 +28,7 @@
 
 ## Demo: [Live](https://cocktailcurations.vercel.app/)
 
-<img alt="Demo of qcao.dev" align='center' width='400px' src='./readme.gif'/><br/>
+<img alt="Demo of www.cocktailcurations.vercel.app" align='center' width='400px' src='./readme.gif'/><br/>
 
 ## Author
 
