@@ -1,5 +1,5 @@
-<h1 style="display: flex, align-items: center">
-    <img alt="Demo of qcao.dev" align='center' height='24px' src='./public/imgs/stock/logos/cc-icon-logo-color.png'/> <span>Welcome to the Cocktail Curations Website</span>
+<h1>
+    <img style="vertical-align: center" alt="Demo of qcao.dev" align='center' height='24px' src='./public/imgs/stock/logos/cc-icon-logo-color.png'/> <span>Welcome to the Cocktail Curations Website</span>
 </h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.1.0-blue.svg?cacheSeconds=2592000" />
