@@ -38,7 +38,7 @@ export default function Gallery({ imgs, NAV_SPACER, state: { viewport } }) {
 		default:
 			columns = 3;
 	}
-	let columnsArr = [...Array(columns)].map((col) => []);
+	let columnsArr = [...Array(columns)].map(() => []);
 	const COLUMN_SIZE_STYLES = {
 		flex: `${1 / columns}`,
 		maxWidth: `${1 / columns}`,
