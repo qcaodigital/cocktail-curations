@@ -5,10 +5,10 @@
 </h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-2.2.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/qcaodigital/qcao-portfolio#readme" target="_blank">
+  <a href="https://github.com/qcaodigital/cocktail-curations#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-Yes-brightgreen.svg" />
   </a>
-  <a href="https://github.com/qcaodigital/qcao-portfolio/graphs/commit-activity" target="_blank">
+  <a href="https://github.com/qcaodigital/cocktail-curations/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-Yes-green.svg" />
   </a>
   <a href="https://twitter.com/qcao_dev" target="_blank">
