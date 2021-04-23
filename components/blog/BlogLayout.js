@@ -4,7 +4,6 @@ import styles from './BlogLayout.module.scss';
 import convertDate from '../../helpers/convertDate';
 import SelectFirstSentence from '../HOC/selectFirstSentence';
 import Link from 'next/link';
-import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SliceZone from './SliceZone';
 import RelatedBlogs from './layout_aside/RelatedBlogs';

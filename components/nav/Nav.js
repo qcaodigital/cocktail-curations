@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import transitions from './NavTransitions';
 import PropTypes from 'prop-types';
 import FadeOnUnmount from '../HOC/FadeOnUnmount';
-import navList from './../../data/navList';
 import SocialList from './SocialList';
 
 Nav.propTypes = {
@@ -49,8 +48,7 @@ export default function Nav({
 		}
 
 		window.addEventListener('scroll', handleMinimizeNavOnScroll);
-		return () =>
-			window.removeEventListener('scroll', handleMinimizeNavOnScroll);
+		return () => window.removeEventListener('scroll', handleMinimizeNavOnScroll);
 	}, [minimizeNav, router]);
 
 	//DETERMINE HEIGHT OF FIXED NAV FOR SPACER USAGE
@@ -138,17 +136,9 @@ export default function Nav({
 			animate={initialRenderComplete ? 'show' : 'showWithDelay'}
 			onAnimationComplete={() => navAniCompletionCB()}
 		>
-			<FadeOnUnmount
-				unmountIf={
-					viewport === 'mobile' && minimizeNav && !isHamburgerOpen
-				}
-			>
+			<FadeOnUnmount unmountIf={viewport === 'mobile' && minimizeNav && !isHamburgerOpen}>
 				<motion.div
-					className={
-						minimizeNav
-							? `${styles.brand} ${styles.min}`
-							: styles.brand
-					}
+					className={minimizeNav ? `${styles.brand} ${styles.min}` : styles.brand}
 				>
 					<Link scroll={false} href='/'>
 						{minimizeNav ? (
@@ -169,9 +159,7 @@ export default function Nav({
 											animate='animate'
 											initial='initial'
 											exit='exit'
-											variants={
-												changeLogoColorVariant.white
-											}
+											variants={changeLogoColorVariant.white}
 											id={styles.full}
 											src='/imgs/stock/logos/cc-logo-white.png'
 											alt='Cocktail Curations Logo'
@@ -182,9 +170,7 @@ export default function Nav({
 											animate='animate'
 											initial='initial'
 											exit='exit'
-											variants={
-												changeLogoColorVariant.black
-											}
+											variants={changeLogoColorVariant.black}
 											id={styles.full}
 											src='/imgs/stock/logos/cc-logo.png'
 											alt='Cocktail Curations Logo'
@@ -197,13 +183,7 @@ export default function Nav({
 				</motion.div>
 			</FadeOnUnmount>
 			<FadeOnUnmount unmountIf={viewport === 'mobile'} dontAnimate>
-				<motion.ul
-					className={
-						minimizeNav
-							? `${styles.list} ${styles.min}`
-							: styles.list
-					}
-				>
+				<motion.ul className={minimizeNav ? `${styles.list} ${styles.min}` : styles.list}>
 					{navList.map((item, idx) => (
 						<li
 							key={item.label}
@@ -211,43 +191,32 @@ export default function Nav({
 							data-label={item.label}
 							style={{
 								'--font-color':
-									whiteList.includes(router.pathname) &&
-									!minimizeNav
+									whiteList.includes(router.pathname) && !minimizeNav
 										? 'white'
 										: 'var(--main-color)',
 								'--icon-color':
-									whiteList.includes(router.pathname) &&
-									!minimizeNav
+									whiteList.includes(router.pathname) && !minimizeNav
 										? 'white'
 										: 'var(--main-color)',
 								'--shop-color':
-									whiteList.includes(router.pathname) &&
-									!minimizeNav
+									whiteList.includes(router.pathname) && !minimizeNav
 										? 'white'
 										: 'var(--highlight-color)',
 							}}
 						>
 							{!item.external ? (
 								<Link scroll={false} href={item.href}>
-									<a
-										className={
-											item.active ? styles.active : null
-										}
-									>
+									<a className={item.active ? styles.active : null}>
 										{item.label}
 									</a>
 								</Link>
 							) : (
 								<a
-									className={
-										item.active ? styles.active : null
-									}
+									className={item.active ? styles.active : null}
 									href={item.href}
 									target='_blank'
 								>
-									<FontAwesomeIcon
-										icon={['fab', 'shopify']}
-									/>
+									<FontAwesomeIcon icon={['fab', 'shopify']} />
 									{item.label}
 								</a>
 							)}
@@ -261,10 +230,7 @@ export default function Nav({
 				</motion.ul>
 			</FadeOnUnmount>
 			<FadeOnUnmount unmountIf={viewport !== 'mobile'}>
-				<motion.button
-					onClick={hamburgerCB}
-					className={styles.hamburgerIcon}
-				>
+				<motion.button onClick={hamburgerCB} className={styles.hamburgerIcon}>
 					<div />
 					<div />
 					<div />

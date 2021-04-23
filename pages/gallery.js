@@ -1,10 +1,9 @@
 import { Client, queryPrismicResults } from './../prismic-configuration';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from './gallery.module.scss';
 import Modal from '../components/gallery/Modal';
-import { galleryTransitions } from './../page_transitions/gallery';
 import GallerySort from './../components/gallery/GallerySort';
 import ImgGallery from './../components/gallery/ImgGallery';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
