@@ -5,70 +5,72 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 
 LoadingScreen.propTypes = {
-    turnOffLoading: PropTypes.func.isRequired
-}
+	turnOffLoading: PropTypes.func.isRequired,
+};
 
-export default function LoadingScreen({ turnOffLoading }){
-    const textAnimationDuration = 2.25;
-    const loadingScreenExitAnimationDuration = .5;
+export default function LoadingScreen({ turnOffLoading }) {
+	const textAnimationDuration = 2.25;
+	const loadingScreenExitAnimationDuration = 0.5;
 
-    const textVariants = {
-        initial: {
-            x: '-50%',
-            y: '100%'
-        },
-        animate: {
-            y: ['100%', '-50%', '-50%', '-150%'],
-            transition: {
-                duration: textAnimationDuration,
-                times: [0, .45, .75, 1]
-            }
-        }
-    }
+	const textVariants = {
+		initial: {
+			x: '-50%',
+			y: '100%',
+		},
+		animate: {
+			y: ['100%', '-50%', '-50%', '-150%'],
+			transition: {
+				duration: textAnimationDuration,
+				times: [0, 0.45, 0.75, 1],
+			},
+		},
+	};
 
-    const container = {
-        animate: {
-            transition: {
-                staggerChildren: textAnimationDuration * .7
-            }
-        },
-        exit: {
-            // scaleY: 0,
-            // originY: 'bottom',
-            opacity: 0,
-            transition: {
-                duration: loadingScreenExitAnimationDuration
-            }
-        }
-    }
+	const container = {
+		animate: {
+			transition: {
+				staggerChildren: textAnimationDuration * 0.7,
+			},
+		},
+		exit: {
+			// scaleY: 0,
+			// originY: 'bottom',
+			opacity: 0,
+			transition: {
+				duration: loadingScreenExitAnimationDuration,
+			},
+		},
+	};
 
-    const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+	const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
-    return (
-        <>
-            <Head>  
-                <title>Cocktail Curations</title>
-            </Head>
-            <AnimatePresence>
-                {!isAnimationComplete && <motion.div 
-                    className={styles.Loadingscreen}
-                    animate='animate'
-                    initial='initial'
-                    exit='exit'
-                    variants={container}
-                    onAnimationComplete={() => {
-                        setIsAnimationComplete(true);
-                        setTimeout(() => {
-                            turnOffLoading();
-                        }, loadingScreenExitAnimationDuration * 1000)
-                    }}
-                >
-                    <div className={styles.textContainer}>
-                        <motion.h2 variants={textVariants}>Welcome To</motion.h2>
-                        <motion.h2 variants={textVariants}>Cocktail Curations</motion.h2>
-                    </div>
-                </motion.div>}
-            </AnimatePresence>
-        </>
-    )
+	return (
+		<>
+			<Head>
+				<title>Cocktail Curations</title>
+			</Head>
+			<AnimatePresence>
+				{!isAnimationComplete && (
+					<motion.div
+						className={styles.Loadingscreen}
+						animate='animate'
+						initial='initial'
+						exit='exit'
+						variants={container}
+						onAnimationComplete={() => {
+							setIsAnimationComplete(true);
+							setTimeout(() => {
+								turnOffLoading();
+							}, loadingScreenExitAnimationDuration * 1000);
+						}}
+					>
+						<div className={styles.textContainer}>
+							<motion.h2 variants={textVariants}>Welcome To</motion.h2>
+							<motion.h2 variants={textVariants}>Cocktail Curations</motion.h2>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
+		</>
+	);
 }
