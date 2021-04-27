@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import LoadingScreen from './LoadingScreen';
+import LoadingScreen1 from './LoadingScreen';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import HamburgerMenu from './HamburgerMenu';
@@ -43,7 +43,7 @@ export default function Body({ children }) {
 				className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}
 				style={{ '--navHeight': `${navHeight}px` }}
 			>
-				<LoadingScreen turnOffLoading={() => setLoadComplete(true)} />
+				<LoadingScreen1 turnOffLoading={() => setLoadComplete(true)} />
 				<AnimatePresence>
 					{popup.isOpen && <PopUp key='popup' setPopup={setPopup} popup={popup} />}
 				</AnimatePresence>
