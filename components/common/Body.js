@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import LoadingScreen from '../common/LoadingScreen';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import HamburgerMenu from './HamburgerMenu';
@@ -21,7 +22,7 @@ export default function Body({ children }) {
 	const viewport = useViewport();
 	const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useIsHamburgerMenuOpen(viewport);
 	const navList = useNavList(navListData, router);
-	const [loadComplete, setLoadComplete] = useState(true); //set to false to enable loading screen
+	const [loadComplete, setLoadComplete] = useState(false); //set to false to enable loading screen
 	const [navHeight, setNavHeight] = useState(120);
 	const [isNavAniComplete, setIsNavAniComplete] = useState(false);
 	const [popup, setPopup] = useState({ isOpen: false, content: {} });
@@ -42,7 +43,7 @@ export default function Body({ children }) {
 				className={`${styles.Body} ${isHamburgerMenuOpen && styles.HBMopen}`}
 				style={{ '--navHeight': `${navHeight}px` }}
 			>
-				{/* <Loadingscreen turnOffLoading={() => setLoadComplete(true)}/> LOADING DISABLED*/}
+				<LoadingScreen turnOffLoading={() => setLoadComplete(true)} />
 				<AnimatePresence>
 					{popup.isOpen && <PopUp key='popup' setPopup={setPopup} popup={popup} />}
 				</AnimatePresence>
