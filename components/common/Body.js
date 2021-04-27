@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import LoadingScreen from '../common/LoadingScreen';
+import LoadingScreen from './LoadingScreen';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
 import HamburgerMenu from './HamburgerMenu';
