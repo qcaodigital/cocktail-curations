@@ -5,17 +5,43 @@ import { motion } from 'framer-motion';
 import { landingTransitions, headerTransitions } from './../page_transitions/home';
 import useOnAniStartOnlyEntry from './../custom_hooks/useOnAniStartOnlyEntry';
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 Home.propTypes = {
 	state: PropTypes.shape({
 		isNavAniComplete: PropTypes.bool.isRequired,
 		viewport: PropTypes.string.isRequired,
+		setPopup: PropTypes.func.isRequired,
+		initialVisit: PropTypes.bool.isRequired,
+		setInitialVisit: PropTypes.func.isRequired,
 	}),
 };
 
-export default function Home({ state: { isNavAniComplete, viewport } }) {
+export default function Home({
+	state: { isNavAniComplete, viewport, setPopup, initialVisit, setInitialVisit },
+}) {
 	const headerVariant = headerTransitions.fadeIn;
+	const [animationComplete, setAnimationComplete] = useState(false);
+	const router = useRouter();
 	const onAniStart = useOnAniStartOnlyEntry();
+
+	useEffect(() => {
+		if (animationComplete && !initialVisit) {
+			setPopup({
+				isOpen: true,
+				content: {
+					heading: 'Hey there!',
+					text:
+						'Looks like you landed on our parking site for our new website! It\'s not live yet so if you meant to go to our live website "cocktailcurations.com", click the button below. Otherwise just close this window and feel free to check out our future website!',
+					img: '/imgs/stock/popup/default_popup_img.jpg',
+					ctaText: 'Switch Websites',
+					ctaFunc: () => router.push('https://www.cocktailcurations.com'),
+				},
+			});
+			setInitialVisit(true);
+		}
+	}, [animationComplete]);
 
 	return (
 		<>
@@ -36,11 +62,9 @@ export default function Home({ state: { isNavAniComplete, viewport } }) {
 						initial='initial'
 						variants={landingTransitions.staggerContent}
 						id={styles.one}
+						onAnimationComplete={() => setAnimationComplete(true)}
 					>
-						<div
-							className={styles.bg}
-							// src='/imgs/stock/home_page/bg-edge-trans2-min.png'
-						/>
+						<div className={styles.bg} />
 						<motion.div variants={landingTransitions.line} className={styles.line} />
 						<motion.img
 							src='/imgs/stock/logos/cc-icon-logo-color.png'

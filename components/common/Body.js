@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Nav from '../nav/Nav';
 import Footer from '../footer/Footer';
@@ -26,6 +26,9 @@ export default function Body({ children }) {
 	const [navHeight, setNavHeight] = useState(120);
 	const [isNavAniComplete, setIsNavAniComplete] = useState(false);
 	const [popup, setPopup] = useState({ isOpen: false, content: {} });
+
+	//Used in index/home page to dictact whether or not to send warning popup
+	const [initialVisit, setInitialVisit] = useState(false);
 
 	return (
 		<>
@@ -69,6 +72,8 @@ export default function Body({ children }) {
 								navHeight: navHeight,
 								isNavAniComplete: isNavAniComplete,
 								setPopup: setPopup,
+								setInitialVisit: setInitialVisit,
+								initialVisit: initialVisit,
 							},
 							router: router,
 							NAV_SPACER: <div id='NAV_SPACER' style={{ height: navHeight }} />,
