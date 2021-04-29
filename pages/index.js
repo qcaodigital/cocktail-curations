@@ -28,20 +28,22 @@ export default function Home({
 
 	useEffect(() => {
 		if (animationComplete && !initialVisit) {
-			setPopup({
-				isOpen: true,
-				content: {
-					heading: 'Hey there!',
-					text: [
-						"Looks like you landed on our parking site for our new website! It's not live yet so if you meant to go to our live website",
-						[<a href='https://www.cocktailcurations.com'>cocktailcurations.com</a>],
-						'click the button below. Otherwise just close this window and feel free to check out our future website!',
-					],
-					img: '/imgs/stock/popup/default_popup_img.jpg',
-					ctaText: 'Switch Websites',
-					ctaFunc: () => router.push('https://www.cocktailcurations.com'),
-				},
-			});
+			if (router.pathname === '/') {
+				setPopup({
+					isOpen: true,
+					content: {
+						heading: 'Hey there!',
+						text: [
+							"Looks like you landed on our parking site for our new website! It's not live yet so if you meant to go to our live website",
+							[<a href='https://www.cocktailcurations.com'>cocktailcurations.com</a>],
+							'click the button below. Otherwise just close this window and feel free to check out our future website!',
+						],
+						img: '/imgs/stock/popup/default_popup_img.jpg',
+						ctaText: 'Switch Websites',
+						ctaFunc: () => router.push('https://www.cocktailcurations.com'),
+					},
+				});
+			}
 			setInitialVisit(true);
 		}
 	}, [animationComplete]);
